@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { Dictionary, Locale } from '@/lib/i18n'
@@ -58,23 +59,29 @@ export function Header({ dictionary, locale }: HeaderProps) {
       className={`sticky z-[100] transition-all duration-500 ${scrolled ? 'top-0' : 'top-4'}`}>
       <nav className='container mx-auto relative z-[110] px-3.5 xs:px-4'>
         <div
-          className={`flex items-center justify-between bg-[#F9F7F7]/70 border border-white/20 px-5 py-4 lg:px-4 3xl:p-4 backdrop-blur-xl shadow-lg transition-all duration-500 ${
+          className={`flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 ${
             scrolled ? 'rounded-b-3xl rounded-t-none' : 'rounded-full'
           }`}
           style={{
+            background: 'rgba(249, 247, 247, 0.8)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
             backdropFilter: 'blur(20px) saturate(180%)',
             WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
           }}>
           {/* Logo */}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href='/'
-              className='text-2xl font-bold tracking-tight transition-all duration-300 text-[#112D4E]'>
-              <span className='bg-gradient-to-r from-[#3F72AF] to-[#112D4E] bg-clip-text text-transparent'>
-                Agency
-              </span>
+          <div>
+            <Link href='/' className='flex items-center transition-all duration-300'>
+              <Image
+                src='/images/logo-sidikoff.svg'
+                alt='Sidikoff Digital'
+                width={180}
+                height={45}
+                priority
+                className='h-10 w-auto lg:h-12'
+              />
             </Link>
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation */}
           <div className='hidden md:flex items-center space-x-8'>
@@ -117,12 +124,15 @@ export function Header({ dictionary, locale }: HeaderProps) {
             height: isMenuOpen ? 'auto' : 0,
           }}
           transition={{ duration: 0.3 }}
-          className={`md:hidden overflow-hidden mt-2 bg-[#F9F7F7]/90 border border-white/20 shadow-lg backdrop-blur-xl transition-all duration-500 ${
+          className={`md:hidden overflow-hidden mt-2 transition-all duration-500 ${
             scrolled ? 'rounded-b-lg rounded-t-none' : 'rounded-lg'
           }`}
           style={{
+            background: 'rgba(249, 247, 247, 0.9)',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
             backdropFilter: 'blur(20px) saturate(180%)',
             WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
           }}>
           <div className='py-4 space-y-2 px-4'>
             {navigation.map((item) => (

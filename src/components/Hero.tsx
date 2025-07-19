@@ -103,7 +103,7 @@ export function Hero({ dict, locale }: HeroProps) {
             <span
               className='w-2 h-2 rounded-full mr-3 animate-pulse'
               style={{ backgroundColor: '#3F72AF' }}></span>
-            New: Launch your project in 30 days
+            {dict.hero.badge}
           </motion.div>
 
           {/* Main Headline */}

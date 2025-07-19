@@ -49,11 +49,11 @@ export function getPreferredLocale(acceptLanguage?: string): Locale {
   // Parse Accept-Language header
   const languages = acceptLanguage
     .split(',')
-    .map(lang => {
+    .map((lang) => {
       const [code, quality = '1'] = lang.trim().split(';q=')
       return {
         code: code.toLowerCase().split('-')[0], // Extract language code (en from en-US)
-        quality: parseFloat(quality)
+        quality: parseFloat(quality),
       }
     })
     .sort((a, b) => b.quality - a.quality) // Sort by quality
@@ -72,11 +72,11 @@ export function getPreferredLocale(acceptLanguage?: string): Locale {
 export function getLocaleFromPathname(pathname: string): Locale | null {
   const segments = pathname.split('/').filter(Boolean)
   const firstSegment = segments[0]
-  
+
   if (firstSegment && isValidLocale(firstSegment)) {
     return firstSegment
   }
-  
+
   return null
 }
 
@@ -97,12 +97,15 @@ export function addLocaleToPathname(pathname: string, locale: Locale): string {
 
 // Get alternate URLs for SEO
 export function getAlternateUrls(pathname: string, baseUrl: string = '') {
-  const cleanPath = removeLocaleFromPathname(pathname, getLocaleFromPathname(pathname) || defaultLocale)
-  
-  return locales.map(locale => ({
+  const cleanPath = removeLocaleFromPathname(
+    pathname,
+    getLocaleFromPathname(pathname) || defaultLocale
+  )
+
+  return locales.map((locale) => ({
     locale,
     url: `${baseUrl}${addLocaleToPathname(cleanPath, locale)}`,
-    hreflang: locale === 'en' ? 'en-US' : locale === 'fr' ? 'fr-FR' : 'ru-RU'
+    hreflang: locale === 'en' ? 'en-US' : locale === 'fr' ? 'fr-FR' : 'ru-RU',
   }))
 }
 
@@ -110,14 +113,10 @@ export function getAlternateUrls(pathname: string, baseUrl: string = '') {
 export type Dictionary = Awaited<ReturnType<typeof getDictionary>>
 
 // Utility to get nested translation
-export function getNestedTranslation(
-  dict: Dictionary,
-  key: string,
-  fallback?: string
-): string {
+export function getNestedTranslation(dict: Dictionary, key: string, fallback?: string): string {
   const keys = key.split('.')
   let current: unknown = dict
-  
+
   for (const k of keys) {
     if (current && typeof current === 'object' && current !== null && k in current) {
       current = (current as Record<string, unknown>)[k]
@@ -125,35 +124,31 @@ export function getNestedTranslation(
       return fallback || key
     }
   }
-  
+
   return typeof current === 'string' ? current : fallback || key
 }
 
 // Format number based on locale
 export function formatNumber(num: number, locale: Locale): string {
-  return new Intl.NumberFormat(locale === 'en' ? 'en-US' : locale === 'fr' ? 'fr-FR' : 'ru-RU').format(num)
+  return new Intl.NumberFormat(
+    locale === 'en' ? 'en-US' : locale === 'fr' ? 'fr-FR' : 'ru-RU'
+  ).format(num)
 }
 
 // Format date based on locale
 export function formatDate(date: Date, locale: Locale): string {
-  return new Intl.DateTimeFormat(
-    locale === 'en' ? 'en-US' : locale === 'fr' ? 'fr-FR' : 'ru-RU',
-    {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    }
-  ).format(date)
+  return new Intl.DateTimeFormat(locale === 'en' ? 'en-US' : locale === 'fr' ? 'fr-FR' : 'ru-RU', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(date)
 }
 
 // Format currency based on locale
 export function formatCurrency(amount: number, locale: Locale): string {
   const currency = locale === 'en' ? 'USD' : locale === 'fr' ? 'EUR' : 'RUB'
-  return new Intl.NumberFormat(
-    locale === 'en' ? 'en-US' : locale === 'fr' ? 'fr-FR' : 'ru-RU',
-    {
-      style: 'currency',
-      currency
-    }
-  ).format(amount)
+  return new Intl.NumberFormat(locale === 'en' ? 'en-US' : locale === 'fr' ? 'fr-FR' : 'ru-RU', {
+    style: 'currency',
+    currency,
+  }).format(amount)
 }
