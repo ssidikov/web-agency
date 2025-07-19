@@ -73,11 +73,12 @@ export function Header({ dictionary, locale }: HeaderProps) {
           <div>
             <Link href='/' className='flex items-center transition-all duration-300'>
               <Image
-                src='/images/logo-sidikoff.svg'
+                src='/logo-sidikoff.webp'
                 alt='Sidikoff Digital'
                 width={180}
                 height={45}
                 priority
+                unoptimized
                 className='h-10 w-auto lg:h-12'
               />
             </Link>

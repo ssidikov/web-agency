@@ -68,7 +68,7 @@ function enhanceResponse(response: NextResponse) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next, api, etc)
-    '/((?!api|_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|robots.txt|sitemap.xml|manifest.json|browserconfig.xml).*)',
+    // Skip all internal paths (_next, api, etc) and static files
+    '/((?!api|_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|robots.txt|sitemap.xml|manifest.json|browserconfig.xml|logo-sidikoff.webp|.*\\.ico|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.gif|.*\\.webp|.*\\.svg).*)',
   ],
 }
