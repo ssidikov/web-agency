@@ -10,10 +10,24 @@
   },
   "hero": {
     "badge": "Nouveau : Lancez votre projet en 14 jours",
-    "title": "Transformez Votre Entreprise avec des Solutions Numériques Professionnelles",
-    "subtitle": "Nous créons des sites web époustouflants, des applications puissantes et des stratégies numériques efficaces qui génèrent de vrais résultats pour votre entreprise.",
-    "cta_primary": "Commencer",
-    "cta_secondary": "Voir Notre Travail"
+    "title": "Des solutions web sur mesure pour digitaliser vos services",
+    "subtitle": "Sites web personnalisés, design professionnel, visibles et rentables, qui génèrent de vrais résultats pour votre entreprise — plus de trafic, plus de clients, plus d'impact.",
+    "cta_primary": "Discuter de Mon Projet",
+    "cta_secondary": "Voir Nos Réalisations",
+    "features": [
+      {
+        "title": "Résultats garantis",
+        "icon": "guarantee"
+      },
+      {
+        "title": "Réponse sous 24h",
+        "icon": "response"
+      },
+      {
+        "title": "Support technique réactif",
+        "icon": "support"
+      }
+    ]
   },
   "about": {
     "title": "À Propos de Notre Entreprise",

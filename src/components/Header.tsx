@@ -32,24 +32,72 @@ export function Header({ dictionary, locale }: HeaderProps) {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   const navigation = [
-    { label: dictionary.navigation.home, href: `/${locale}` },
-    { label: dictionary.navigation.about, href: `/${locale}#about` },
-    { label: dictionary.navigation.services, href: `/${locale}#services` },
-    { label: dictionary.navigation.portfolio, href: `/${locale}#portfolio` },
-    { label: dictionary.navigation.faq, href: `/${locale}#faq` },
-    { label: dictionary.navigation.contact, href: `/${locale}#contact` },
+    { label: dictionary.navigation.home, href: `/${locale}`, section: '' },
+    { label: dictionary.navigation.about, href: `/${locale}#about`, section: 'about' },
+    { label: dictionary.navigation.services, href: `/${locale}#services`, section: 'services' },
+    { label: dictionary.navigation.portfolio, href: `/${locale}#portfolio`, section: 'portfolio' },
+    { label: dictionary.navigation.faq, href: `/${locale}#faq`, section: 'faq' },
+    { label: dictionary.navigation.contact, href: `/${locale}#contact`, section: 'contact' },
   ]
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
+
+      // Определяем активную секцию только если мы на главной странице
+      if (pathname === `/${locale}` || pathname === `/${locale}/`) {
+        const sections = ['about', 'services', 'portfolio', 'faq', 'contact']
+        let currentSection = ''
+
+        // Если пользователь в самом верху страницы, активна главная
+        if (window.scrollY < 100) {
+          currentSection = ''
+        } else {
+          // Ищем секцию, которая находится в viewport
+          for (const section of sections) {
+            const element = document.getElementById(section)
+            if (element) {
+              const rect = element.getBoundingClientRect()
+              // Секция активна если её верх выше середины экрана, а низ ниже
+              if (rect.top <= window.innerHeight / 2 && rect.bottom >= 100) {
+                currentSection = section
+                break
+              }
+            }
+          }
+        }
+
+        setActiveSection(currentSection)
+      } else {
+        // На других страницах нет активных секций
+        setActiveSection('')
+      }
     }
+
+    // Вызываем сразу при монтировании
+    handleScroll()
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [pathname, locale])
+
+  const isActive = (item: (typeof navigation)[0]) => {
+    // Для главной страницы проверяем активную секцию
+    if (pathname === `/${locale}` || pathname === `/${locale}/`) {
+      if (item.section === '') {
+        // Home активен когда нет активной секции (пользователь вверху страницы)
+        return activeSection === ''
+      } else {
+        // Секция активна когда она соответствует текущей активной секции
+        return activeSection === item.section
+      }
+    }
+    // Для других страниц проверяем точное соответствие URL
+    return pathname === item.href
+  }
 
   return (
     <motion.header
@@ -71,7 +119,10 @@ export function Header({ dictionary, locale }: HeaderProps) {
           }}>
           {/* Logo */}
           <div>
-            <Link href='/' className='flex items-center transition-all duration-300'>
+            <Link 
+              href='/' 
+              className='flex items-center transition-all duration-300 focus:outline-none outline-none'
+              style={{ outline: 'none !important', boxShadow: 'none !important' }}>
               <Image
                 src='/logo-sidikoff.webp'
                 alt='Sidikoff Digital'
@@ -87,17 +138,18 @@ export function Header({ dictionary, locale }: HeaderProps) {
           {/* Desktop Navigation */}
           <div className='hidden md:flex items-center space-x-8'>
             {navigation.map((item) => (
-              <motion.div key={item.href} whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
+              <div key={item.href}>
                 <Link
                   href={item.href}
-                  className={`text-base font-medium transition-all duration-300 px-3 py-2 rounded-lg text-[#112D4E] ${
-                    pathname === item.href
+                  className={`text-base font-medium transition-all duration-300 px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none ${
+                    isActive(item)
                       ? 'bg-[#3F72AF] text-white'
                       : 'hover:text-[#3F72AF] hover:bg-[#DBE2EF]/30'
-                  }`}>
+                  }`}
+                  style={{ outline: 'none !important', boxShadow: 'none !important' }}>
                   {item.label}
                 </Link>
-              </motion.div>
+              </div>
             ))}
 
             {/* Language Switcher */}
@@ -106,14 +158,12 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
           {/* Mobile Menu Button */}
           <div className='md:hidden flex items-center space-x-2'>
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+            <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='p-2 rounded-lg transition-all duration-300 bg-[#DBE2EF] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white'
+              className='p-2 rounded-lg transition-all duration-300 bg-[#DBE2EF] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white focus:outline-none outline-none'
               aria-label='Toggle menu'>
               {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
-            </motion.button>
+            </button>
           </div>
         </div>
 
@@ -137,18 +187,18 @@ export function Header({ dictionary, locale }: HeaderProps) {
           }}>
           <div className='py-4 space-y-2 px-4'>
             {navigation.map((item) => (
-              <motion.div key={item.href} whileHover={{ x: 4 }} whileTap={{ x: 0 }}>
+              <div key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] ${
-                    pathname === item.href
+                  className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] focus:outline-none focus:ring-0 focus:border-none outline-none ${
+                    isActive(item)
                       ? 'bg-[#3F72AF] text-white'
                       : 'hover:bg-[#DBE2EF]/50 hover:text-[#3F72AF]'
                   }`}>
                   {item.label}
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
         </motion.div>

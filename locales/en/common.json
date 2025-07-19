@@ -10,10 +10,24 @@
   },
   "hero": {
     "badge": "New: Launch your project in 14 days",
-    "title": "Transform Your Business with Professional Digital Solutions",
-    "subtitle": "We create stunning websites, powerful applications, and effective digital strategies that drive real results for your business.",
-    "cta_primary": "Get Started",
-    "cta_secondary": "View Our Work"
+    "title": "Custom web solutions to digitize your services",
+    "subtitle": "Personalized websites, professional design, visible and profitable, that generate real results for your business — more traffic, more clients, more impact.",
+    "cta_primary": "Discuss the project",
+    "cta_secondary": "View Our Work",
+    "features": [
+      {
+        "title": "Guaranteed results",
+        "icon": "guarantee"
+      },
+      {
+        "title": "Response within 24h",
+        "icon": "response"
+      },
+      {
+        "title": "Responsive technical support",
+        "icon": "support"
+      }
+    ]
   },
   "about": {
     "title": "About Our Company",
