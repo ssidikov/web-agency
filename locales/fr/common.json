@@ -1,0 +1,331 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "language": "Langue"
+  },
+  "hero": {
+    "title": "Transformez Votre Entreprise avec des Solutions Numériques Professionnelles",
+    "subtitle": "Nous créons des sites web époustouflants, des applications puissantes et des stratégies numériques efficaces qui génèrent de vrais résultats pour votre entreprise.",
+    "cta_primary": "Commencer",
+    "cta_secondary": "Voir Notre Travail"
+  },
+  "about": {
+    "title": "À Propos de Notre Entreprise",
+    "subtitle": "Dédiés à l'Excellence en Innovation Numérique",
+    "description": "Nous sommes une équipe de professionnels passionnés engagés à fournir des solutions numériques exceptionnelles qui aident les entreprises à prospérer dans le marché moderne.",
+    "story": {
+      "title": "Notre Histoire",
+      "paragraph1": "Fondée en 2020, nous avons commencé comme une petite équipe de développeurs et designers passionnés avec une mission simple : aider les entreprises à réussir dans le monde numérique.",
+      "paragraph2": "Au fil des années, nous sommes devenus une agence numérique de service complet, mais nous n'avons jamais perdu de vue nos valeurs fondamentales : innovation, qualité et partenariat.",
+      "paragraph3": "Aujourd'hui, nous sommes fiers de travailler avec des clients de diverses industries, livrant des solutions qui génèrent de vrais résultats commerciaux."
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "description": "Autonomiser les entreprises avec des solutions numériques de pointe qui stimulent la croissance, améliorent les expériences utilisateur et créent une valeur durable dans un paysage technologique en constante évolution."
+    },
+    "stats": [
+      {
+        "value": "100+",
+        "label": "Projets Complétés"
+      },
+      {
+        "value": "50+",
+        "label": "Clients Satisfaits"
+      },
+      {
+        "value": "5+",
+        "label": "Années d'Expérience"
+      },
+      {
+        "value": "24/7",
+        "label": "Support Disponible"
+      }
+    ],
+    "values": {
+      "title": "Nos Valeurs",
+      "innovation": {
+        "title": "Innovation",
+        "description": "Nous adoptons les technologies de pointe et les solutions créatives."
+      },
+      "quality": {
+        "title": "Qualité",
+        "description": "Nous livrons des résultats exceptionnels avec attention aux détails."
+      },
+      "partnership": {
+        "title": "Partenariat",
+        "description": "Nous travaillons étroitement avec les clients pour atteindre leurs objectifs."
+      }
+    },
+    "timeline": {
+      "title": "Notre Parcours",
+      "items": {
+        "founded": {
+          "year": "2020",
+          "title": "Fondation de l'Entreprise",
+          "description": "Commencé avec une vision de transformer les expériences numériques."
+        },
+        "growth": {
+          "year": "2022",
+          "title": "Croissance Rapide",
+          "description": "Expansion significative de notre équipe et de nos offres de services."
+        },
+        "recognition": {
+          "year": "2024",
+          "title": "Reconnaissance Industrielle",
+          "description": "Réception de multiples prix pour l'innovation et l'excellence."
+        }
+      }
+    },
+    "team": {
+      "title": "Rencontrez Notre Équipe",
+      "members": {
+        "ceo": {
+          "name": "Sarah Johnson",
+          "role": "PDG et Fondatrice",
+          "description": "Leader visionnaire avec plus de 10 ans d'expérience en innovation numérique."
+        },
+        "cto": {
+          "name": "Michael Chen",
+          "role": "Directeur Technique",
+          "description": "Expert technique spécialisé dans les solutions évolutives."
+        },
+        "designer": {
+          "name": "Emma Davis",
+          "role": "Designer Principal",
+          "description": "Professionnelle créative axée sur l'expérience utilisateur."
+        }
+      }
+    }
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Solutions Numériques Complètes",
+    "web_development": {
+      "title": "Développement Web",
+      "description": "Sites web personnalisés et applications web construits avec des technologies modernes.",
+      "features": [
+        "Design Réactif",
+        "Frameworks Modernes",
+        "Optimisation des Performances",
+        "Prêt pour le SEO"
+      ]
+    },
+    "mobile_development": {
+      "title": "Développement Mobile",
+      "description": "Applications mobiles natives et multiplateformes pour iOS et Android.",
+      "features": [
+        "Performance Native",
+        "Multiplateforme",
+        "Optimisation App Store",
+        "Notifications Push"
+      ]
+    },
+    "digital_marketing": {
+      "title": "Marketing Numérique",
+      "description": "Campagnes marketing stratégiques pour développer votre présence en ligne.",
+      "features": [
+        "Optimisation SEO",
+        "Médias Sociaux",
+        "Stratégie de Contenu",
+        "Analytics"
+      ]
+    },
+    "consulting": {
+      "title": "Conseil",
+      "description": "Guidance experte sur la transformation numérique et la stratégie technologique.",
+      "features": [
+        "Audit Technologique",
+        "Planification Stratégique",
+        "Implémentation",
+        "Formation"
+      ]
+    },
+    "process": {
+      "title": "Notre Processus",
+      "discovery": {
+        "title": "Découverte",
+        "description": "Nous analysons vos besoins et définissons les objectifs du projet."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Créer des designs centrés sur l'utilisateur et des prototypes."
+      },
+      "development": {
+        "title": "Développement",
+        "description": "Construire des solutions robustes en utilisant les meilleures pratiques."
+      },
+      "launch": {
+        "title": "Lancement",
+        "description": "Déployer et optimiser pour une performance maximale."
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Notre Portfolio",
+    "subtitle": "Présentation de Notre Meilleur Travail",
+    "filter": {
+      "all": "Tout",
+      "web": "Web",
+      "mobile": "Mobile",
+      "design": "Design"
+    },
+    "projects": {
+      "ecommerce": {
+        "title": "Plateforme E-Commerce",
+        "description": "Boutique en ligne moderne avec fonctionnalités avancées",
+        "category": "web"
+      },
+      "mobile_app": {
+        "title": "Application Mobile Fitness",
+        "description": "Application de suivi fitness multiplateforme",
+        "category": "mobile"
+      },
+      "brand_identity": {
+        "title": "Design d'Identité de Marque",
+        "description": "Refonte complète de marque et identité visuelle",
+        "category": "design"
+      },
+      "corporate_website": {
+        "title": "Site Web Corporate",
+        "description": "Site web professionnel pour cabinet de conseil",
+        "category": "web"
+      }
+    },
+    "view_project": "Voir le Projet",
+    "live_demo": "Démo Live",
+    "github": "GitHub"
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Tout Ce Que Vous Devez Savoir",
+    "categories": {
+      "general": "Général",
+      "pricing": "Tarification",
+      "support": "Support"
+    },
+    "questions": {
+      "what_we_do": {
+        "question": "Quels services offrez-vous ?",
+        "answer": "Nous offrons des solutions numériques complètes incluant le développement web, le développement d'applications mobiles, le marketing numérique et le conseil technologique.",
+        "category": "general"
+      },
+      "timeline": {
+        "question": "Combien de temps prend un projet typique ?",
+        "answer": "Les délais de projet varient selon la portée et la complexité. Un site web simple prend généralement 4-6 semaines, tandis que les applications complexes peuvent prendre 3-6 mois.",
+        "category": "general"
+      },
+      "pricing_model": {
+        "question": "Comment structurez-vous vos tarifs ?",
+        "answer": "Nous offrons des modèles de tarification flexibles incluant des projets à prix fixe, des tarifs horaires et des accords de provision basés sur vos besoins spécifiques.",
+        "category": "pricing"
+      },
+      "support_included": {
+        "question": "Le support continu est-il inclus ?",
+        "answer": "Oui, nous fournissons des packages de support et maintenance continus pour assurer que vos solutions numériques continuent de performer de manière optimale.",
+        "category": "support"
+      },
+      "technologies": {
+        "question": "Quelles technologies utilisez-vous ?",
+        "answer": "Nous utilisons des technologies modernes incluant React, Next.js, Node.js, Python et des plateformes cloud comme AWS et Vercel.",
+        "category": "general"
+      },
+      "consultation": {
+        "question": "Offrez-vous des consultations gratuites ?",
+        "answer": "Oui, nous offrons une consultation initiale gratuite pour discuter de vos exigences de projet et fournir des recommandations stratégiques.",
+        "category": "pricing"
+      }
+    }
+  },
+  "contact": {
+    "title": "Prenez Contact",
+    "subtitle": "Prêt à Commencer Votre Projet ?",
+    "description": "Contactez-nous aujourd'hui pour discuter de votre projet et voir comment nous pouvons vous aider à atteindre vos objectifs numériques.",
+    "quickContact": "Contact Rapide",
+    "social": "Suivez-nous",
+    "form": {
+      "title": "Envoyez-nous un message",
+      "name": {
+        "label": "Nom Complet",
+        "placeholder": "Entrez votre nom complet"
+      },
+      "email": {
+        "label": "Adresse Email",
+        "placeholder": "Entrez votre adresse email"
+      },
+      "phone": {
+        "label": "Numéro de Téléphone",
+        "placeholder": "Entrez votre numéro de téléphone"
+      },
+      "subject": {
+        "label": "Sujet",
+        "placeholder": "De quoi s'agit-il ?"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Parlez-nous de votre projet..."
+      },
+      "submit": "Envoyer le Message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Échec de l'envoi du message. Veuillez réessayer."
+    },
+    "info": {
+      "title": "Informations de Contact",
+      "address": "123 Rue des Affaires, Suite 100, Paris, 75001",
+      "phone": "+33 1 23 45 67 89",
+      "email": "bonjour@votreentreprise.com",
+      "hours": "Lundi - Vendredi : 9h00 - 18h00"
+    },
+    "channels": {
+      "title": "Connectez-vous avec Nous",
+      "email": "Nous Emailer",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram",
+      "phone": "Nous Appeler"
+    }
+  },
+  "footer": {
+    "description": "Solutions numériques professionnelles qui génèrent de vrais résultats pour votre entreprise.",
+    "quick_links": "Liens Rapides",
+    "services_links": "Services",
+    "contact_info": "Infos Contact",
+    "social_media": "Suivez-nous",
+    "newsletter": {
+      "title": "Abonnez-vous à Notre Newsletter",
+      "description": "Recevez les dernières mises à jour et insights directement dans votre boîte de réception.",
+      "placeholder": "Entrez votre email",
+      "subscribe": "S'abonner"
+    },
+    "legal": {
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation",
+      "cookies": "Politique des Cookies"
+    },
+    "copyright": "© 2024 Votre Entreprise. Tous droits réservés."
+  },
+  "404": {
+    "title": "Page Non Trouvée",
+    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "search_placeholder": "Rechercher sur notre site...",
+    "search_button": "Rechercher",
+    "go_home": "Retour Accueil",
+    "popular_pages": "Pages Populaires"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "try_again": "Réessayer",
+    "learn_more": "En Savoir Plus",
+    "view_all": "Voir Tout",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "open": "Ouvrir"
+  }
+}

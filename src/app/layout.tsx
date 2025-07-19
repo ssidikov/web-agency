@@ -1,31 +1,47 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { Header, Footer } from "@/components/layout";
-import { generateMetadata } from "@/lib/metadata";
+import type { Metadata, Viewport } from 'next'
+import { Inter } from 'next/font/google'
+import { PerformanceMonitor, CookieConsent } from '@/components/analytics'
+import './globals.css'
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
+  subsets: ['latin'],
+  display: 'swap',
+})
 
-export const metadata: Metadata = generateMetadata();
+export const metadata: Metadata = {
+  title: 'Web Agency - Digital Innovation & Design',
+  description:
+    'A modern digital agency creating exceptional web experiences through innovative design and development.',
+}
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: '#667eea',
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="min-h-screen bg-background text-foreground font-sans antialiased">
-        <Header />
-        <main className="pt-16">
-          {children}
-        </main>
-        <Footer />
+    <html lang='en'>
+      <head>
+        <link rel='manifest' href='/manifest.json' />
+        <link rel='apple-touch-icon' href='/apple-icon.png' />
+        <meta name='apple-mobile-web-app-capable' content='yes' />
+        <meta name='apple-mobile-web-app-status-bar-style' content='default' />
+        <meta name='apple-mobile-web-app-title' content='Web Agency' />
+        <meta name='format-detection' content='telephone=no' />
+        <meta name='mobile-web-app-capable' content='yes' />
+        <meta name='msapplication-TileColor' content='#667eea' />
+        <meta name='msapplication-tap-highlight' content='no' />
+      </head>
+      <body
+        className={`min-h-screen bg-background text-foreground font-sans antialiased ${inter.className}`}>
+        {children}
+        <PerformanceMonitor />
+        <CookieConsent />
       </body>
     </html>
-  );
+  )
 }
