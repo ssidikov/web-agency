@@ -15,17 +15,27 @@ export default function Icon() {
       <div
         style={{
           fontSize: 24,
-          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          fontWeight: 'bold',
+          background: '#FFFFFF',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'white',
           borderRadius: '20%',
-        }}
-      >
-        Y
+          border: '1px solid #E5E7EB',
+        }}>
+        <div
+          style={{
+            background: 'linear-gradient(135deg, #000000 0%, #374151 50%, #000000 100%)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            fontSize: '20px',
+            fontWeight: 'bold',
+          }}>
+          S
+        </div>
       </div>
     ),
     {

@@ -24,10 +24,10 @@ export default async function LocaleLayout({
   const dict = await getDictionary(locale)
 
   return (
-    <>
+    <div className='min-h-screen bg-[#F9F7F7]'>
       <Header dictionary={dict} locale={locale} />
-      <main className='pt-16'>{children}</main>
+      <main>{children}</main>
       <Footer />
-    </>
+    </div>
   )
 }

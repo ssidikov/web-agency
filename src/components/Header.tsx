@@ -55,19 +55,24 @@ export function Header({ dictionary, locale }: HeaderProps) {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-lg'
-          : 'bg-transparent'
-      }`}>
-      <nav className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex justify-between items-center h-16'>
+      className={`sticky z-[100] transition-all duration-500 ${scrolled ? 'top-0' : 'top-4'}`}>
+      <nav className='container mx-auto relative z-[110] px-3.5 xs:px-4'>
+        <div
+          className={`flex items-center justify-between bg-[#F9F7F7]/70 border border-white/20 px-5 py-4 lg:px-4 3xl:p-4 backdrop-blur-xl shadow-lg transition-all duration-500 ${
+            scrolled ? 'rounded-b-3xl rounded-t-none' : 'rounded-full'
+          }`}
+          style={{
+            backdropFilter: 'blur(20px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          }}>
           {/* Logo */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               href='/'
-              className='text-2xl font-bold tracking-tight text-gray-900'>
-              <span className='gradient-text'>Agency</span>
+              className='text-2xl font-bold tracking-tight transition-all duration-300 text-[#112D4E]'>
+              <span className='bg-gradient-to-r from-[#3F72AF] to-[#112D4E] bg-clip-text text-transparent'>
+                Agency
+              </span>
             </Link>
           </motion.div>
 
@@ -77,10 +82,10 @@ export function Header({ dictionary, locale }: HeaderProps) {
               <motion.div key={item.href} whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
                 <Link
                   href={item.href}
-                  className={`text-sm font-medium transition-colors duration-200 ${
+                  className={`text-base font-medium transition-all duration-300 px-3 py-2 rounded-lg text-[#112D4E] ${
                     pathname === item.href
-                      ? 'text-indigo-600'
-                      : 'text-gray-700 hover:text-indigo-600'
+                      ? 'bg-[#3F72AF] text-white'
+                      : 'hover:text-[#3F72AF] hover:bg-[#DBE2EF]/30'
                   }`}>
                   {item.label}
                 </Link>
@@ -97,7 +102,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='p-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors duration-200'
+              className='p-2 rounded-lg transition-all duration-300 bg-[#DBE2EF] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white'
               aria-label='Toggle menu'>
               {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
             </motion.button>
@@ -112,17 +117,23 @@ export function Header({ dictionary, locale }: HeaderProps) {
             height: isMenuOpen ? 'auto' : 0,
           }}
           transition={{ duration: 0.3 }}
-          className='md:hidden overflow-hidden'>
-          <div className='py-4 space-y-2'>
+          className={`md:hidden overflow-hidden mt-2 bg-[#F9F7F7]/90 border border-white/20 shadow-lg backdrop-blur-xl transition-all duration-500 ${
+            scrolled ? 'rounded-b-lg rounded-t-none' : 'rounded-lg'
+          }`}
+          style={{
+            backdropFilter: 'blur(20px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          }}>
+          <div className='py-4 space-y-2 px-4'>
             {navigation.map((item) => (
               <motion.div key={item.href} whileHover={{ x: 4 }} whileTap={{ x: 0 }}>
                 <Link
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block py-2 px-4 rounded-lg transition-colors duration-200 ${
+                  className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] ${
                     pathname === item.href
-                      ? 'bg-indigo-100 text-indigo-600'
-                      : 'text-gray-700 hover:bg-gray-100'
+                      ? 'bg-[#3F72AF] text-white'
+                      : 'hover:bg-[#DBE2EF]/50 hover:text-[#3F72AF]'
                   }`}>
                   {item.label}
                 </Link>

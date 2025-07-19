@@ -21,16 +21,22 @@ const BackgroundAnimation = () => {
 
   return (
     <div className='absolute inset-0 overflow-hidden'>
-      {/* Animated gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 animate-pulse' />
+      {/* Animated gradient background using our 4 colors */}
+      <div
+        className='absolute inset-0 animate-pulse'
+        style={{
+          background: `linear-gradient(135deg, #F9F7F7 0%, #DBE2EF 50%, #F9F7F7 100%)`,
+        }}
+      />
 
       {/* Floating shapes */}
       <div className='absolute inset-0'>
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className='absolute rounded-full bg-indigo-200 opacity-20'
+            className='absolute rounded-full opacity-10'
             style={{
+              backgroundColor: '#3F72AF',
               width: Math.random() * 300 + 50,
               height: Math.random() * 300 + 50,
               left: `${Math.random() * 100}%`,
@@ -74,11 +80,11 @@ export function Hero({ dict, locale }: HeroProps) {
   }, [])
 
   return (
-    <section className='relative min-h-screen flex items-center justify-center overflow-hidden'>
+    <section className='relative h-screen flex items-center justify-center overflow-hidden z-0 -mt-20'>
       <BackgroundAnimation />
 
       {/* Content */}
-      <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+      <div className='relative z-[5] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20'>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
@@ -88,8 +94,15 @@ export function Hero({ dict, locale }: HeroProps) {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className='inline-flex items-center px-4 py-2 rounded-full bg-indigo-100 text-indigo-800 text-sm font-medium mb-8'>
-            <span className='w-2 h-2 bg-indigo-600 rounded-full mr-2 animate-pulse'></span>
+            className='inline-flex items-center px-6 py-3 rounded-full text-sm font-medium mb-8'
+            style={{
+              backgroundColor: '#DBE2EF',
+              color: '#112D4E',
+              border: '1px solid rgba(63, 114, 175, 0.2)',
+            }}>
+            <span
+              className='w-2 h-2 rounded-full mr-3 animate-pulse'
+              style={{ backgroundColor: '#3F72AF' }}></span>
             New: Launch your project in 30 days
           </motion.div>
 
@@ -98,7 +111,8 @@ export function Hero({ dict, locale }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className='text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6'>
+            className='text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6'
+            style={{ color: '#112D4E' }}>
             {dict.hero.title}
           </motion.h1>
 
@@ -107,7 +121,8 @@ export function Hero({ dict, locale }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className='text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed'>
+            className='text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed font-medium'
+            style={{ color: '#3F72AF' }}>
             {dict.hero.subtitle}
           </motion.p>
 
@@ -119,8 +134,22 @@ export function Hero({ dict, locale }: HeroProps) {
             className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
-                href={`/${locale}/contact`}
-                className='inline-flex items-center px-8 py-4 text-lg font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl'>
+                href={`/${locale}#contact`}
+                className='inline-flex items-center px-8 py-4 text-lg font-medium text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl'
+                style={{
+                  backgroundColor: '#3F72AF',
+                  border: '2px solid #3F72AF',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#112D4E'
+                  e.currentTarget.style.borderColor = '#112D4E'
+                  e.currentTarget.style.transform = 'translateY(-2px)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#3F72AF'
+                  e.currentTarget.style.borderColor = '#3F72AF'
+                  e.currentTarget.style.transform = 'translateY(0)'
+                }}>
                 {dict.hero.cta_primary}
                 <ArrowIcon />
               </Link>
@@ -128,8 +157,22 @@ export function Hero({ dict, locale }: HeroProps) {
 
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
-                href={`/${locale}/portfolio`}
-                className='inline-flex items-center px-8 py-4 text-lg font-medium text-gray-900 bg-white border border-gray-300 hover:bg-gray-50 rounded-full transition-colors duration-200 shadow-lg hover:shadow-xl'>
+                href={`/${locale}#portfolio`}
+                className='inline-flex items-center px-8 py-4 text-lg font-medium bg-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl'
+                style={{
+                  color: '#3F72AF',
+                  border: '2px solid #3F72AF',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#3F72AF'
+                  e.currentTarget.style.color = 'white'
+                  e.currentTarget.style.transform = 'translateY(-2px)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'white'
+                  e.currentTarget.style.color = '#3F72AF'
+                  e.currentTarget.style.transform = 'translateY(0)'
+                }}>
                 <PlayIcon />
                 {dict.hero.cta_secondary}
               </Link>
@@ -153,30 +196,19 @@ export function Hero({ dict, locale }: HeroProps) {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
                 transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                className='text-center'>
-                <div className='text-2xl md:text-3xl font-bold text-gray-900'>
+                className='text-center p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300'
+                style={{ border: '1px solid #DBE2EF' }}>
+                <div className='text-2xl md:text-3xl font-bold mb-2' style={{ color: '#112D4E' }}>
                   {stat.number}
                 </div>
-                <div className='text-sm text-gray-600'>{stat.label}</div>
+                <div className='text-sm font-medium' style={{ color: '#3F72AF' }}>
+                  {stat.label}
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className='absolute bottom-8 left-1/2 transform -translate-x-1/2'>
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className='w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center'>
-          <div className='w-1 h-3 bg-gray-400 rounded-full mt-2'></div>
-        </motion.div>
-      </motion.div>
     </section>
   )
 }

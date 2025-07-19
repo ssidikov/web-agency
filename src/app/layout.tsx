@@ -1,46 +1,40 @@
-import type { Metadata, Viewport } from 'next'
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { PerformanceMonitor, CookieConsent } from '@/components/analytics'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-})
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Web Agency - Digital Innovation & Design',
-  description:
-    'A modern digital agency creating exceptional web experiences through innovative design and development.',
+  title: 'Agency - Professional Web Development',
+  description: 'Creating exceptional digital experiences that drive growth and engagement through innovative design and cutting-edge technology.',
+  keywords: ['web development', 'design', 'digital agency', 'UI/UX'],
+  authors: [{ name: 'Agency Team' }],
+  openGraph: {
+    title: 'Agency - Professional Web Development',
+    description: 'Creating exceptional digital experiences that drive growth and engagement through innovative design and cutting-edge technology.',
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Agency - Professional Web Development',
+    description: 'Creating exceptional digital experiences that drive growth and engagement through innovative design and cutting-edge technology.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
-  userScalable: true,
-  themeColor: '#667eea',
-}
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang='en'>
-      <head>
-        <link rel='manifest' href='/manifest.json' />
-        <link rel='apple-touch-icon' href='/apple-icon.png' />
-        <meta name='apple-mobile-web-app-capable' content='yes' />
-        <meta name='apple-mobile-web-app-status-bar-style' content='default' />
-        <meta name='apple-mobile-web-app-title' content='Web Agency' />
-        <meta name='format-detection' content='telephone=no' />
-        <meta name='mobile-web-app-capable' content='yes' />
-        <meta name='msapplication-TileColor' content='#667eea' />
-        <meta name='msapplication-tap-highlight' content='no' />
-      </head>
-      <body
-        className={`min-h-screen bg-background text-foreground font-sans antialiased ${inter.className}`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} bg-[#F9F7F7] text-[#112D4E] antialiased`}>
         {children}
-        <PerformanceMonitor />
-        <CookieConsent />
       </body>
     </html>
   )

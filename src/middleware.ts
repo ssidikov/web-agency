@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { 
   locales, 
-  defaultLocale, 
   getPreferredLocale, 
   isValidLocale, 
   getLocaleFromPathname,
@@ -22,13 +21,7 @@ export function middleware(request: NextRequest) {
     const acceptLanguage = request.headers.get('Accept-Language')
     const preferredLocale = getPreferredLocale(acceptLanguage || '')
     
-    // For default locale, don't add prefix
-    if (preferredLocale === defaultLocale) {
-      // Continue without redirect for default locale
-      return enhanceResponse(NextResponse.next())
-    }
-    
-    // Redirect to locale-specific URL
+    // Always redirect to locale-specific URL (including English)
     const localeUrl = new URL(addLocaleToPathname(pathname, preferredLocale), request.url)
     return NextResponse.redirect(localeUrl)
   }

@@ -1,15 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #000000;
-  --secondary: #ffffff;
-  --accent: #6366f1;
-  --muted: #f8fafc;
-  --border: #e2e8f0;
-  --card: #ffffff;
-  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  /* New Color System - Only 4 colors allowed */
+  --background: #F9F7F7;        /* Primary background - light cream */
+  --foreground: #112D4E;        /* Primary text - dark navy */
+  --primary: #3F72AF;           /* Primary actions, links - medium blue */
+  --secondary: #DBE2EF;         /* Secondary backgrounds - light blue-gray */
+  --accent: #3F72AF;            /* Accent color - same as primary */
+  --muted: #DBE2EF;            /* Muted backgrounds - light blue-gray */
+  --border: #DBE2EF;           /* Borders - light blue-gray */
+  --card: #ffffff;             /* Card backgrounds - pure white for contrast */
+  --shadow: 0 4px 6px -1px rgb(17 45 78 / 0.1); /* Shadow with primary color */
+  
+  /* Semantic color mappings */
+  --text-primary: #112D4E;
+  --text-secondary: #3F72AF;
+  --bg-primary: #F9F7F7;
+  --bg-secondary: #DBE2EF;
+  --color-primary: #3F72AF;
+  --color-secondary: #DBE2EF;
 }
 
 body {
@@ -29,12 +38,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: var(--primary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--foreground);
 }
 
 /* Custom animations */
@@ -88,7 +97,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
+  background: linear-gradient(135deg, var(--primary), var(--foreground));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -118,7 +127,7 @@ body {
 }
 
 .focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
@@ -183,8 +192,105 @@ a:focus,
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
+}
+
+/* Custom component styles using our 4-color system */
+.btn-primary {
+  background-color: #3F72AF;
+  color: white;
+  border: 2px solid #3F72AF;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #112D4E;
+  border-color: #112D4E;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(63, 114, 175, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #3F72AF;
+  border: 2px solid #3F72AF;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #3F72AF;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(63, 114, 175, 0.2);
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #DBE2EF;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(17, 45, 78, 0.1);
+  border-color: #3F72AF;
+}
+
+/* Section background utilities */
+.bg-primary {
+  background-color: #F9F7F7;
+}
+
+.bg-secondary {
+  background-color: #DBE2EF;
+}
+
+.text-primary {
+  color: #112D4E;
+}
+
+.text-secondary {
+  color: #3F72AF;
+}
+
+/* Glass morphism effects */
+.glass-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px) saturate(120%);
+  -webkit-backdrop-filter: blur(15px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(17, 45, 78, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(17, 45, 78, 0.2);
+}
+
+/* Text shadows for better readability on transparent backgrounds */
+.text-shadow-white {
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.text-shadow-dark {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Print styles */
