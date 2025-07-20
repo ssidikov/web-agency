@@ -11,6 +11,7 @@ export function Services() {
         "Chaque projet est conçu sur mesure pour répondre précisément à vos besoins. J'assure toute la chaîne : conception, développement, mise en ligne et suivi.",
       image: '/images/services/web-development.jpg',
       alt: 'Création de sites web sur mesure',
+      badges: ['Sur mesure', 'Responsive'],
     },
     {
       title: 'Refonte / Redesign',
@@ -18,6 +19,7 @@ export function Services() {
         "Redonnez une nouvelle jeunesse à votre site existant ! Améliorez l'ergonomie, modernisez l'esthétique et optimisez la performance pour offrir une expérience utilisateur irréprochable.",
       image: '/images/services/website-redesign.jpg',
       alt: 'Refonte et redesign de sites web',
+      badges: ['Modernisation', 'UX/UI'],
     },
     {
       title: 'SEO & Optimisation de la Visibilité',
@@ -25,6 +27,7 @@ export function Services() {
         "Faites-vous trouver par vos clients. J'optimise le référencement naturel (SEO) de votre site grâce à des techniques éprouvées, un code allégé et une structure adaptée, afin de booster votre visibilité sur Google.",
       image: '/images/services/seo-optimization.jpg',
       alt: 'Optimisation SEO et référencement',
+      badges: ['Google Ready', 'Analytics'],
     },
     {
       title: 'Maintenance & Support',
@@ -32,6 +35,7 @@ export function Services() {
         "Profitez d'un accompagnement continu : support technique, mise à jour, modification ou ajout de nouvelles fonctionnalités selon vos besoins. Une facturation horaire ou sur demande ponctuelle pour un service flexible et évolutif.",
       image: '/images/services/maintenance-support.jpg',
       alt: 'Maintenance et support technique',
+      badges: ['24/7 Support', 'Mises à jour'],
     },
   ]
 
@@ -41,12 +45,12 @@ export function Services() {
       <div className='absolute inset-0'>
         {/* Main gradient background */}
         <div className='absolute inset-0 bg-gradient-to-b from-indigo-50/30 via-blue-50/20 to-white/90' />
-        
+
         {/* Secondary gradient overlay */}
         <div className='absolute inset-0 bg-gradient-to-br from-blue-50/40 via-indigo-50/30 to-purple-50/20' />
-        
+
         {/* Animated gradient waves */}
-        <div 
+        <div
           className='absolute inset-0 opacity-30 animate-pulse'
           style={{
             background: `linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.1) 50%, transparent 70%),
@@ -60,7 +64,7 @@ export function Services() {
       {/* Floating geometric elements */}
       <div className='absolute inset-0 overflow-hidden'>
         {/* Large soft circles with animation */}
-        <motion.div 
+        <motion.div
           className='absolute top-20 left-10 w-32 h-32 bg-blue-200/20 rounded-full blur-xl'
           animate={{
             y: [0, -20, 0],
@@ -69,10 +73,10 @@ export function Services() {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute top-40 right-20 w-48 h-48 bg-indigo-200/15 rounded-full blur-xl'
           animate={{
             x: [0, 15, 0],
@@ -81,10 +85,10 @@ export function Services() {
           transition={{
             duration: 12,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute bottom-40 left-1/4 w-40 h-40 bg-purple-200/20 rounded-full blur-xl'
           animate={{
             y: [0, 15, 0],
@@ -93,10 +97,10 @@ export function Services() {
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute bottom-20 right-1/3 w-36 h-36 bg-blue-300/15 rounded-full blur-xl'
           animate={{
             x: [0, -20, 0],
@@ -105,12 +109,12 @@ export function Services() {
           transition={{
             duration: 9,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        
+
         {/* Animated geometric shapes */}
-        <motion.div 
+        <motion.div
           className='absolute top-32 left-1/2 w-24 h-24 bg-gradient-to-br from-blue-300/20 to-indigo-300/15 rounded-lg blur-sm'
           animate={{
             rotate: [0, 360],
@@ -119,10 +123,10 @@ export function Services() {
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: 'linear',
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute top-60 right-1/4 w-16 h-16 bg-gradient-to-tl from-purple-300/25 to-blue-200/20 rounded-full'
           animate={{
             y: [0, -15, 0],
@@ -131,10 +135,10 @@ export function Services() {
           transition={{
             duration: 6,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute bottom-60 left-20 w-20 h-20 bg-gradient-to-r from-indigo-200/30 to-blue-300/15 rounded-lg blur-sm'
           animate={{
             rotate: [0, -180, 0],
@@ -143,10 +147,10 @@ export function Services() {
           transition={{
             duration: 15,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute bottom-32 right-16 w-14 h-14 bg-gradient-to-bl from-blue-400/20 to-purple-300/15 rounded-full blur-sm'
           animate={{
             scale: [1, 1.3, 1],
@@ -155,12 +159,12 @@ export function Services() {
           transition={{
             duration: 7,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        
+
         {/* Animated triangle shapes */}
-        <motion.div 
+        <motion.div
           className='absolute top-1/3 left-16 w-0 h-0 border-l-[20px] border-r-[20px] border-b-[35px] border-l-transparent border-r-transparent border-b-blue-300/20 blur-sm'
           animate={{
             rotate: [0, 360],
@@ -169,10 +173,10 @@ export function Services() {
           transition={{
             duration: 18,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute top-2/3 right-24 w-0 h-0 border-l-[15px] border-r-[15px] border-b-[26px] border-l-transparent border-r-transparent border-b-indigo-300/25 blur-sm'
           animate={{
             rotate: [180, 540],
@@ -181,14 +185,14 @@ export function Services() {
           transition={{
             duration: 14,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        
+
         {/* Animated hexagon shapes */}
-        <motion.div 
-          className='absolute top-1/4 right-1/3 w-12 h-12 bg-gradient-to-tr from-blue-300/20 to-purple-200/15 blur-sm' 
-          style={{clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)'}}
+        <motion.div
+          className='absolute top-1/4 right-1/3 w-12 h-12 bg-gradient-to-tr from-blue-300/20 to-purple-200/15 blur-sm'
+          style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)' }}
           animate={{
             rotate: [0, 120, 240, 360],
             scale: [1, 1.1, 1],
@@ -196,12 +200,12 @@ export function Services() {
           transition={{
             duration: 16,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        <motion.div 
-          className='absolute bottom-1/4 left-1/3 w-10 h-10 bg-gradient-to-bl from-indigo-300/25 to-blue-200/20 blur-sm' 
-          style={{clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)'}}
+        <motion.div
+          className='absolute bottom-1/4 left-1/3 w-10 h-10 bg-gradient-to-bl from-indigo-300/25 to-blue-200/20 blur-sm'
+          style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)' }}
           animate={{
             rotate: [360, 240, 120, 0],
             y: [0, -8, 0],
@@ -209,12 +213,12 @@ export function Services() {
           transition={{
             duration: 13,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        
+
         {/* Animated decorative dots */}
-        <motion.div 
+        <motion.div
           className='absolute top-24 left-1/3 w-3 h-3 bg-blue-400/30 rounded-full'
           animate={{
             scale: [1, 1.5, 1],
@@ -223,10 +227,10 @@ export function Services() {
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: 'easeInOut',
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute top-48 right-1/2 w-2 h-2 bg-indigo-400/35 rounded-full'
           animate={{
             y: [0, -12, 0],
@@ -235,11 +239,11 @@ export function Services() {
           transition={{
             duration: 5,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
+            ease: 'easeInOut',
+            delay: 1,
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute bottom-24 left-1/2 w-4 h-4 bg-purple-400/25 rounded-full'
           animate={{
             scale: [1, 1.4, 1],
@@ -248,11 +252,11 @@ export function Services() {
           transition={{
             duration: 6,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
+            ease: 'easeInOut',
+            delay: 2,
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute bottom-48 right-1/4 w-3 h-3 bg-blue-300/30 rounded-full'
           animate={{
             x: [0, 8, 0],
@@ -261,11 +265,11 @@ export function Services() {
           transition={{
             duration: 7,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5
+            ease: 'easeInOut',
+            delay: 0.5,
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute top-72 left-24 w-2 h-2 bg-indigo-300/40 rounded-full'
           animate={{
             scale: [1, 1.6, 1],
@@ -274,11 +278,11 @@ export function Services() {
           transition={{
             duration: 3.5,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1.5
+            ease: 'easeInOut',
+            delay: 1.5,
           }}
         />
-        <motion.div 
+        <motion.div
           className='absolute bottom-72 right-32 w-3 h-3 bg-blue-400/25 rounded-full'
           animate={{
             y: [0, 10, 0],
@@ -287,11 +291,11 @@ export function Services() {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: "easeInOut",
-            delay: 3
+            ease: 'easeInOut',
+            delay: 3,
           }}
         />
-        
+
         {/* Subtle pattern overlay */}
         <div className='absolute inset-0 opacity-5'>
           <div className='absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,rgba(59,130,246,0.4)_1px,transparent_0)] bg-[length:60px_60px]' />
@@ -315,7 +319,7 @@ export function Services() {
         </motion.div>
 
         {/* Services Cards */}
-        <div className='space-y-12'>
+        <div className='space-y-16'>
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -323,34 +327,10 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className='bg-white/90 backdrop-blur-sm border border-white/30 rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:bg-white/95 transition-all duration-300'>
+              className='bg-white/90 backdrop-blur-sm border border-white/30 rounded-2xl p-10 shadow-xl hover:shadow-2xl hover:bg-white/95 transition-all duration-300'>
               <div className='grid lg:grid-cols-2 gap-8 items-center'>
-                {/* Left Content */}
-                <div className='space-y-6'>
-                  <h3 className='text-2xl md:text-3xl font-bold text-gray-900'>{service.title}</h3>
-
-                  <p className='text-gray-600 text-lg leading-relaxed'>{service.description}</p>
-
-                  {/* CTA Buttons */}
-                  <div className='flex flex-col sm:flex-row gap-4 pt-4'>
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className='bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex-1 sm:flex-none cursor-pointer'>
-                      Demander un devis
-                    </motion.button>
-
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className='border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex-1 sm:flex-none cursor-pointer'>
-                      Voir les tarifs
-                    </motion.button>
-                  </div>
-                </div>
-
-                {/* Right Image */}
-                <div className='relative'>
+                {/* Right Image - First on mobile */}
+                <div className='relative order-1 lg:order-2'>
                   <div className='aspect-[4/3] relative overflow-hidden rounded-2xl'>
                     <Image
                       src={service.image}
@@ -370,6 +350,56 @@ export function Services() {
                     <div className='absolute bottom-4 left-4 text-white font-medium bg-black/20 backdrop-blur-sm px-3 py-1 rounded-lg'>
                       {service.alt}
                     </div>
+                  </div>
+                </div>
+
+                {/* Left Content - Second on mobile */}
+                <div className='space-y-6 xl:h-full flex flex-col justify-between order-2 lg:order-1'>
+                  <div>
+                    <h3 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-8'>
+                      {service.title}
+                    </h3>
+
+                    {/* Feature Badges */}
+                    <div className='grid grid-cols-2 gap-2 md:flex md:flex-wrap mb-4'>
+                      {service.badges.map((badge, badgeIndex) => (
+                        <motion.span
+                          key={badgeIndex}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, delay: 0.1 + badgeIndex * 0.1 }}
+                          viewport={{ once: true }}
+                          className='inline-flex items-center justify-center px -4 py-2 md:px-8 md:py-6 rounded-full text-sm md:text-xl font-medium border border-blue-200/50 cursor-default'>
+                          <span className='w-2 h-2 md:w-2.5 md:h-2.5 bg-blue-500 rounded-full mr-2 md:mr-3'></span>
+                          <span className='text-center'>{badge}</span>
+                        </motion.span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className='text-gray-600 text-lg leading-relaxed'>{service.description}</p>
+
+                  {/* Enhanced CTA Buttons */}
+                  <div className='flex flex-col sm:flex-row gap-4 pt-6'>
+                    <motion.button
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      whileTap={{ scale: 0.98 }}
+                      className='relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 flex-1 sm:flex-none cursor-pointer shadow-lg hover:shadow-xl overflow-hidden group'>
+                      <div className='absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200'></div>
+                      <span className='relative flex items-center justify-center'>
+                        Demander un devis
+                      </span>
+                    </motion.button>
+
+                    <motion.button
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      whileTap={{ scale: 0.98 }}
+                      className='relative border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 flex-1 sm:flex-none cursor-pointer group overflow-hidden'>
+                      <div className='absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-0 transition-opacity duration-200'></div>
+                      <span className='relative flex items-center justify-center'>
+                        Voir les tarifs
+                      </span>
+                    </motion.button>
                   </div>
                 </div>
               </div>
@@ -451,12 +481,67 @@ export function Services() {
                       nous pouvons booster votre présence en ligne.
                     </p>
 
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className='w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl cursor-pointer'>
-                      Démarrer votre projet
-                    </motion.button>
+                    <div className='space-y-4'>
+                      <motion.button
+                        whileHover={{ scale: 1.02, y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        className='relative w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white px-8 py-5 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-2xl cursor-pointer overflow-hidden group'>
+                        {/* Animated background effect */}
+                        <div className='absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+
+                        {/* Subtle pattern overlay */}
+                        <div className='absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+
+                        <span className='relative flex items-center justify-center gap-3'>
+                          <svg
+                            className='w-6 h-6 transition-transform duration-300 group-hover:scale-110'
+                            fill='none'
+                            stroke='currentColor'
+                            viewBox='0 0 24 24'>
+                            <path
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                              strokeWidth={2}
+                              d='M13 10V3L4 14h7v7l9-11h-7z'
+                            />
+                          </svg>
+                          <span className='text-xl'>Démarrer votre projet</span>
+                          <svg
+                            className='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1'
+                            fill='none'
+                            stroke='currentColor'
+                            viewBox='0 0 24 24'>
+                            <path
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                              strokeWidth={2}
+                              d='M17 8l4 4m0 0l-4 4m4-4H3'
+                            />
+                          </svg>
+                        </span>
+                      </motion.button>
+
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className='relative w-full bg-white/90 hover:bg-white text-gray-700 hover:text-gray-900 px-8 py-4 rounded-xl font-medium text-lg transition-all duration-200 border border-white/50 hover:border-white shadow-md hover:shadow-lg cursor-pointer group'>
+                        <span className='flex items-center justify-center gap-2'>
+                          <svg
+                            className='w-5 h-5 transition-transform duration-300 group-hover:scale-110'
+                            fill='none'
+                            stroke='currentColor'
+                            viewBox='0 0 24 24'>
+                            <path
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                              strokeWidth={2}
+                              d='M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z'
+                            />
+                          </svg>
+                          Consultation gratuite
+                        </span>
+                      </motion.button>
+                    </div>
                   </motion.div>
                 </div>
               </div>
