@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { Locale } from '@/lib/i18n'
 import { Dictionary } from '@/lib/dictionaries'
+import Image from 'next/image'
 
 interface HeroProps {
   dict: Dictionary
@@ -23,11 +24,13 @@ const BackgroundAnimation = () => {
   return (
     <div className='absolute inset-0 overflow-hidden'>
       {/* Background Image */}
-      <div
-        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-        style={{
-          backgroundImage: `url('/images/hero/hero.svg')`,
-        }}
+      <Image
+        src='/images/hero/hero.svg'
+        alt='Hero Background'
+        layout='fill'
+        objectFit='cover'
+        className='object-cover'
+        priority
       />
       {/* Clean gradient background */}
       <div className='absolute inset-0 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30' />

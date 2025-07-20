@@ -36,8 +36,24 @@ export function Services() {
   ]
 
   return (
-    <section id='services' className='py-20 bg-white'>
-      <div className='container mx-auto px-4'>
+    <section id='services' className='relative py-20 overflow-hidden'>
+      {/* Background Image */}
+      <div
+        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+        style={{
+          backgroundImage: `url('/images/services/services-bg.png')`,
+        }}
+      />
+
+      {/* Background Overlay */}
+      <div className='absolute inset-0 bg-gradient-to-br from-white/95 via-blue-50/80 to-indigo-50/60' />
+
+      {/* Pattern Overlay */}
+      <div className='absolute inset-0 opacity-5'>
+        <div className='absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,rgba(59,130,246,0.3)_2px,transparent_0)] bg-[length:40px_40px]' />
+      </div>
+
+      <div className='relative z-10 container mx-auto px-4'>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -62,7 +78,7 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className='bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300'>
+              className='bg-white/90 backdrop-blur-sm border border-white/30 rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:bg-white/95 transition-all duration-300'>
               <div className='grid lg:grid-cols-2 gap-8 items-center'>
                 {/* Left Content */}
                 <div className='space-y-6'>
