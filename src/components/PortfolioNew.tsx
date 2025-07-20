@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface PortfolioProps {
   dictionary: {
@@ -41,7 +42,7 @@ export function Portfolio({ dictionary }: PortfolioProps) {
     {
       id: 'ecommerce',
       category: 'web',
-      image: '/portfolio/ecommerce.jpg',
+      image: '/images/portfolio/ecommerce.jpg',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       link: '/portfolio/ecommerce-platform',
       featured: true,
@@ -49,7 +50,7 @@ export function Portfolio({ dictionary }: PortfolioProps) {
     {
       id: 'mobile_app',
       category: 'mobile',
-      image: '/portfolio/mobile.jpg',
+      image: '/images/portfolio/mobile-app.jpg',
       technologies: ['React Native', 'Firebase', 'WebRTC'],
       link: '/portfolio/mobile-app',
       featured: true,
@@ -57,7 +58,7 @@ export function Portfolio({ dictionary }: PortfolioProps) {
     {
       id: 'brand_identity',
       category: 'design',
-      image: '/portfolio/brand.jpg',
+      image: '/images/portfolio/brand-identity.jpg',
       technologies: ['Figma', 'Adobe CC', 'Branding'],
       link: '/portfolio/brand-identity',
       featured: false,
@@ -65,7 +66,7 @@ export function Portfolio({ dictionary }: PortfolioProps) {
     {
       id: 'corporate_website',
       category: 'web',
-      image: '/portfolio/corporate.jpg',
+      image: '/images/portfolio/corporate-website.jpg',
       technologies: ['Next.js', 'TypeScript', 'Tailwind'],
       link: '/portfolio/corporate-website',
       featured: false,
@@ -134,13 +135,13 @@ export function Portfolio({ dictionary }: PortfolioProps) {
                 className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative overflow-hidden">
-                  <div 
-                    className="w-full h-64 bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center"
-                  >
-                    <span className="text-white text-lg font-semibold">
-                      {projectData?.title || project.id}
-                    </span>
-                  </div>
+                  <Image
+                    src={project.image}
+                    alt={projectData?.title || project.id}
+                    width={400}
+                    height={300}
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
                   {project.featured && (
                     <div className="absolute top-4 left-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">

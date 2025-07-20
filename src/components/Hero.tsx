@@ -22,9 +22,20 @@ const BackgroundAnimation = () => {
 
   return (
     <div className='absolute inset-0 overflow-hidden'>
-      {/* Animated gradient background using our 4 colors */}
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('/images/hero/hero-bg.jpg')`,
+        }}
+      />
+      
+      {/* Overlay with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/80 to-blue-50/70" />
+      
+      {/* Animated gradient overlay */}
       <div
-        className='absolute inset-0 animate-pulse'
+        className='absolute inset-0 animate-pulse opacity-30'
         style={{
           background: `linear-gradient(135deg, #F9F7F7 0%, #DBE2EF 50%, #F9F7F7 100%)`,
         }}
@@ -35,16 +46,16 @@ const BackgroundAnimation = () => {
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className='absolute rounded-full opacity-10'
+            className='absolute rounded-full opacity-5'
             style={{
               backgroundColor: '#3F72AF',
-              width: Math.random() * 200 + 30, // Smaller shapes for mobile
+              width: Math.random() * 200 + 30,
               height: Math.random() * 200 + 30,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              x: [0, Math.random() * 50 - 25, 0], // Less movement for mobile
+              x: [0, Math.random() * 50 - 25, 0],
               y: [0, Math.random() * 50 - 25, 0],
               scale: [1, Math.random() * 0.3 + 0.9, 1],
             }}

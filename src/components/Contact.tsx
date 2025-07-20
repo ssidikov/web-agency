@@ -70,10 +70,20 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
   }
 
   return (
-    <section ref={ref} id="contact" className="py-24 bg-white relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white opacity-50"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.03)_1px,transparent_0)] bg-[length:20px_20px]"></div>
+    <section ref={ref} id="contact" className="py-24 relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('/images/contact/contact-us.jpg')`,
+        }}
+      />
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-blue-50/85"></div>
+      
+      {/* Pattern overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50"></div>
       
       <div className="container mx-auto px-6 relative">
         <motion.div

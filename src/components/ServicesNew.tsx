@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export function Services() {
   const services = [
@@ -8,28 +9,28 @@ export function Services() {
       title: 'Création de Sites Web – De A à Z',
       description:
         "Chaque projet est conçu sur mesure pour répondre précisément à vos besoins. J'assure toute la chaîne : conception, développement, mise en ligne et suivi.",
-      image: '/images/web-creation.jpg',
+      image: '/images/services/web-development.jpg',
       alt: 'Création de sites web sur mesure',
     },
     {
       title: 'Refonte / Redesign',
       description:
         "Redonnez une nouvelle jeunesse à votre site existant ! Améliorez l'ergonomie, modernisez l'esthétique et optimisez la performance pour offrir une expérience utilisateur irréprochable.",
-      image: '/images/website-redesign.jpg',
+      image: '/images/services/website-redesign.jpg',
       alt: 'Refonte et redesign de sites web',
     },
     {
       title: 'SEO & Optimisation de la Visibilité',
       description:
         "Faites-vous trouver par vos clients. J'optimise le référencement naturel (SEO) de votre site grâce à des techniques éprouvées, un code allégé et une structure adaptée, afin de booster votre visibilité sur Google.",
-      image: '/images/seo-optimization.jpg',
+      image: '/images/services/seo-optimization.jpg',
       alt: 'Optimisation SEO et référencement',
     },
     {
       title: 'Maintenance & Support',
       description:
         "Profitez d'un accompagnement continu : support technique, mise à jour, modification ou ajout de nouvelles fonctionnalités selon vos besoins. Une facturation horaire ou sur demande ponctuelle pour un service flexible et évolutif.",
-      image: '/images/maintenance-support.jpg',
+      image: '/images/services/maintenance-support.jpg',
       alt: 'Maintenance et support technique',
     },
   ]
@@ -85,25 +86,19 @@ export function Services() {
                   </div>
                 </div>
 
-                {/* Right Image Placeholder */}
+                {/* Right Image */}
                 <div className='relative'>
-                  <div className='aspect-[4/3] relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center'>
-                    <div className='text-center p-8'>
-                      <div className='w-16 h-16 bg-blue-500 rounded-xl mx-auto mb-4 flex items-center justify-center'>
-                        <svg
-                          className='w-8 h-8 text-white'
-                          fill='none'
-                          stroke='currentColor'
-                          viewBox='0 0 24 24'>
-                          <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            strokeWidth={2}
-                            d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
-                          />
-                        </svg>
-                      </div>
-                      <p className='text-blue-600 font-medium'>{service.alt}</p>
+                  <div className='aspect-[4/3] relative overflow-hidden rounded-2xl'>
+                    <Image
+                      src={service.image}
+                      alt={service.alt}
+                      width={600}
+                      height={450}
+                      className='w-full h-full object-cover transition-transform duration-300 hover:scale-105'
+                    />
+                    <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent' />
+                    <div className='absolute bottom-4 left-4 text-white font-medium bg-black/20 backdrop-blur-sm px-3 py-1 rounded-lg'>
+                      {service.alt}
                     </div>
                   </div>
                 </div>
@@ -121,24 +116,20 @@ export function Services() {
           className='mt-20'>
           <div className='relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-purple-700 min-h-[400px] flex items-center'>
             {/* Background Image */}
-            <div className='absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/40'>
-              <div className='absolute inset-0 bg-gradient-to-br from-blue-100/10 to-purple-200/20 flex items-center justify-center'>
-                <div className='text-center opacity-20'>
-                  <svg
-                    className='w-32 h-32 mx-auto mb-4 text-white'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'>
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      strokeWidth={1}
-                      d='M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-                    />
-                  </svg>
-                  <div className='text-6xl font-bold text-white'>&lt;/&gt;</div>
-                </div>
-              </div>
+            <div 
+              className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+              style={{
+                backgroundImage: `url('/images/services/cta-background.jpg')`,
+              }}
+            />
+            
+            {/* Overlay */}
+            <div className='absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/70' />
+            
+            {/* Pattern Overlay */}
+            <div className='absolute inset-0 opacity-10'>
+              <div className='absolute inset-0 bg-gradient-to-br from-white/20 to-transparent' />
+              <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]' />
             </div>
 
             {/* Content Grid */}
