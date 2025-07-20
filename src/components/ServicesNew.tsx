@@ -38,18 +38,22 @@ export function Services() {
   return (
     <section id='services' className='relative py-20 overflow-hidden'>
       {/* Background Image */}
-      <div
-        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-        style={{
-          backgroundImage: `url('/images/services/services-bg.png')`,
-        }}
-      />
+      <div className='absolute inset-0 w-full h-full'>
+        <Image
+          src='/images/hero/hero.svg'
+          alt='Services Background'
+          fill
+          className='absolute inset-0 w-full h-full'
+          priority={false}
+          sizes='100vw'
+        />
+      </div>
 
       {/* Background Overlay */}
       <div className='absolute inset-0 bg-gradient-to-br from-white/95 via-blue-50/80 to-indigo-50/60' />
 
       {/* Pattern Overlay */}
-      <div className='absolute inset-0 opacity-5'>
+      <div className='absolute inset-0 opacity-5 z-[3]'>
         <div className='absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,rgba(59,130,246,0.3)_2px,transparent_0)] bg-[length:40px_40px]' />
       </div>
 
@@ -113,6 +117,13 @@ export function Services() {
                       width={600}
                       height={450}
                       className='w-full h-full object-cover transition-transform duration-300 hover:scale-105'
+                      placeholder='blur'
+                      blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k='
+                      priority={index < 2}
+                      onError={(e) => {
+                        console.log(`Failed to load image: ${service.image}`)
+                        e.currentTarget.src = '/images/logo-sidikoff.svg'
+                      }}
                     />
                     <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent' />
                     <div className='absolute bottom-4 left-4 text-white font-medium bg-black/20 backdrop-blur-sm px-3 py-1 rounded-lg'>
@@ -134,12 +145,19 @@ export function Services() {
           className='mt-20'>
           <div className='relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-purple-700 min-h-[400px] flex items-center'>
             {/* Background Image */}
-            <div
-              className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-              style={{
-                backgroundImage: `url('/images/services/cta-background.jpg')`,
-              }}
-            />
+            <div className='absolute inset-0'>
+              <Image
+                src='/images/services/cta-background.jpg'
+                alt='CTA Background'
+                fill
+                className='object-cover'
+                priority={false}
+                onError={(e) => {
+                  console.log('CTA background image failed to load')
+                  e.currentTarget.style.display = 'none'
+                }}
+              />
+            </div>
 
             {/* Overlay */}
             <div className='absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/70' />
