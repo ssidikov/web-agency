@@ -37,17 +37,14 @@ export function Services() {
 
   return (
     <section id='services' className='relative py-20 overflow-hidden'>
-      {/* Background Image */}
-      <div className='absolute inset-0 w-full h-full'>
-        <Image
-          src='/images/hero/hero.svg'
-          alt='Services Background'
-          fill
-          className='absolute inset-0 w-full h-full'
-          priority={false}
-          sizes='100vw'
-        />
-      </div>
+      {/* Background Image - Hero SVG repeating */}
+      <div
+        className='absolute inset-0 w-full h-full bg-repeat-y object-cover'
+        style={{
+          backgroundImage: `url('/images/services/pattern-2.jpg')`,
+          backgroundSize: '100% auto',
+        }}
+      />
 
       {/* Background Overlay */}
       <div className='absolute inset-0 bg-gradient-to-br from-white/95 via-blue-50/80 to-indigo-50/60' />
