@@ -136,7 +136,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[100] md:hidden"
+          className='fixed inset-0 bg-black/20 backdrop-blur-sm z-[100] md:hidden'
           onClick={() => setIsMenuOpen(false)}
         />
       )}
@@ -146,111 +146,115 @@ export function Header({ dictionary, locale }: HeaderProps) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className={`sticky z-[120] transition-all duration-500 ${scrolled ? 'top-0' : 'top-4'}`}>
-      <nav className='container mx-auto relative z-[110] px-3.5 xs:px-4'>
-        <div
-          className={`flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 ${
-            scrolled ? 'rounded-b-3xl rounded-t-none' : 'rounded-full'
-          }`}
-          style={{
-            background: 'rgba(249, 247, 247, 0.8)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            backdropFilter: 'blur(20px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-          }}>
-          {/* Logo */}
-          <div>
-            <Link 
-              href='/' 
-              className='flex items-center transition-all duration-300 focus:outline-none outline-none'
-              style={{ outline: 'none !important', boxShadow: 'none !important' }}>
-              <Image
-                src='/logo-sidikoff.webp'
-                alt='Sidikoff Digital'
-                width={180}
-                height={45}
-                priority
-                unoptimized
-                className='h-10 w-auto lg:h-12'
-              />
-            </Link>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className='hidden md:flex items-center space-x-8'>
-            {navigation.map((item) => (
-              <div key={item.href}>
-                <Link
-                  href={item.href}
-                  className={`text-base font-medium transition-all duration-300 px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none ${
-                    isActive(item)
-                      ? 'bg-[#3F72AF] text-white'
-                      : 'hover:text-[#3F72AF] hover:bg-[#DBE2EF]/30'
-                  }`}
-                  style={{ outline: 'none !important', boxShadow: 'none !important' }}>
-                  {item.label}
-                </Link>
-              </div>
-            ))}
-
-            {/* Language Switcher */}
-            <LanguageSwitcher currentLocale={locale} dict={dictionary} />
-          </div>
-
-          {/* Mobile Controls */}
-          <div className='md:hidden flex items-center space-x-2'>
-            {/* Mobile Language Switcher */}
-            <div className='scale-90'>
-              <LanguageSwitcher currentLocale={locale} dict={dictionary} />
-            </div>
-            
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='p-2 rounded-lg transition-all duration-300 bg-[#DBE2EF] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white focus:outline-none outline-none'
-              aria-label='Toggle menu'>
-              {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className={`absolute top-full left-3.5 xs:left-4 right-3.5 xs:right-4 md:hidden z-[110] mt-2 transition-all duration-500 ${
-              scrolled ? 'rounded-b-lg rounded-t-none' : 'rounded-lg'
+        <nav className='container mx-auto relative z-[110] px-3.5 xs:px-4'>
+          <div
+            className={`flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 ${
+              scrolled
+                ? isMenuOpen
+                  ? 'rounded-t-none'
+                  : 'rounded-b-3xl rounded-t-none overflow-hidden'
+                : isMenuOpen
+                ? 'rounded-b-none '
+                : 'rounded-full'
             }`}
             style={{
-              background: 'rgba(249, 247, 247, 0.95)',
+              background: 'rgba(249, 247, 247, 0.8)',
               border: '1px solid rgba(255, 255, 255, 0.2)',
               backdropFilter: 'blur(20px) saturate(180%)',
               WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
             }}>
-            <div className='py-4 space-y-2 px-4'>
+            {/* Logo */}
+            <div>
+              <Link
+                href='/'
+                className='flex items-center transition-all duration-300 focus:outline-none outline-none'
+                style={{ outline: 'none !important', boxShadow: 'none !important' }}>
+                <Image
+                  src='/logo-sidikoff.webp'
+                  alt='Sidikoff Digital'
+                  width={180}
+                  height={45}
+                  priority
+                  unoptimized
+                  className='h-10 w-auto lg:h-12'
+                />
+              </Link>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className='hidden md:flex items-center space-x-8'>
               {navigation.map((item) => (
                 <div key={item.href}>
                   <Link
                     href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] focus:outline-none focus:ring-0 focus:border-none outline-none ${
+                    className={`text-base font-medium transition-all duration-300 px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none ${
                       isActive(item)
                         ? 'bg-[#3F72AF] text-white'
-                        : 'hover:bg-[#DBE2EF]/50 hover:text-[#3F72AF]'
-                    }`}>
+                        : 'hover:text-[#3F72AF] hover:bg-[#DBE2EF]/30'
+                    }`}
+                    style={{ outline: 'none !important', boxShadow: 'none !important' }}>
                     {item.label}
                   </Link>
                 </div>
               ))}
+
+              {/* Language Switcher */}
+              <LanguageSwitcher currentLocale={locale} dict={dictionary} />
             </div>
-          </motion.div>
-        )}
-      </nav>
-    </motion.header>
+
+            {/* Mobile Controls */}
+            <div className='md:hidden flex items-center space-x-2'>
+              {/* Mobile Language Switcher */}
+              <div className='scale-90'>
+                <LanguageSwitcher currentLocale={locale} dict={dictionary} />
+              </div>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className='p-2 rounded-lg transition-all duration-300 bg-[#DBE2EF] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white focus:outline-none outline-none'
+                aria-label='Toggle menu'>
+                {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className='absolute top-full left-3.5 xs:left-4 right-3.5 xs:right-4 md:hidden z-[110] rounded-b-3xl'
+              style={{
+                background: 'rgba(249, 247, 247, 0.8)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              }}>
+              <div className='py-4 space-y-2 px-4'>
+                {navigation.map((item) => (
+                  <div key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] focus:outline-none focus:ring-0 focus:border-none outline-none ${
+                        isActive(item)
+                          ? 'bg-[#3F72AF] text-white'
+                          : 'hover:bg-[#DBE2EF]/50 hover:text-[#3F72AF]'
+                      }`}>
+                      {item.label}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </nav>
+      </motion.header>
     </>
   )
 }
