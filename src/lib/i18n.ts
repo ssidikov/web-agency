@@ -1,14 +1,12 @@
-import { notFound } from 'next/navigation'
+export type Locale = 'fr' | 'en' | 'ru'
 
-export type Locale = 'en' | 'fr' | 'ru'
-
-export const locales: Locale[] = ['en', 'fr', 'ru']
-export const defaultLocale: Locale = 'en'
+export const locales: Locale[] = ['fr', 'en', 'ru']
+export const defaultLocale: Locale = 'fr'
 
 // Language metadata
 export const languageNames = {
   en: 'English',
-  fr: 'Français',
+  fr: 'Français', 
   ru: 'Русский',
 }
 
@@ -21,51 +19,6 @@ export const languageFlags = {
 // Check if locale is valid
 export function isValidLocale(locale: string): locale is Locale {
   return locales.includes(locale as Locale)
-}
-
-// Get dictionary for a locale
-export async function getDictionary(locale: Locale) {
-  if (!isValidLocale(locale)) {
-    notFound()
-  }
-
-  try {
-    const dictionary = await import(`../../locales/${locale}/common.json`)
-    return dictionary.default
-  } catch (error) {
-    console.error(`Failed to load dictionary for locale: ${locale}`, error)
-    // Fallback to default locale
-    if (locale !== defaultLocale) {
-      return getDictionary(defaultLocale)
-    }
-    throw new Error(`Failed to load default dictionary`)
-  }
-}
-
-// Get user's preferred language from browser
-export function getPreferredLocale(acceptLanguage?: string): Locale {
-  if (!acceptLanguage) return defaultLocale
-
-  // Parse Accept-Language header
-  const languages = acceptLanguage
-    .split(',')
-    .map((lang) => {
-      const [code, quality = '1'] = lang.trim().split(';q=')
-      return {
-        code: code.toLowerCase().split('-')[0], // Extract language code (en from en-US)
-        quality: parseFloat(quality),
-      }
-    })
-    .sort((a, b) => b.quality - a.quality) // Sort by quality
-
-  // Find first matching locale
-  for (const { code } of languages) {
-    if (isValidLocale(code)) {
-      return code
-    }
-  }
-
-  return defaultLocale
 }
 
 // Get locale from pathname
@@ -107,25 +60,6 @@ export function getAlternateUrls(pathname: string, baseUrl: string = '') {
     url: `${baseUrl}${addLocaleToPathname(cleanPath, locale)}`,
     hreflang: locale === 'en' ? 'en-US' : locale === 'fr' ? 'fr-FR' : 'ru-RU',
   }))
-}
-
-// Translation hook type
-export type Dictionary = Awaited<ReturnType<typeof getDictionary>>
-
-// Utility to get nested translation
-export function getNestedTranslation(dict: Dictionary, key: string, fallback?: string): string {
-  const keys = key.split('.')
-  let current: unknown = dict
-
-  for (const k of keys) {
-    if (current && typeof current === 'object' && current !== null && k in current) {
-      current = (current as Record<string, unknown>)[k]
-    } else {
-      return fallback || key
-    }
-  }
-
-  return typeof current === 'string' ? current : fallback || key
 }
 
 // Format number based on locale

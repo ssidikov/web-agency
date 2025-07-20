@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { contactData } from '@/data/contact'
-import { Dictionary } from '@/lib/i18n'
+import { Dictionary } from '@/lib/dictionaries'
 
 interface ContactProps {
   dictionary: Dictionary

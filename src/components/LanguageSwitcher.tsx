@@ -3,7 +3,8 @@
 import { usePathname, useRouter } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { type Locale, locales, languageNames, languageFlags, getLocaleFromPathname, removeLocaleFromPathname, addLocaleToPathname, Dictionary } from '@/lib/i18n'
+import { type Locale, locales, languageNames, languageFlags, getLocaleFromPathname, removeLocaleFromPathname, addLocaleToPathname } from '@/lib/i18n'
+import { Dictionary } from '@/lib/dictionaries'
 
 interface LanguageSwitcherProps {
   currentLocale: Locale

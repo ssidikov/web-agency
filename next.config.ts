@@ -3,14 +3,7 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   // Enable experimental features for better performance
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['framer-motion', 'lucide-react'],
-  },
-
-  // Turbopack configuration (now stable)
-  turbopack: {
-    // Turbopack has built-in SVG handling optimizations
-    // No custom loaders needed for better compatibility
   },
 
   // Internationalization

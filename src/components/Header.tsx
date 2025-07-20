@@ -5,7 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Dictionary, Locale } from '@/lib/i18n'
+import { Locale } from '@/lib/i18n'
+import { Dictionary } from '@/lib/dictionaries'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 interface HeaderProps {

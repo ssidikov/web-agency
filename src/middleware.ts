@@ -1,41 +1,38 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { 
-  locales, 
-  getPreferredLocale, 
-  isValidLocale, 
-  getLocaleFromPathname,
-  addLocaleToPathname 
-} from './lib/i18n'
+import { locales } from './lib/i18n'
+import { getLocale } from './lib/locale-detection'
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname
+  const { pathname } = request.nextUrl
   
-  // Check if pathname already has a locale
+  // Skip middleware for static files and API routes
+  if (
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.includes('.') ||
+    pathname.startsWith('/favicon') ||
+    pathname.startsWith('/robots') ||
+    pathname.startsWith('/sitemap')
+  ) {
+    return enhanceResponse(NextResponse.next())
+  }
+  
+  // Check if there is any supported locale in the pathname
   const pathnameHasLocale = locales.some(
-    locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )
 
+  // If pathname already has a locale, continue
+  if (pathnameHasLocale) {
+    return enhanceResponse(NextResponse.next())
+  }
+
   // If no locale in pathname, redirect to locale-specific URL
-  if (!pathnameHasLocale) {
-    // Get locale from Accept-Language header
-    const acceptLanguage = request.headers.get('Accept-Language')
-    const preferredLocale = getPreferredLocale(acceptLanguage || '')
-    
-    // Always redirect to locale-specific URL (including English)
-    const localeUrl = new URL(addLocaleToPathname(pathname, preferredLocale), request.url)
-    return NextResponse.redirect(localeUrl)
-  }
-
-  // Validate locale in pathname
-  const locale = getLocaleFromPathname(pathname)
-  if (locale && !isValidLocale(locale)) {
-    // Invalid locale, redirect to default
-    const cleanPath = pathname.replace(`/${locale}`, '')
-    const defaultUrl = new URL(cleanPath || '/', request.url)
-    return NextResponse.redirect(defaultUrl)
-  }
-
-  return enhanceResponse(NextResponse.next())
+  // But for French (default), we redirect to the localized path  
+  const locale = getLocale(request)
+  const newUrl = new URL(`/${locale}${pathname}`, request.url)
+  
+  return enhanceResponse(NextResponse.redirect(newUrl))
 }
 
 function enhanceResponse(response: NextResponse) {
@@ -69,6 +66,6 @@ function enhanceResponse(response: NextResponse) {
 export const config = {
   matcher: [
     // Skip all internal paths (_next, api, etc) and static files
-    '/((?!api|_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|robots.txt|sitemap.xml|manifest.json|browserconfig.xml|logo-sidikoff.webp|.*\\.ico|.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.gif|.*\\.webp|.*\\.svg).*)',
+    '/((?!_next|api|favicon.ico|robots.txt|sitemap.xml|manifest.json|.*\\..*).*)',
   ],
 }

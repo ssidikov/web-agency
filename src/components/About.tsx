@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Dictionary } from '@/lib/i18n'
+import { Dictionary } from '@/lib/dictionaries'
 import {
   InnovationIcon,
   QualityIcon,
@@ -121,7 +121,7 @@ const About: React.FC<AboutProps> = ({ dictionary }) => {
           {/* Values Section */}
           <motion.div variants={itemVariants}>
             <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">
-              {dictionary.about.valuesTitle}
+              {dictionary.about.values.title}
             </h3>
             <div className="grid md:grid-cols-3 gap-8">
               {values.map((value, index) => {

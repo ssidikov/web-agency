@@ -10,18 +10,25 @@ import {
   Contact, 
   Footer 
 } from '@/components';
+import { type Locale } from '@/lib/i18n';
+import { Dictionary } from '@/lib/dictionaries';
 
-export default function HomePage() {
+interface ExampleHomePageProps {
+  dictionary: Dictionary;
+  locale: Locale;
+}
+
+export default function ExampleHomePage({ dictionary, locale }: ExampleHomePageProps) {
   return (
     <>
-      <Header />
+      <Header dictionary={dictionary} locale={locale} />
       <main>
-        <Hero />
-        <About />
-        <Services />
-        <Portfolio />
-        <FAQ />
-        <Contact />
+        <Hero dict={dictionary} locale={locale} />
+        <About dictionary={dictionary} />
+        <Services dictionary={dictionary} />
+        <Portfolio dictionary={dictionary} />
+        <FAQ dictionary={dictionary} />
+        <Contact dictionary={dictionary} />
       </main>
       <Footer />
     </>

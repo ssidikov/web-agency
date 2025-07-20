@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Dictionary } from '@/lib/i18n';
+import { Dictionary } from '@/lib/dictionaries';
 import {
   WebDevelopmentIcon,
   MobileDevIcon,

@@ -1,32 +1,44 @@
 import { Metadata } from 'next';
 import { SeoMetadata } from '@/types';
+import { Locale } from './i18n';
 
 const defaultMetadata: SeoMetadata = {
   title: 'Agency - Digital Innovation & Design',
   description: 'A modern digital agency creating exceptional web experiences through innovative design and development. Get started with your next project today.',
   keywords: ['digital agency', 'web design', 'web development', 'ui/ux design', 'branding', 'next.js', 'react', 'tailwind css'],
   image: '/og-image.jpg',
-  url: 'https://your-domain.com',
+  url: 'https://sidikoff.com',
   type: 'website',
 };
 
-export function generateMetadata(customMeta?: Partial<SeoMetadata>): Metadata {
+export function generateMetadata(
+  customMeta?: Partial<SeoMetadata>, 
+  locale?: Locale,
+  pathname?: string
+): Metadata {
   const meta = { ...defaultMetadata, ...customMeta };
+  const baseUrl = 'https://sidikoff.com';
+  
+  // Generate alternate language URLs  
+  const cleanPath = pathname?.replace(/^\/(fr|en|ru)/, '') || '/';
+  const alternateLanguages: Record<string, string> = {
+    'fr-FR': `${baseUrl}/fr${cleanPath}`,
+    'en-US': `${baseUrl}/en${cleanPath}`, 
+    'ru-RU': `${baseUrl}/ru${cleanPath}`,
+    'x-default': `${baseUrl}/fr${cleanPath}`, // x-default points to French (default)
+  };
   
   return {
     title: meta.title,
     description: meta.description,
     keywords: meta.keywords,
-    authors: [{ name: 'Agency Team', url: 'https://your-domain.com' }],
+    authors: [{ name: 'Agency Team', url: baseUrl }],
     creator: 'Agency',
     publisher: 'Agency',
-    metadataBase: new URL('https://your-domain.com'),
+    metadataBase: new URL(baseUrl),
     alternates: {
       canonical: meta.url,
-      languages: {
-        'en-US': '/en-US',
-        'en-GB': '/en-GB',
-      },
+      languages: alternateLanguages,
     },
     
     openGraph: {

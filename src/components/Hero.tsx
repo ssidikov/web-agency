@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { Dictionary, Locale } from '@/lib/i18n'
+import { Locale } from '@/lib/i18n'
+import { Dictionary } from '@/lib/dictionaries'
 
 interface HeroProps {
   dict: Dictionary

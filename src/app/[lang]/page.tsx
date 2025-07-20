@@ -1,16 +1,17 @@
-import { getDictionary, type Locale } from '@/lib/i18n'
+import { type Locale } from '@/lib/i18n'
+import { getDictionary } from '@/lib/dictionaries'
 import { Hero, Services, Portfolio, FAQ } from '@/components'
 import About from '@/components/About'
 import Contact from '@/components/Contact'
 
-export default async function LocaleHomePage({
+export default async function LocalePage({
   params,
 }: {
-  params: Promise<{ locale: Locale }>
+  params: Promise<{ lang: Locale }>
 }) {
   // Await params before using its properties
-  const { locale } = await params
-  const dict = await getDictionary(locale)
+  const { lang } = await params
+  const dict = await getDictionary(lang)
 
   // Debug: Check if dictionary is loaded properly
   if (!dict || !dict.about || !dict.about.title) {
@@ -20,7 +21,7 @@ export default async function LocaleHomePage({
 
   return (
     <>
-      <Hero dict={dict} locale={locale} />
+      <Hero dict={dict} locale={lang} />
       <About dictionary={dict} />
       <Services dictionary={dict} />
       <Portfolio dictionary={dict} />
