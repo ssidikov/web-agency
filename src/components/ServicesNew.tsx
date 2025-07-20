@@ -59,11 +59,238 @@ export function Services() {
 
       {/* Floating geometric elements */}
       <div className='absolute inset-0 overflow-hidden'>
-        {/* Large circles */}
-        <div className='absolute top-20 left-10 w-32 h-32 bg-blue-200/20 rounded-full blur-xl' />
-        <div className='absolute top-40 right-20 w-48 h-48 bg-indigo-200/15 rounded-full blur-xl' />
-        <div className='absolute bottom-40 left-1/4 w-40 h-40 bg-purple-200/20 rounded-full blur-xl' />
-        <div className='absolute bottom-20 right-1/3 w-36 h-36 bg-blue-300/15 rounded-full blur-xl' />
+        {/* Large soft circles with animation */}
+        <motion.div 
+          className='absolute top-20 left-10 w-32 h-32 bg-blue-200/20 rounded-full blur-xl'
+          animate={{
+            y: [0, -20, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className='absolute top-40 right-20 w-48 h-48 bg-indigo-200/15 rounded-full blur-xl'
+          animate={{
+            x: [0, 15, 0],
+            y: [0, -10, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className='absolute bottom-40 left-1/4 w-40 h-40 bg-purple-200/20 rounded-full blur-xl'
+          animate={{
+            y: [0, 15, 0],
+            scale: [1, 0.9, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className='absolute bottom-20 right-1/3 w-36 h-36 bg-blue-300/15 rounded-full blur-xl'
+          animate={{
+            x: [0, -20, 0],
+            y: [0, 10, 0],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        {/* Animated geometric shapes */}
+        <motion.div 
+          className='absolute top-32 left-1/2 w-24 h-24 bg-gradient-to-br from-blue-300/20 to-indigo-300/15 rounded-lg blur-sm'
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        <motion.div 
+          className='absolute top-60 right-1/4 w-16 h-16 bg-gradient-to-tl from-purple-300/25 to-blue-200/20 rounded-full'
+          animate={{
+            y: [0, -15, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className='absolute bottom-60 left-20 w-20 h-20 bg-gradient-to-r from-indigo-200/30 to-blue-300/15 rounded-lg blur-sm'
+          animate={{
+            rotate: [0, -180, 0],
+            x: [0, 10, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className='absolute bottom-32 right-16 w-14 h-14 bg-gradient-to-bl from-blue-400/20 to-purple-300/15 rounded-full blur-sm'
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.3, 0.7, 0.3],
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        {/* Animated triangle shapes */}
+        <motion.div 
+          className='absolute top-1/3 left-16 w-0 h-0 border-l-[20px] border-r-[20px] border-b-[35px] border-l-transparent border-r-transparent border-b-blue-300/20 blur-sm'
+          animate={{
+            rotate: [0, 360],
+            y: [0, -10, 0],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className='absolute top-2/3 right-24 w-0 h-0 border-l-[15px] border-r-[15px] border-b-[26px] border-l-transparent border-r-transparent border-b-indigo-300/25 blur-sm'
+          animate={{
+            rotate: [180, 540],
+            x: [0, 15, 0],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        {/* Animated hexagon shapes */}
+        <motion.div 
+          className='absolute top-1/4 right-1/3 w-12 h-12 bg-gradient-to-tr from-blue-300/20 to-purple-200/15 blur-sm' 
+          style={{clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)'}}
+          animate={{
+            rotate: [0, 120, 240, 360],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className='absolute bottom-1/4 left-1/3 w-10 h-10 bg-gradient-to-bl from-indigo-300/25 to-blue-200/20 blur-sm' 
+          style={{clipPath: 'polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%)'}}
+          animate={{
+            rotate: [360, 240, 120, 0],
+            y: [0, -8, 0],
+          }}
+          transition={{
+            duration: 13,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        {/* Animated decorative dots */}
+        <motion.div 
+          className='absolute top-24 left-1/3 w-3 h-3 bg-blue-400/30 rounded-full'
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.3, 0.8, 0.3],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className='absolute top-48 right-1/2 w-2 h-2 bg-indigo-400/35 rounded-full'
+          animate={{
+            y: [0, -12, 0],
+            scale: [1, 1.3, 1],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        <motion.div 
+          className='absolute bottom-24 left-1/2 w-4 h-4 bg-purple-400/25 rounded-full'
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.25, 0.6, 0.25],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+        <motion.div 
+          className='absolute bottom-48 right-1/4 w-3 h-3 bg-blue-300/30 rounded-full'
+          animate={{
+            x: [0, 8, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5
+          }}
+        />
+        <motion.div 
+          className='absolute top-72 left-24 w-2 h-2 bg-indigo-300/40 rounded-full'
+          animate={{
+            scale: [1, 1.6, 1],
+            opacity: [0.4, 0.9, 0.4],
+          }}
+          transition={{
+            duration: 3.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.5
+          }}
+        />
+        <motion.div 
+          className='absolute bottom-72 right-32 w-3 h-3 bg-blue-400/25 rounded-full'
+          animate={{
+            y: [0, 10, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 3
+          }}
+        />
         
         {/* Subtle pattern overlay */}
         <div className='absolute inset-0 opacity-5'>
