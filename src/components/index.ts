@@ -4,7 +4,6 @@ export { Footer } from './FooterNew'
 
 // Section Components
 export { Hero } from './Hero'
-export { default as About } from './About'
 export { Services } from './ServicesNew'
 export { Portfolio } from './PortfolioNew'
 export { FAQ } from './FAQNew'

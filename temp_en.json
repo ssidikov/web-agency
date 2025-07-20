@@ -1,14 +1,8 @@
+﻿
 {
-  "404": {
-    "title": "Page Not Found",
-    "description": "The page you're looking for doesn't exist or has been moved.",
-    "search_placeholder": "Search our site...",
-    "search_button": "Search",
-    "go_home": "Go Home",
-    "popular_pages": "Popular Pages"
-  },
   "navigation": {
     "home": "Home",
+    "about": "About",
     "services": "Services",
     "portfolio": "Portfolio",
     "faq": "FAQ",
@@ -18,7 +12,8 @@
   "hero": {
     "badge": "New: Launch your project in 14 days",
     "title": "Custom web solutions to digitize your services",
-    "subtitle": "Personalized websites, professional design, visible and profitable, that generate real results for your business — more traffic, more clients, more impact.",
+    "subtitle": "Personalized websites, professional design, visible and profitable, that generate real 
+results for your business â€” more traffic, more clients, more impact.",
     "cta_primary": "Discuss the project",
     "cta_secondary": "View Our Work",
     "features": [
@@ -35,6 +30,98 @@
         "icon": "support"
       }
     ]
+  },
+    "title": "About Our Company",
+    "subtitle": "Dedicated to Excellence in Digital Innovation",
+    "description": "We are a team of passionate professionals committed to delivering exceptional digital 
+solutions that help businesses thrive in the modern marketplace.",
+    "story": {
+      "title": "Our Story",
+      "paragraph1": "Founded in 2020, we started as a small team of passionate developers and designers with 
+a simple mission: to help businesses succeed in the digital world.",
+      "paragraph2": "Over the years, we've grown into a full-service digital agency, but we've never lost 
+sight of our core values: innovation, quality, and partnership.",
+      "paragraph3": "Today, we're proud to work with clients across various industries, delivering solutions 
+that drive real business results."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To empower businesses with cutting-edge digital solutions that drive growth, enhance 
+user experiences, and create lasting value in an ever-evolving technological landscape."
+    },
+    "stats": [
+      {
+        "value": "100+",
+        "label": "Projects Completed"
+      },
+      {
+        "value": "50+",
+        "label": "Happy Clients"
+      },
+      {
+        "value": "5+",
+        "label": "Years Experience"
+      },
+      {
+        "value": "24/7",
+        "label": "Support Available"
+      }
+    ],
+    "values": {
+      "title": "Our Values",
+      "innovation": {
+        "title": "Innovation",
+        "description": "We embrace cutting-edge technologies and creative solutions."
+      },
+      "quality": {
+        "title": "Quality",
+        "description": "We deliver exceptional results with attention to detail."
+      },
+      "partnership": {
+        "title": "Partnership",
+        "description": "We work closely with clients to achieve their goals."
+      }
+    },
+    "timeline": {
+      "title": "Our Journey",
+      "items": {
+        "founded": {
+          "year": "2020",
+          "title": "Company Founded",
+          "description": "Started with a vision to transform digital experiences."
+        },
+        "growth": {
+          "year": "2022",
+          "title": "Rapid Growth",
+          "description": "Expanded our team and service offerings significantly."
+        },
+        "recognition": {
+          "year": "2024",
+          "title": "Industry Recognition",
+          "description": "Received multiple awards for innovation and excellence."
+        }
+      }
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "members": {
+        "ceo": {
+          "name": "Sarah Johnson",
+          "role": "CEO & Founder",
+          "description": "Visionary leader with 10+ years in digital innovation."
+        },
+        "cto": {
+          "name": "Michael Chen",
+          "role": "CTO",
+          "description": "Technical expert specializing in scalable solutions."
+        },
+        "designer": {
+          "name": "Emma Davis",
+          "role": "Lead Designer",
+          "description": "Creative professional focused on user experience."
+        }
+      }
+    }
   },
   "services": {
     "title": "Our Services",
@@ -145,32 +232,38 @@
     "questions": {
       "what_we_do": {
         "question": "What services do you offer?",
-        "answer": "We offer comprehensive digital solutions including web development, mobile app development, digital marketing, and technology consulting.",
+        "answer": "We offer comprehensive digital solutions including web development, mobile app 
+development, digital marketing, and technology consulting.",
         "category": "general"
       },
       "timeline": {
         "question": "How long does a typical project take?",
-        "answer": "Project timelines vary depending on scope and complexity. A simple website typically takes 4-6 weeks, while complex applications may take 3-6 months.",
+        "answer": "Project timelines vary depending on scope and complexity. A simple website typically takes 
+4-6 weeks, while complex applications may take 3-6 months.",
         "category": "general"
       },
       "pricing_model": {
         "question": "How do you structure your pricing?",
-        "answer": "We offer flexible pricing models including fixed-price projects, hourly rates, and retainer agreements based on your specific needs.",
+        "answer": "We offer flexible pricing models including fixed-price projects, hourly rates, and 
+retainer agreements based on your specific needs.",
         "category": "pricing"
       },
       "support_included": {
         "question": "Is ongoing support included?",
-        "answer": "Yes, we provide ongoing support and maintenance packages to ensure your digital solutions continue to perform optimally.",
+        "answer": "Yes, we provide ongoing support and maintenance packages to ensure your digital solutions 
+continue to perform optimally.",
         "category": "support"
       },
       "technologies": {
         "question": "What technologies do you use?",
-        "answer": "We use modern technologies including React, Next.js, Node.js, Python, and cloud platforms like AWS and Vercel.",
+        "answer": "We use modern technologies including React, Next.js, Node.js, Python, and cloud platforms 
+like AWS and Vercel.",
         "category": "general"
       },
       "consultation": {
         "question": "Do you offer free consultations?",
-        "answer": "Yes, we offer a free initial consultation to discuss your project requirements and provide strategic recommendations.",
+        "answer": "Yes, we offer a free initial consultation to discuss your project requirements and provide 
+strategic recommendations.",
         "category": "pricing"
       }
     }
@@ -178,7 +271,8 @@
   "contact": {
     "title": "Get In Touch",
     "subtitle": "Ready to Start Your Project?",
-    "description": "Contact us today to discuss your project and see how we can help you achieve your digital goals.",
+    "description": "Contact us today to discuss your project and see how we can help you achieve your digital 
+goals.",
     "quickContact": "Quick Contact",
     "social": "Follow Us",
     "form": {
@@ -188,7 +282,7 @@
         "placeholder": "Enter your full name"
       },
       "email": {
-        "label": "Email Address",
+        "label": "Email Address", 
         "placeholder": "Enter your email address"
       },
       "phone": {
@@ -240,7 +334,15 @@
       "terms": "Terms of Service",
       "cookies": "Cookie Policy"
     },
-    "copyright": "© 2024 Your Company. All rights reserved."
+    "copyright": "Â© 2024 Your Company. All rights reserved."
+  },
+  "404": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "search_placeholder": "Search our site...",
+    "search_button": "Search",
+    "go_home": "Go Home",
+    "popular_pages": "Popular Pages"
   },
   "common": {
     "loading": "Loading...",
@@ -255,3 +357,5 @@
     "open": "Open"
   }
 }
+
+

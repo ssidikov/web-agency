@@ -38,15 +38,15 @@ const BackgroundAnimation = () => {
             className='absolute rounded-full opacity-10'
             style={{
               backgroundColor: '#3F72AF',
-              width: Math.random() * 300 + 50,
-              height: Math.random() * 300 + 50,
+              width: Math.random() * 200 + 30, // Smaller shapes for mobile
+              height: Math.random() * 200 + 30,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              x: [0, Math.random() * 100 - 50, 0],
-              y: [0, Math.random() * 100 - 50, 0],
-              scale: [1, Math.random() * 0.5 + 0.8, 1],
+              x: [0, Math.random() * 50 - 25, 0], // Less movement for mobile
+              y: [0, Math.random() * 50 - 25, 0],
+              scale: [1, Math.random() * 0.3 + 0.9, 1],
             }}
             transition={{
               duration: Math.random() * 10 + 10,
@@ -105,11 +105,11 @@ export function Hero({ dict, locale }: HeroProps) {
   }, [])
 
   return (
-    <section className='relative h-screen flex items-center justify-center overflow-hidden z-0 -mt-20'>
+    <section className='relative min-h-screen flex items-center justify-center overflow-hidden z-0 -mt-20 px-4 sm:px-6 lg:px-8'>
       <BackgroundAnimation />
 
       {/* Content */}
-      <div className='relative z-[5] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20'>
+      <div className='relative z-[5] max-w-7xl mx-auto text-center pt-28 pb-10'>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
@@ -119,14 +119,14 @@ export function Hero({ dict, locale }: HeroProps) {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className='inline-flex items-center px-6 py-3 rounded-full text-sm font-medium mb-8'
+            className='inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8 mx-4'
             style={{
               backgroundColor: '#DBE2EF',
               color: '#112D4E',
               border: '1px solid rgba(63, 114, 175, 0.2)',
             }}>
             <span
-              className='w-2 h-2 rounded-full mr-3 animate-pulse'
+              className='w-2 h-2 rounded-full mr-2 sm:mr-3 animate-pulse'
               style={{ backgroundColor: '#3F72AF' }}></span>
             {dict.hero.badge}
           </motion.div>
@@ -136,7 +136,7 @@ export function Hero({ dict, locale }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className='text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6'
+            className='text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6 px-4 leading-tight'
             style={{ color: '#112D4E' }}>
             {dict.hero.title}
           </motion.h1>
@@ -146,7 +146,7 @@ export function Hero({ dict, locale }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className='text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed font-medium'
+            className='text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed font-medium px-4'
             style={{ color: '#3F72AF' }}>
             {dict.hero.subtitle}
           </motion.p>
@@ -156,11 +156,11 @@ export function Hero({ dict, locale }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
+            className='flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4'>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href={`/${locale}#contact`}
-                className='inline-flex items-center px-8 py-4 text-lg font-medium text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl'
+                className='inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl min-w-[200px]'
                 style={{
                   backgroundColor: '#3F72AF',
                   border: '2px solid #3F72AF',
@@ -183,7 +183,7 @@ export function Hero({ dict, locale }: HeroProps) {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href={`/${locale}#portfolio`}
-                className='inline-flex items-center px-8 py-4 text-lg font-medium bg-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl'
+                className='inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium bg-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl min-w-[200px]'
                 style={{
                   color: '#3F72AF',
                   border: '2px solid #3F72AF',
@@ -209,7 +209,7 @@ export function Hero({ dict, locale }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className='mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto'>
+            className='mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto px-4'>
             {dict.hero.features?.map((feature: { title: string; icon: string }, index: number) => {
               const getIcon = (iconType: string) => {
                 switch (iconType) {
@@ -230,7 +230,7 @@ export function Hero({ dict, locale }: HeroProps) {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
                   transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                  className='flex items-center justify-center gap-3 p-6 rounded-2xl transition-all duration-500 hover:shadow-2xl'
+                  className='flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 p-4 sm:p-6 rounded-2xl transition-all duration-500 hover:shadow-2xl text-center sm:text-left'
                   style={{
                     background: 'rgba(255, 255, 255, 0.25)',
                     backdropFilter: 'blur(20px) saturate(180%)',
@@ -239,8 +239,12 @@ export function Hero({ dict, locale }: HeroProps) {
                     boxShadow:
                       '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 0 rgba(255, 255, 255, 0.2)',
                   }}>
-                  <div style={{ color: '#3F72AF' }}>{getIcon(feature.icon)}</div>
-                  <div className='text-lg font-medium' style={{ color: '#112D4E' }}>
+                  <div style={{ color: '#3F72AF' }} className='flex-shrink-0'>
+                    {getIcon(feature.icon)}
+                  </div>
+                  <div
+                    className='text-sm sm:text-base md:text-lg font-medium'
+                    style={{ color: '#112D4E' }}>
                     {feature.title}
                   </div>
                 </motion.div>

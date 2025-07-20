@@ -1,7 +1,6 @@
 {
   "navigation": {
     "home": "Accueil",
-    "about": "À propos",
     "services": "Services",
     "portfolio": "Portfolio",
     "faq": "FAQ",
@@ -28,94 +27,6 @@
         "icon": "support"
       }
     ]
-  },
-  "about": {
-    "title": "À Propos de Notre Entreprise",
-    "subtitle": "Dédiés à l'Excellence en Innovation Numérique",
-    "description": "Nous sommes une équipe de professionnels passionnés engagés à fournir des solutions numériques exceptionnelles qui aident les entreprises à prospérer dans le marché moderne.",
-    "story": {
-      "title": "Notre Histoire",
-      "paragraph1": "Fondée en 2020, nous avons commencé comme une petite équipe de développeurs et designers passionnés avec une mission simple : aider les entreprises à réussir dans le monde numérique.",
-      "paragraph2": "Au fil des années, nous sommes devenus une agence numérique de service complet, mais nous n'avons jamais perdu de vue nos valeurs fondamentales : innovation, qualité et partenariat.",
-      "paragraph3": "Aujourd'hui, nous sommes fiers de travailler avec des clients de diverses industries, livrant des solutions qui génèrent de vrais résultats commerciaux."
-    },
-    "mission": {
-      "title": "Notre Mission",
-      "description": "Autonomiser les entreprises avec des solutions numériques de pointe qui stimulent la croissance, améliorent les expériences utilisateur et créent une valeur durable dans un paysage technologique en constante évolution."
-    },
-    "stats": [
-      {
-        "value": "100+",
-        "label": "Projets Complétés"
-      },
-      {
-        "value": "50+",
-        "label": "Clients Satisfaits"
-      },
-      {
-        "value": "5+",
-        "label": "Années d'Expérience"
-      },
-      {
-        "value": "24/7",
-        "label": "Support Disponible"
-      }
-    ],
-    "values": {
-      "title": "Nos Valeurs",
-      "innovation": {
-        "title": "Innovation",
-        "description": "Nous adoptons les technologies de pointe et les solutions créatives."
-      },
-      "quality": {
-        "title": "Qualité",
-        "description": "Nous livrons des résultats exceptionnels avec attention aux détails."
-      },
-      "partnership": {
-        "title": "Partenariat",
-        "description": "Nous travaillons étroitement avec les clients pour atteindre leurs objectifs."
-      }
-    },
-    "timeline": {
-      "title": "Notre Parcours",
-      "items": {
-        "founded": {
-          "year": "2020",
-          "title": "Fondation de l'Entreprise",
-          "description": "Commencé avec une vision de transformer les expériences numériques."
-        },
-        "growth": {
-          "year": "2022",
-          "title": "Croissance Rapide",
-          "description": "Expansion significative de notre équipe et de nos offres de services."
-        },
-        "recognition": {
-          "year": "2024",
-          "title": "Reconnaissance Industrielle",
-          "description": "Réception de multiples prix pour l'innovation et l'excellence."
-        }
-      }
-    },
-    "team": {
-      "title": "Rencontrez Notre Équipe",
-      "members": {
-        "ceo": {
-          "name": "Sarah Johnson",
-          "role": "PDG et Fondatrice",
-          "description": "Leader visionnaire avec plus de 10 ans d'expérience en innovation numérique."
-        },
-        "cto": {
-          "name": "Michael Chen",
-          "role": "Directeur Technique",
-          "description": "Expert technique spécialisé dans les solutions évolutives."
-        },
-        "designer": {
-          "name": "Emma Davis",
-          "role": "Designer Principal",
-          "description": "Professionnelle créative axée sur l'expérience utilisateur."
-        }
-      }
-    }
   },
   "services": {
     "title": "Nos Services",

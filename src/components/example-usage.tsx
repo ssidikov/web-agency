@@ -3,7 +3,6 @@
 import { 
   Header, 
   Hero, 
-  About, 
   Services, 
   Portfolio, 
   FAQ, 
@@ -24,8 +23,7 @@ export default function ExampleHomePage({ dictionary, locale }: ExampleHomePageP
       <Header dictionary={dictionary} locale={locale} />
       <main>
         <Hero dict={dictionary} locale={locale} />
-        <About dictionary={dictionary} />
-        <Services dictionary={dictionary} />
+        <Services />
         <Portfolio dictionary={dictionary} />
         <FAQ dictionary={dictionary} />
         <Contact dictionary={dictionary} />

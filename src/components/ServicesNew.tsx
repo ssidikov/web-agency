@@ -1,110 +1,201 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-import { Dictionary } from '@/lib/dictionaries';
-import {
-  WebDevelopmentIcon,
-  MobileDevIcon,
-  DigitalMarketingIcon,
-  ConsultingIcon
-} from '@/components/icons';
+import { motion } from 'framer-motion'
 
-interface ServicesProps {
-  dictionary: Dictionary;
-}
-
-export function Services({ dictionary }: ServicesProps) {
+export function Services() {
   const services = [
     {
-      title: dictionary.services.web_development.title,
-      description: dictionary.services.web_development.description,
-      features: dictionary.services.web_development.features,
-      icon: WebDevelopmentIcon,
-      color: 'from-blue-500 to-cyan-500',
+      title: 'Création de Sites Web – De A à Z',
+      description:
+        "Chaque projet est conçu sur mesure pour répondre précisément à vos besoins. J'assure toute la chaîne : conception, développement, mise en ligne et suivi.",
+      image: '/images/web-creation.jpg',
+      alt: 'Création de sites web sur mesure',
     },
     {
-      title: dictionary.services.mobile_development.title,
-      description: dictionary.services.mobile_development.description,
-      features: dictionary.services.mobile_development.features,
-      icon: MobileDevIcon,
-      color: 'from-purple-500 to-pink-500',
+      title: 'Refonte / Redesign',
+      description:
+        "Redonnez une nouvelle jeunesse à votre site existant ! Améliorez l'ergonomie, modernisez l'esthétique et optimisez la performance pour offrir une expérience utilisateur irréprochable.",
+      image: '/images/website-redesign.jpg',
+      alt: 'Refonte et redesign de sites web',
     },
     {
-      title: dictionary.services.digital_marketing.title,
-      description: dictionary.services.digital_marketing.description,
-      features: dictionary.services.digital_marketing.features,
-      icon: DigitalMarketingIcon,
-      color: 'from-green-500 to-teal-500',
+      title: 'SEO & Optimisation de la Visibilité',
+      description:
+        "Faites-vous trouver par vos clients. J'optimise le référencement naturel (SEO) de votre site grâce à des techniques éprouvées, un code allégé et une structure adaptée, afin de booster votre visibilité sur Google.",
+      image: '/images/seo-optimization.jpg',
+      alt: 'Optimisation SEO et référencement',
     },
     {
-      title: dictionary.services.consulting.title,
-      description: dictionary.services.consulting.description,
-      features: dictionary.services.consulting.features,
-      icon: ConsultingIcon,
-      color: 'from-orange-500 to-red-500',
+      title: 'Maintenance & Support',
+      description:
+        "Profitez d'un accompagnement continu : support technique, mise à jour, modification ou ajout de nouvelles fonctionnalités selon vos besoins. Une facturation horaire ou sur demande ponctuelle pour un service flexible et évolutif.",
+      image: '/images/maintenance-support.jpg',
+      alt: 'Maintenance et support technique',
     },
-  ];
+  ]
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <section id='services' className='py-20 bg-white'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            {dictionary.services.title}
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {dictionary.services.subtitle}
+          className='mb-16'>
+          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>Services</h2>
+          <p className='text-xl text-gray-600 max-w-2xl'>
+            Des solutions web accessibles et sur mesure pour votre entreprise
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-6`}>
-                  <Icon size={32} className="text-white" />
+        {/* Services Cards */}
+        <div className='space-y-12'>
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className='bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300'>
+              <div className='grid lg:grid-cols-2 gap-8 items-center'>
+                {/* Left Content */}
+                <div className='space-y-6'>
+                  <h3 className='text-2xl md:text-3xl font-bold text-gray-900'>{service.title}</h3>
+
+                  <p className='text-gray-600 text-lg leading-relaxed'>{service.description}</p>
+
+                  {/* CTA Buttons */}
+                  <div className='flex flex-col sm:flex-row gap-4 pt-4'>
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className='bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex-1 sm:flex-none'>
+                      Demander un devis
+                    </motion.button>
+
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className='border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex-1 sm:flex-none'>
+                      Voir les tarifs
+                    </motion.button>
+                  </div>
                 </div>
-                
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  {service.title}
-                </h3>
-                
-                <p className="text-gray-600 mb-6">
-                  {service.description}
-                </p>
-                
-                <ul className="space-y-2">
-                  {service.features.map((feature: string, idx: number) => (
-                    <li key={idx} className="flex items-center text-sm text-gray-600">
-                      <svg className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            );
-          })}
+
+                {/* Right Image Placeholder */}
+                <div className='relative'>
+                  <div className='aspect-[4/3] relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center'>
+                    <div className='text-center p-8'>
+                      <div className='w-16 h-16 bg-blue-500 rounded-xl mx-auto mb-4 flex items-center justify-center'>
+                        <svg
+                          className='w-8 h-8 text-white'
+                          fill='none'
+                          stroke='currentColor'
+                          viewBox='0 0 24 24'>
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth={2}
+                            d='M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z'
+                          />
+                        </svg>
+                      </div>
+                      <p className='text-blue-600 font-medium'>{service.alt}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
+        {/* CTA Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className='mt-20'>
+          <div className='relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-purple-700 min-h-[400px] flex items-center'>
+            {/* Background Image */}
+            <div className='absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/40'>
+              <div className='absolute inset-0 bg-gradient-to-br from-blue-100/10 to-purple-200/20 flex items-center justify-center'>
+                <div className='text-center opacity-20'>
+                  <svg
+                    className='w-32 h-32 mx-auto mb-4 text-white'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'>
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={1}
+                      d='M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+                    />
+                  </svg>
+                  <div className='text-6xl font-bold text-white'>&lt;/&gt;</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Content Grid */}
+            <div className='relative z-10 w-full px-8 py-12'>
+              <div className='grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto'>
+                {/* Left Side - Decorative Space */}
+                <div className='hidden lg:flex items-center justify-center'>
+                  <div className='text-center'>
+                    <div className='w-40 h-40 mx-auto mb-6 bg-white/10 rounded-3xl flex items-center justify-center backdrop-blur-sm'>
+                      <svg
+                        className='w-20 h-20 text-white'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={1.5}
+                          d='M13 10V3L4 14h7v7l9-11h-7z'
+                        />
+                      </svg>
+                    </div>
+                    <div className='text-white/60 text-lg font-medium'>Innovation</div>
+                  </div>
+                </div>
+
+                {/* Right Side - CTA Card */}
+                <div className='lg:ml-auto'>
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className='bg-white rounded-2xl p-8 shadow-2xl max-w-lg'>
+                    <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-tight'>
+                      Transformons ensemble vos idées en réalité numérique
+                    </h3>
+
+                    <p className='text-gray-600 text-lg leading-relaxed mb-8'>
+                      Nous accompagnons votre croissance digitale avec des solutions innovantes et
+                      sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment
+                      nous pouvons booster votre présence en ligne.
+                    </p>
+
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className='w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl'>
+                      Démarrer votre projet
+                    </motion.button>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
-  );
+  )
 }

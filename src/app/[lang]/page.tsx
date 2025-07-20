@@ -1,7 +1,6 @@
 import { type Locale } from '@/lib/i18n'
 import { getDictionary } from '@/lib/dictionaries'
 import { Hero, Services, Portfolio, FAQ } from '@/components'
-import About from '@/components/About'
 import Contact from '@/components/Contact'
 
 export default async function LocalePage({
@@ -14,7 +13,7 @@ export default async function LocalePage({
   const dict = await getDictionary(lang)
 
   // Debug: Check if dictionary is loaded properly
-  if (!dict || !dict.about || !dict.about.title) {
+  if (!dict) {
     console.error('Dictionary not loaded properly:', dict)
     return <div>Error: Dictionary not loaded</div>
   }
@@ -22,8 +21,7 @@ export default async function LocalePage({
   return (
     <>
       <Hero dict={dict} locale={lang} />
-      <About dictionary={dict} />
-      <Services dictionary={dict} />
+      <Services />
       <Portfolio dictionary={dict} />
       <FAQ dictionary={dict} />
       <Contact dictionary={dict} />

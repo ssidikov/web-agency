@@ -37,15 +37,6 @@ This directory contains all the reusable and animated UI components for the Next
   - Scroll indicator animation
 - **Usage**: `import { Hero } from '@/components'`
 
-#### About
-- **File**: `About.tsx`
-- **Features**:
-  - Interactive timeline with alternating layout
-  - Company values grid
-  - Team member cards with avatar placeholders
-  - Mission statement section
-- **Usage**: `import { About } from '@/components'`
-
 #### Services
 - **File**: `Services.tsx`
 - **Features**:
@@ -127,7 +118,7 @@ All components use **Framer Motion** for smooth animations:
 
 ### Basic Page Structure
 ```tsx
-import { Header, Hero, About, Services, Portfolio, FAQ, Contact, Footer } from '@/components';
+import { Header, Hero, Services, Portfolio, FAQ, Contact, Footer } from '@/components';
 
 export default function HomePage() {
   return (
@@ -135,7 +126,6 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        <About />
         <Services />
         <Portfolio />
         <FAQ />

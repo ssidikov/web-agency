@@ -37,7 +37,6 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
   const navigation = [
     { label: dictionary.navigation.home, href: `/${locale}`, section: '' },
-    { label: dictionary.navigation.about, href: `/${locale}#about`, section: 'about' },
     { label: dictionary.navigation.services, href: `/${locale}#services`, section: 'services' },
     { label: dictionary.navigation.portfolio, href: `/${locale}#portfolio`, section: 'portfolio' },
     { label: dictionary.navigation.faq, href: `/${locale}#faq`, section: 'faq' },
@@ -50,7 +49,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
       // Определяем активную секцию только если мы на главной странице
       if (pathname === `/${locale}` || pathname === `/${locale}/`) {
-        const sections = ['about', 'services', 'portfolio', 'faq', 'contact']
+        const sections = ['services', 'portfolio', 'faq', 'contact']
         let currentSection = ''
 
         // Если пользователь в самом верху страницы, активна главная
@@ -85,6 +84,34 @@ export function Header({ dictionary, locale }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [pathname, locale])
 
+  // Управляем скроллом body при открытии/закрытии меню
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+
+    // Cleanup при размонтировании компонента
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMenuOpen])
+
+  // Закрытие меню по ESC
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    if (isMenuOpen) {
+      document.addEventListener('keydown', handleEscape)
+      return () => document.removeEventListener('keydown', handleEscape)
+    }
+  }, [isMenuOpen])
+
   const isActive = (item: (typeof navigation)[0]) => {
     // Для главной страницы проверяем активную секцию
     if (pathname === `/${locale}` || pathname === `/${locale}/`) {
@@ -101,11 +128,24 @@ export function Header({ dictionary, locale }: HeaderProps) {
   }
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`sticky z-[100] transition-all duration-500 ${scrolled ? 'top-0' : 'top-4'}`}>
+    <>
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[100] md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className={`sticky z-[120] transition-all duration-500 ${scrolled ? 'top-0' : 'top-4'}`}>
       <nav className='container mx-auto relative z-[110] px-3.5 xs:px-4'>
         <div
           className={`flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 ${
@@ -157,8 +197,14 @@ export function Header({ dictionary, locale }: HeaderProps) {
             <LanguageSwitcher currentLocale={locale} dict={dictionary} />
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Controls */}
           <div className='md:hidden flex items-center space-x-2'>
+            {/* Mobile Language Switcher */}
+            <div className='scale-90'>
+              <LanguageSwitcher currentLocale={locale} dict={dictionary} />
+            </div>
+            
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className='p-2 rounded-lg transition-all duration-300 bg-[#DBE2EF] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white focus:outline-none outline-none'
@@ -169,41 +215,42 @@ export function Header({ dictionary, locale }: HeaderProps) {
         </div>
 
         {/* Mobile Menu */}
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{
-            opacity: isMenuOpen ? 1 : 0,
-            height: isMenuOpen ? 'auto' : 0,
-          }}
-          transition={{ duration: 0.3 }}
-          className={`md:hidden overflow-hidden mt-2 transition-all duration-500 ${
-            scrolled ? 'rounded-b-lg rounded-t-none' : 'rounded-lg'
-          }`}
-          style={{
-            background: 'rgba(249, 247, 247, 0.9)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            backdropFilter: 'blur(20px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-          }}>
-          <div className='py-4 space-y-2 px-4'>
-            {navigation.map((item) => (
-              <div key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] focus:outline-none focus:ring-0 focus:border-none outline-none ${
-                    isActive(item)
-                      ? 'bg-[#3F72AF] text-white'
-                      : 'hover:bg-[#DBE2EF]/50 hover:text-[#3F72AF]'
-                  }`}>
-                  {item.label}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className={`absolute top-full left-3.5 xs:left-4 right-3.5 xs:right-4 md:hidden z-[110] mt-2 transition-all duration-500 ${
+              scrolled ? 'rounded-b-lg rounded-t-none' : 'rounded-lg'
+            }`}
+            style={{
+              background: 'rgba(249, 247, 247, 0.95)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              backdropFilter: 'blur(20px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
+            }}>
+            <div className='py-4 space-y-2 px-4'>
+              {navigation.map((item) => (
+                <div key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] focus:outline-none focus:ring-0 focus:border-none outline-none ${
+                      isActive(item)
+                        ? 'bg-[#3F72AF] text-white'
+                        : 'hover:bg-[#DBE2EF]/50 hover:text-[#3F72AF]'
+                    }`}>
+                    {item.label}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </nav>
     </motion.header>
+    </>
   )
 }

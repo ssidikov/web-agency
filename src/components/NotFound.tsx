@@ -57,7 +57,6 @@ const ArrowLeftIcon = () => (
 
 const suggestions = [
   { name: 'Home', href: '/', icon: HomeIcon },
-  { name: 'About', href: '/about', icon: () => <span className="text-2xl">👋</span> },
   { name: 'Services', href: '/services', icon: () => <span className="text-2xl">⚡</span> },
   { name: 'Portfolio', href: '/portfolio', icon: () => <span className="text-2xl">🎨</span> },
   { name: 'Contact', href: '/contact', icon: () => <span className="text-2xl">📧</span> },
