@@ -71,16 +71,8 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
 
   return (
     <section ref={ref} id="contact" className="py-24 relative overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/images/contact/contact-us.jpg')`,
-        }}
-      />
-      
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-blue-50/85"></div>
+      {/* Clean gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20"></div>
       
       {/* Pattern overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50"></div>
@@ -93,7 +85,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
           className="max-w-7xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-20">
+          <motion.div variants={itemVariants} className="text-left mb-20">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-black rounded-2xl mb-6">
               <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -102,7 +94,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
               {dictionary.contact.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
               {dictionary.contact.subtitle}
             </p>
           </motion.div>
@@ -172,7 +164,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    className="group relative w-full bg-black hover:bg-gray-800 disabled:bg-gray-400 text-white font-semibold py-5 px-8 rounded-2xl transition-all duration-300 overflow-hidden"
+                    className="group relative w-full bg-black hover:bg-gray-800 disabled:bg-gray-400 text-white font-semibold py-5 px-8 rounded-2xl transition-all duration-300 overflow-hidden cursor-pointer"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

@@ -158,7 +158,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                 : 'rounded-full'
             }`}
             style={{
-              background: 'rgba(249, 247, 247, 0.8)',
+              background: 'rgba(249, 247, 247, 0.5)',
               border: '1px solid rgba(255, 255, 255, 0.2)',
               backdropFilter: 'blur(20px) saturate(180%)',
               WebkitBackdropFilter: 'blur(20px) saturate(180%)',
@@ -168,7 +168,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
             <div>
               <Link
                 href='/'
-                className='flex items-center transition-all duration-300 focus:outline-none outline-none'
+                className='flex items-center transition-all duration-300 focus:outline-none outline-none cursor-pointer'
                 style={{ outline: 'none !important', boxShadow: 'none !important' }}>
                 <Image
                   src='/logo-sidikoff.webp'
@@ -188,7 +188,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                 <div key={item.href}>
                   <Link
                     href={item.href}
-                    className={`text-base font-medium transition-all duration-300 px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none ${
+                    className={`text-base font-medium transition-all duration-300 px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none cursor-pointer ${
                       isActive(item)
                         ? 'bg-[#3F72AF] text-white'
                         : 'hover:text-[#3F72AF] hover:bg-[#DBE2EF]/30'
@@ -213,7 +213,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className='p-2 rounded-lg transition-all duration-300 bg-[#DBE2EF] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white focus:outline-none outline-none'
+                className='p-2 rounded-lg transition-all duration-300 bg-[#DBE2EF] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white focus:outline-none outline-none cursor-pointer'
                 aria-label='Toggle menu'>
                 {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
               </button>
@@ -241,7 +241,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                     <Link
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] focus:outline-none focus:ring-0 focus:border-none outline-none ${
+                      className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] focus:outline-none focus:ring-0 focus:border-none outline-none cursor-pointer ${
                         isActive(item)
                           ? 'bg-[#3F72AF] text-white'
                           : 'hover:bg-[#DBE2EF]/50 hover:text-[#3F72AF]'

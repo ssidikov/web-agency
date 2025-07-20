@@ -59,7 +59,7 @@ export function Footer() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="p-2 rounded-full bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white transition-colors duration-200"
+                  className="p-2 rounded-full bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white transition-colors duration-200 cursor-pointer"
                   aria-label={link.name}
                 >
                   {link.icon}
@@ -83,7 +83,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-blue-400 transition-colors duration-200"
+                    className="text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer"
                   >
                     {link.name}
                   </Link>
@@ -107,7 +107,7 @@ export function Footer() {
                 <li key={service}>
                   <Link
                     href="/services"
-                    className="text-gray-300 hover:text-blue-400 transition-colors duration-200"
+                    className="text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer"
                   >
                     {service}
                   </Link>
@@ -151,13 +151,13 @@ export function Footer() {
             <div className="flex space-x-6">
               <Link
                 href="/privacy"
-                className="text-gray-300 hover:text-blue-400 text-sm transition-colors duration-200"
+                className="text-gray-300 hover:text-blue-400 text-sm transition-colors duration-200 cursor-pointer"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-gray-300 hover:text-blue-400 text-sm transition-colors duration-200"
+                className="text-gray-300 hover:text-blue-400 text-sm transition-colors duration-200 cursor-pointer"
               >
                 Terms of Service
               </Link>

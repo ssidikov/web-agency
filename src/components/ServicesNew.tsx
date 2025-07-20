@@ -37,16 +37,16 @@ export function Services() {
 
   return (
     <section id='services' className='py-20 bg-white'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='container mx-auto px-4'>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className='mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-gray-900 mb-6'>Services</h2>
-          <p className='text-xl text-gray-600 max-w-2xl'>
+          className='mb-16 text-left'>
+          <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>Services</h2>
+          <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>
             Des solutions web accessibles et sur mesure pour votre entreprise
           </p>
         </motion.div>
@@ -73,14 +73,14 @@ export function Services() {
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className='bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex-1 sm:flex-none'>
+                      className='bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex-1 sm:flex-none cursor-pointer'>
                       Demander un devis
                     </motion.button>
 
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className='border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex-1 sm:flex-none'>
+                      className='border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-xl font-semibold text-lg transition-colors duration-200 flex-1 sm:flex-none cursor-pointer'>
                       Voir les tarifs
                     </motion.button>
                   </div>
@@ -116,16 +116,16 @@ export function Services() {
           className='mt-20'>
           <div className='relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-purple-700 min-h-[400px] flex items-center'>
             {/* Background Image */}
-            <div 
+            <div
               className='absolute inset-0 bg-cover bg-center bg-no-repeat'
               style={{
                 backgroundImage: `url('/images/services/cta-background.jpg')`,
               }}
             />
-            
+
             {/* Overlay */}
             <div className='absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/70' />
-            
+
             {/* Pattern Overlay */}
             <div className='absolute inset-0 opacity-10'>
               <div className='absolute inset-0 bg-gradient-to-br from-white/20 to-transparent' />
@@ -177,7 +177,7 @@ export function Services() {
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className='w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl'>
+                      className='w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl cursor-pointer'>
                       Démarrer votre projet
                     </motion.button>
                   </motion.div>

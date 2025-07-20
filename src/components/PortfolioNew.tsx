@@ -85,12 +85,12 @@ export function Portfolio({ dictionary }: PortfolioProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-left mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
             {portfolioData.title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
             {portfolioData.subtitle}
           </p>
         </motion.div>
@@ -108,7 +108,7 @@ export function Portfolio({ dictionary }: PortfolioProps) {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                className={`px-6 py-2 rounded-full transition-all duration-300 cursor-pointer ${
                   activeFilter === filter
                     ? 'bg-blue-600 text-white shadow-md'
                     : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
@@ -188,13 +188,13 @@ export function Portfolio({ dictionary }: PortfolioProps) {
                   <div className="flex gap-3">
                     <Link
                       href={project.link}
-                      className="flex-1 bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm font-semibold"
+                      className="flex-1 bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm font-semibold cursor-pointer"
                     >
                       {portfolioData.view_project}
                     </Link>
                     <Link
                       href={project.link}
-                      className="flex-1 border border-gray-300 text-gray-700 text-center py-2 px-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors text-sm font-semibold"
+                      className="flex-1 border border-gray-300 text-gray-700 text-center py-2 px-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors text-sm font-semibold cursor-pointer"
                     >
                       {portfolioData.live_demo}
                     </Link>

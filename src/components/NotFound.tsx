@@ -138,10 +138,10 @@ export function NotFound() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
             Oops! Page not found
           </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
             The page you&apos;re looking for doesn&apos;t exist. It might have been moved, deleted, or you entered the wrong URL.
           </p>
           

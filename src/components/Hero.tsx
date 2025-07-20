@@ -22,22 +22,14 @@ const BackgroundAnimation = () => {
 
   return (
     <div className='absolute inset-0 overflow-hidden'>
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/images/hero/hero-bg.jpg')`,
-        }}
-      />
-      
-      {/* Overlay with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/80 to-blue-50/70" />
-      
+      {/* Clean gradient background */}
+      <div className='absolute inset-0 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30' />
+
       {/* Animated gradient overlay */}
       <div
-        className='absolute inset-0 animate-pulse opacity-30'
+        className='absolute inset-0 animate-pulse opacity-20'
         style={{
-          background: `linear-gradient(135deg, #F9F7F7 0%, #DBE2EF 50%, #F9F7F7 100%)`,
+          background: `linear-gradient(135deg, #DBE2EF 0%, #3F72AF/10 50%, #DBE2EF 100%)`,
         }}
       />
 
@@ -171,7 +163,7 @@ export function Hero({ dict, locale }: HeroProps) {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href={`/${locale}#contact`}
-                className='inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl min-w-[200px]'
+                className='inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl min-w-[200px] cursor-pointer'
                 style={{
                   backgroundColor: '#3F72AF',
                   border: '2px solid #3F72AF',
@@ -194,7 +186,7 @@ export function Hero({ dict, locale }: HeroProps) {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href={`/${locale}#portfolio`}
-                className='inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium bg-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl min-w-[200px]'
+                className='inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium bg-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl min-w-[200px] cursor-pointer'
                 style={{
                   color: '#3F72AF',
                   border: '2px solid #3F72AF',
@@ -239,7 +231,7 @@ export function Hero({ dict, locale }: HeroProps) {
                 <motion.div
                   key={feature.title}
                   initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
+                  animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.5 }}
                   transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
                   className='flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 p-4 sm:p-6 rounded-2xl transition-all duration-500 hover:shadow-2xl text-center sm:text-left'
                   style={{

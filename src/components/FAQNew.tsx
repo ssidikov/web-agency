@@ -52,12 +52,12 @@ export function FAQ({ dictionary }: FAQProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-left mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
             {faqData.title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
             {faqData.subtitle}
           </p>
         </motion.div>
@@ -73,7 +73,7 @@ export function FAQ({ dictionary }: FAQProps) {
           <div className="flex flex-wrap gap-2 bg-gray-100 rounded-full p-2">
             <button
               onClick={() => setActiveCategory('all')}
-              className={`px-6 py-2 rounded-full transition-all duration-300 ${
+              className={`px-6 py-2 rounded-full transition-all duration-300 cursor-pointer ${
                 activeCategory === 'all'
                   ? 'bg-blue-600 text-white shadow-md'
                   : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
@@ -85,7 +85,7 @@ export function FAQ({ dictionary }: FAQProps) {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 ${
+                className={`px-6 py-2 rounded-full transition-all duration-300 cursor-pointer ${
                   activeCategory === category
                     ? 'bg-blue-600 text-white shadow-md'
                     : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
@@ -111,7 +111,7 @@ export function FAQ({ dictionary }: FAQProps) {
               >
                 <button
                   onClick={() => toggleQuestion(questionId)}
-                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors duration-200"
+                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
                 >
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
