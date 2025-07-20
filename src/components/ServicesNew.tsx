@@ -45,7 +45,9 @@ export function Services() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className='mb-16 text-left'>
-          <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>Services</h2>
+          <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
+            Services
+          </h2>
           <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>
             Des solutions web accessibles et sur mesure pour votre entreprise
           </p>
