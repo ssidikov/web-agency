@@ -8,7 +8,7 @@ export function Services() {
     {
       title: 'Création de Sites Web – De A à Z',
       description:
-        "Chaque projet est conçu sur mesure pour répondre précisément à vos besoins. J'assure toute la chaîne : conception, développement, mise en ligne et suivi.",
+        "Transformez votre vision en réalité digitale avec notre expertise complète en développement web. Nous créons des sites web modernes, rapides et optimisés pour le référencement Google. De la conception UX/UI à la mise en ligne, chaque projet est développé sur mesure avec les dernières technologies (React, Next.js, WordPress). Obtenez un site professionnel qui convertit vos visiteurs en clients et booste votre chiffre d'affaires dès le premier mois.",
       image: '/images/services/web-development.jpg',
       alt: 'Création de sites web sur mesure',
       badges: ['Sur mesure', 'Responsive'],
@@ -16,7 +16,7 @@ export function Services() {
     {
       title: 'Refonte / Redesign',
       description:
-        "Redonnez une nouvelle jeunesse à votre site existant ! Améliorez l'ergonomie, modernisez l'esthétique et optimisez la performance pour offrir une expérience utilisateur irréprochable.",
+        "Votre site web actuel ne génère pas assez de ventes ? Notre service de refonte transforme votre présence en ligne en machine à convertir. Nous analysons votre taux de conversion, optimisons l'expérience utilisateur et modernisons le design pour doubler vos résultats. Interface mobile-first, vitesse de chargement optimisée, parcours utilisateur fluide - tout est pensé pour maximiser vos revenus et réduire le taux de rebond de 40%.",
       image: '/images/services/website-redesign.jpg',
       alt: 'Refonte et redesign de sites web',
       badges: ['Modernisation', 'UX/UI'],
@@ -24,15 +24,15 @@ export function Services() {
     {
       title: 'SEO & Optimisation de la Visibilité',
       description:
-        "Faites-vous trouver par vos clients. J'optimise le référencement naturel (SEO) de votre site grâce à des techniques éprouvées, un code allégé et une structure adaptée, afin de booster votre visibilité sur Google.",
-      image: '/images/services/seo-optimization.jpg',
+        'Dominez la première page Google et multipliez votre trafic organique par 5 en 6 mois. Notre stratégie SEO complète inclut : audit technique approfondi, optimisation on-page, création de contenu optimisé, netlinking de qualité et suivi des performances. Nous ciblons les mots-clés rentables de votre secteur pour attirer des prospects qualifiés.',
+      image: '/images/services/seo-1.jpg',
       alt: 'Optimisation SEO et référencement',
       badges: ['Google Ready', 'Analytics'],
     },
     {
       title: 'Maintenance & Support',
       description:
-        "Profitez d'un accompagnement continu : support technique, mise à jour, modification ou ajout de nouvelles fonctionnalités selon vos besoins. Une facturation horaire ou sur demande ponctuelle pour un service flexible et évolutif.",
+        'Protégez votre investissement digital avec notre service de maintenance premium. Sécurité renforcée, sauvegardes automatiques, mises à jour régulières, monitoring 24/7 et support prioritaire. Nous garantissons 99.9% de disponibilité et un temps de réponse inférieur à 2h. Évitez les pannes coûteuses et concentrez-vous sur votre business pendant que nous maintenons votre site en parfait état de fonctionnement.',
       image: '/images/services/maintenance-support.jpg',
       alt: 'Maintenance et support technique',
       badges: ['24/7 Support', 'Mises à jour'],
@@ -327,29 +327,20 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className='bg-white/90 backdrop-blur-sm border border-white/30 rounded-2xl p-10 shadow-xl hover:shadow-2xl hover:bg-white/95 transition-all duration-300'>
+              className='bg-white/90 backdrop-blur-sm border border-white/30 rounded-2xl p-4 md:p-10 shadow-xl hover:shadow-2xl hover:bg-white/95 transition-all duration-300'>
               <div className='grid lg:grid-cols-2 gap-8 items-center'>
                 {/* Right Image - First on mobile */}
                 <div className='relative order-1 lg:order-2'>
-                  <div className='aspect-[4/3] relative overflow-hidden rounded-2xl'>
+                  <div className='aspect-[4/3] relative overflow-hidden rounded-2xl max-h-48 md:max-h-fit w-full'>
                     <Image
                       src={service.image}
                       alt={service.alt}
                       width={600}
                       height={450}
-                      className='w-full h-full object-cover transition-transform duration-300 hover:scale-105'
-                      placeholder='blur'
-                      blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k='
+                      className='w-full h-full object-cover'
                       priority={index < 2}
-                      onError={(e) => {
-                        console.log(`Failed to load image: ${service.image}`)
-                        e.currentTarget.src = '/images/logo-sidikoff.svg'
-                      }}
                     />
                     <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent' />
-                    <div className='absolute bottom-4 left-4 text-white font-medium bg-black/20 backdrop-blur-sm px-3 py-1 rounded-lg'>
-                      {service.alt}
-                    </div>
                   </div>
                 </div>
 
@@ -369,8 +360,7 @@ export function Services() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.3, delay: 0.1 + badgeIndex * 0.1 }}
                           viewport={{ once: true }}
-                          className='inline-flex items-center justify-center px -4 py-2 md:px-8 md:py-6 rounded-full text-sm md:text-xl font-medium border border-blue-200/50 cursor-default'>
-                          <span className='w-2 h-2 md:w-2.5 md:h-2.5 bg-blue-500 rounded-full mr-2 md:mr-3'></span>
+                          className='inline-flex items-center justify-center px-6 py-4 md:px-8 md:py-6 rounded-full text-sm md:text-xl font-medium border border-blue-200/50 cursor-default'>
                           <span className='text-center'>{badge}</span>
                         </motion.span>
                       ))}
@@ -414,78 +404,118 @@ export function Services() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className='mt-20'>
-          <div className='relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-purple-700 min-h-[400px] flex items-center'>
-            {/* Background Image */}
-            <div className='absolute inset-0'>
-              <Image
-                src='/images/services/cta-background.jpg'
-                alt='CTA Background'
-                fill
-                className='object-cover'
-                priority={false}
-                onError={(e) => {
-                  console.log('CTA background image failed to load')
-                  e.currentTarget.style.display = 'none'
-                }}
-              />
-            </div>
+          {/* Mobile Card Version */}
+          <div className='lg:hidden'>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className='bg-white rounded-2xl shadow-2xl overflow-hidden mx-auto max-w-md'>
+              {/* Image at top */}
+              <div className='relative h-48 w-full'>
+                <Image
+                  src='/images/services/cta-background-3.jpg'
+                  alt='CTA Background'
+                  fill
+                  className='object-cover'
+                  priority={false}
+                  onError={(e) => {
+                    console.log('CTA background image failed to load')
+                    e.currentTarget.style.display = 'none'
+                  }}
+                />
+                <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent' />
+              </div>
 
-            {/* Overlay */}
-            <div className='absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/70' />
+              {/* Content at bottom */}
+              <div className='p-6'>
+                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight'>
+                  Transformons ensemble vos idées en réalité numérique
+                </h3>
 
-            {/* Pattern Overlay */}
-            <div className='absolute inset-0 opacity-10'>
-              <div className='absolute inset-0 bg-gradient-to-br from-white/20 to-transparent' />
-              <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]' />
-            </div>
+                <p className='text-gray-600 text-base leading-relaxed mb-6'>
+                  Nous accompagnons votre croissance digitale avec des solutions innovantes et sur
+                  mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous
+                  pouvons booster votre présence en ligne.
+                </p>
 
-            {/* Content Grid */}
-            <div className='relative z-10 w-full px-8 py-12'>
-              <div className='grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto'>
-                {/* Left Side - Decorative Space */}
-                <div className='hidden lg:flex items-center justify-center'>
-                  <div className='text-center'>
-                    <div className='w-40 h-40 mx-auto mb-6 bg-white/10 rounded-3xl flex items-center justify-center backdrop-blur-sm'>
-                      <svg
-                        className='w-20 h-20 text-white'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'>
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={1.5}
-                          d='M13 10V3L4 14h7v7l9-11h-7z'
-                        />
-                      </svg>
-                    </div>
-                    <div className='text-white/60 text-lg font-medium'>Innovation</div>
-                  </div>
-                </div>
+                <motion.button
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className='relative w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-2xl cursor-pointer overflow-hidden group'>
+                  <div className='absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+                  <div className='absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
 
-                {/* Right Side - CTA Card */}
-                <div className='lg:ml-auto'>
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
-                    className='bg-white rounded-2xl p-8 shadow-2xl max-w-lg'>
-                    <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-tight'>
-                      Transformons ensemble vos idées en réalité numérique
-                    </h3>
+                  <span className='relative flex items-center justify-center gap-3'>
+                    <span>Démarrer votre projet</span>
+                    <svg
+                      className='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1'
+                      fill='none'
+                      stroke='currentColor'
+                      viewBox='0 0 24 24'>
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth={2}
+                        d='M17 8l4 4m0 0l-4 4m4-4H3'
+                      />
+                    </svg>
+                  </span>
+                </motion.button>
+              </div>
+            </motion.div>
+          </div>
 
-                    <p className='text-gray-600 text-lg leading-relaxed mb-8'>
-                      Nous accompagnons votre croissance digitale avec des solutions innovantes et
-                      sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment
-                      nous pouvons booster votre présence en ligne.
-                    </p>
+          {/* Desktop Version */}
+          <div className='hidden lg:block'>
+            <div className='relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-purple-700 min-h-[400px] flex items-center'>
+              {/* Background Image */}
+              <div className='absolute inset-0'>
+                <Image
+                  src='/images/services/cta-background-3.jpg'
+                  alt='CTA Background'
+                  fill
+                  className='object-fit object-cover'
+                  priority={false}
+                  onError={(e) => {
+                    console.log('CTA background image failed to load')
+                    e.currentTarget.style.display = 'none'
+                  }}
+                />
+              </div>
 
-                    <div className='space-y-4'>
+              {/* Pattern Overlay */}
+              <div className='absolute inset-0 opacity-10'>
+                <div className='absolute inset-0 bg-gradient-to-br from-white/20 to-transparent' />
+                <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:20px_20px]' />
+              </div>
+
+              {/* Content Grid */}
+              <div className='relative z-10 w-full px-8 py-12'>
+                <div className='flex justify-center lg:justify-end items-center max-w-7xl mx-auto'>
+                  {/* CTA Card - Right on desktop */}
+                  <div className='w-full max-w-2xl lg:max-w-3xl'>
+                    <motion.div
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      viewport={{ once: true }}
+                      className='bg-white rounded-2xl p-8 lg:p-12 shadow-2xl'>
+                      <h3 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:mb-8 leading-tight'>
+                        Transformons ensemble vos idées en réalité numérique
+                      </h3>
+
+                      <p className='text-gray-600 text-lg lg:text-xl leading-relaxed mb-8'>
+                        Nous accompagnons votre croissance digitale avec des solutions innovantes et
+                        sur mesure. Contactez-nous pour une consultation gratuite et découvrez
+                        comment nous pouvons booster votre présence en ligne.
+                      </p>
+
                       <motion.button
                         whileHover={{ scale: 1.02, y: -2 }}
                         whileTap={{ scale: 0.98 }}
-                        className='relative w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white px-8 py-5 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-2xl cursor-pointer overflow-hidden group'>
+                        className='relative w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white px-8 py-5 rounded-xl font-semibold text-lg lg:text-xl transition-all duration-300 shadow-lg hover:shadow-2xl cursor-pointer overflow-hidden group'>
                         {/* Animated background effect */}
                         <div className='absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
 
@@ -493,18 +523,6 @@ export function Services() {
                         <div className='absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
 
                         <span className='relative flex items-center justify-center gap-3'>
-                          <svg
-                            className='w-6 h-6 transition-transform duration-300 group-hover:scale-110'
-                            fill='none'
-                            stroke='currentColor'
-                            viewBox='0 0 24 24'>
-                            <path
-                              strokeLinecap='round'
-                              strokeLinejoin='round'
-                              strokeWidth={2}
-                              d='M13 10V3L4 14h7v7l9-11h-7z'
-                            />
-                          </svg>
                           <span className='text-xl'>Démarrer votre projet</span>
                           <svg
                             className='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1'
@@ -520,29 +538,8 @@ export function Services() {
                           </svg>
                         </span>
                       </motion.button>
-
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className='relative w-full bg-white/90 hover:bg-white text-gray-700 hover:text-gray-900 px-8 py-4 rounded-xl font-medium text-lg transition-all duration-200 border border-white/50 hover:border-white shadow-md hover:shadow-lg cursor-pointer group'>
-                        <span className='flex items-center justify-center gap-2'>
-                          <svg
-                            className='w-5 h-5 transition-transform duration-300 group-hover:scale-110'
-                            fill='none'
-                            stroke='currentColor'
-                            viewBox='0 0 24 24'>
-                            <path
-                              strokeLinecap='round'
-                              strokeLinejoin='round'
-                              strokeWidth={2}
-                              d='M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z'
-                            />
-                          </svg>
-                          Consultation gratuite
-                        </span>
-                      </motion.button>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </div>
                 </div>
               </div>
             </div>
