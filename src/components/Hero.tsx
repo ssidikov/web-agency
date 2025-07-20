@@ -22,6 +22,13 @@ const BackgroundAnimation = () => {
 
   return (
     <div className='absolute inset-0 overflow-hidden'>
+      {/* Background Image */}
+      <div
+        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+        style={{
+          backgroundImage: `url('/images/hero/hero.svg')`,
+        }}
+      />
       {/* Clean gradient background */}
       <div className='absolute inset-0 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30' />
 
