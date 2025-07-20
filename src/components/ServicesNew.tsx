@@ -37,21 +37,38 @@ export function Services() {
 
   return (
     <section id='services' className='relative py-20 overflow-hidden'>
-      {/* Background Image - Hero SVG repeating */}
-      <div
-        className='absolute inset-0 w-full h-full bg-repeat-y object-cover'
-        style={{
-          backgroundImage: `url('/images/services/pattern-2.jpg')`,
-          backgroundSize: '100% auto',
-        }}
-      />
+      {/* Beautiful gradient background that continues from Hero */}
+      <div className='absolute inset-0'>
+        {/* Main gradient background */}
+        <div className='absolute inset-0 bg-gradient-to-b from-indigo-50/30 via-blue-50/20 to-white/90' />
+        
+        {/* Secondary gradient overlay */}
+        <div className='absolute inset-0 bg-gradient-to-br from-blue-50/40 via-indigo-50/30 to-purple-50/20' />
+        
+        {/* Animated gradient waves */}
+        <div 
+          className='absolute inset-0 opacity-30 animate-pulse'
+          style={{
+            background: `linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.1) 50%, transparent 70%),
+                        linear-gradient(-45deg, transparent 30%, rgba(99, 102, 241, 0.1) 50%, transparent 70%)`,
+            backgroundSize: '200% 200%',
+            animation: 'gradient-shift 15s ease-in-out infinite',
+          }}
+        />
+      </div>
 
-      {/* Background Overlay */}
-      <div className='absolute inset-0 bg-gradient-to-br from-white/95 via-blue-50/80 to-indigo-50/60' />
-
-      {/* Pattern Overlay */}
-      <div className='absolute inset-0 opacity-5 z-[3]'>
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,rgba(59,130,246,0.3)_2px,transparent_0)] bg-[length:40px_40px]' />
+      {/* Floating geometric elements */}
+      <div className='absolute inset-0 overflow-hidden'>
+        {/* Large circles */}
+        <div className='absolute top-20 left-10 w-32 h-32 bg-blue-200/20 rounded-full blur-xl' />
+        <div className='absolute top-40 right-20 w-48 h-48 bg-indigo-200/15 rounded-full blur-xl' />
+        <div className='absolute bottom-40 left-1/4 w-40 h-40 bg-purple-200/20 rounded-full blur-xl' />
+        <div className='absolute bottom-20 right-1/3 w-36 h-36 bg-blue-300/15 rounded-full blur-xl' />
+        
+        {/* Subtle pattern overlay */}
+        <div className='absolute inset-0 opacity-5'>
+          <div className='absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,rgba(59,130,246,0.4)_1px,transparent_0)] bg-[length:60px_60px]' />
+        </div>
       </div>
 
       <div className='relative z-10 container mx-auto px-4'>
