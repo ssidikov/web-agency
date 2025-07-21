@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { portfolioItems, portfolioCategories } from '@/data/portfolio'
+import { portfolioItems } from '@/data/portfolio'
 
 interface PortfolioProps {
   dictionary: {
@@ -45,18 +45,16 @@ export function Portfolio({ dictionary }: PortfolioProps) {
     ...Array.from(
       new Set(
         portfolioItems.flatMap((item) =>
-          [item.featured ? 'featured' : null, item.category].filter(Boolean)
+          [item.featured ? 'featured' : undefined, item.category].filter(
+            (tag): tag is string => typeof tag === 'string'
+          )
         )
       )
     ),
   ]
 
   const filteredProjects =
-    activeTag === 'all'
-      ? portfolioItems
-      : activeTag === 'featured'
-      ? portfolioItems.filter((item) => item.featured)
-      : portfolioItems.filter((item) => item.category === activeTag)
+    portfolioItems.filter((item) => item.featured).slice(0, 2)
 
   return (
     <section id='portfolio' className='py-20 bg-gray-50'>
@@ -100,7 +98,7 @@ export function Portfolio({ dictionary }: PortfolioProps) {
         </motion.div>
 
         {/* Portfolio Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -118,11 +116,9 @@ export function Portfolio({ dictionary }: PortfolioProps) {
                   className='w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105'
                 />
                 <div className='absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300' />
-                {project.featured && (
-                  <div className='absolute top-4 left-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold'>
-                    #featured
-                  </div>
-                )}
+                <div className='absolute top-4 left-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold'>
+                  #featured
+                </div>
               </div>
 
               <div className='p-6'>
@@ -166,15 +162,13 @@ export function Portfolio({ dictionary }: PortfolioProps) {
             </motion.div>
           ))}
         </div>
-
-        {filteredProjects.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className='text-center py-12'>
-            <p className='text-gray-500 text-lg'>Aucun projet trouvé pour ce hashtag.</p>
-          </motion.div>
-        )}
+        <div className='flex justify-center mt-10'>
+          <Link
+            href='/projects'
+            className='bg-brand-primary text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-brand-primary hover:border hover:border-brand-primary transition-all duration-300'>
+            Показать все проекты
+          </Link>
+        </div>
       </div>
     </section>
   )
