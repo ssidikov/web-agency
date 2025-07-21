@@ -327,7 +327,7 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className='bg-white/90 backdrop-blur-sm border border-white/30 rounded-2xl p-4 md:p-10 shadow-xl hover:shadow-2xl hover:bg-white/95 transition-all duration-300'>
+              className='gap-30px sm:gap-10 xl:gap-16 3xl:gap-20 bg-white rounded-2xl lg:rounded-22px 3xl:rounded-30px px-5 py-7 sm:p-30px lg:p-10 3xl:p-12'>
               <div className='grid lg:grid-cols-2 gap-8 items-center'>
                 {/* Right Image - First on mobile */}
                 <div className='relative order-1 lg:order-2'>
@@ -352,7 +352,7 @@ export function Services() {
                     </h3>
 
                     {/* Feature Badges */}
-                    <div className='grid grid-cols-2 gap-2 md:flex md:flex-wrap mb-4'>
+                    <div className='grid grid-cols-2 gap-2 md:flex md:flex-wrap'>
                       {service.badges.map((badge, badgeIndex) => (
                         <motion.span
                           key={badgeIndex}
@@ -370,26 +370,19 @@ export function Services() {
                   <p className='text-gray-600 text-lg leading-relaxed'>{service.description}</p>
 
                   {/* Enhanced CTA Buttons */}
-                  <div className='flex flex-col sm:flex-row gap-4 pt-6'>
-                    <motion.button
-                      whileHover={{ scale: 1.02, y: -1 }}
-                      whileTap={{ scale: 0.98 }}
-                      className='relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 flex-1 sm:flex-none cursor-pointer shadow-lg hover:shadow-xl overflow-hidden group'>
-                      <div className='absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200'></div>
+                  <div className='flex flex-col sm:flex-row gap-4'>
+                    <button className='group relative bg-black hover:bg-white text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer'>
                       <span className='relative flex items-center justify-center'>
                         Demander un devis
                       </span>
-                    </motion.button>
+                    </button>
 
-                    <motion.button
-                      whileHover={{ scale: 1.02, y: -1 }}
-                      whileTap={{ scale: 0.98 }}
-                      className='relative border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 flex-1 sm:flex-none cursor-pointer group overflow-hidden'>
+                    <button className='relative text-brand-primary border border-black hover:bg-black hover:text-white transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer'>
                       <div className='absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-0 transition-opacity duration-200'></div>
                       <span className='relative flex items-center justify-center'>
                         Voir les tarifs
                       </span>
-                    </motion.button>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -430,7 +423,7 @@ export function Services() {
 
               {/* Content at bottom */}
               <div className='p-6'>
-                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight'>
+                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight text-[32px] sm:text-[40px] lg:lg:text-6xl 3xl:text-[80px]'>
                   Transformons ensemble vos idées en réalité numérique
                 </h3>
 
@@ -512,32 +505,11 @@ export function Services() {
                         comment nous pouvons booster votre présence en ligne.
                       </p>
 
-                      <motion.button
-                        whileHover={{ scale: 1.02, y: -2 }}
-                        whileTap={{ scale: 0.98 }}
-                        className='relative w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white px-8 py-5 rounded-xl font-semibold text-lg lg:text-xl transition-all duration-300 shadow-lg hover:shadow-2xl cursor-pointer overflow-hidden group'>
-                        {/* Animated background effect */}
-                        <div className='absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-
-                        {/* Subtle pattern overlay */}
-                        <div className='absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-
+                      <button className='group relative bg-black hover:bg-white text-white hover:text-black border border-black transition-all duration-300 w-full text-lg 3xl:text-22 whitespace-nowrap px-6 lg:px-8 cursor-pointer h-[60px] sm:h-16 lg:h-20 lg:text-lg 3xl:text-22 font-medium rounded-full mt-5 sm:mt-10'>
                         <span className='relative flex items-center justify-center gap-3'>
                           <span className='text-xl'>Démarrer votre projet</span>
-                          <svg
-                            className='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1'
-                            fill='none'
-                            stroke='currentColor'
-                            viewBox='0 0 24 24'>
-                            <path
-                              strokeLinecap='round'
-                              strokeLinejoin='round'
-                              strokeWidth={2}
-                              d='M17 8l4 4m0 0l-4 4m4-4H3'
-                            />
-                          </svg>
                         </span>
-                      </motion.button>
+                      </button>
                     </motion.div>
                   </div>
                 </div>
