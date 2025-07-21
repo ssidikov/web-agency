@@ -9,7 +9,7 @@ export function Services() {
       title: 'Création de Sites Web – De A à Z',
       description:
         "Transformez votre vision en réalité digitale avec notre expertise complète en développement web. Nous créons des sites web modernes, rapides et optimisés pour le référencement Google. De la conception UX/UI à la mise en ligne, chaque projet est développé sur mesure avec les dernières technologies (React, Next.js, WordPress). Obtenez un site professionnel qui convertit vos visiteurs en clients et booste votre chiffre d'affaires dès le premier mois.",
-      image: '/images/services/web-development.jpg',
+      image: '/images/services/web-development-5.jpg',
       alt: 'Création de sites web sur mesure',
       badges: ['Sur mesure', 'Responsive'],
     },
@@ -17,7 +17,7 @@ export function Services() {
       title: 'Refonte / Redesign',
       description:
         "Votre site web actuel ne génère pas assez de ventes ? Notre service de refonte transforme votre présence en ligne en machine à convertir. Nous analysons votre taux de conversion, optimisons l'expérience utilisateur et modernisons le design pour doubler vos résultats. Interface mobile-first, vitesse de chargement optimisée, parcours utilisateur fluide - tout est pensé pour maximiser vos revenus et réduire le taux de rebond de 40%.",
-      image: '/images/services/website-redesign.jpg',
+      image: '/images/services/website-redesign-1.jpg',
       alt: 'Refonte et redesign de sites web',
       badges: ['Modernisation', 'UX/UI'],
     },
@@ -25,7 +25,7 @@ export function Services() {
       title: 'SEO & Optimisation de la Visibilité',
       description:
         'Dominez la première page Google et multipliez votre trafic organique par 5 en 6 mois. Notre stratégie SEO complète inclut : audit technique approfondi, optimisation on-page, création de contenu optimisé, netlinking de qualité et suivi des performances. Nous ciblons les mots-clés rentables de votre secteur pour attirer des prospects qualifiés.',
-      image: '/images/services/seo-6.jpg',
+      image: '/images/services/seo-8.jpg',
       alt: 'Optimisation SEO et référencement',
       badges: ['Google Ready', 'Analytics'],
     },
@@ -33,7 +33,7 @@ export function Services() {
       title: 'Maintenance & Support',
       description:
         'Protégez votre investissement digital avec notre service de maintenance premium. Sécurité renforcée, sauvegardes automatiques, mises à jour régulières, monitoring 24/7 et support prioritaire. Nous garantissons 99.9% de disponibilité et un temps de réponse inférieur à 2h. Évitez les pannes coûteuses et concentrez-vous sur votre business pendant que nous maintenons votre site en parfait état de fonctionnement.',
-      image: '/images/services/maintenance-support-2.jpg',
+      image: '/images/services/maintenance-support-4.jpg',
       alt: 'Maintenance et support technique',
       badges: ['24/7 Support', 'Mises à jour'],
     },
@@ -337,7 +337,7 @@ export function Services() {
                       alt={service.alt}
                       width={900}
                       height={600}
-                      className='w-full h-full object-cover'
+                      className='object-cover w-full h-full'
                       priority={index < 2}
                     />
                     <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent' />
@@ -466,15 +466,11 @@ export function Services() {
               {/* Background Image */}
               <div className='absolute inset-0'>
                 <Image
-                  src='/images/services/cta-background-3.jpg'
+                  src='/images/services/cta-background-21.jpg'
                   alt='CTA Background'
                   fill
-                  className='object-fit object-cover'
+                  className='object-cover'
                   priority={false}
-                  onError={(e) => {
-                    console.log('CTA background image failed to load')
-                    e.currentTarget.style.display = 'none'
-                  }}
                 />
               </div>
 
