@@ -89,8 +89,8 @@ export function Portfolio({ dictionary }: PortfolioProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className='flex justify-center mb-12'>
-          <div className='no-scroll max-w-min overflow-auto'>
+          className='flex justify-start mb-12'>
+          <div className='no-scroll max-w-min overflow-auto mr-8'>
             <div className='min-w-max flex sm:flex-wrap gap-2.5'>
               {tags.map((tag, idx) => (
                 <button
