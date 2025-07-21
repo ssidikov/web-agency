@@ -25,7 +25,7 @@ export function Services() {
       title: 'SEO & Optimisation de la Visibilité',
       description:
         'Dominez la première page Google et multipliez votre trafic organique par 5 en 6 mois. Notre stratégie SEO complète inclut : audit technique approfondi, optimisation on-page, création de contenu optimisé, netlinking de qualité et suivi des performances. Nous ciblons les mots-clés rentables de votre secteur pour attirer des prospects qualifiés.',
-      image: '/images/services/seo-1.jpg',
+      image: '/images/services/seo-6.jpg',
       alt: 'Optimisation SEO et référencement',
       badges: ['Google Ready', 'Analytics'],
     },
@@ -33,7 +33,7 @@ export function Services() {
       title: 'Maintenance & Support',
       description:
         'Protégez votre investissement digital avec notre service de maintenance premium. Sécurité renforcée, sauvegardes automatiques, mises à jour régulières, monitoring 24/7 et support prioritaire. Nous garantissons 99.9% de disponibilité et un temps de réponse inférieur à 2h. Évitez les pannes coûteuses et concentrez-vous sur votre business pendant que nous maintenons votre site en parfait état de fonctionnement.',
-      image: '/images/services/maintenance-support.jpg',
+      image: '/images/services/maintenance-support-2.jpg',
       alt: 'Maintenance et support technique',
       badges: ['24/7 Support', 'Mises à jour'],
     },
@@ -335,8 +335,8 @@ export function Services() {
                     <Image
                       src={service.image}
                       alt={service.alt}
-                      width={600}
-                      height={450}
+                      width={900}
+                      height={600}
                       className='w-full h-full object-cover'
                       priority={index < 2}
                     />

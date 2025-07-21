@@ -152,10 +152,10 @@ export function Header({ dictionary, locale }: HeaderProps) {
               scrolled
                 ? isMenuOpen
                   ? 'rounded-t-none'
-                  : 'rounded-b-3xl rounded-t-none overflow-hidden'
+                  : 'rounded-b-3xl rounded-t-none'
                 : isMenuOpen
-                ? 'rounded-b-none '
-                : 'rounded-full'
+                ? 'rounded-b-none'
+                : 'rounded-full '
             }`}
             style={{
               background: 'rgba(249, 247, 247, 0.5)',
@@ -229,7 +229,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
               transition={{ duration: 0.2 }}
               className='absolute top-full left-3.5 xs:left-4 right-3.5 xs:right-4 md:hidden z-[110] rounded-b-3xl'
               style={{
-                background: 'rgba(249, 247, 247, 0.8)',
+                background: 'rgba(249, 247, 247, 0.5)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 backdropFilter: 'blur(20px) saturate(180%)',
                 WebkitBackdropFilter: 'blur(20px) saturate(180%)',

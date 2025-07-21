@@ -24,14 +24,16 @@ const BackgroundAnimation = () => {
   return (
     <div className='absolute inset-0 overflow-hidden'>
       {/* Background Image */}
-      <Image
-        src='/images/hero/hero.svg'
-        alt='Hero Background'
-        layout='fill'
-        objectFit='cover'
-        className='object-cover'
-        priority
-      />
+      <div className='absolute inset-0'>
+        <Image
+          src='/images/hero/hero.svg'
+          alt='Hero Background'
+          fill
+          className='object-cover w-full h-full'
+          priority
+          sizes='100vw'
+        />
+      </div>
       {/* Clean gradient background */}
       <div className='absolute inset-0 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30' />
 
