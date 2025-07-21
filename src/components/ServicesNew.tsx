@@ -490,7 +490,14 @@ export function Services() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: 0.2 }}
                       viewport={{ once: true }}
-                      className='bg-white rounded-2xl p-8 lg:p-12 shadow-2xl'>
+                      className='bg-white rounded-2xl p-8 lg:p-12 shadow-2xl'
+                      style={{
+                        background: 'rgba(249, 247, 247, 0.8)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        backdropFilter: 'blur(20px) saturate(180%)',
+                        WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+                      }}>
                       <h3 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:mb-8 leading-tight'>
                         Transformons ensemble vos idées en réalité numérique
                       </h3>
@@ -501,7 +508,7 @@ export function Services() {
                         comment nous pouvons booster votre présence en ligne.
                       </p>
 
-                      <button className='group relative bg-black hover:bg-white text-white hover:text-black border border-black transition-all duration-300 w-full text-lg 3xl:text-22 whitespace-nowrap px-6 lg:px-8 cursor-pointer h-[60px] sm:h-16 lg:h-20 lg:text-lg 3xl:text-22 font-medium rounded-full mt-5 sm:mt-10'>
+                      <button className='group relative bg-black hover:bg-transparent text-white hover:text-black border border-gray-400 transition-all duration-300 w-full text-lg 3xl:text-22 whitespace-nowrap px-6 lg:px-8 cursor-pointer h-[60px] sm:h-16 lg:h-20 lg:text-lg 3xl:text-22 font-medium rounded-full mt-5 sm:mt-10'>
                         <span className='relative flex items-center justify-center gap-3'>
                           <span className='text-xl'>Démarrer votre projet</span>
                         </span>
