@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { portfolioItems, portfolioCategories } from '@/data/portfolio'
 
 interface PortfolioProps {
   dictionary: {
@@ -30,7 +31,7 @@ interface PortfolioProps {
 }
 
 export function Portfolio({ dictionary }: PortfolioProps) {
-  const [activeFilter, setActiveFilter] = useState('all')
+  const [activeTag, setActiveTag] = useState<string>('all')
 
   const portfolioData = dictionary?.portfolio
 
@@ -38,45 +39,24 @@ export function Portfolio({ dictionary }: PortfolioProps) {
     return <div>Portfolio data not available</div>
   }
 
-  const projects = [
-    {
-      id: 'ecommerce',
-      category: 'web',
-      image: '/images/portfolio/ecommerce.jpg',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      link: '/portfolio/ecommerce-platform',
-      featured: true,
-    },
-    {
-      id: 'mobile_app',
-      category: 'mobile',
-      image: '/images/portfolio/mobile-app.jpg',
-      technologies: ['React Native', 'Firebase', 'WebRTC'],
-      link: '/portfolio/mobile-app',
-      featured: true,
-    },
-    {
-      id: 'brand_identity',
-      category: 'design',
-      image: '/images/portfolio/brand-identity.jpg',
-      technologies: ['Figma', 'Adobe CC', 'Branding'],
-      link: '/portfolio/brand-identity',
-      featured: false,
-    },
-    {
-      id: 'corporate_website',
-      category: 'web',
-      image: '/images/portfolio/corporate-website.jpg',
-      technologies: ['Next.js', 'TypeScript', 'Tailwind'],
-      link: '/portfolio/corporate-website',
-      featured: false,
-    },
+  // Категории из portfolioItems
+  const tags = [
+    'all',
+    ...Array.from(
+      new Set(
+        portfolioItems.flatMap((item) =>
+          [item.featured ? 'featured' : null, item.category].filter(Boolean)
+        )
+      )
+    ),
   ]
 
   const filteredProjects =
-    activeFilter === 'all'
-      ? projects
-      : projects.filter((project) => project.category === activeFilter)
+    activeTag === 'all'
+      ? portfolioItems
+      : activeTag === 'featured'
+      ? portfolioItems.filter((item) => item.featured)
+      : portfolioItems.filter((item) => item.category === activeTag)
 
   return (
     <section id='portfolio' className='py-20 bg-gray-50'>
@@ -88,14 +68,15 @@ export function Portfolio({ dictionary }: PortfolioProps) {
           transition={{ duration: 0.6 }}
           className='text-left mb-16'>
           <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
-            {portfolioData.title}
+            Nos réalisations
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>
-            {portfolioData.subtitle}
+            Explorez nos derniers projets mettant en valeur des techniques de développement web
+            modernes et des solutions innovantes.
           </p>
         </motion.div>
 
-        {/* Filter Buttons */}
+        {/* Filter Hashtags */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,16 +84,16 @@ export function Portfolio({ dictionary }: PortfolioProps) {
           transition={{ duration: 0.6, delay: 0.2 }}
           className='flex justify-center mb-12'>
           <div className='flex flex-wrap gap-2 bg-white rounded-full p-2 shadow-lg'>
-            {(['all', 'web', 'mobile', 'design'] as const).map((filter) => (
+            {tags.map((tag) => (
               <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
+                key={tag}
+                onClick={() => setActiveTag(tag)}
                 className={`px-6 py-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  activeFilter === filter
+                  activeTag === tag
                     ? 'bg-blue-600 text-white shadow-md'
                     : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
                 }`}>
-                {portfolioData.filter[filter]}
+                #{tag}
               </button>
             ))}
           </div>
@@ -120,86 +101,70 @@ export function Portfolio({ dictionary }: PortfolioProps) {
 
         {/* Portfolio Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {filteredProjects.map((project, index) => {
-            const projectData = portfolioData.projects[project.id]
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className='group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
+              <div className='relative overflow-hidden'>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={400}
+                  height={300}
+                  className='w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105'
+                />
+                <div className='absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300' />
+                {project.featured && (
+                  <div className='absolute top-4 left-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold'>
+                    #featured
+                  </div>
+                )}
+              </div>
 
-            return (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className='group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
-                <div className='relative overflow-hidden'>
-                  <Image
-                    src={project.image}
-                    alt={projectData?.title || project.id}
-                    width={400}
-                    height={300}
-                    className='w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105'
-                  />
-                  <div className='absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300' />
-                  {project.featured && (
-                    <div className='absolute top-4 left-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold'>
-                      Featured
-                    </div>
+              <div className='p-6'>
+                <div className='flex items-center gap-2 mb-3'>
+                  <span className='px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-800'>
+                    #{project.category}
+                  </span>
+                </div>
+
+                <h3 className='text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors'>
+                  {project.title}
+                </h3>
+
+                <p className='text-gray-600 mb-4 line-clamp-2'>{project.description}</p>
+
+                <div className='flex flex-wrap gap-2 mb-4'>
+                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className='px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs'>
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className='px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs'>
+                      +{project.technologies.length - 3}
+                    </span>
                   )}
                 </div>
 
-                <div className='p-6'>
-                  <div className='flex items-center gap-2 mb-3'>
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        project.category === 'web'
-                          ? 'bg-blue-100 text-blue-800'
-                          : project.category === 'mobile'
-                          ? 'bg-green-100 text-green-800'
-                          : 'bg-purple-100 text-purple-800'
-                      }`}>
-                      {portfolioData.filter[project.category as keyof typeof portfolioData.filter]}
-                    </span>
-                  </div>
-
-                  <h3 className='text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors'>
-                    {projectData?.title || project.id}
-                  </h3>
-
-                  <p className='text-gray-600 mb-4 line-clamp-2'>
-                    {projectData?.description || 'Project description'}
-                  </p>
-
-                  <div className='flex flex-wrap gap-2 mb-4'>
-                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className='px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs'>
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className='px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs'>
-                        +{project.technologies.length - 3}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className='flex gap-3'>
+                <div className='flex gap-3'>
+                  {project.url && (
                     <Link
-                      href={project.link}
+                      href={project.url}
                       className='flex-1 bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm font-semibold cursor-pointer'>
-                      {portfolioData.view_project}
+                      Voir le projet
                     </Link>
-                    <Link
-                      href={project.link}
-                      className='flex-1 border border-gray-300 text-gray-700 text-center py-2 px-4 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors text-sm font-semibold cursor-pointer'>
-                      {portfolioData.live_demo}
-                    </Link>
-                  </div>
+                  )}
                 </div>
-              </motion.div>
-            )
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {filteredProjects.length === 0 && (
@@ -207,7 +172,7 @@ export function Portfolio({ dictionary }: PortfolioProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className='text-center py-12'>
-            <p className='text-gray-500 text-lg'>No projects found for this category.</p>
+            <p className='text-gray-500 text-lg'>Aucun projet trouvé pour ce hashtag.</p>
           </motion.div>
         )}
       </div>
