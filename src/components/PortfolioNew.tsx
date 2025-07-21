@@ -6,6 +6,17 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { portfolioItems } from '@/data/portfolio'
 
+interface PortfolioItem {
+  id: string
+  title: string
+  description: string
+  category: string
+  image: string
+  technologies: string[]
+  url?: string
+  featured?: boolean
+}
+
 interface PortfolioProps {
   dictionary: {
     portfolio: {
@@ -39,7 +50,6 @@ export function Portfolio({ dictionary }: PortfolioProps) {
     return <div>Portfolio data not available</div>
   }
 
-  // Категории из portfolioItems
   const tags = Array.from(
     new Set(
       portfolioItems.flatMap((item) =>
@@ -48,7 +58,7 @@ export function Portfolio({ dictionary }: PortfolioProps) {
         )
       )
     )
-  );
+  )
 
   const filteredProjects =
     activeTag === 'featured'
@@ -80,19 +90,26 @@ export function Portfolio({ dictionary }: PortfolioProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className='flex justify-center mb-12'>
-          <div className='flex flex-wrap gap-2 bg-white rounded-full p-2 shadow-lg'>
-            {tags.map((tag) => (
-              <button
-                key={tag}
-                onClick={() => setActiveTag(tag)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  activeTag === tag
-                    ? 'bg-blue-600 text-white shadow-md'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
-                }`}>
-                #{tag}
-              </button>
-            ))}
+          <div className='no-scroll max-w-min overflow-auto'>
+            <div className='min-w-max flex sm:flex-wrap gap-2.5'>
+              {tags.map((tag, idx) => (
+                <button
+                  key={tag}
+                  onClick={() => setActiveTag(tag)}
+                  className={`cursor-pointer h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 transition-all duration-300 outline-none focus:ring-0
+                    ${idx === 0 ? 'ml-30px' : ''}
+                    ${idx === tags.length - 1 ? 'mr-30px' : ''}
+                    ${
+                      activeTag === tag
+                        ? 'text-white bg-black border border-transparent hover:bg-white hover:text-black hover:border-black'
+                        : 'text-black border border-black hover:bg-black hover:text-white'
+                    }
+                  `}
+                  tabIndex={0}>
+                  #{tag}
+                </button>
+              ))}
+            </div>
           </div>
         </motion.div>
 
@@ -131,14 +148,14 @@ export function Portfolio({ dictionary }: PortfolioProps) {
                 <p className='text-gray-600 mb-4 line-clamp-2'>{project.description}</p>
 
                 <div className='flex flex-wrap gap-2 mb-4'>
-                  {project.technologies.slice(0, 3).map((tech, techIndex) => (
+                  {project.technologies?.slice(0, 3).map((tech, techIndex) => (
                     <span
                       key={techIndex}
                       className='px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs'>
                       {tech}
                     </span>
                   ))}
-                  {project.technologies.length > 3 && (
+                  {project.technologies && project.technologies.length > 3 && (
                     <span className='px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs'>
                       +{project.technologies.length - 3}
                     </span>
@@ -158,10 +175,11 @@ export function Portfolio({ dictionary }: PortfolioProps) {
             </motion.div>
           ))}
         </div>
+
         <div className='flex justify-center mt-10'>
           <Link
             href='/projects'
-            className='bg-brand-primary text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-brand-primary hover:border hover:border-brand-primary transition-all duration-300'>
+            className='bg-black text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-black hover:border hover:border-black transition-all duration-300'>
             Показать все проекты
           </Link>
         </div>
