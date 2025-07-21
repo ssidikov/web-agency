@@ -31,7 +31,7 @@ interface PortfolioProps {
 }
 
 export function Portfolio({ dictionary }: PortfolioProps) {
-  const [activeTag, setActiveTag] = useState<string>('all')
+  const [activeTag, setActiveTag] = useState<string>('featured')
 
   const portfolioData = dictionary?.portfolio
 
@@ -40,21 +40,20 @@ export function Portfolio({ dictionary }: PortfolioProps) {
   }
 
   // Категории из portfolioItems
-  const tags = [
-    'all',
-    ...Array.from(
-      new Set(
-        portfolioItems.flatMap((item) =>
-          [item.featured ? 'featured' : undefined, item.category].filter(
-            (tag): tag is string => typeof tag === 'string'
-          )
+  const tags = Array.from(
+    new Set(
+      portfolioItems.flatMap((item) =>
+        [item.featured ? 'featured' : undefined, item.category].filter(
+          (tag): tag is string => typeof tag === 'string'
         )
       )
-    ),
-  ]
+    )
+  );
 
   const filteredProjects =
-    portfolioItems.filter((item) => item.featured).slice(0, 2)
+    activeTag === 'featured'
+      ? portfolioItems.filter((item) => item.featured).slice(0, 2)
+      : portfolioItems.filter((item) => item.category === activeTag).slice(0, 2)
 
   return (
     <section id='portfolio' className='py-20 bg-gray-50'>
@@ -116,9 +115,6 @@ export function Portfolio({ dictionary }: PortfolioProps) {
                   className='w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105'
                 />
                 <div className='absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300' />
-                <div className='absolute top-4 left-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold'>
-                  #featured
-                </div>
               </div>
 
               <div className='p-6'>
