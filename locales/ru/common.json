@@ -165,7 +165,7 @@
       },
       "technologies": {
         "question": "Какие технологии вы используете?",
-        "answer": "Мы используем современные технологии, включая React, Next.js, Node.js, Python и облачные платформы, такие как AWS и Vercel.",
+        "answer": "Мы используем современные технологии, включая React, Next.js, Node.js и облачные платформы, такие как Vercel.",
         "category": "general"
       },
       "consultation": {

@@ -120,10 +120,10 @@ export function FAQ({ dictionary }: FAQProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className='bg-brand-cream rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary'>
+                  className='bg-brand-cream rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary '>
                   <button
                     onClick={() => toggleQuestion(questionId)}
-                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8'>
+                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
                     <div className='flex items-center gap-3 3xl:gap-6'>
                       <h4 className='font-medium text-left text-lg sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
                         {questionData.question}
@@ -156,11 +156,6 @@ export function FAQ({ dictionary }: FAQProps) {
                     <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-brand-primary'>
                       {questionData.answer}
                     </p>
-                    <Link
-                      className='text-sm sm:text-base 3xl:text-22 font-semibold leading-8 underline underline-offset-4 hover:no-underline ml-5 sm:ml-6 3xl:ml-8 text-brand-primary'
-                      href='/'>
-                      Подробнее
-                    </Link>
                   </div>
                 </motion.div>
               ))}
@@ -178,7 +173,7 @@ export function FAQ({ dictionary }: FAQProps) {
                   className='bg-brand-cream rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary'>
                   <button
                     onClick={() => toggleQuestion(questionId)}
-                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8'>
+                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
                     <div className='flex items-center gap-3 3xl:gap-6'>
                       <h4 className='font-medium text-left text-lg sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
                         {questionData.question}
@@ -211,11 +206,6 @@ export function FAQ({ dictionary }: FAQProps) {
                     <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-brand-primary'>
                       {questionData.answer}
                     </p>
-                    <Link
-                      className='text-sm sm:text-base 3xl:text-22 font-semibold leading-8 underline underline-offset-4 hover:no-underline ml-5 sm:ml-6 3xl:ml-8 text-brand-primary'
-                      href='/'>
-                      Подробнее
-                    </Link>
                   </div>
                 </motion.div>
               ))}

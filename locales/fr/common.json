@@ -157,7 +157,7 @@
       },
       "technologies": {
         "question": "Quelles technologies utilisez-vous ?",
-        "answer": "Nous utilisons des technologies modernes incluant React, Next.js, Node.js, Python et des plateformes cloud comme AWS et Vercel.",
+        "answer": "Nous utilisons des technologies modernes incluant React, Next.js, Node.js et des plateformes cloud comme Vercel.",
         "category": "general"
       },
       "consultation": {
