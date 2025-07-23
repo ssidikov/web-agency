@@ -47,9 +47,7 @@ export function FAQ({ dictionary }: FAQProps) {
   }
 
   return (
-    <section
-      id='faq'
-      className='space-y-[30px] lg:space-y-8 3xl:space-y-12 py-20 relative overflow-hidden'>
+    <section id='faq' className='3xl:space-y-12 py-20 relative overflow-hidden'>
       {/* Background Image */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
