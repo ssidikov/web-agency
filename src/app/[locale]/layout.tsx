@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import { Header } from '@/components/Header'
-import { Footer } from '@/components/FooterNew'
+import { Footer } from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,10 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: RootLayoutProps) {
+export default async function LocaleLayout({ children, params }: RootLayoutProps) {
   const { locale } = await params
   const dict = await getDictionary(locale)
 

@@ -19,18 +19,7 @@ const quickLinks = [
 
 export function Footer() {
   return (
-    <footer className='relative bg-gray-900 overflow-hidden'>
-      {/* Background Image */}
-      <div
-        className='absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10'
-        style={{
-          backgroundImage: `url('/images/misc/footer-bg.jpg')`,
-        }}
-      />
-
-      {/* Overlay */}
-      <div className='absolute inset-0 bg-gradient-to-br from-gray-900/95 to-blue-900/90' />
-
+    <footer className='relative bg-black overflow-hidden'>
       <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         {/* Main Footer */}
         <div className='py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
