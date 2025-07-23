@@ -77,7 +77,7 @@ export default function PortfolioNew({ locale }: PortfolioNewProps) {
               key={project.id}
               href={project.link || '/'}
               className='group flex flex-col sm:flex-row lg:flex-col items-stretch bg-white rounded-2xl lg:rounded-22px 3xl:rounded-30px p-5 lg:p-2.5 3xl:p-4'>
-              <div className='relative w-full sm:w-[260px] h-96 lg:w-auto shrink-0 rounded-2xl lg:rounded-[22px] 3xl:rounded-[30px] overflow-hidden'>
+              <div className='relative w-full sm:w-[260px] h-56 md:h-96 lg:w-auto shrink-0 rounded-2xl lg:rounded-[22px] 3xl:rounded-[30px] overflow-hidden'>
                 <Image
                   src={project.image}
                   alt={project.title}
