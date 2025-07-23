@@ -29,71 +29,52 @@
     ]
   },
   "services": {
-    "title": "Nos Services",
-    "subtitle": "Solutions Numériques Complètes",
-    "web_development": {
-      "title": "Développement Web",
-      "description": "Sites web personnalisés et applications web construits avec des technologies modernes.",
+    "title": "Services",
+    "subtitle": "Des solutions web accessibles et sur mesure pour votre entreprise",
+    "web_creation": {
+      "title": "Création de sites web sur mesure",
+      "subtitle": "Création de Sites Web – De A à Z",
       "features": [
-        "Design Réactif",
-        "Frameworks Modernes",
-        "Optimisation des Performances",
-        "Prêt pour le SEO"
-      ]
+        "Sur mesure",
+        "Responsive"
+      ],
+      "description": "Transformez votre vision en réalité digitale avec notre expertise complète en développement web. Nous créons des sites web modernes, rapides et optimisés pour le référencement Google. De la conception UX/UI à la mise en ligne, chaque projet est développé sur mesure avec les dernières technologies (React, Next.js, WordPress). Obtenez un site professionnel qui convertit vos visiteurs en clients et booste votre chiffre d'affaires dès le premier mois."
     },
-    "mobile_development": {
-      "title": "Développement Mobile",
-      "description": "Applications mobiles natives et multiplateformes pour iOS et Android.",
+    "web_redesign": {
+      "title": "Refonte et redesign de sites web",
       "features": [
-        "Performance Native",
-        "Multiplateforme",
-        "Optimisation App Store",
-        "Notifications Push"
-      ]
+        "Refonte / Redesign",
+        "Modernisation",
+        "UX/UI"
+      ],
+      "description": "Votre site web actuel ne génère pas assez de ventes ? Notre service de refonte transforme votre présence en ligne en machine à convertir. Nous analysons votre taux de conversion, optimisons l'expérience utilisateur et modernisons le design pour doubler vos résultats. Interface mobile-first, vitesse de chargement optimisée, parcours utilisateur fluide - tout est pensé pour maximiser vos revenus et réduire le taux de rebond de 40%."
     },
-    "digital_marketing": {
-      "title": "Marketing Numérique",
-      "description": "Campagnes marketing stratégiques pour développer votre présence en ligne.",
+    "seo_optimization": {
+      "title": "Optimisation SEO et référencement",
       "features": [
-        "Optimisation SEO",
-        "Médias Sociaux",
-        "Stratégie de Contenu",
+        "Google Ready",
         "Analytics"
-      ]
+      ],
+      "description": "Dominez la première page Google et multipliez votre trafic organique par 5 en 6 mois. Notre stratégie SEO complète inclut : audit technique approfondi, optimisation on-page, création de contenu optimisé, netlinking de qualité et suivi des performances. Nous ciblons les mots-clés rentables de votre secteur pour attirer des prospects qualifiés."
     },
-    "consulting": {
-      "title": "Conseil",
-      "description": "Guidance experte sur la transformation numérique et la stratégie technologique.",
+    "maintenance": {
+      "title": "Maintenance et support technique",
       "features": [
-        "Audit Technologique",
-        "Planification Stratégique",
-        "Implémentation",
-        "Formation"
-      ]
+        "Maintenance & Support",
+        "24/7 Support",
+        "Mises à jour"
+      ],
+      "description": "Protégez votre investissement digital avec notre service de maintenance premium. Sécurité renforcée, sauvegardes automatiques, mises à jour régulières, monitoring 24/7 et support prioritaire. Nous garantissons 99.9% de disponibilité et un temps de réponse inférieur à 2h. Évitez les pannes coûteuses et concentrez-vous sur votre business pendant que nous maintenons votre site en parfait état de fonctionnement."
     },
-    "process": {
-      "title": "Notre Processus",
-      "discovery": {
-        "title": "Découverte",
-        "description": "Nous analysons vos besoins et définissons les objectifs du projet."
-      },
-      "design": {
-        "title": "Design",
-        "description": "Créer des designs centrés sur l'utilisateur et des prototypes."
-      },
-      "development": {
-        "title": "Développement",
-        "description": "Construire des solutions robustes en utilisant les meilleures pratiques."
-      },
-      "launch": {
-        "title": "Lancement",
-        "description": "Déployer et optimiser pour une performance maximale."
-      }
+    "cta_banner": {
+      "background": "Transformons ensemble vos idées en réalité numérique",
+      "description": "Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.",
+      "cta": "Démarrer votre projet"
     }
   },
   "portfolio": {
-    "title": "Notre Portfolio",
-    "subtitle": "Présentation de Notre Meilleur Travail",
+    "title": "Nos réalisations",
+    "subtitle": "Explorez nos derniers projets mettant en valeur des techniques de développement web modernes et des solutions innovantes.",
     "filter": {
       "all": "Tout",
       "web": "Web",
@@ -142,7 +123,7 @@
       },
       "timeline": {
         "question": "Combien de temps prend un projet typique ?",
-        "answer": "Les délais de projet varient selon la portée et la complexité. Un site web simple prend généralement 4-6 semaines, tandis que les applications complexes peuvent prendre 3-6 mois.",
+        "answer": "Les délais de projet varient selon la portée et la complexité. Un site web simple prend généralement 4-6 semaines, tandis que les applications complexes peuvent prendre 3-6 mois. Nous proposons également un développement rapide en 14 jours.",
         "category": "general"
       },
       "pricing_model": {
@@ -203,16 +184,20 @@
     "info": {
       "title": "Informations de Contact",
       "address": "123 Rue des Affaires, Suite 100, Paris, 75001",
-      "phone": "+33 1 23 45 67 89",
-      "email": "bonjour@votreentreprise.com",
-      "hours": "Lundi - Vendredi : 9h00 - 18h00"
+      "phone": "+33 06 26 93 27 34",
+      "email": "s.sidikoff@gmail.com",
+      "hours": "Lundi - Vendredi: 9h00 - 18h00",
+      "localisations": "Localisations",
+      "locations": ["Paris, France", "Toulouse, France"],
+      "phone_label": "Téléphone",
+      "email_label": "Email"
     },
     "channels": {
       "title": "Connectez-vous avec Nous",
       "email": "Nous Emailer",
       "whatsapp": "WhatsApp",
       "telegram": "Telegram",
-      "phone": "Nous Appeler"
+      "phone": "Téléphone"
     }
   },
   "footer": {

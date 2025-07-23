@@ -21,7 +21,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <Hero dict={dict} locale={locale} />
       </section>
       <section id='services'>
-        <Services />
+        <Services dictionary={dict} locale={locale} />
       </section>
       <section id='portfolio'>
         <Portfolio locale={locale} dictionary={dict} />

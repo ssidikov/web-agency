@@ -13,7 +13,7 @@ interface PortfolioNewProps {
   dictionary?: DictionaryValue
 }
 
-export default function PortfolioNew({ locale }: PortfolioNewProps) {
+export default function PortfolioNew({ locale, dictionary }: PortfolioNewProps) {
   const [activeTag, setActiveTag] = useState<string>('featured')
   const projects = getProjects(locale)
 
@@ -47,11 +47,14 @@ export default function PortfolioNew({ locale }: PortfolioNewProps) {
           transition={{ duration: 0.6 }}
           className='text-left mb-16'>
           <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
-            Nos réalisations
+            {dictionary && typeof dictionary === 'object' && 'portfolio' in dictionary
+              ? (dictionary as any).portfolio.title
+              : 'Portfolio'}
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>
-            Explorez nos derniers projets mettant en valeur des techniques de développement web
-            modernes et des solutions innovantes.
+            {dictionary && typeof dictionary === 'object' && 'portfolio' in dictionary
+              ? (dictionary as any).portfolio.subtitle
+              : ''}
           </p>
         </motion.div>
 

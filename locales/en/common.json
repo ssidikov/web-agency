@@ -37,71 +37,51 @@
     ]
   },
   "services": {
-    "title": "Our Services",
-    "subtitle": "Comprehensive Digital Solutions",
-    "web_development": {
-      "title": "Web Development",
-      "description": "Custom websites and web applications built with modern technologies.",
+    "title": "Services",
+    "subtitle": "Accessible and tailored web solutions for your business",
+    "web_creation": {
+      "title": "Custom Website Creation",
+      "subtitle": "Website Creation – From A to Z",
       "features": [
-        "Responsive Design",
-        "Modern Frameworks",
-        "Performance Optimization",
-        "SEO Ready"
-      ]
+        "Tailored",
+        "Responsive"
+      ],
+      "description": "Transform your vision into digital reality with our full expertise in web development. We create modern, fast, and Google-optimized websites. From UX/UI design to launch, every project is custom-built with the latest technologies (React, Next.js, WordPress). Get a professional site that converts visitors into clients and boosts your revenue from the first month."
     },
-    "mobile_development": {
-      "title": "Mobile Development",
-      "description": "Native and cross-platform mobile applications for iOS and Android.",
+    "web_redesign": {
+      "title": "Website Redesign",
       "features": [
-        "Native Performance",
-        "Cross-Platform",
-        "App Store Optimization",
-        "Push Notifications"
-      ]
+        "Redesign",
+        "Modernization",
+        "UX/UI"
+      ],
+      "description": "Is your current website not generating enough sales? Our redesign service turns your online presence into a conversion machine. We analyze your conversion rate, optimize user experience, and modernize the design to double your results. Mobile-first interface, optimized loading speed, smooth user journey – everything is designed to maximize your revenue and reduce bounce rate by 40%."
     },
-    "digital_marketing": {
-      "title": "Digital Marketing",
-      "description": "Strategic marketing campaigns to grow your online presence.",
+    "seo_optimization": {
+      "title": "SEO & Visibility Optimization",
       "features": [
-        "SEO Optimization",
-        "Social Media",
-        "Content Strategy",
+        "Google Ready",
         "Analytics"
-      ]
+      ],
+      "description": "Dominate Google's first page and multiply your organic traffic by 5 in 6 months. Our complete SEO strategy includes: in-depth technical audit, on-page optimization, optimized content creation, quality link building, and performance tracking. We target profitable keywords in your sector to attract qualified prospects."
     },
-    "consulting": {
-      "title": "Consulting",
-      "description": "Expert guidance on digital transformation and technology strategy.",
+    "maintenance": {
+      "title": "Maintenance & Technical Support",
       "features": [
-        "Technology Audit",
-        "Strategy Planning",
-        "Implementation",
-        "Training"
-      ]
+        "24/7 Support",
+        "Updates"
+      ],
+      "description": "Protect your digital investment with our premium maintenance service. Enhanced security, automatic backups, regular updates, 24/7 monitoring, and priority support. We guarantee 99.9% uptime and response time under 2h. Avoid costly outages and focus on your business while we keep your site in perfect working order."
     },
-    "process": {
-      "title": "Our Process",
-      "discovery": {
-        "title": "Discovery",
-        "description": "We analyze your needs and define project goals."
-      },
-      "design": {
-        "title": "Design",
-        "description": "Create user-centered designs and prototypes."
-      },
-      "development": {
-        "title": "Development",
-        "description": "Build robust solutions using best practices."
-      },
-      "launch": {
-        "title": "Launch",
-        "description": "Deploy and optimize for maximum performance."
-      }
+    "cta_banner": {
+      "background": "Let's turn your ideas into digital reality together",
+      "description": "We support your digital growth with innovative and tailored solutions. Contact us for a free consultation and discover how we can boost your online presence.",
+      "cta": "Start your project"
     }
   },
   "portfolio": {
-    "title": "Our Portfolio",
-    "subtitle": "Showcasing Our Best Work",
+    "title": "Our Work",
+    "subtitle": "Explore our latest projects showcasing modern web development techniques and innovative solutions.",
     "filter": {
       "all": "All",
       "web": "Web",
@@ -150,7 +130,7 @@
       },
       "timeline": {
         "question": "How long does a typical project take?",
-        "answer": "Project timelines vary depending on scope and complexity. A simple website typically takes 4-6 weeks, while complex applications may take 3-6 months.",
+        "answer": "Project timelines vary depending on scope and complexity. A simple website typically takes 4-6 weeks, while complex applications may take 3-6 months. We also offer a rapid 14-day development option.",
         "category": "general"
       },
       "pricing_model": {
@@ -210,6 +190,9 @@
     },
     "info": {
       "title": "Contact Information",
+      "localisations": "Localisations",
+      "phone_label": "Phone",
+      "email_label": "Email",
       "address": "123 Business Street, Suite 100, New York, NY 10001",
       "phone": "+1 (555) 123-4567",
       "email": "hello@yourcompany.com",
@@ -217,10 +200,10 @@
     },
     "channels": {
       "title": "Connect With Us",
-      "email": "Email Us",
+      "email": "Email",
       "whatsapp": "WhatsApp",
       "telegram": "Telegram",
-      "phone": "Call Us"
+      "phone": "Phone"
     }
   },
   "footer": {

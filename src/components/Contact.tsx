@@ -347,7 +347,10 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
                               {item.value}
                             </a>
                           ) : item.title === 'Localisations' ? (
-                            <p className='text-gray-600 break-words' dangerouslySetInnerHTML={{ __html: item.value }} />
+                            <p
+                              className='text-gray-600 break-words'
+                              dangerouslySetInnerHTML={{ __html: item.value }}
+                            />
                           ) : (
                             <p className='text-gray-600 break-words'>{item.value}</p>
                           )}

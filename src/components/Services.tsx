@@ -3,39 +3,44 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-export function Services() {
+import { Dictionary } from '@/lib/dictionaries'
+
+interface ServicesProps {
+  dictionary: Dictionary
+  locale: string
+}
+
+export function Services({ dictionary, locale }: ServicesProps) {
+  const dict = dictionary.services
   const services = [
     {
-      title: 'Création de Sites Web – De A à Z',
-      description:
-        "Transformez votre vision en réalité digitale avec notre expertise complète en développement web. Nous créons des sites web modernes, rapides et optimisés pour le référencement Google. De la conception UX/UI à la mise en ligne, chaque projet est développé sur mesure avec les dernières technologies (React, Next.js, WordPress). Obtenez un site professionnel qui convertit vos visiteurs en clients et booste votre chiffre d'affaires dès le premier mois.",
+      title: dict.web_creation.title,
+      subtitle: dict.web_creation.subtitle,
+      description: dict.web_creation.description,
       image: '/images/services/web-development-5.jpg',
-      alt: 'Création de sites web sur mesure',
-      badges: ['Sur mesure', 'Responsive'],
+      alt: dict.web_creation.title,
+      badges: dict.web_creation.features,
     },
     {
-      title: 'Refonte / Redesign',
-      description:
-        "Votre site web actuel ne génère pas assez de ventes ? Notre service de refonte transforme votre présence en ligne en machine à convertir. Nous analysons votre taux de conversion, optimisons l'expérience utilisateur et modernisons le design pour doubler vos résultats. Interface mobile-first, vitesse de chargement optimisée, parcours utilisateur fluide - tout est pensé pour maximiser vos revenus et réduire le taux de rebond de 40%.",
+      title: dict.web_redesign.title,
+      description: dict.web_redesign.description,
       image: '/images/services/website-redesign-1.jpg',
-      alt: 'Refonte et redesign de sites web',
-      badges: ['Modernisation', 'UX/UI'],
+      alt: dict.web_redesign.title,
+      badges: dict.web_redesign.features,
     },
     {
-      title: 'SEO & Optimisation de la Visibilité',
-      description:
-        'Dominez la première page Google et multipliez votre trafic organique par 5 en 6 mois. Notre stratégie SEO complète inclut : audit technique approfondi, optimisation on-page, création de contenu optimisé, netlinking de qualité et suivi des performances. Nous ciblons les mots-clés rentables de votre secteur pour attirer des prospects qualifiés.',
+      title: dict.seo_optimization.title,
+      description: dict.seo_optimization.description,
       image: '/images/services/seo-8.jpg',
-      alt: 'Optimisation SEO et référencement',
-      badges: ['Google Ready', 'Analytics'],
+      alt: dict.seo_optimization.title,
+      badges: dict.seo_optimization.features,
     },
     {
-      title: 'Maintenance & Support',
-      description:
-        'Protégez votre investissement digital avec notre service de maintenance premium. Sécurité renforcée, sauvegardes automatiques, mises à jour régulières, monitoring 24/7 et support prioritaire. Nous garantissons 99.9% de disponibilité et un temps de réponse inférieur à 2h. Évitez les pannes coûteuses et concentrez-vous sur votre business pendant que nous maintenons votre site en parfait état de fonctionnement.',
+      title: dict.maintenance.title,
+      description: dict.maintenance.description,
       image: '/images/services/maintenance-support-4.jpg',
-      alt: 'Maintenance et support technique',
-      badges: ['24/7 Support', 'Mises à jour'],
+      alt: dict.maintenance.title,
+      badges: dict.maintenance.features,
     },
   ]
 
@@ -311,10 +316,10 @@ export function Services() {
           viewport={{ once: true }}
           className='mb-16 text-left'>
           <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
-            Services
+            {dict.title}
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>
-            Des solutions web accessibles et sur mesure pour votre entreprise
+            {dict.subtitle}
           </p>
         </motion.div>
 
@@ -373,14 +378,14 @@ export function Services() {
                   <div className='flex flex-col sm:flex-row gap-4'>
                     <button className='group relative bg-black hover:bg-white text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer'>
                       <span className='relative flex items-center justify-center'>
-                        Demander un devis
+                        {locale === 'fr' ? 'Demander un devis' : locale === 'ru' ? 'Запросить смету' : 'Request a quote'}
                       </span>
                     </button>
 
                     <button className='relative text-brand-primary border border-black hover:bg-black hover:text-white transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer'>
                       <div className='absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-0 transition-opacity duration-200'></div>
                       <span className='relative flex items-center justify-center'>
-                        Voir les tarifs
+                        {locale === 'fr' ? 'Voir les tarifs' : locale === 'ru' ? 'Посмотреть цены' : 'View pricing'}
                       </span>
                     </button>
                   </div>
@@ -423,15 +428,13 @@ export function Services() {
 
               {/* Content at bottom */}
               <div className='p-6'>
-                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight text-[32px] sm:text-[40px] lg:lg:text-6xl 3xl:text-[80px]'>
-                  Transformons ensemble vos idées en réalité numérique
-                </h3>
+                  <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight text-[32px] sm:text-[40px] lg:lg:text-6xl 3xl:text-[80px]'>
+                    {dict.cta_banner.background}
+                  </h3>
 
-                <p className='text-gray-600 text-base leading-relaxed mb-6'>
-                  Nous accompagnons votre croissance digitale avec des solutions innovantes et sur
-                  mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous
-                  pouvons booster votre présence en ligne.
-                </p>
+                  <p className='text-gray-600 text-base leading-relaxed mb-6'>
+                    {dict.cta_banner.description}
+                  </p>
 
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
@@ -441,7 +444,7 @@ export function Services() {
                   <div className='absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
 
                   <span className='relative flex items-center justify-center gap-3'>
-                    <span>Démarrer votre projet</span>
+                    <span>{dict.cta_banner.cta}</span>
                     <svg
                       className='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1'
                       fill='none'
@@ -499,18 +502,16 @@ export function Services() {
                         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
                       }}>
                       <h3 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 lg:mb-8 leading-tight'>
-                        Transformons ensemble vos idées en réalité numérique
+                        {dict.cta_banner.background}
                       </h3>
 
                       <p className='text-gray-600 text-lg lg:text-xl leading-relaxed mb-8'>
-                        Nous accompagnons votre croissance digitale avec des solutions innovantes et
-                        sur mesure. Contactez-nous pour une consultation gratuite et découvrez
-                        comment nous pouvons booster votre présence en ligne.
+                        {dict.cta_banner.description}
                       </p>
 
                       <button className='group relative bg-black hover:bg-transparent text-white hover:text-black border border-gray-400 transition-all duration-300 w-full text-lg 3xl:text-22 whitespace-nowrap px-6 lg:px-8 cursor-pointer h-[60px] sm:h-16 lg:h-20 lg:text-lg 3xl:text-22 font-medium rounded-full mt-5 sm:mt-10'>
                         <span className='relative flex items-center justify-center gap-3'>
-                          <span className='text-xl'>Démarrer votre projet</span>
+                          <span className='text-xl'>{dict.cta_banner.cta}</span>
                         </span>
                       </button>
                     </motion.div>
