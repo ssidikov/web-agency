@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { getProjects } from '@/data/projects'
 import { ProjectCard } from '@/components/ui/ProjectCard'
 
-type DictionaryValue = string | { [key: string]: DictionaryValue }
+type DictionaryValue = string | { [key: string]: DictionaryValue } | DictionaryValue[]
 
 interface PortfolioNewProps {
   locale: 'en' | 'fr' | 'ru'

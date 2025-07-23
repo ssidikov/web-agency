@@ -31,26 +31,26 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
-      });
+      })
       if (res.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', message: '' })
       } else {
-        setSubmitStatus('error');
+        setSubmitStatus('error')
       }
     } catch {
-      setSubmitStatus('error');
+      setSubmitStatus('error')
     } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 5000);
+      setIsSubmitting(false)
+      setTimeout(() => setSubmitStatus('idle'), 5000)
     }
   }
 
@@ -99,20 +99,6 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
           className='max-w-7xl mx-auto'>
           {/* Section Header */}
           <motion.div variants={itemVariants} className='text-left mb-20'>
-            <div className='inline-flex items-center justify-center w-16 h-16 bg-black rounded-2xl mb-6'>
-              <svg
-                className='w-8 h-8 text-white'
-                fill='none'
-                stroke='currentColor'
-                viewBox='0 0 24 24'>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z'
-                />
-              </svg>
-            </div>
             <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
               {dictionary.contact.title}
             </h2>
