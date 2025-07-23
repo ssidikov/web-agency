@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
+import { FilterButtonBar } from './FilterButtonBar'
 
 interface FAQProps {
   dictionary: {
@@ -79,33 +80,11 @@ export function FAQ({ dictionary }: FAQProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className='w-full mb-12'>
-          <div className='flex flex-wrap gap-2.5'>
-            <button
-              onClick={() => setActiveCategory('all')}
-              className={`text-gray-600 text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
-                activeCategory === 'all'
-                  ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
-                  : 'text-black border border-black hover:bg-black hover:text-white'
-              }`}
-              tabIndex={0}>
-              #All
-            </button>
-            {(['general', 'pricing', 'support'] as const).map((category, idx) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`text-gray-600 text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
-                  idx === 2 ? 'mr-[30px]' : ''
-                } ${
-                  activeCategory === category
-                    ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
-                    : 'text-black border border-black hover:bg-black hover:text-white'
-                }`}
-                tabIndex={0}>
-                #{faqData.categories[category]}
-              </button>
-            ))}
-          </div>
+          <FilterButtonBar
+            options={[{ value: 'all', label: 'All' }, { value: 'general', label: faqData.categories.general }, { value: 'pricing', label: faqData.categories.pricing }, { value: 'support', label: faqData.categories.support }]}
+            active={activeCategory}
+            onChange={setActiveCategory}
+          />
         </motion.div>
 
         {/* FAQ Items */}
