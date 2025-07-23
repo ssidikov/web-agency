@@ -6,9 +6,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getProjects } from '@/data/projects'
 
+type DictionaryValue = string | { [key: string]: DictionaryValue };
+
 interface PortfolioNewProps {
   locale: 'en' | 'fr' | 'ru'
-  dictionary?: Record<string, string>
+  dictionary?: DictionaryValue
 }
 
 export default function PortfolioNew({ locale }: PortfolioNewProps) {
