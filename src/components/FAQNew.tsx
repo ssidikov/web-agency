@@ -82,22 +82,26 @@ export function FAQ({ dictionary }: FAQProps) {
           <div className='min-w-max flex sm:flex-wrap gap-2.5'>
             <button
               onClick={() => setActiveCategory('all')}
-              className={`text-white bg-brand-primary border border-transparent hover:bg-brand-cream hover:text-brand-primary hover:border-brand-primary transition-all duration-300 h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl ml-[30px] px-2 sm:px-3 lg:px-[18px] 3xl:px-6 ${
-                activeCategory === 'all' ? 'bg-brand-primary text-white' : ''
-              }`}>
+              className={`cursor-pointer h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 transition-all duration-300 outline-none focus:ring-0 ml-[30px] ${
+                activeCategory === 'all'
+                  ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
+                  : 'text-black border border-black hover:bg-black hover:text-white'
+              }`}
+              tabIndex={0}>
               #Все
             </button>
             {(['general', 'pricing', 'support'] as const).map((category, idx) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`text-brand-primary border border-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300 h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 ${
-                  idx === 0 ? '' : ''
-                } ${idx === 2 ? 'mr-[30px]' : ''} ${
+                className={`cursor-pointer h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 transition-all duration-300 outline-none focus:ring-0 ${
+                  idx === 2 ? 'mr-[30px]' : ''
+                } ${
                   activeCategory === category
-                    ? 'bg-brand-primary text-white border-transparent'
-                    : ''
-                }`}>
+                    ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
+                    : 'text-black border border-black hover:bg-black hover:text-white'
+                }`}
+                tabIndex={0}>
                 #{faqData.categories[category]}
               </button>
             ))}
