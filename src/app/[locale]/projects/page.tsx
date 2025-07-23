@@ -5,8 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function ProjectsPage({ params }: { params: { locale: 'en' | 'fr' | 'ru' } }) {
-  const { locale } = React.use(params)
-  const allProjects = getProjects(locale)
+  const allProjects = getProjects(params.locale)
   const tags = Array.from(
     new Set(
       allProjects
