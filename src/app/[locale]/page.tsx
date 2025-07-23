@@ -24,7 +24,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <Services />
       </section>
       <section id='portfolio'>
-        <Portfolio dictionary={dict} />
+        <Portfolio locale={locale} dictionary={dict} />
       </section>
       <section id='faq'>
         <FAQ dictionary={dict} />

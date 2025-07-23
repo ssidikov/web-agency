@@ -6,7 +6,9 @@
     "image": "/projects/kasa.webp",
     "longDescription": "Kasa предоставляет удобный интерфейс для поиска и бронирования жилья. Проект включает навигацию, выпадающие меню и полностью адаптивный дизайн.",
     "technologies": ["React", "SASS"],
-    "link": "https://ssidikov.github.io/kasa/"
+    "link": "https://ssidikov.github.io/kasa/",
+    "featured": true,
+    "category": "Web"
   },
   {
     "id": "2",
@@ -15,7 +17,9 @@
     "image": "/projects/sport-see.webp",
     "longDescription": "SportSee визуализирует фитнес-данные пользователя, включая сессии и ключевые метрики. Реализовано на React с интеграцией API.",
     "technologies": ["React", "React Router", "Recharts", "SASS", "Axios"],
-    "link": "https://ssidikov.github.io/SportSee/"
+    "link": "https://ssidikov.github.io/SportSee/",
+    "featured": true,
+    "category": "Dashboard"
   },
   {
     "id": "3",
@@ -25,7 +29,7 @@
     "longDescription": "ArgentBank обеспечивает безопасный и удобный доступ к информации о счетах. Аутентификация и управление состоянием через Redux.",
     "technologies": ["React", "Redux", "React Router", "REST API", "Swagger"],
     "link": "https://ssidikov.github.io/Argent-Bank/",
-    "category": "Web"
+    "category": "Finance"
   },
   {
     "id": "4",
@@ -35,7 +39,7 @@
     "longDescription": "HRnet позволяет легко добавлять, просматривать и управлять данными сотрудников. Включает адаптивный дизайн, локальное хранилище, валидацию форм и обновления в реальном времени.",
     "technologies": ["React", "Redux Toolkit", "Material-UI", "SASS", "Vite", "date-fns"],
     "link": "https://ssidikov.github.io/HRnet/",
-    "category": "Web"
+    "category": "HR"
   },
   {
     "id": "5",
@@ -44,7 +48,8 @@
     "image": "/projects/petits-plats.webp",
     "longDescription": "В этом проекте реализован производительный алгоритм поиска для платформы рецептов. Разработан интуитивный интерфейс, две версии алгоритма (циклы и функциональное программирование), сравнение производительности через Jsben.ch и документация с учетом принципов Green Code.",
     "technologies": ["JavaScript", "Bootstrap", "HTML", "SASS", "Functional Programming", "Performance Analysis"],
-    "link": "https://ssidikov.github.io/PetitsPlats2.0/"
+    "link": "https://ssidikov.github.io/PetitsPlats2.0/",
+    "category": "Recipe"
   },
   {
     "id": "6",
@@ -53,7 +58,8 @@
     "image": "/projects/cookies.webp",
     "longDescription": "Trendy Cookies — это удобная платформа для заказа сладких печений. Реализовано на Angular, адаптивный дизайн и простой процесс заказа.",
     "technologies": ["Angular", "CSS", "HTML"],
-    "link": "https://ssidikov.github.io/cookies_angular/"
+    "link": "https://ssidikov.github.io/cookies_angular/",
+    "category": "Ecommerce"
   },
   {
     "id": "7",
@@ -62,7 +68,8 @@
     "image": "/projects/fisheye.webp",
     "longDescription": "Fisheye — это веб-приложение для фотографов для презентации портфолио. Динамические страницы, LightBox, формы обратной связи, лайки. Акцент на доступности и модульности.",
     "technologies": ["HTML", "CSS", "JavaScript", "JSON", "AChecker"],
-    "link": "https://ssidikov.github.io/Front-End-Fisheye/"
+    "link": "https://ssidikov.github.io/Front-End-Fisheye/",
+    "category": "Portfolio"
   },
   {
     "id": "8",
@@ -71,7 +78,8 @@
     "image": "/projects/game-on.webp",
     "longDescription": "GameOn — лендинг для компании, организующей гейминг-конференции и конкурсы. Динамические взаимодействия, валидация форм, адаптивный дизайн, работа с DOM на JavaScript.",
     "technologies": ["HTML", "CSS", "JavaScript", "Flexbox"],
-    "link": "https://ssidikov.github.io/GameOn-website-FR/"
+    "link": "https://ssidikov.github.io/GameOn-website-FR/",
+    "category": "Landing"
   },
   {
     "id": "9",
@@ -80,7 +88,8 @@
     "image": "/projects/ohmyfood.webp",
     "longDescription": "Разработка страницы с меню четырёх известных ресторанов Парижа, онлайн-бронирование и составление меню. CSS-анимации и mobile-first дизайн.",
     "technologies": ["HTML", "SASS", "CSS Animations", "Figma", "Flexbox"],
-    "link": "https://ssidikov.github.io/OhMyFood/"
+    "link": "https://ssidikov.github.io/OhMyFood/",
+    "category": "Restaurant"
   },
   {
     "id": "10",
@@ -89,7 +98,8 @@
     "image": "/projects/billed.webp",
     "longDescription": "В проекте проводилась отладка и написание unit-, интеграционных и e2e-тестов для функции подачи расходов. Исправление багов через Chrome Debugger, покрытие тестами >80%, составление тест-плана.",
     "technologies": ["JavaScript", "Jest", "Chrome Debugger", "End-to-End Testing"],
-    "link": "https://github.com/ssidikov/Billed-app-FR-Front/"
+    "link": "https://github.com/ssidikov/Billed-app-FR-Front/",
+    "category": "Testing"
   },
   {
     "id": "11",
@@ -98,7 +108,8 @@
     "image": "/projects/booki.webp",
     "longDescription": "В этом проекте я разработал главную страницу турагентства на HTML и CSS. Основной акцент — адаптивность и поддержка разных устройств по макетам Figma.",
     "technologies": ["HTML", "CSS", "Figma", "Flexbox", "Grid"],
-    "link": "https://ssidikov.github.io/Booki/"
+    "link": "https://ssidikov.github.io/Booki/",
+    "category": "Travel"
   },
   {
     "id": "12",
@@ -107,7 +118,8 @@
     "image": "/projects/burger-house.webp",
     "longDescription": "Проект по созданию лендинга для бургерной с интерактивной формой заказа. Пользователь может выбрать и настроить свой бургер.",
     "technologies": ["HTML", "CSS", "JavaScript", "Flexbox"],
-    "link": "https://ssidikov.github.io/burgers-landing/"
+    "link": "https://ssidikov.github.io/burgers-landing/",
+    "category": "Restaurant"
   },
   {
     "id": "13",
@@ -116,7 +128,8 @@
     "image": "/projects/learn-home.webp",
     "longDescription": "В этом проекте определялись требования и разрабатывалось техническое решение для приложения репетиторства для Learn@Home. Выявление потребностей, user stories, диаграммы, макеты в Figma, Kanban. Гибкая методология.",
     "technologies": ["Figma", "Kanban", "User Stories", "Agile Methodology", "UX/UI Design"],
-    "link": "#"
+    "link": "#",
+    "category": "Education"
   },
   {
     "id": "14",
@@ -125,7 +138,8 @@
     "image": "/projects/euclid.webp",
     "longDescription": "Разработка адаптивного лендинга для компании Euclid - Project Systems с современным и профессиональным видом.",
     "technologies": ["Figma", "HTML", "CSS", "Flexbox"],
-    "link": "https://ssidikov.github.io/Evklid_website/"
+    "link": "https://ssidikov.github.io/Evklid_website/",
+    "category": "Landing"
   },
   {
     "id": "15",
@@ -135,7 +149,7 @@
     "longDescription": "Современная веб-платформа для французского ресторана с полной системой управления бронированием. Включает административную панель с аутентификацией и интуитивную систему онлайн-резервирования.",
     "technologies": ["Next.js", "TypeScript", "PostgreSQL", "NextAuth", "Tailwind CSS", "Neon Database", "Nodemailer"],
     "link": "https://resto-parisien.vercel.app/",
-    "category": "Web",
+    "category": "Restaurant",
     "featured": true
   }
 ]

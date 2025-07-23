@@ -5,9 +5,13 @@
     "description": "A rental platform with a responsive design.",
     "image": "/projects/kasa.webp",
     "longDescription": "Kasa provides users with a user-friendly interface for searching and booking accommodations. The project includes navigation, dropdown menus, and a fully responsive design.",
-    "technologies": ["React", "SASS"],
+    "technologies": [
+      "React",
+      "SASS"
+    ],
     "link": "https://ssidikov.github.io/kasa/",
-    "category": "Web"
+    "category": "Web",
+    "featured": true
   },
   {
     "id": "2",
@@ -15,9 +19,16 @@
     "description": "A dashboard for analyzing fitness data.",
     "image": "/projects/sport-see.webp",
     "longDescription": "SportSee visualizes user fitness data, including sessions and key metrics. Built with React and API integration.",
-    "technologies": ["React", "React Router", "Recharts", "SASS", "Axios"],
+    "technologies": [
+      "React",
+      "React Router",
+      "Recharts",
+      "SASS",
+      "Axios"
+    ],
     "link": "https://ssidikov.github.io/SportSee/",
-    "category": "Dashboard"
+    "category": "Dashboard",
+    "featured": true
   },
   {
     "id": "3",
@@ -25,7 +36,13 @@
     "description": "A banking interface for account management.",
     "image": "/projects/argent-bank.webp",
     "longDescription": "ArgentBank offers users secure and convenient access to their account information. It features authentication and state management using Redux.",
-    "technologies": ["React", "Redux", "React Router", "REST API", "Swagger"],
+    "technologies": [
+      "React",
+      "Redux",
+      "React Router",
+      "REST API",
+      "Swagger"
+    ],
     "link": "https://ssidikov.github.io/Argent-Bank/",
     "category": "Finance"
   },
@@ -35,7 +52,14 @@
     "description": "A modern application for managing employee records.",
     "image": "/projects/hrNet.webp",
     "longDescription": "HRnet allows users to add, view, and manage employee data with ease. It includes a responsive design, local storage support, and features like form validation, real-time updates, and data persistence.",
-    "technologies": ["React", "Redux Toolkit", "Material-UI", "SASS", "Vite", "date-fns"],
+    "technologies": [
+      "React",
+      "Redux Toolkit",
+      "Material-UI",
+      "SASS",
+      "Vite",
+      "date-fns"
+    ],
     "link": "https://ssidikov.github.io/HRnet/",
     "category": "HR"
   },
@@ -45,7 +69,14 @@
     "description": "Development of a search algorithm for a cooking recipe platform with performance optimization.",
     "image": "/projects/petits-plats.webp",
     "longDescription": "This project focused on creating a performant search algorithm for a cooking recipe platform. It involved designing an intuitive UI, implementing two versions of search algorithms (native loops and functional programming), comparing their performance using Jsben.ch, and documenting the results while adhering to Green Code principles.",
-    "technologies": ["JavaScript", "Bootstrap", "HTML", "SASS", "Functional Programming", "Performance Analysis"],
+    "technologies": [
+      "JavaScript",
+      "Bootstrap",
+      "HTML",
+      "SASS",
+      "Functional Programming",
+      "Performance Analysis"
+    ],
     "link": "https://ssidikov.github.io/PetitsPlats2.0/",
     "category": "Recipe"
   },
@@ -55,7 +86,11 @@
     "description": "A website for ordering trendy cookies.",
     "image": "/projects/cookies.webp",
     "longDescription": "Trendy Cookies offers users an easy-to-use platform for ordering sweet cookies. Built with Angular, it includes a responsive design and simple ordering process.",
-    "technologies": ["Angular", "CSS", "HTML"],
+    "technologies": [
+      "Angular",
+      "CSS",
+      "HTML"
+    ],
     "link": "https://ssidikov.github.io/cookies_angular/",
     "category": "Ecommerce"
   },
@@ -65,7 +100,13 @@
     "description": "An accessible platform for photographers to showcase their portfolios.",
     "image": "/projects/fisheye.webp",
     "longDescription": "Fisheye is a web application that allows photographers to present their portfolios. It includes features like dynamic page rendering, LightBox for media, contact forms, and like management. The project focuses on accessibility, modularity, and using JavaScript design patterns.",
-    "technologies": ["HTML", "CSS", "JavaScript", "JSON", "AChecker"],
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "JSON",
+      "AChecker"
+    ],
     "link": "https://ssidikov.github.io/Front-End-Fisheye/",
     "category": "Portfolio"
   },
@@ -75,7 +116,12 @@
     "description": "A dynamic landing page for a gaming conference and contest organization.",
     "image": "/projects/game-on.webp",
     "longDescription": "GameOn is a landing page for a small company specializing in organizing gaming conferences and contests. The project involves dynamic interactions, form validation, responsive design, and uses JavaScript to manipulate HTML and CSS.",
-    "technologies": ["HTML", "CSS", "JavaScript", "Flexbox"],
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Flexbox"
+    ],
     "link": "https://ssidikov.github.io/GameOn-website-FR/",
     "category": "Landing"
   },
@@ -85,7 +131,13 @@
     "description": "A dynamic page showcasing the menus of four Parisian restaurants with online booking and menu composition.",
     "image": "/projects/ohmyfood.webp",
     "longDescription": "This project involves developing a webpage presenting the menus of four renowned Parisian restaurants, with online booking functionality and menu composition. The site incorporates CSS animations to enhance user experience and was designed using a mobile-first approach.",
-    "technologies": ["HTML", "SASS", "CSS Animations", "Figma", "Flexbox"],
+    "technologies": [
+      "HTML",
+      "SASS",
+      "CSS Animations",
+      "Figma",
+      "Flexbox"
+    ],
     "link": "https://ssidikov.github.io/OhMyFood/",
     "category": "Restaurant"
   },
@@ -95,7 +147,12 @@
     "description": "Debugging and testing the employee expense submission feature for a SaaS HR solution.",
     "image": "/projects/billed.webp",
     "longDescription": "This project involved debugging and writing unit, integration, and end-to-end tests for the employee expense submission feature. Tasks included fixing bugs using Chrome Debugger, ensuring over 80% test coverage, and drafting a structured manual test plan for core functionalities.",
-    "technologies": ["JavaScript", "Jest", "Chrome Debugger", "End-to-End Testing"],
+    "technologies": [
+      "JavaScript",
+      "Jest",
+      "Chrome Debugger",
+      "End-to-End Testing"
+    ],
     "link": "https://github.com/ssidikov/Billed-app-FR-Front/",
     "category": "Testing"
   },
@@ -105,7 +162,13 @@
     "description": "Developed a responsive homepage for a travel agency using HTML and CSS.",
     "image": "/projects/booki.webp",
     "longDescription": "In this project, I developed the homepage for a travel agency using HTML and CSS. The focus was on creating a responsive design compatible with various screen sizes and devices, using the Figma designs provided for mobile, tablet, and desktop versions.",
-    "technologies": ["HTML", "CSS", "Figma", "Flexbox", "Grid"],
+    "technologies": [
+      "HTML",
+      "CSS",
+      "Figma",
+      "Flexbox",
+      "Grid"
+    ],
     "link": "https://ssidikov.github.io/Booki/",
     "category": "Travel"
   },
@@ -115,7 +178,12 @@
     "description": "Created a landing page with a burger order form.",
     "image": "/projects/burger-house.webp",
     "longDescription": "This project involves creating a landing page for a burger restaurant with an interactive order form. The page allows users to select and customize their burger order.",
-    "technologies": ["HTML", "CSS", "JavaScript", "Flexbox"],
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Flexbox"
+    ],
     "link": "https://ssidikov.github.io/burgers-landing/",
     "category": "Restaurant",
     "featured": true
@@ -126,7 +194,13 @@
     "description": "Defining the requirements and designing the solution for a tutoring app.",
     "image": "/projects/learn-home.webp",
     "longDescription": "This project involved defining the requirements and creating a technical solution for a tutoring application for the Learn@Home association. The goal was to identify the functional needs of the platform, design user stories, create use case diagrams, develop mockups using Figma, and build a Kanban board for project management. The project was executed using an agile methodology to ensure efficient planning and clear communication with the client and development team.",
-    "technologies": ["Figma", "Kanban", "User Stories", "Agile Methodology", "UX/UI Design"],
+    "technologies": [
+      "Figma",
+      "Kanban",
+      "User Stories",
+      "Agile Methodology",
+      "UX/UI Design"
+    ],
     "link": "#",
     "category": "Education"
   },
@@ -136,7 +210,12 @@
     "description": "Landing page for the company Euclid - Project Systems.",
     "image": "/projects/euclid.webp",
     "longDescription": "Developed a responsive landing page for the company Euclid - Project Systems, ensuring a modern and professional look.",
-    "technologies": ["Figma", "HTML", "CSS", "Flexbox"],
+    "technologies": [
+      "Figma",
+      "HTML",
+      "CSS",
+      "Flexbox"
+    ],
     "link": "https://ssidikov.github.io/Evklid_website/",
     "category": "Landing"
   },
@@ -146,7 +225,15 @@
     "description": "Le Moderne - Restaurant Management System",
     "image": "/projects/resto.webp",
     "longDescription": "Developed a modern web platform for a Parisian restaurant featuring a complete reservation management system. Includes secure admin dashboard with authentication and intuitive online booking interface.",
-    "technologies": ["Next.js", "TypeScript", "PostgreSQL", "NextAuth", "Tailwind CSS", "Neon Database", "Nodemailer"],
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "NextAuth",
+      "Tailwind CSS",
+      "Neon Database",
+      "Nodemailer"
+    ],
     "link": "https://resto-parisien.vercel.app/",
     "category": "Restaurant",
     "featured": true

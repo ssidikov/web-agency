@@ -27,7 +27,7 @@
       "Axios"
     ],
     "link": "https://ssidikov.github.io/SportSee/",
-    "category": "Web",
+    "category": "Dashboard",
     "featured": true
   },
   {
@@ -44,7 +44,7 @@
       "Swagger"
     ],
     "link": "https://ssidikov.github.io/Argent-Bank/",
-    "category": "Web",
+    "category": "Finance",
     "featured": false
   },
   {
@@ -62,7 +62,7 @@
       "date-fns"
     ],
     "link": "https://ssidikov.github.io/HRnet/",
-    "category": "Web",
+    "category": "HR",
     "featured": false
   },
   {
@@ -80,7 +80,7 @@
       "Performance Analysis"
     ],
     "link": "https://ssidikov.github.io/PetitsPlats2.0/",
-    "category": "Web",
+    "category": "Recipe",
     "featured": false
   },
   {
@@ -95,7 +95,7 @@
       "HTML"
     ],
     "link": "https://ssidikov.github.io/cookies_angular/",
-    "category": "Web",
+    "category": "Ecommerce",
     "featured": false
   },
   {
@@ -112,7 +112,7 @@
       "AChecker"
     ],
     "link": "https://ssidikov.github.io/Front-End-Fisheye/",
-    "category": "Web",
+    "category": "Portfolio",
     "featured": false
   },
   {
@@ -128,7 +128,7 @@
       "Flexbox"
     ],
     "link": "https://ssidikov.github.io/GameOn-website-FR/",
-    "category": "Web",
+    "category": "Landing",
     "featured": false
   },
   {
@@ -145,7 +145,7 @@
       "Flexbox"
     ],
     "link": "https://ssidikov.github.io/OhMyFood/",
-    "category": "Web",
+    "category": "Restaurant",
     "featured": false
   },
   {
@@ -161,7 +161,7 @@
       "End-to-End Testing"
     ],
     "link": "https://github.com/ssidikov/Billed-app-FR-Front/",
-    "category": "Web",
+    "category": "Testing",
     "featured": false
   },
   {
@@ -178,7 +178,7 @@
       "Grid"
     ],
     "link": "https://ssidikov.github.io/Booki/",
-    "category": "Web",
+    "category": "Travel",
     "featured": false
   },
   {
@@ -194,7 +194,7 @@
       "Flexbox"
     ],
     "link": "https://ssidikov.github.io/burgers-landing/",
-    "category": "Web",
+    "category": "Restaurant",
     "featured": false
   },
   {
@@ -211,7 +211,7 @@
       "UX/UI Design"
     ],
     "link": "#",
-    "category": "Design",
+    "category": "Education",
     "featured": false
   },
   {
@@ -227,7 +227,7 @@
       "Flexbox"
     ],
     "link": "https://ssidikov.github.io/Evklid_website/",
-    "category": "Web",
+    "category": "Landing",
     "featured": false
   },
   {
@@ -246,7 +246,7 @@
       "Nodemailer"
     ],
     "link": "https://resto-parisien.vercel.app/",
-    "category": "Web",
+    "category": "Restaurant",
     "featured": true
   }
 ]

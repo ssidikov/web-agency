@@ -10,17 +10,14 @@ import { getProjects } from '@/data/projects'
 
 
 
-export default function PortfolioNew() {
 
+interface PortfolioNewProps {
+  locale: 'en' | 'fr' | 'ru';
+  dictionary?: any;
+}
 
+export default function PortfolioNew({ locale }: PortfolioNewProps) {
   const [activeTag, setActiveTag] = useState<string>('featured');
-  // Determine locale (replace with your actual locale logic)
-  const locale =
-    typeof window !== 'undefined' && window.location.pathname.startsWith('/fr')
-      ? 'fr'
-      : typeof window !== 'undefined' && window.location.pathname.startsWith('/ru')
-      ? 'ru'
-      : 'en';
   const projects = getProjects(locale);
 
   const tags = Array.from(
