@@ -69,7 +69,7 @@ export function FAQ({ dictionary }: FAQProps) {
           <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
             {faqData.title}
           </h2>
-          <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>{faqData.subtitle}</p>
+          <p className='text-2xl text-gray-600 max-w-3xl leading-relaxed'>{faqData.subtitle}</p>
         </motion.div>
 
         {/* Category Filter */}
@@ -82,19 +82,19 @@ export function FAQ({ dictionary }: FAQProps) {
           <div className='flex flex-wrap gap-2.5'>
             <button
               onClick={() => setActiveCategory('all')}
-              className={`cursor-pointer h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 transition-all duration-300 outline-none focus:ring-0 ${
+              className={`text-gray-600 text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-16 ${
                 activeCategory === 'all'
                   ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
                   : 'text-black border border-black hover:bg-black hover:text-white'
               }`}
               tabIndex={0}>
-              #Все
+              #All
             </button>
             {(['general', 'pricing', 'support'] as const).map((category, idx) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`cursor-pointer h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 transition-all duration-300 outline-none focus:ring-0 ${
+                className={`text-gray-600 text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-16 ${
                   idx === 2 ? 'mr-[30px]' : ''
                 } ${
                   activeCategory === category
@@ -120,12 +120,12 @@ export function FAQ({ dictionary }: FAQProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className='bg-brand-cream rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary '>
+                  className='bg-black/10 rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary '>
                   <button
                     onClick={() => toggleQuestion(questionId)}
                     className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
                     <div className='flex items-center gap-3 3xl:gap-6'>
-                      <h4 className='font-medium text-left text-lg sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
+                      <h4 className='font-medium text-left text-xl sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
                         {questionData.question}
                       </h4>
                     </div>
@@ -153,7 +153,7 @@ export function FAQ({ dictionary }: FAQProps) {
                       transition: 'max-height 0.3s',
                       overflow: 'hidden',
                     }}>
-                    <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-brand-primary'>
+                    <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-lg mt-4'>
                       {questionData.answer}
                     </p>
                   </div>
@@ -170,18 +170,18 @@ export function FAQ({ dictionary }: FAQProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className='bg-brand-cream rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary'>
+                  className='bg-black/10 rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary '>
                   <button
                     onClick={() => toggleQuestion(questionId)}
                     className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
                     <div className='flex items-center gap-3 3xl:gap-6'>
-                      <h4 className='font-medium text-left text-lg sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
+                      <h4 className='font-medium text-left text-xl sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
                         {questionData.question}
                       </h4>
                     </div>
-                    <span className='size-8 3xl:size-11 shrink-0 flex items-center justify-center rounded-full bg-brand-primary opacity-80 hover:opacity-100 transition-opacity duration-300'>
+                    <span className='size-8 3xl:size-11 shrink-0 flex items-center justify-center rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity duration-300'>
                       <svg
-                        className={`w-5 h-5 3xl:w-7 3xl:h-7 text-brand-cream transition-transform duration-300 ${
+                        className={`w-5 h-5 3xl:w-7 3xl:h-7 transition-transform duration-300 ${
                           openQuestion === questionId ? 'rotate-180' : ''
                         }`}
                         fill='none'
@@ -203,7 +203,7 @@ export function FAQ({ dictionary }: FAQProps) {
                       transition: 'max-height 0.3s',
                       overflow: 'hidden',
                     }}>
-                    <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-brand-primary'>
+                    <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-lg mt-4'>
                       {questionData.answer}
                     </p>
                   </div>
