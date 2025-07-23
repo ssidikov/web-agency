@@ -78,11 +78,11 @@ export function FAQ({ dictionary }: FAQProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className='no-scroll max-w-min overflow-auto mb-12'>
-          <div className='min-w-max flex sm:flex-wrap gap-2.5'>
+          className='w-full mb-12'>
+          <div className='flex flex-wrap gap-2.5'>
             <button
               onClick={() => setActiveCategory('all')}
-              className={`cursor-pointer h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 transition-all duration-300 outline-none focus:ring-0 ml-[30px] ${
+              className={`cursor-pointer h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 transition-all duration-300 outline-none focus:ring-0 ${
                 activeCategory === 'all'
                   ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
                   : 'text-black border border-black hover:bg-black hover:text-white'
@@ -109,7 +109,7 @@ export function FAQ({ dictionary }: FAQProps) {
         </motion.div>
 
         {/* FAQ Items */}
-        <div className='flex flex-col lg:flex-row gap-x-10 gap-y-2.5 px-[30px]'>
+        <div className='flex flex-col lg:flex-row gap-x-10 gap-y-2.5'>
           <div className='space-y-2.5 w-full lg:w-1/2'>
             {filteredQuestions
               .slice(0, Math.ceil(filteredQuestions.length / 2))
@@ -129,10 +129,23 @@ export function FAQ({ dictionary }: FAQProps) {
                         {questionData.question}
                       </h4>
                     </div>
-                    <button className='size-8 3xl:size-11 shrink-0 relative bg-brand-primary rounded-full'>
-                      <span className='h-[1.5px] w-4 3xl:h-0.5 3xl:w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream'></span>
-                      <span className='w-[1.5px] h-4 3xl:h-5 3xl:w-0.5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream block'></span>
-                    </button>
+                    <span className='size-8 3xl:size-11 shrink-0 flex items-center justify-center rounded-full bg-white opacity-50 hover:opacity-100 transition-opacity duration-300'>
+                      <svg
+                        className={`w-5 h-5 3xl:w-7 3xl:h-7 transition-transform duration-300 ${
+                          openQuestion === questionId ? 'rotate-180' : ''
+                        }`}
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2}
+                          d='M19 9l-7 7-7-7'
+                        />
+                      </svg>
+                    </span>
                   </button>
                   <div
                     style={{
@@ -171,10 +184,23 @@ export function FAQ({ dictionary }: FAQProps) {
                         {questionData.question}
                       </h4>
                     </div>
-                    <button className='size-8 3xl:size-11 shrink-0 relative bg-brand-primary rounded-full'>
-                      <span className='h-[1.5px] w-4 3xl:h-0.5 3xl:w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream'></span>
-                      <span className='w-[1.5px] h-4 3xl:h-5 3xl:w-0.5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream block'></span>
-                    </button>
+                    <span className='size-8 3xl:size-11 shrink-0 flex items-center justify-center rounded-full bg-brand-primary opacity-80 hover:opacity-100 transition-opacity duration-300'>
+                      <svg
+                        className={`w-5 h-5 3xl:w-7 3xl:h-7 text-brand-cream transition-transform duration-300 ${
+                          openQuestion === questionId ? 'rotate-180' : ''
+                        }`}
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'>
+                        <path
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
+                          strokeWidth={2}
+                          d='M19 9l-7 7-7-7'
+                        />
+                      </svg>
+                    </span>
                   </button>
                   <div
                     style={{
