@@ -346,6 +346,8 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
                               className='text-gray-600 hover:text-black transition-colors duration-200 break-words'>
                               {item.value}
                             </a>
+                          ) : item.title === 'Localisations' ? (
+                            <p className='text-gray-600 break-words' dangerouslySetInnerHTML={{ __html: item.value }} />
                           ) : (
                             <p className='text-gray-600 break-words'>{item.value}</p>
                           )}
