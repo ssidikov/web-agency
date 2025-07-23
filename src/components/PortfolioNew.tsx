@@ -71,7 +71,7 @@ export default function PortfolioNew({ locale }: PortfolioNewProps) {
         </motion.div>
 
         {/* Portfolio Grid */}
-        <div className='grid lg:grid-cols-2 gap-5 sm:gap-[30px] lg:gap-10'>
+        <div className='grid lg:grid-cols-2 gap-5 sm:gap-[30px] lg:gap-16'>
           {filteredProjects.map((project) => (
             <Link
               key={project.id}
@@ -83,7 +83,7 @@ export default function PortfolioNew({ locale }: PortfolioNewProps) {
                   alt={project.title}
                   width={584}
                   height={384}
-                  className='w-full h-full object-cover group-hover:scale-125 transition-all duration-300'
+                  className='w-full h-full object-cover object-top group-hover:scale-125 transition-all duration-300'
                 />
               </div>
               <div className='flex flex-col gap-y-3.5 lg:gap-y-5 pt-5 sm:pl-[30px] lg:py-10 lg:px-6'>
