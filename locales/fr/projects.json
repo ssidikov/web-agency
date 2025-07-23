@@ -4,7 +4,7 @@
     "title": "Kasa",
     "description": "Plateforme de location avec design responsive.",
     "image": "/images/projects/kasa.webp",
-    "longDescription": "Kasa offre une interface conviviale pour rechercher et réserver des logements. Le projet inclut la navigation, des menus déroulants et un design entièrement responsive.",
+    "longDescription": "Kasa est une plateforme moderne de location avec une interface intuitive et un design entièrement responsive. Les utilisateurs peuvent facilement rechercher et réserver des appartements grâce à une navigation pratique et des menus déroulants dynamiques. Réalisé avec React et SASS, Kasa offre des performances élevées et un look élégant sur tous les appareils. C'est le choix idéal pour les entreprises souhaitant offrir à leurs clients une expérience de location en ligne fluide.",
     "technologies": [
       "React",
       "SASS"
@@ -18,7 +18,7 @@
     "title": "SportSee",
     "description": "Tableau de bord pour l'analyse des données de fitness.",
     "image": "/images/projects/sport-see.webp",
-    "longDescription": "SportSee visualise les données de fitness des utilisateurs, y compris les sessions et les indicateurs clés. Réalisé avec React et intégration API.",
+    "longDescription": "SportSee est un tableau de bord interactif pour l'analyse des données de fitness, conçu pour les entreprises et coachs sportifs. Le système visualise les indicateurs clés d'activité, intègre des API et crée des graphiques avec Recharts. Grâce à une stack moderne (React, SASS, Axios) et une architecture réfléchie, SportSee aide les utilisateurs à suivre leur progression et à prendre des décisions basées sur les données. Un excellent exemple pour ceux qui souhaitent créer une plateforme d'analyse pour le sport et le bien-être.",
     "technologies": [
       "React",
       "React Router",
@@ -35,7 +35,7 @@
     "title": "ArgentBank",
     "description": "Interface bancaire pour la gestion de comptes.",
     "image": "/images/projects/argent-bank.webp",
-    "longDescription": "ArgentBank offre un accès sécurisé et pratique aux informations de compte. Authentification et gestion d'état via Redux.",
+    "longDescription": "ArgentBank est une plateforme bancaire sécurisée et pratique pour la gestion des comptes en ligne. Le système intègre l'authentification, la gestion d'état via Redux et l'intégration REST API. L'interface, développée avec React, offre rapidité et excellente UX. ArgentBank est la solution idéale pour les entreprises financières souhaitant proposer à leurs clients une banque en ligne moderne.",
     "technologies": [
       "React",
       "Redux",
@@ -52,7 +52,7 @@
     "title": "HRnet",
     "description": "Application moderne pour la gestion des employés.",
     "image": "/images/projects/hrNet.webp",
-    "longDescription": "HRnet permet d'ajouter, consulter et gérer les données des employés facilement. Design responsive, stockage local, validation de formulaire, mises à jour en temps réel.",
+    "longDescription": "HRnet est une application RH moderne pour la gestion des employés, permettant d'ajouter, consulter et éditer les données facilement. Réalisée avec React, Redux Toolkit et Material-UI, elle propose une interface responsive, stockage local et validation des formulaires. HRnet est un excellent outil pour les départements RH souhaitant automatiser les processus et améliorer l'efficacité.",
     "technologies": [
       "React",
       "Redux Toolkit",
@@ -70,7 +70,7 @@
     "title": "Les petits plats",
     "description": "Développement d'un algorithme de recherche pour une plateforme de recettes avec optimisation des performances.",
     "image": "/images/projects/petits-plats.webp",
-    "longDescription": "Ce projet a consisté à créer un algorithme de recherche performant pour une plateforme de recettes. Conception d'une UI intuitive, deux versions d'algorithmes (boucles natives et programmation fonctionnelle), comparaison de performance via Jsben.ch et documentation selon les principes Green Code.",
+    "longDescription": "Les petits plats est une plateforme de recherche de recettes avec des algorithmes optimisés et une interface intuitive. Le projet implémente deux algorithmes de recherche, compare leurs performances et suit les principes Green Code. Grâce à JavaScript, Bootstrap et la programmation fonctionnelle, le site est rapide et convivial pour tous ceux qui recherchent les meilleures recettes en ligne.",
     "technologies": [
       "JavaScript",
       "Bootstrap",
@@ -88,7 +88,7 @@
     "title": "Trendy Cookies",
     "description": "Site web pour commander des cookies tendance.",
     "image": "/images/projects/cookies.webp",
-    "longDescription": "Trendy Cookies propose une plateforme simple pour commander des cookies. Réalisé avec Angular, design responsive et processus de commande simplifié.",
+    "longDescription": "Trendy Cookies est un site élégant pour commander des douceurs tendance, développé avec Angular. La plateforme est simple, responsive et bien conçue, rendant le processus de commande rapide et agréable. Parfait pour les pâtisseries souhaitant augmenter leurs ventes en ligne.",
     "technologies": [
       "Angular",
       "CSS",

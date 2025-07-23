@@ -24,48 +24,57 @@ export default function ProjectDetailsPage({
       <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50'></div>
       <div className='container mx-auto px-4 relative'>
         <div className='flex flex-col lg:flex-row gap-10 items-start'>
-          <div className='relative w-full lg:w-1/2 h-80 lg:h-[480px] rounded-3xl overflow-hidden shadow-lg'>
+          <div className='relative w-full lg:w-1/2 h-[480px] lg:h-[640px] 3xl:h-[800px] rounded-3xl overflow-hidden shadow-lg flex'>
             <Image
               src={project.image}
               alt={project.title}
-              width={800}
-              height={480}
+              fill
               className='w-full h-full object-cover object-top'
+              sizes='(max-width: 1024px) 100vw, 50vw'
             />
             <div className='absolute inset-0 pointer-events-none bg-gradient-to-t from-black/30 via-black/10 to-transparent opacity-40'></div>
           </div>
           <div className='flex-1 flex flex-col justify-between items-start min-h-[480px]'>
             <div>
-              <h1 className='text-4xl lg:text-5xl font-bold text-black mb-6'>{project.title}</h1>
-              <p className='text-lg lg:text-xl text-gray-700 mb-8'>{project.description}</p>
+              <h1 className='text-5xl lg:text-6xl 3xl:text-7xl font-bold text-black mb-8'>
+                {project.title}
+              </h1>
+              <p className='text-2xl lg:text-3xl 3xl:text-4xl text-gray-700 mb-6'>
+                {project.description}
+              </p>
+              {project.longDescription && (
+                <p className='text-xl lg:text-2xl 3xl:text-3xl text-gray-600 mb-10'>
+                  {project.longDescription}
+                </p>
+              )}
             </div>
             <div>
               <div className='flex flex-wrap gap-3 mb-8'>
-                <span className='h-9 bg-blue-50 rounded-lg px-3 text-slate-500 font-semibold flex items-center'>
+                <span className='h-11 bg-blue-50 rounded-xl px-4 text-lg lg:text-xl 3xl:text-2xl text-slate-500 font-semibold flex items-center'>
                   {project.category}
                 </span>
                 {project.technologies?.map((tech, idx) => (
                   <span
                     key={idx}
-                    className='h-9 bg-blue-50 rounded-lg px-3 text-slate-500 font-semibold flex items-center'>
+                    className='h-11 bg-blue-50 rounded-xl px-4 text-lg lg:text-xl 3xl:text-2xl text-slate-500 font-semibold flex items-center'>
                     {tech}
                   </span>
                 ))}
               </div>
-              <div className='flex gap-4'>
+              <div className='flex flex-col sm:flex-row gap-4'>
                 <Link
                   href='/contact'
-                  className='inline-block px-6 py-3 bg-black text-white rounded-xl font-bold text-lg transition hover:bg-white hover:text-black border border-black'>
+                  className='group relative bg-black hover:bg-transparent text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer items-center justify-center flex'>
                   Start Your Project
                 </Link>
                 {project.link && (
-                  <a
+                  <Link
                     href={project.link}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='inline-block px-6 py-3 bg-white text-black rounded-xl font-bold text-lg border border-black transition hover:bg-black hover:text-white'>
+                    className='group relative bg-black hover:bg-transparent text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer items-center justify-center flex'>
                     Visit Project
-                  </a>
+                  </Link>
                 )}
               </div>
             </div>

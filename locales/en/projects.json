@@ -4,7 +4,7 @@
     "title": "Kasa",
     "description": "A rental platform with a responsive design.",
     "image": "/images/projects/kasa.webp",
-    "longDescription": "Kasa provides users with a user-friendly interface for searching and booking accommodations. The project includes navigation, dropdown menus, and a fully responsive design.",
+    "longDescription": "Kasa is a modern rental platform with an intuitive interface and fully responsive design. Users can easily search and book apartments using convenient navigation and dynamic dropdown menus. Built with React and SASS, Kasa delivers high performance and a stylish look on any device. It's the perfect choice for businesses looking to offer clients a seamless online rental experience.",
     "technologies": [
       "React",
       "SASS"
@@ -18,7 +18,7 @@
     "title": "SportSee",
     "description": "A dashboard for analyzing fitness data.",
     "image": "/images/projects/sport-see.webp",
-    "longDescription": "SportSee visualizes user fitness data, including sessions and key metrics. Built with React and API integration.",
+    "longDescription": "SportSee is an interactive dashboard for analyzing fitness data, designed for fitness companies and trainers. The system visualizes key activity metrics, integrates APIs, and builds charts using Recharts. With a modern tech stack (React, SASS, Axios) and thoughtful architecture, SportSee helps users track progress and make data-driven decisions. A great example for anyone looking to build an analytics platform for sports and wellness.",
     "technologies": [
       "React",
       "React Router",
@@ -35,7 +35,7 @@
     "title": "ArgentBank",
     "description": "A banking interface for account management.",
     "image": "/images/projects/argent-bank.webp",
-    "longDescription": "ArgentBank offers users secure and convenient access to their account information. It features authentication and state management using Redux.",
+    "longDescription": "ArgentBank is a secure and convenient banking platform for online account management. The system implements authentication, state management via Redux, and REST API integration. The interface is built with React for fast performance and excellent UX. ArgentBank is the ideal solution for financial companies looking to provide clients with modern online banking.",
     "technologies": [
       "React",
       "Redux",
@@ -51,7 +51,7 @@
     "title": "HRnet",
     "description": "A modern application for managing employee records.",
     "image": "/images/projects/hrNet.webp",
-    "longDescription": "HRnet allows users to add, view, and manage employee data with ease. It includes a responsive design, local storage support, and features like form validation, real-time updates, and data persistence.",
+    "longDescription": "HRnet is a modern HR application for managing employee records, allowing users to add, view, and edit staff easily. Built with React, Redux Toolkit, and Material-UI, it features a responsive interface, local storage, and form validation. HRnet is a great tool for HR departments looking to automate processes and boost efficiency.",
     "technologies": [
       "React",
       "Redux Toolkit",
@@ -68,7 +68,7 @@
     "title": "Les petits plats",
     "description": "Development of a search algorithm for a cooking recipe platform with performance optimization.",
     "image": "/images/projects/petits-plats.webp",
-    "longDescription": "This project focused on creating a performant search algorithm for a cooking recipe platform. It involved designing an intuitive UI, implementing two versions of search algorithms (native loops and functional programming), comparing their performance using Jsben.ch, and documenting the results while adhering to Green Code principles.",
+    "longDescription": "Les petits plats is a recipe search platform with optimized algorithms and an intuitive interface. The project implements two search algorithms, compares their performance, and follows Green Code principles. Using JavaScript, Bootstrap, and functional programming, the site is fast and user-friendly for anyone looking for the best recipes online.",
     "technologies": [
       "JavaScript",
       "Bootstrap",
@@ -85,7 +85,7 @@
     "title": "Trendy Cookies",
     "description": "A website for ordering trendy cookies.",
     "image": "/images/projects/cookies.webp",
-    "longDescription": "Trendy Cookies offers users an easy-to-use platform for ordering sweet cookies. Built with Angular, it includes a responsive design and simple ordering process.",
+    "longDescription": "Trendy Cookies is a stylish website for ordering trendy sweets, built with Angular. The platform is simple, responsive, and beautifully designed, making the ordering process quick and easy. Perfect for bakeries looking to boost online sales.",
     "technologies": [
       "Angular",
       "CSS",
