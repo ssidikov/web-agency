@@ -50,7 +50,7 @@ export function FAQ({ dictionary }: FAQProps) {
   return (
     <section
       id='faq'
-      className='space-y-[30px] lg:space-y-8 3xl:space-y-12 py-20 relative overflow-hidden min-h-[1200px]'>
+      className='space-y-[30px] lg:space-y-8 3xl:space-y-12 py-20 relative overflow-hidden'>
       {/* Background Image */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
@@ -58,8 +58,7 @@ export function FAQ({ dictionary }: FAQProps) {
       />
       {/* Clean gradient background */}
       <div className='absolute inset-0 bg-gradient-to-br from-brand-cream via-brand-secondary/30 to-brand-cream/20'></div>
-      {/* Pattern overlay */}
-      <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50'></div>
+
       <div className='container mx-auto px-4 relative'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -227,14 +226,22 @@ export function FAQ({ dictionary }: FAQProps) {
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.4 }}
         className='text-center mt-32 z-10 relative'>
-        <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white shadow-xl'>
-          <h3 className='text-2xl font-bold mb-4 text-brand-primary'>Остались вопросы?</h3>
-          <p className='text-brand-primary mb-6 max-w-2xl mx-auto'>
+        <div
+          className='rounded-2xl p-8 text-white shadow-xl border border-white/30 max-w-[720px] mx-auto'
+          style={{
+            background: 'rgba(44, 62, 80, 0.35)',
+            backdropFilter: 'blur(16px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+            border: '1px solid rgba(255,255,255,0.18)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+          }}>
+          <h3 className='text-3xl font-bold mb-4 text-brand-primary'>Остались вопросы?</h3>
+          <p className='text-lg text-brand-primary mb-6 max-w-2xl mx-auto'>
             Свяжитесь с нашей командой для персональной консультации по вашему проекту.
           </p>
           <a
             href='#contact'
-            className='inline-flex items-center gap-2 bg-brand-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-cream hover:text-brand-primary transition-colors duration-200'>
+            className='text-xl inline-flex items-center gap-2 bg-brand-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-cream hover:text-brand-primary transition-colors duration-200'>
             Связаться
             <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
               <path
