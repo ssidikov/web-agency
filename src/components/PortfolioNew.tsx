@@ -96,13 +96,15 @@ export default function PortfolioNew({ locale }: PortfolioNewProps) {
                 />
                 <div className='absolute inset-0 pointer-events-none bg-gradient-to-t from-black/10 to-transparent opacity-60'></div>
               </div>
-              <div className='flex flex-col gap-y-4 lg:gap-y-6 pt-6 sm:pl-8 lg:py-10 lg:px-8'>
-                <h3 className='text-2xl lg:text-2xl 3xl:text-3xl font-bold text-black mb-2 group-hover:text-blue-700 transition-colors duration-200'>
-                  {project.title}
-                </h3>
-                <p className='text-base xs:text-lg sm:text-base lg:text-lg 3xl:text-xl leading-6 sm:leading-6 3xl:leading-8 text-gray-700 mb-4 line-clamp-2'>
-                  {project.description}
-                </p>
+              <div className='flex flex-col justify-between min-h-[220px] lg:min-h-[260px] 3xl:min-h-[320px] gap-y-4 lg:gap-y-6 pt-6 sm:pl-8 lg:py-10 lg:px-8'>
+                <div>
+                  <h3 className='text-2xl lg:text-2xl 3xl:text-3xl font-bold text-black mb-2 group-hover:text-blue-700 transition-colors duration-200'>
+                    {project.title}
+                  </h3>
+                  <p className='text-base xs:text-lg sm:text-base lg:text-lg 3xl:text-xl leading-6 sm:leading-6 3xl:leading-8 text-gray-700 mb-4 line-clamp-2'>
+                    {project.description}
+                  </p>
+                </div>
                 <div className='flex flex-wrap gap-2.5 text-sm lg:text-lg'>
                   <span className='h-9 bg-blue-50 rounded-lg px-3 text-slate-500 font-semibold flex items-center'>
                     {project.category}
