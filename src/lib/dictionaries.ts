@@ -12,14 +12,71 @@ export interface Dictionary {
     go_home: string
     popular_pages: string
   }
-  navigation?: Record<string, string>
-  hero?: Record<string, string>
-  services?: Record<string, string>
-  faq?: Record<string, string>
-  contact?: Record<string, string>
-  footer?: Record<string, string>
-  common?: Record<string, string>
-  [key: string]: any // Allow additional properties
+  navigation?: Record<string, unknown>
+  hero?: {
+    badge?: string
+    title?: string
+    subtitle?: string
+    cta_primary?: string
+    cta_secondary?: string
+    features?: Array<{ title: string; icon: string }>
+  }
+  services?: Record<string, unknown>
+  faq?: Record<string, unknown>
+  contact?: {
+    title?: string
+    subtitle?: string
+    quickContact?: string
+    social?: string
+    info?: {
+      title?: string
+      localisations?: string
+      locations?: string[]
+      phone_label?: string
+      email_label?: string
+      phone?: string
+      email?: string
+    }
+    channels?: {
+      email?: string
+      whatsapp?: string
+      telegram?: string
+      phone?: string
+      emailDesc?: string
+      whatsappDesc?: string
+      telegramDesc?: string
+      phoneDesc?: string
+    }
+  }
+  footer?: {
+    description?: string
+    quick_links?: string
+    services_links?: string
+    contact_info?: string
+    social_media?: string
+    services?: {
+      web_creation?: string
+      web_redesign?: string
+      seo_optimization?: string
+      maintenance?: string
+      web_applications?: string
+      ecommerce?: string
+    }
+    newsletter?: {
+      title?: string
+      description?: string
+      placeholder?: string
+      subscribe?: string
+    }
+    legal?: {
+      privacy?: string
+      terms?: string
+      cookies?: string
+    }
+    copyright?: string
+  }
+  common?: Record<string, unknown>
+  [key: string]: unknown // Allow additional properties
 }
 
 // Кэш для словарей

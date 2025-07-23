@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { LinkedInIcon, GitHubIcon } from '@/components/icons'
+import { Dictionary } from '@/lib/dictionaries'
 
 const getFullYear = () => new Date().getFullYear()
 
@@ -14,13 +15,48 @@ const socialLinks = [
 ]
 
 const quickLinks = [
-  { name: 'About', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Portfolio', href: '/portfolio' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'About', href: '/about', key: 'about' },
+  { name: 'Services', href: '/services', key: 'services' },
+  { name: 'Portfolio', href: '/portfolio', key: 'portfolio' },
+  { name: 'Contact', href: '/contact', key: 'contact' },
 ]
 
-export function Footer() {
+interface FooterProps {
+  dictionary: Dictionary
+}
+
+export default function Footer({ dictionary }: FooterProps) {
+  const footer = dictionary.footer || {}
+  const navigation = dictionary.navigation || {}
+
+  // Services data with translations
+  const services = [
+    {
+      name: footer.services?.web_creation || 'Création de sites web',
+      href: '/services',
+    },
+    {
+      name: footer.services?.web_redesign || 'Refonte / Redesign',
+      href: '/services',
+    },
+    {
+      name: footer.services?.seo_optimization || 'SEO & Optimisation',
+      href: '/services',
+    },
+    {
+      name: footer.services?.maintenance || 'Maintenance & Support',
+      href: '/services',
+    },
+    {
+      name: footer.services?.web_applications || 'Applications web',
+      href: '/services',
+    },
+    {
+      name: footer.services?.ecommerce || 'E-commerce',
+      href: '/services',
+    },
+  ]
+
   return (
     <footer className='relative bg-black overflow-hidden'>
       <div className='relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -42,8 +78,8 @@ export function Footer() {
               />
             </h3>
             <p className='text-gray-300 mb-4'>
-              Creating exceptional digital experiences that drive growth and engagement through
-              innovative design and cutting-edge technology.
+              {footer.description ||
+                'Creating exceptional digital experiences that drive growth and engagement through innovative design and cutting-edge technology.'}
             </p>
             <div className='flex space-x-4'>
               {socialLinks.map((link, index) => (
@@ -68,14 +104,16 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}>
-            <h3 className='text-lg font-semibold text-white mb-4'>Quick Links</h3>
+            <h3 className='text-lg font-semibold text-white mb-4'>
+              {footer.quick_links || 'Quick Links'}
+            </h3>
             <ul className='space-y-2'>
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
                     className='text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer'>
-                    {link.name}
+                    {(navigation[link.key as keyof typeof navigation] as string) || link.name}
                   </Link>
                 </li>
               ))}
@@ -88,14 +126,16 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}>
-            <h3 className='text-lg font-semibold text-white mb-4'>Services</h3>
+            <h3 className='text-lg font-semibold text-white mb-4'>
+              {footer.services_links || 'Services'}
+            </h3>
             <ul className='space-y-2'>
-              {['Web Development', 'Mobile Apps', 'UI/UX Design', 'Consulting'].map((service) => (
-                <li key={service}>
+              {services.map((service) => (
+                <li key={service.name}>
                   <Link
-                    href='/services'
+                    href={service.href}
                     className='text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer'>
-                    {service}
+                    {service.name}
                   </Link>
                 </li>
               ))}
@@ -108,11 +148,19 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}>
-            <h3 className='text-lg font-semibold text-white mb-4'>Contact Info</h3>
+            <h3 className='text-lg font-semibold text-white mb-4'>
+              {footer.contact_info || 'Contact Info'}
+            </h3>
             <div className='space-y-2 text-gray-300'>
-              <p>Paris, France <br /> Toulouse, France</p>
-              <p>+33 06 26 93 27 34</p>
-              <p><a href='mailto:s.sidikoff@gmail.com' className='hover:text-blue-400'>s.sidikoff@gmail.com</a></p>
+              <p>
+                Paris, France <br /> Toulouse, France
+              </p>
+              <p>+33 6 26 93 27 34</p>
+              <p>
+                <a href='mailto:s.sidikoff@gmail.com' className='hover:text-blue-400'>
+                  s.sidikoff@gmail.com
+                </a>
+              </p>
             </div>
           </motion.div>
         </div>
@@ -126,7 +174,7 @@ export function Footer() {
           className='py-6 border-t border-gray-700'>
           <div className='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'>
             <p className='text-gray-300 text-sm'>
-              © {getFullYear()} SIDIKOFF DIGITAL. All rights reserved.
+              {footer.copyright || `© ${getFullYear()} SIDIKOFF DIGITAL. All rights reserved.`}
             </p>
             <div className='flex space-x-6'>
               <Link

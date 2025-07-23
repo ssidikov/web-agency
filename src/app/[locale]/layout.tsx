@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,7 +32,7 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
         <div className='min-h-screen'>
           <Header locale={locale} dictionary={dict} />
           <main className='m-0 p-0'>{children}</main>
-          <Footer />
+          <Footer dictionary={dict} />
         </div>
       </body>
     </html>

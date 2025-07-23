@@ -164,7 +164,7 @@
       "phone_label": "Phone",
       "email_label": "Email",
       "address": "123 Business Street, Suite 100, New York, NY 10001",
-      "phone": "+33 06 26 93 27 34",
+      "phone": "+33 6 26 93 27 34",
       "email": "s.sidikoff@gmail.com",
       "hours": "Monday - Friday: 9:00 AM - 6:00 PM"
     },
@@ -186,18 +186,14 @@
     "services_links": "Services",
     "contact_info": "Contact Info",
     "social_media": "Follow Us",
-    "newsletter": {
-      "title": "Subscribe to Our Newsletter",
-      "description": "Get the latest updates and insights delivered to your inbox.",
-      "placeholder": "Enter your email",
-      "subscribe": "Subscribe"
-    },
-    "legal": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "cookies": "Cookie Policy"
-    },
-    "copyright": "© 2024 Your Company. All rights reserved."
+    "services": {
+      "web_creation": "Website Creation",
+      "web_redesign": "Redesign / Redesign",
+      "seo_optimization": "SEO & Optimization",
+      "maintenance": "Maintenance & Support",
+      "web_applications": "Web Applications",
+      "ecommerce": "E-commerce"
+    }
   },
   "common": {
     "loading": "Loading...",

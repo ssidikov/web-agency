@@ -199,7 +199,7 @@
       "phone_label": "Телефон",
       "email_label": "Email",
       "address": "ул. Бизнеса, 123, офис 100, Москва, 101000",
-      "phone": "+33 06 26 93 27 34",
+      "phone": "+33 6 26 93 27 34",
       "email": "s.sidikoff@gmail.com",
       "hours": "Понедельник - Пятница: 9:00 - 18:00"
     },
@@ -221,18 +221,20 @@
     "services_links": "Услуги",
     "contact_info": "Контактная Информация",
     "social_media": "Подписывайтесь",
+    "services": {
+      "web_creation": "Создание сайтов",
+      "web_redesign": "Редизайн / Обновление",
+      "seo_optimization": "SEO & Оптимизация",
+      "maintenance": "Техподдержка & Обслуживание",
+      "web_applications": "Веб-приложения",
+      "ecommerce": "Интернет-магазины"
+    },
     "newsletter": {
       "title": "Подпишитесь на Нашу Рассылку",
       "description": "Получайте последние обновления и инсайты прямо в вашу почту.",
       "placeholder": "Введите ваш email",
       "subscribe": "Подписаться"
-    },
-    "legal": {
-      "privacy": "Политика Конфиденциальности",
-      "terms": "Условия Использования",
-      "cookies": "Политика Cookies"
-    },
-    "copyright": "© 2024 Ваша Компания. Все права защищены."
+    }
   },
   "common": {
     "loading": "Загрузка...",

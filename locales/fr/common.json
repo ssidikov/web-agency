@@ -164,7 +164,7 @@
       "phone_label": "Téléphone",
       "email_label": "Email",
       "address": "123 Rue des Affaires, Suite 100, Paris, 75001",
-      "phone": "+33 06 26 93 27 34",
+      "phone": "+33 6 26 93 27 34",
       "email": "s.sidikoff@gmail.com",
       "hours": "Lundi - Vendredi: 9h00 - 18h00"
     },
@@ -186,18 +186,14 @@
     "services_links": "Services",
     "contact_info": "Infos Contact",
     "social_media": "Suivez-nous",
-    "newsletter": {
-      "title": "Abonnez-vous à Notre Newsletter",
-      "description": "Recevez les dernières mises à jour et insights directement dans votre boîte de réception.",
-      "placeholder": "Entrez votre email",
-      "subscribe": "S'abonner"
-    },
-    "legal": {
-      "privacy": "Politique de Confidentialité",
-      "terms": "Conditions d'Utilisation",
-      "cookies": "Politique des Cookies"
-    },
-    "copyright": "© 2024 Votre Entreprise. Tous droits réservés."
+    "services": {
+      "web_creation": "Création de sites web",
+      "web_redesign": "Refonte / Redesign",
+      "seo_optimization": "SEO & Optimisation",
+      "maintenance": "Maintenance & Support",
+      "web_applications": "Applications web",
+      "ecommerce": "E-commerce"
+    }
   },
   "common": {
     "loading": "Chargement...",
