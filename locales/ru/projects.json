@@ -24,17 +24,18 @@
     "image": "/projects/argent-bank.webp",
     "longDescription": "ArgentBank обеспечивает безопасный и удобный доступ к информации о счетах. Аутентификация и управление состоянием через Redux.",
     "technologies": ["React", "Redux", "React Router", "REST API", "Swagger"],
-    "link": "https://ssidikov.github.io/Argent-Bank/"
+    "link": "https://ssidikov.github.io/Argent-Bank/",
+    "category": "Web"
   },
-    "category": "Web",
-  }
+  {
     "id": "4",
     "title": "HRnet",
     "description": "Современное приложение для управления сотрудниками.",
     "image": "/projects/hrNet.webp",
     "longDescription": "HRnet позволяет легко добавлять, просматривать и управлять данными сотрудников. Включает адаптивный дизайн, локальное хранилище, валидацию форм и обновления в реальном времени.",
     "technologies": ["React", "Redux Toolkit", "Material-UI", "SASS", "Vite", "date-fns"],
-    "link": "https://ssidikov.github.io/HRnet/"
+    "link": "https://ssidikov.github.io/HRnet/",
+    "category": "Web"
   },
   {
     "id": "5",
@@ -133,7 +134,7 @@
     "image": "/projects/resto.webp",
     "longDescription": "Современная веб-платформа для французского ресторана с полной системой управления бронированием. Включает административную панель с аутентификацией и интуитивную систему онлайн-резервирования.",
     "technologies": ["Next.js", "TypeScript", "PostgreSQL", "NextAuth", "Tailwind CSS", "Neon Database", "Nodemailer"],
-    "link": "https://resto-parisien.vercel.app/"
+    "link": "https://resto-parisien.vercel.app/",
     "category": "Web",
     "featured": true
   }

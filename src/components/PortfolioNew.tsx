@@ -4,66 +4,39 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { portfolioItems } from '@/data/portfolio'
+import { getProjects } from '@/data/projects'
 
-interface PortfolioItem {
-  id: string
-  title: string
-  description: string
-  category: string
-  image: string
-  technologies: string[]
-  url?: string
-  featured?: boolean
-}
 
-interface PortfolioProps {
-  dictionary: {
-    portfolio: {
-      title: string
-      subtitle: string
-      filter: {
-        all: string
-        web: string
-        mobile: string
-        design: string
-      }
-      projects: {
-        [key: string]: {
-          title: string
-          description: string
-          category: string
-        }
-      }
-      view_project: string
-      live_demo: string
-    }
-  }
-}
 
-export function Portfolio({ dictionary }: PortfolioProps) {
-  const [activeTag, setActiveTag] = useState<string>('featured')
 
-  const portfolioData = dictionary?.portfolio
 
-  if (!portfolioData) {
-    return <div>Portfolio data not available</div>
-  }
+export default function PortfolioNew() {
+
+
+  const [activeTag, setActiveTag] = useState<string>('featured');
+  // Determine locale (replace with your actual locale logic)
+  const locale =
+    typeof window !== 'undefined' && window.location.pathname.startsWith('/fr')
+      ? 'fr'
+      : typeof window !== 'undefined' && window.location.pathname.startsWith('/ru')
+      ? 'ru'
+      : 'en';
+  const projects = getProjects(locale);
 
   const tags = Array.from(
     new Set(
-      portfolioItems.flatMap((item) =>
+      projects.flatMap((item) =>
         [item.featured ? 'featured' : undefined, item.category].filter(
           (tag): tag is string => typeof tag === 'string'
         )
       )
     )
-  )
+  );
 
   const filteredProjects =
     activeTag === 'featured'
-      ? portfolioItems.filter((item) => item.featured).slice(0, 2)
-      : portfolioItems.filter((item) => item.category === activeTag).slice(0, 2)
+      ? projects.filter((item) => item.featured).slice(0, 2)
+      : projects.filter((item) => item.category === activeTag).slice(0, 2);
 
   return (
     <section id='portfolio' className='py-20 bg-gray-50'>
@@ -163,9 +136,9 @@ export function Portfolio({ dictionary }: PortfolioProps) {
                 </div>
 
                 <div className='flex gap-3'>
-                  {project.url && (
+                  {project.link && (
                     <Link
-                      href={project.url}
+                      href={project.link}
                       className='flex-1 bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors text-sm font-semibold cursor-pointer'>
                       Voir le projet
                     </Link>
