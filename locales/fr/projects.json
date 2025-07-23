@@ -3,7 +3,7 @@
     "id": "1",
     "title": "Kasa",
     "description": "Plateforme de location avec design responsive.",
-    "image": "/projects/kasa.webp",
+    "image": "/images/projects/kasa.webp",
     "longDescription": "Kasa offre une interface conviviale pour rechercher et réserver des logements. Le projet inclut la navigation, des menus déroulants et un design entièrement responsive.",
     "technologies": [
       "React",
@@ -17,7 +17,7 @@
     "id": "2",
     "title": "SportSee",
     "description": "Tableau de bord pour l'analyse des données de fitness.",
-    "image": "/projects/sport-see.webp",
+    "image": "/images/projects/sport-see.webp",
     "longDescription": "SportSee visualise les données de fitness des utilisateurs, y compris les sessions et les indicateurs clés. Réalisé avec React et intégration API.",
     "technologies": [
       "React",
@@ -34,7 +34,7 @@
     "id": "3",
     "title": "ArgentBank",
     "description": "Interface bancaire pour la gestion de comptes.",
-    "image": "/projects/argent-bank.webp",
+    "image": "/images/projects/argent-bank.webp",
     "longDescription": "ArgentBank offre un accès sécurisé et pratique aux informations de compte. Authentification et gestion d'état via Redux.",
     "technologies": [
       "React",
@@ -51,7 +51,7 @@
     "id": "4",
     "title": "HRnet",
     "description": "Application moderne pour la gestion des employés.",
-    "image": "/projects/hrNet.webp",
+    "image": "/images/projects/hrNet.webp",
     "longDescription": "HRnet permet d'ajouter, consulter et gérer les données des employés facilement. Design responsive, stockage local, validation de formulaire, mises à jour en temps réel.",
     "technologies": [
       "React",
@@ -69,7 +69,7 @@
     "id": "5",
     "title": "Les petits plats",
     "description": "Développement d'un algorithme de recherche pour une plateforme de recettes avec optimisation des performances.",
-    "image": "/projects/petits-plats.webp",
+    "image": "/images/projects/petits-plats.webp",
     "longDescription": "Ce projet a consisté à créer un algorithme de recherche performant pour une plateforme de recettes. Conception d'une UI intuitive, deux versions d'algorithmes (boucles natives et programmation fonctionnelle), comparaison de performance via Jsben.ch et documentation selon les principes Green Code.",
     "technologies": [
       "JavaScript",
@@ -87,7 +87,7 @@
     "id": "6",
     "title": "Trendy Cookies",
     "description": "Site web pour commander des cookies tendance.",
-    "image": "/projects/cookies.webp",
+    "image": "/images/projects/cookies.webp",
     "longDescription": "Trendy Cookies propose une plateforme simple pour commander des cookies. Réalisé avec Angular, design responsive et processus de commande simplifié.",
     "technologies": [
       "Angular",
@@ -102,7 +102,7 @@
     "id": "7",
     "title": "Fisheye",
     "description": "Plateforme accessible pour les photographes afin de présenter leurs portfolios.",
-    "image": "/projects/fisheye.webp",
+    "image": "/images/projects/fisheye.webp",
     "longDescription": "Fisheye est une application web permettant aux photographes de présenter leurs portfolios. Rendu dynamique, LightBox, formulaires de contact, gestion des likes. Accent sur l'accessibilité et la modularité.",
     "technologies": [
       "HTML",
@@ -119,7 +119,7 @@
     "id": "8",
     "title": "GameOn Landing Page",
     "description": "Landing page dynamique pour une société d'organisation de conférences et concours gaming.",
-    "image": "/projects/game-on.webp",
+    "image": "/images/projects/game-on.webp",
     "longDescription": "GameOn est une landing page pour une société spécialisée dans l'organisation de conférences et concours gaming. Interactions dynamiques, validation de formulaire, design responsive, manipulation du DOM en JavaScript.",
     "technologies": [
       "HTML",
@@ -135,7 +135,7 @@
     "id": "9",
     "title": "Ohmyfood Paris",
     "description": "Page dynamique présentant les menus de quatre restaurants parisiens avec réservation en ligne.",
-    "image": "/projects/ohmyfood.webp",
+    "image": "/images/projects/ohmyfood.webp",
     "longDescription": "Développement d'une page web présentant les menus de quatre restaurants parisiens, réservation en ligne et composition de menu. Animations CSS et approche mobile-first.",
     "technologies": [
       "HTML",
@@ -152,7 +152,7 @@
     "id": "10",
     "title": "Billed Expense Feature",
     "description": "Débogage et tests de la fonctionnalité de notes de frais pour une solution RH SaaS.",
-    "image": "/projects/billed.webp",
+    "image": "/images/projects/billed.webp",
     "longDescription": "Débogage et rédaction de tests unitaires, d'intégration et end-to-end pour la fonctionnalité de notes de frais. Correction de bugs avec Chrome Debugger, couverture de tests >80%, plan de test manuel structuré.",
     "technologies": [
       "JavaScript",
@@ -168,7 +168,7 @@
     "id": "11",
     "title": "Booki - Page d'accueil",
     "description": "Développement d'une page d'accueil responsive pour une agence de voyage.",
-    "image": "/projects/booki.webp",
+    "image": "/images/projects/booki.webp",
     "longDescription": "Développement de la page d'accueil d'une agence de voyage en HTML et CSS. Accent sur le responsive et la compatibilité multi-écrans à partir de maquettes Figma.",
     "technologies": [
       "HTML",
@@ -185,7 +185,7 @@
     "id": "12",
     "title": "Burger House - Landing Page",
     "description": "Création d'une landing page avec formulaire de commande de burgers.",
-    "image": "/projects/burger-house.webp",
+    "image": "/images/projects/burger-house.webp",
     "longDescription": "Création d'une landing page pour un restaurant de burgers avec formulaire интерактивный. L'utilisateur peut choisir et personnaliser sa commande.",
     "technologies": [
       "HTML",
@@ -201,7 +201,7 @@
     "id": "13",
     "title": "Learn Home - Application de tutorat",
     "description": "Définition des besoins et conception de la solution pour une application de tutorat.",
-    "image": "/projects/learn-home.webp",
+    "image": "/images/projects/learn-home.webp",
     "longDescription": "Ce projet a consisté à définir les besoins et à concevoir une solution technique pour une application de tutorat pour l'association Learn@Home. Identification des besoins, user stories, diagrammes de cas d'utilisation, maquettes Figma, Kanban. Méthodologie agile.",
     "technologies": [
       "Figma",
@@ -218,7 +218,7 @@
     "id": "14",
     "title": "Landing Page pour Euclid - Project Systems",
     "description": "Landing page pour la société Euclid - Project Systems.",
-    "image": "/projects/euclid.webp",
+    "image": "/images/projects/euclid.webp",
     "longDescription": "Développement d'une landing page responsive pour la société Euclid - Project Systems, avec un look moderne et professionnel.",
     "technologies": [
       "Figma",
@@ -234,7 +234,7 @@
     "id": "15",
     "title": "Le Moderne",
     "description": "Le Moderne - Système de gestion de restaurant",
-    "image": "/projects/resto.webp",
+    "image": "/images/projects/resto.webp",
     "longDescription": "Plateforme web moderne pour restaurant parisien avec système complet de gestion des réservations. Comprend un panel d'administration sécurisé et une interface de réservation en ligne intuitive.",
     "technologies": [
       "Next.js",
