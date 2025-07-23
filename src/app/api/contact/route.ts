@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { userConfirmationFR, adminNotificationFR } from './mailTemplates';
 
 export async function POST(request: Request) {
   const data = await request.json();
@@ -28,7 +29,7 @@ export async function POST(request: Request) {
     from: process.env.GMAIL_USER,
     to: email,
     subject: 'Confirmation de votre demande',
-    html: `<p>Bonjour ${name},</p><p>Votre demande a été reçue. Nous vous contacterons bientôt.</p><p>Cordialement,<br>L'équipe</p>`
+    html: userConfirmationFR({ name }),
   };
 
   // Письмо админу
@@ -36,7 +37,7 @@ export async function POST(request: Request) {
     from: process.env.GMAIL_USER,
     to: process.env.ADMIN_EMAIL,
     subject: 'Nouvelle demande reçue',
-    html: `<p>Nouvelle demande de ${name} (${email}):</p><p>${message}</p>`
+    html: adminNotificationFR({ name, email, message }),
   };
 
   try {
