@@ -8,7 +8,7 @@ import { getProjects } from '@/data/projects'
 
 interface PortfolioNewProps {
   locale: 'en' | 'fr' | 'ru'
-  dictionary?: any
+  dictionary?: Record<string, string>
 }
 
 export default function PortfolioNew({ locale }: PortfolioNewProps) {
@@ -27,8 +27,17 @@ export default function PortfolioNew({ locale }: PortfolioNewProps) {
       : projects.filter((item) => item.category === activeTag).slice(0, 2)
 
   return (
-    <section id='portfolio' className='py-20 bg-gray-50'>
-      <div className='container mx-auto px-4'>
+    <section id='portfolio' className='py-20 relative overflow-hidden'>
+      {/* Flipped Background Image */}
+      <div
+        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+        style={{ backgroundImage: `url('/images/hero/hero.svg')`, transform: 'scaleX(-1)' }}
+      />
+      {/* Flipped gradient background */}
+      <div className='absolute inset-0 bg-gradient-to-bl from-white via-blue-50/30 to-indigo-50/20'></div>
+      {/* Pattern overlay (not flipped) */}
+      <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50'></div>
+      <div className='container mx-auto px-4 relative'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
