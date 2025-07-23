@@ -3,11 +3,10 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { getProjects } from '@/data/projects'
-import { ProjectCard } from '@/components/ProjectCard'
+import { ProjectCard } from '@/components/ui/ProjectCard'
 
-type DictionaryValue = string | { [key: string]: DictionaryValue };
+type DictionaryValue = string | { [key: string]: DictionaryValue }
 
 interface PortfolioNewProps {
   locale: 'en' | 'fr' | 'ru'

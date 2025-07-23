@@ -3,7 +3,7 @@ import React from 'react'
 import { getProjects } from '@/data/projects'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ProjectCard } from '@/components/ProjectCard'
+import { ProjectCard } from '@/components/ui/ProjectCard'
 
 export default function ProjectsPage({ params }: { params: { locale: 'en' | 'fr' | 'ru' } }) {
   // Для будущей версии Next.js: params может быть Promise

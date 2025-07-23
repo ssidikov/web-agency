@@ -1,6 +1,6 @@
 import { Hero } from '@/components/Hero'
-import { Services } from '@/components/ServicesNew'
-import Portfolio from '@/components/PortfolioNew'
+import { Services } from '@/components/Services'
+import Portfolio from '@/components/Portfolio'
 import { FAQ } from '@/components/FAQNew'
 import Contact from '@/components/Contact'
 import { getDictionary } from '@/lib/dictionaries'

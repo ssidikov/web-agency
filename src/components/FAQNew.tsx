@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
-import { FilterButtonBar } from './FilterButtonBar'
+import { FilterButtonBar } from './ui/FilterButtonBar'
 
 interface FAQProps {
   dictionary: {
