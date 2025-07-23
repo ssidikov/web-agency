@@ -15,10 +15,10 @@ const socialLinks = [
 ]
 
 const quickLinks = [
-  { name: 'About', href: '/about', key: 'about' },
-  { name: 'Services', href: '/services', key: 'services' },
-  { name: 'Portfolio', href: '/portfolio', key: 'portfolio' },
-  { name: 'Contact', href: '/contact', key: 'contact' },
+  { name: 'About', href: '/#about', key: 'about' },
+  { name: 'Services', href: '#services', key: 'services' },
+  { name: 'Portfolio', href: '/#portfolio', key: 'portfolio' },
+  { name: 'Contact', href: '/#contact', key: 'contact' },
 ]
 
 interface FooterProps {
@@ -33,27 +33,27 @@ export default function Footer({ dictionary }: FooterProps) {
   const services = [
     {
       name: footer.services?.web_creation || 'Création de sites web',
-      href: '/services',
+      href: '#services',
     },
     {
       name: footer.services?.web_redesign || 'Refonte / Redesign',
-      href: '/services',
+      href: '#services',
     },
     {
       name: footer.services?.seo_optimization || 'SEO & Optimisation',
-      href: '/services',
+      href: '#services',
     },
     {
       name: footer.services?.maintenance || 'Maintenance & Support',
-      href: '/services',
+      href: '#services',
     },
     {
       name: footer.services?.web_applications || 'Applications web',
-      href: '/services',
+      href: '#services',
     },
     {
       name: footer.services?.ecommerce || 'E-commerce',
-      href: '/services',
+      href: '#services',
     },
   ]
 
@@ -105,7 +105,7 @@ export default function Footer({ dictionary }: FooterProps) {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}>
             <h3 className='text-lg font-semibold text-white mb-4'>
-              {footer.quick_links || 'Quick Links'}
+              {footer.quick_links || navigation.quick_links || 'Quick Links'}
             </h3>
             <ul className='space-y-2'>
               {quickLinks.map((link) => (
