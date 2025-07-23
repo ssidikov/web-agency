@@ -2,7 +2,10 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { LinkedInIcon, GitHubIcon } from '@/components/icons'
+
+const getFullYear = () => new Date().getFullYear()
 
 // Social links data
 const socialLinks = [
@@ -30,7 +33,13 @@ export function Footer() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}>
             <h3 className='text-lg font-bold text-white mb-4'>
-              <span className='text-blue-400'>Sidikoff Digital</span>
+              <Image
+                src='/logo-sidikoff.webp'
+                alt='Sidikoff Digital Logo'
+                width={220}
+                height={64}
+                className='invert h-16 w-auto inline-block'
+              />
             </h3>
             <p className='text-gray-300 mb-4'>
               Creating exceptional digital experiences that drive growth and engagement through
@@ -41,13 +50,11 @@ export function Footer() {
                 <motion.a
                   key={link.name}
                   href={link.href}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className='p-2 rounded-full bg-gray-700 text-gray-300 hover:bg-blue-600 hover:text-white transition-colors duration-200 cursor-pointer'
+                  className='p-2 rounded-full bg-gray-700 text-gray-300 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer'
                   aria-label={link.name}>
                   {link.icon}
                 </motion.a>
@@ -103,11 +110,9 @@ export function Footer() {
             viewport={{ once: true }}>
             <h3 className='text-lg font-semibold text-white mb-4'>Contact Info</h3>
             <div className='space-y-2 text-gray-300'>
-              <p>123 Business Street</p>
-              <p>Suite 100</p>
-              <p>New York, NY 10001</p>
-              <p>+1 (555) 123-4567</p>
-              <p>hello@agency.com</p>
+              <p>Paris, France <br /> Toulouse, France</p>
+              <p>+33 06 26 93 27 34</p>
+              <p><a href='mailto:s.sidikoff@gmail.com' className='hover:text-blue-400'>s.sidikoff@gmail.com</a></p>
             </div>
           </motion.div>
         </div>
@@ -120,17 +125,14 @@ export function Footer() {
           viewport={{ once: true }}
           className='py-6 border-t border-gray-700'>
           <div className='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'>
-            <p className='text-gray-300 text-sm'>© 2024 Sidikoff Digital. All rights reserved.</p>
+            <p className='text-gray-300 text-sm'>
+              © {getFullYear()} SIDIKOFF DIGITAL. All rights reserved.
+            </p>
             <div className='flex space-x-6'>
               <Link
-                href='/privacy'
+                href='/mentions-legales'
                 className='text-gray-300 hover:text-blue-400 text-sm transition-colors duration-200 cursor-pointer'>
-                Privacy Policy
-              </Link>
-              <Link
-                href='/terms'
-                className='text-gray-300 hover:text-blue-400 text-sm transition-colors duration-200 cursor-pointer'>
-                Terms of Service
+                Mentions Légales
               </Link>
             </div>
           </div>
