@@ -82,7 +82,7 @@ export function FAQ({ dictionary }: FAQProps) {
           <div className='flex flex-wrap gap-2.5'>
             <button
               onClick={() => setActiveCategory('all')}
-              className={`text-gray-600 text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-16 ${
+              className={`text-gray-600 text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
                 activeCategory === 'all'
                   ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
                   : 'text-black border border-black hover:bg-black hover:text-white'
@@ -94,7 +94,7 @@ export function FAQ({ dictionary }: FAQProps) {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`text-gray-600 text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-16 ${
+                className={`text-gray-600 text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
                   idx === 2 ? 'mr-[30px]' : ''
                 } ${
                   activeCategory === category
