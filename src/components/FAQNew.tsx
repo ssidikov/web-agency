@@ -49,7 +49,7 @@ export function FAQ({ dictionary }: FAQProps) {
   return (
     <section
       id='faq'
-      className='space-y-[30px] lg:space-y-8 3xl:space-y-12 py-20 relative overflow-hidden'>
+      className='space-y-[30px] lg:space-y-8 3xl:space-y-12 py-20 relative overflow-hidden min-h-[1200px]'>
       {/* Background Image */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
@@ -65,7 +65,7 @@ export function FAQ({ dictionary }: FAQProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className='text-left mb-16'>
+          className='text-left mb-10 md:mb-16'>
           <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
             {faqData.title}
           </h2>
@@ -109,7 +109,7 @@ export function FAQ({ dictionary }: FAQProps) {
         </motion.div>
 
         {/* FAQ Items */}
-        <div className='flex flex-col lg:flex-row gap-x-10 gap-y-2.5'>
+        <div className='flex flex-col lg:flex-row gap-x-10 gap-y-2.5 h-[560px] md:h-80'>
           <div className='space-y-2.5 w-full lg:w-1/2'>
             {filteredQuestions
               .slice(0, Math.ceil(filteredQuestions.length / 2))
