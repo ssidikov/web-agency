@@ -81,7 +81,12 @@ export function FAQ({ dictionary }: FAQProps) {
           transition={{ duration: 0.6, delay: 0.2 }}
           className='w-full mb-12'>
           <FilterButtonBar
-            options={[{ value: 'all', label: 'All' }, { value: 'general', label: faqData.categories.general }, { value: 'pricing', label: faqData.categories.pricing }, { value: 'support', label: faqData.categories.support }]}
+            options={[
+              { value: 'all', label: 'All' },
+              { value: 'general', label: faqData.categories.general },
+              { value: 'pricing', label: faqData.categories.pricing },
+              { value: 'support', label: faqData.categories.support },
+            ]}
             active={activeCategory}
             onChange={setActiveCategory}
           />
@@ -99,7 +104,14 @@ export function FAQ({ dictionary }: FAQProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className='bg-black/10 rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary '>
+                  className='rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
+                  style={{
+                    background: 'rgba(255,255,255,0.25)',
+                    backdropFilter: 'blur(16px) saturate(100%)',
+                    WebkitBackdropFilter: 'blur(16px) saturate(100%)',
+                    border: '1px solid rgba(255,255,255,0.18)',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+                  }}>
                   <button
                     onClick={() => toggleQuestion(questionId)}
                     className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
@@ -149,7 +161,14 @@ export function FAQ({ dictionary }: FAQProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className='bg-black/10 rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary '>
+                  className='rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
+                  style={{
+                    background: 'rgba(255,255,255,0.25)',
+                    backdropFilter: 'blur(16px) saturate(100%)',
+                    WebkitBackdropFilter: 'blur(16px) saturate(100%)',
+                    border: '1px solid rgba(255,255,255,0.18)',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+                  }}>
                   <button
                     onClick={() => toggleQuestion(questionId)}
                     className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8 cursor-pointer'>
