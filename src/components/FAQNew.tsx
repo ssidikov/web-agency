@@ -228,8 +228,8 @@ export function FAQ({ dictionary }: FAQProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className='text-center mt-16'>
-        <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white'>
+        className='text-center mt-32 z-10 relative'>
+        <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white shadow-xl'>
           <h3 className='text-2xl font-bold mb-4 text-brand-primary'>Остались вопросы?</h3>
           <p className='text-brand-primary mb-6 max-w-2xl mx-auto'>
             Свяжитесь с нашей командой для персональной консультации по вашему проекту.
