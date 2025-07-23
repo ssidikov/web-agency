@@ -46,8 +46,17 @@ export function FAQ({ dictionary }: FAQProps) {
   }
 
   return (
-    <section id='faq' className='py-20 bg-white'>
-      <div className='container mx-auto px-4'>
+    <section id='faq' className='py-20 relative overflow-hidden'>
+      {/* Background Image */}
+      <div
+        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+        style={{ backgroundImage: `url('/images/hero/hero.svg')` }}
+      />
+      {/* Clean gradient background */}
+      <div className='absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20'></div>
+      {/* Pattern overlay */}
+      <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50'></div>
+      <div className='container mx-auto px-4 relative'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
