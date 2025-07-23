@@ -14,7 +14,7 @@ export default function ProjectDetailsPage({
   if (!project) return notFound()
 
   return (
-    <section className='py-20 relative overflow-hidden'>
+    <section className='-mt-24 pt-40 pb-20 relative overflow-hidden'>
       {/* Background как в Contact */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
@@ -24,17 +24,19 @@ export default function ProjectDetailsPage({
       <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50'></div>
       <div className='container mx-auto px-4 relative'>
         <div className='flex flex-col lg:flex-row gap-10 items-start'>
-          <div className='relative w-full lg:w-1/2 h-[480px] lg:h-[640px] 3xl:h-[800px] rounded-3xl overflow-hidden border-2 border-gray-200 flex opacity-80'>
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className='w-full h-full object-cover object-top'
-              sizes='(max-width: 1024px) 100vw, 50vw'
-            />
-            <div className='absolute inset-0 pointer-events-none bg-gradient-to-t from-black/30 via-black/10 to-transparent opacity-40'></div>
+          <div className='w-full lg:w-1/2 flex justify-center items-start'>
+            <div className='relative w-full max-w-2xl h-[400px] md:h-[600px] lg:h-[800px] rounded-3xl overflow-hidden border border-gray-200 shadow-sm'>
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className='w-full h-full object-cover'
+                sizes='(max-width: 1024px) 100vw, 50vw'
+                style={{ objectPosition: 'top left' }}
+              />
+            </div>
           </div>
-          <div className='flex-1 flex flex-col justify-between items-start min-h-[480px]'>
+          <div className='w-full lg:w-1/2 flex flex-col justify-between items-start min-h-[480px]'>
             <div>
               <h1 className='text-5xl lg:text-6xl 3xl:text-7xl font-bold text-black mb-8'>
                 {project.title}
@@ -63,7 +65,7 @@ export default function ProjectDetailsPage({
               </div>
               <div className='flex flex-col sm:flex-row gap-4'>
                 <Link
-                  href='/contact'
+                  href={`/${params.locale}/contact`}
                   className='group relative bg-black hover:bg-transparent text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer items-center justify-center flex'>
                   Start Your Project
                 </Link>

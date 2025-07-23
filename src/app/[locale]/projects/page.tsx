@@ -30,7 +30,7 @@ export default function ProjectsPage({ params }: { params: { locale: 'en' | 'fr'
       : allProjects.filter((item) => item.category === activeTag)
 
   return (
-    <section className='-mt-20 pt-40 pb-20 relative overflow-hidden'>
+    <section className='-mt-24 pt-44 pb-20 relative overflow-hidden'>
       {/* Flipped Background Image как в Portfolio */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'

@@ -297,10 +297,10 @@ body {
     display: none !important;
   }
 
-  body {
+  /* body {
     background: white !important;
     color: black !important;
-  }
+  } */
 
   a[href]:after {
     content: " ("attr(href) ")";
