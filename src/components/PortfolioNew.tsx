@@ -69,7 +69,7 @@ export default function PortfolioNew({ locale }: PortfolioNewProps) {
                 ${idx === tags.length - 1 ? 'mr-30px' : ''}
                 ${
                   activeTag === tag
-                    ? 'text-white bg-black border border-transparent hover:bg-white hover:text-black hover:border-black'
+                    ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
                     : 'text-black border border-black hover:bg-black hover:text-white'
                 }
               `}
@@ -85,7 +85,7 @@ export default function PortfolioNew({ locale }: PortfolioNewProps) {
             <Link
               key={project.id}
               href={project.link || '/'}
-              className='group flex flex-col sm:flex-row lg:flex-col items-stretch bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 p-6 lg:p-4 3xl:p-6 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-black outline-none'>
+              className='group flex flex-col sm:flex-row lg:flex-col items-stretch bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 p-6 lg:p-4 3xl:p-6 focus-visible:ring-2 focus-visible:ring-black outline-none'>
               <div className='relative w-full sm:w-[260px] h-56 md:h-96 lg:w-auto shrink-0 rounded-2xl lg:rounded-2xl 3xl:rounded-3xl overflow-hidden'>
                 <Image
                   src={project.image}
@@ -94,11 +94,11 @@ export default function PortfolioNew({ locale }: PortfolioNewProps) {
                   height={384}
                   className='w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300 ease-in-out'
                 />
-                <div className='absolute inset-0 pointer-events-none bg-gradient-to-t from-black/10 to-transparent opacity-60'></div>
+                <div className='absolute inset-0 pointer-events-none bg-gradient-to-t from-green/20 via-black/10 to-transparent opacity-40'></div>
               </div>
               <div className='flex flex-col justify-between min-h-[220px] lg:min-h-[260px] 3xl:min-h-[320px] gap-y-4 lg:gap-y-6 pt-6 sm:pl-8 lg:py-10 lg:px-8'>
                 <div>
-                  <h3 className='text-2xl lg:text-2xl 3xl:text-3xl font-bold text-black mb-2 group-hover:text-blue-700 transition-colors duration-200'>
+                  <h3 className='text-2xl lg:text-2xl 3xl:text-3xl font-bold text-black mb-2 transition-colors duration-200'>
                     {project.title}
                   </h3>
                   <p className='text-base xs:text-lg sm:text-base lg:text-lg 3xl:text-xl leading-6 sm:leading-6 3xl:leading-8 text-gray-700 mb-4 line-clamp-2'>
@@ -122,10 +122,10 @@ export default function PortfolioNew({ locale }: PortfolioNewProps) {
           ))}
         </div>
 
-        <div className='flex justify-center mt-10'>
+        <div className='flex items-center justify-center mt-12'>
           <Link
             href='/projects'
-            className='bg-black text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-black hover:border hover:border-black transition-all duration-300'>
+            className='inline-flex items-center justify-center h-16 lg:h-[77px] 3xl:h-[98px] px-6 lg:px-16 text-lg 3xl:text-22 font-medium whitespace-nowrap text-white bg-black rounded-full border border-transparent transition-all duration-300 hover:bg-transparent hover:text-black hover:border-black'>
             Показать все проекты
           </Link>
         </div>
