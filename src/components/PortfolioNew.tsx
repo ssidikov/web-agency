@@ -62,28 +62,24 @@ export default function PortfolioNew() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className='flex justify-start mb-12'>
-          <div className='no-scroll max-w-min overflow-auto mr-8'>
-            <div className='min-w-max flex sm:flex-wrap gap-2.5'>
-              {tags.map((tag, idx) => (
-                <button
-                  key={tag}
-                  onClick={() => setActiveTag(tag)}
-                  className={`cursor-pointer h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 transition-all duration-300 outline-none focus:ring-0
-                    ${idx === 0 ? 'ml-30px' : ''}
-                    ${idx === tags.length - 1 ? 'mr-30px' : ''}
-                    ${
-                      activeTag === tag
-                        ? 'text-white bg-black border border-transparent hover:bg-white hover:text-black hover:border-black'
-                        : 'text-black border border-black hover:bg-black hover:text-white'
-                    }
-                  `}
-                  tabIndex={0}>
-                  #{tag}
-                </button>
-              ))}
-            </div>
-          </div>
+          className='flex flex-wrap gap-2.5 mb-12'>
+          {tags.map((tag, idx) => (
+            <button
+              key={tag}
+              onClick={() => setActiveTag(tag)}
+              className={`cursor-pointer h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 transition-all duration-300 outline-none focus:ring-0
+                ${idx === 0 ? 'ml-30px' : ''}
+                ${idx === tags.length - 1 ? 'mr-30px' : ''}
+                ${
+                  activeTag === tag
+                    ? 'text-white bg-black border border-transparent hover:bg-white hover:text-black hover:border-black'
+                    : 'text-black border border-black hover:bg-black hover:text-white'
+                }
+              `}
+              tabIndex={0}>
+              #{tag}
+            </button>
+          ))}
         </motion.div>
 
         {/* Portfolio Grid */}
