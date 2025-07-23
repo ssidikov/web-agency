@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link';
 import { useState } from 'react'
 
 interface FAQProps {
@@ -46,14 +47,14 @@ export function FAQ({ dictionary }: FAQProps) {
   }
 
   return (
-    <section id='faq' className='py-20 relative overflow-hidden'>
+    <section id='faq' className='space-y-[30px] lg:space-y-8 3xl:space-y-12 py-20 relative overflow-hidden'>
       {/* Background Image */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
         style={{ backgroundImage: `url('/images/hero/hero.svg')` }}
       />
       {/* Clean gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20'></div>
+      <div className='absolute inset-0 bg-gradient-to-br from-brand-cream via-brand-secondary/30 to-brand-cream/20'></div>
       {/* Pattern overlay */}
       <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50'></div>
       <div className='container mx-auto px-4 relative'>
@@ -75,104 +76,79 @@ export function FAQ({ dictionary }: FAQProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className='flex justify-center mb-12'>
-          <div className='flex flex-wrap gap-2 bg-gray-100 rounded-full p-2'>
+          className='no-scroll max-w-min overflow-auto mb-12'>
+          <div className='min-w-max flex sm:flex-wrap gap-2.5'>
             <button
               onClick={() => setActiveCategory('all')}
-              className={`px-6 py-2 rounded-full transition-all duration-300 cursor-pointer ${
-                activeCategory === 'all'
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
-              }`}>
-              All
-            </button>
-            {(['general', 'pricing', 'support'] as const).map((category) => (
+              className={`text-white bg-brand-primary border border-transparent hover:bg-brand-cream hover:text-brand-primary hover:border-brand-primary transition-all duration-300 h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl ml-[30px] px-2 sm:px-3 lg:px-[18px] 3xl:px-6 ${activeCategory === 'all' ? 'bg-brand-primary text-white' : ''}`}
+            >#Все</button>
+            {(['general', 'pricing', 'support'] as const).map((category, idx) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  activeCategory === category
-                    ? 'bg-blue-600 text-white shadow-md'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
-                }`}>
-                {faqData.categories[category]}
-              </button>
+                className={`text-brand-primary border border-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300 h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 ${idx === 0 ? '' : ''} ${idx === 2 ? 'mr-[30px]' : ''} ${activeCategory === category ? 'bg-brand-primary text-white border-transparent' : ''}`}
+              >#{faqData.categories[category]}</button>
             ))}
           </div>
         </motion.div>
 
         {/* FAQ Items */}
-        <div className='max-w-4xl mx-auto'>
-          <div className='space-y-4'>
-            {filteredQuestions.map(([questionId, questionData], index) => (
+        <div className='flex flex-col lg:flex-row gap-x-10 gap-y-2.5 px-[30px]'>
+          <div className='space-y-2.5 w-full lg:w-1/2'>
+            {filteredQuestions.slice(0, Math.ceil(filteredQuestions.length / 2)).map(([questionId, questionData], index) => (
               <motion.div
                 key={questionId}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className='bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300'>
+                className='bg-brand-cream rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary'>
                 <button
                   onClick={() => toggleQuestion(questionId)}
-                  className='w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors duration-200 cursor-pointer'>
-                  <div className='flex-1'>
-                    <div className='flex items-center gap-3 mb-2'>
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          questionData.category === 'general'
-                            ? 'bg-blue-100 text-blue-800'
-                            : questionData.category === 'pricing'
-                            ? 'bg-green-100 text-green-800'
-                            : 'bg-purple-100 text-purple-800'
-                        }`}>
-                        {
-                          faqData.categories[
-                            questionData.category as keyof typeof faqData.categories
-                          ]
-                        }
-                      </span>
-                    </div>
-                    <h3 className='text-lg font-semibold text-gray-900 pr-4'>
-                      {questionData.question}
-                    </h3>
+                  className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8'>
+                  <div className='flex items-center gap-3 3xl:gap-6'>
+                    <h4 className='font-medium text-left text-lg sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>{questionData.question}</h4>
                   </div>
-                  <div className='flex-shrink-0 ml-4'>
-                    <motion.div
-                      animate={{ rotate: openQuestion === questionId ? 45 : 0 }}
-                      transition={{ duration: 0.2 }}
-                      className='w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center'>
-                      <svg
-                        className='w-4 h-4 text-white'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'>
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M12 6v6m0 0v6m0-6h6m-6 0H6'
-                        />
-                      </svg>
-                    </motion.div>
-                  </div>
+                  <button className='size-8 3xl:size-11 shrink-0 relative bg-brand-primary rounded-full'>
+                    <span className='h-[1.5px] w-4 3xl:h-0.5 3xl:w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream'></span>
+                    <span className='w-[1.5px] h-4 3xl:h-5 3xl:w-0.5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream block'></span>
+                  </button>
                 </button>
-
-                <motion.div
-                  initial={false}
-                  animate={{
-                    height: openQuestion === questionId ? 'auto' : 0,
-                    opacity: openQuestion === questionId ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  className='overflow-hidden'>
-                  <div className='px-8 pb-6'>
-                    <div className='w-full h-px bg-gray-200 mb-4' />
-                    <p className='text-gray-600 leading-relaxed'>{questionData.answer}</p>
-                  </div>
-                </motion.div>
+                <div style={{ maxHeight: openQuestion === questionId ? '500px' : '0px', transition: 'max-height 0.3s', overflow: 'hidden' }}>
+                  <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-brand-primary'>{questionData.answer}</p>
+                  <Link className='text-sm sm:text-base 3xl:text-22 font-semibold leading-8 underline underline-offset-4 hover:no-underline ml-5 sm:ml-6 3xl:ml-8 text-brand-primary' href='/'>Подробнее</Link>
+                </div>
               </motion.div>
             ))}
           </div>
+          <div className='space-y-2.5 w-full lg:w-1/2'>
+            {filteredQuestions.slice(Math.ceil(filteredQuestions.length / 2)).map(([questionId, questionData], index) => (
+              <motion.div
+                key={questionId}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className='bg-brand-cream rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary'>
+                <button
+                  onClick={() => toggleQuestion(questionId)}
+                  className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8'>
+                  <div className='flex items-center gap-3 3xl:gap-6'>
+                    <h4 className='font-medium text-left text-lg sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>{questionData.question}</h4>
+                  </div>
+                  <button className='size-8 3xl:size-11 shrink-0 relative bg-brand-primary rounded-full'>
+                    <span className='h-[1.5px] w-4 3xl:h-0.5 3xl:w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream'></span>
+                    <span className='w-[1.5px] h-4 3xl:h-5 3xl:w-0.5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream block'></span>
+                  </button>
+                </button>
+                <div style={{ maxHeight: openQuestion === questionId ? '500px' : '0px', transition: 'max-height 0.3s', overflow: 'hidden' }}>
+                  <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-brand-primary'>{questionData.answer}</p>
+                  <Link className='text-sm sm:text-base 3xl:text-22 font-semibold leading-8 underline underline-offset-4 hover:no-underline ml-5 sm:ml-6 3xl:ml-8 text-brand-primary' href='/'>Подробнее</Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
           {filteredQuestions.length === 0 && (
             <motion.div
@@ -192,15 +168,12 @@ export function FAQ({ dictionary }: FAQProps) {
           transition={{ duration: 0.6, delay: 0.4 }}
           className='text-center mt-16'>
           <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white'>
-            <h3 className='text-2xl font-bold mb-4'>Still have questions?</h3>
-            <p className='text-blue-100 mb-6 max-w-2xl mx-auto'>
-              We&apos;re here to help! Contact our team for personalized assistance with your
-              project.
-            </p>
+            <h3 className='text-2xl font-bold mb-4 text-brand-primary'>Остались вопросы?</h3>
+            <p className='text-brand-primary mb-6 max-w-2xl mx-auto'>Свяжитесь с нашей командой для персональной консультации по вашему проекту.</p>
             <a
               href='#contact'
-              className='inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors duration-200'>
-              Contact Us
+              className='inline-flex items-center gap-2 bg-brand-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-cream hover:text-brand-primary transition-colors duration-200'>
+              Связаться
               <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                 <path
                   strokeLinecap='round'
@@ -212,7 +185,8 @@ export function FAQ({ dictionary }: FAQProps) {
             </a>
           </div>
         </motion.div>
-      </div>
+      {/* End of section */}
     </section>
-  )
+  );
 }
+
