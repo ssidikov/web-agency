@@ -25,11 +25,7 @@ export default function PortfolioNew() {
 
   const tags = Array.from(
     new Set(
-      projects.flatMap((item) =>
-        [item.featured ? 'featured' : undefined, item.category].filter(
-          (tag): tag is string => typeof tag === 'string'
-        )
-      )
+      projects.map((item) => item.category).filter((tag): tag is string => typeof tag === 'string')
     )
   );
 
