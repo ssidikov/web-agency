@@ -24,7 +24,7 @@ export default function ProjectDetailsPage({
       <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50'></div>
       <div className='container mx-auto px-4 relative'>
         <div className='flex flex-col lg:flex-row gap-10 items-start'>
-          <div className='relative w-full lg:w-1/2 h-[480px] lg:h-[640px] 3xl:h-[800px] rounded-3xl overflow-hidden shadow-lg flex'>
+          <div className='relative w-full lg:w-1/2 h-[480px] lg:h-[640px] 3xl:h-[800px] rounded-3xl overflow-hidden border-2 border-gray-200 flex opacity-80'>
             <Image
               src={project.image}
               alt={project.title}
