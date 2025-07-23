@@ -85,33 +85,34 @@ export default function PortfolioNew({ locale }: PortfolioNewProps) {
             <Link
               key={project.id}
               href={project.link || '/'}
-              className='group flex flex-col sm:flex-row lg:flex-col items-stretch bg-white rounded-2xl lg:rounded-22px 3xl:rounded-30px p-5 lg:p-2.5 3xl:p-4'>
-              <div className='relative w-full sm:w-[260px] h-56 md:h-96 lg:w-auto shrink-0 rounded-2xl lg:rounded-[22px] 3xl:rounded-[30px] overflow-hidden'>
+              className='group flex flex-col sm:flex-row lg:flex-col items-stretch bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 p-6 lg:p-4 3xl:p-6 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-black outline-none'>
+              <div className='relative w-full sm:w-[260px] h-56 md:h-96 lg:w-auto shrink-0 rounded-2xl lg:rounded-2xl 3xl:rounded-3xl overflow-hidden'>
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={584}
                   height={384}
-                  className='w-full h-full object-cover object-top group-hover:scale-125 transition-all duration-300'
+                  className='w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300 ease-in-out'
                 />
+                <div className='absolute inset-0 pointer-events-none bg-gradient-to-t from-black/10 to-transparent opacity-60'></div>
               </div>
-              <div className='flex flex-col gap-y-3.5 lg:gap-y-5 pt-5 sm:pl-[30px] lg:py-10 lg:px-6'>
-                <h3 className='text-xl lg:text-[22px] 3xl:text-3xl font-bold text-black mb-2'>
+              <div className='flex flex-col gap-y-4 lg:gap-y-6 pt-6 sm:pl-8 lg:py-10 lg:px-8'>
+                <h3 className='text-2xl lg:text-2xl 3xl:text-3xl font-bold text-black mb-2 group-hover:text-blue-700 transition-colors duration-200'>
                   {project.title}
                 </h3>
-                <p className='text-base xs:text-lg sm:text-base lg:text-lg 3xl:text-[22px] leading-6 sm:leading-6 3xl:leading-8 text-black mb-4 line-clamp-2'>
+                <p className='text-base xs:text-lg sm:text-base lg:text-lg 3xl:text-xl leading-6 sm:leading-6 3xl:leading-8 text-gray-700 mb-4 line-clamp-2'>
                   {project.description}
                 </p>
-                <div className='flex items-center gap-2.5 text-sm lg:text-lg'>
-                  <button className='h-9 bg-black/5 rounded-lg px-2.5 text-black font-semibold'>
+                <div className='flex flex-wrap gap-2.5 text-sm lg:text-lg'>
+                  <span className='h-9 bg-blue-50 rounded-lg px-3 text-slate-500 font-semibold flex items-center'>
                     {project.category}
-                  </button>
+                  </span>
                   {project.technologies?.slice(0, 2).map((tech, techIndex) => (
-                    <button
+                    <span
                       key={techIndex}
-                      className='h-9 bg-black/5 rounded-lg px-2.5 text-black font-semibold'>
+                      className='h-9 bg-blue-50 rounded-lg px-3 text-slate-500 font-semibold flex items-center'>
                       {tech}
-                    </button>
+                    </span>
                   ))}
                 </div>
               </div>
