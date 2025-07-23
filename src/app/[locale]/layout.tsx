@@ -31,10 +31,10 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${inter.className} bg-[#F9F7F7] text-[#112D4E] antialiased`}>
-        <div className='min-h-screen bg-[#F9F7F7]'>
+      <body className={`${inter.className} text-[#112D4E] antialiased`}>
+        <div className='min-h-screen'>
           <Header locale={locale} dictionary={dict} />
-          <main>{children}</main>
+          <main className='m-0 p-0'>{children}</main>
           <Footer />
         </div>
       </body>

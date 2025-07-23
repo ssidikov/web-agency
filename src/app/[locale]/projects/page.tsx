@@ -7,7 +7,9 @@ import { ProjectCard } from '@/components/ProjectCard'
 
 export default function ProjectsPage({ params }: { params: { locale: 'en' | 'fr' | 'ru' } }) {
   // Для будущей версии Next.js: params может быть Promise
-  const unwrappedParams = (typeof params.then === 'function' ? React.use(params) : params) as { locale: 'en' | 'fr' | 'ru' }
+  const unwrappedParams = (typeof params.then === 'function' ? React.use(params) : params) as {
+    locale: 'en' | 'fr' | 'ru'
+  }
   const allProjects = getProjects(unwrappedParams.locale)
   const tags = Array.from(
     new Set(
@@ -28,7 +30,16 @@ export default function ProjectsPage({ params }: { params: { locale: 'en' | 'fr'
       : allProjects.filter((item) => item.category === activeTag)
 
   return (
-    <section className='py-20 relative overflow-hidden'>
+    <section className='-mt-20 pt-40 pb-20 relative overflow-hidden'>
+      {/* Flipped Background Image как в Portfolio */}
+      <div
+        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
+        style={{ backgroundImage: `url('/images/hero/hero.svg')`, transform: 'scaleX(-1)' }}
+      />
+      {/* Flipped gradient background */}
+      <div className='absolute inset-0 bg-gradient-to-bl from-white via-blue-50/30 to-indigo-50/20'></div>
+      {/* Pattern overlay (not flipped) */}
+      <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50'></div>
       <div className='container mx-auto px-4 relative'>
         <h1 className='text-5xl md:text-6xl font-bold text-gray-900 mb-10 tracking-tight'>
           Все проекты
