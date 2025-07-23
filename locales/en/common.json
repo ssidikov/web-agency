@@ -79,41 +79,6 @@
       "cta": "Start your project"
     }
   },
-  "portfolio": {
-    "title": "Our Work",
-    "subtitle": "Explore our latest projects showcasing modern web development techniques and innovative solutions.",
-    "filter": {
-      "all": "All",
-      "web": "Web",
-      "mobile": "Mobile",
-      "design": "Design"
-    },
-    "projects": {
-      "ecommerce": {
-        "title": "E-Commerce Platform",
-        "description": "Modern online store with advanced features",
-        "category": "web"
-      },
-      "mobile_app": {
-        "title": "Fitness Mobile App",
-        "description": "Cross-platform fitness tracking application",
-        "category": "mobile"
-      },
-      "brand_identity": {
-        "title": "Brand Identity Design",
-        "description": "Complete brand redesign and visual identity",
-        "category": "design"
-      },
-      "corporate_website": {
-        "title": "Corporate Website",
-        "description": "Professional website for consulting firm",
-        "category": "web"
-      }
-    },
-    "view_project": "View Project",
-    "live_demo": "Live Demo",
-    "github": "GitHub"
-  },
   "faq": {
     "title": "Frequently Asked Questions",
     "subtitle": "Everything You Need to Know",
@@ -161,6 +126,7 @@
     "description": "Contact us today to discuss your project and see how we can help you achieve your digital goals.",
     "quickContact": "Quick Contact",
     "social": "Follow Us",
+    "socialDesc": "Follow us on social media for the latest updates, insights, and behind-the-scenes content.",
     "form": {
       "title": "Send us a message",
       "name": {
@@ -190,20 +156,28 @@
     },
     "info": {
       "title": "Contact Information",
-      "localisations": "Localisations",
+      "localisations": "Locations",
+      "locations": [
+        "Paris, France",
+        "Toulouse, France"
+      ],
       "phone_label": "Phone",
       "email_label": "Email",
       "address": "123 Business Street, Suite 100, New York, NY 10001",
-      "phone": "+1 (555) 123-4567",
-      "email": "hello@yourcompany.com",
+      "phone": "+33 06 26 93 27 34",
+      "email": "s.sidikoff@gmail.com",
       "hours": "Monday - Friday: 9:00 AM - 6:00 PM"
     },
     "channels": {
       "title": "Connect With Us",
       "email": "Email",
+      "emailDesc": "Send us an email for detailed inquiries",
       "whatsapp": "WhatsApp",
+      "whatsappDesc": "Quick messaging for urgent matters",
       "telegram": "Telegram",
-      "phone": "Phone"
+      "telegramDesc": "Connect via Telegram messenger",
+      "phone": "Phone",
+      "phoneDesc": "Call us directly for immediate support"
     }
   },
   "footer": {

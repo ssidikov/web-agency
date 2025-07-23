@@ -1,4 +1,12 @@
 {
+  "404": {
+    "title": "Page Non Trouvée",
+    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "search_placeholder": "Rechercher sur notre site...",
+    "search_button": "Rechercher",
+    "go_home": "Retour Accueil",
+    "popular_pages": "Pages Populaires"
+  },
   "navigation": {
     "home": "Accueil",
     "services": "Services",
@@ -60,7 +68,6 @@
     "maintenance": {
       "title": "Maintenance et support technique",
       "features": [
-        "Maintenance & Support",
         "24/7 Support",
         "Mises à jour"
       ],
@@ -71,41 +78,6 @@
       "description": "Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.",
       "cta": "Démarrer votre projet"
     }
-  },
-  "portfolio": {
-    "title": "Nos réalisations",
-    "subtitle": "Explorez nos derniers projets mettant en valeur des techniques de développement web modernes et des solutions innovantes.",
-    "filter": {
-      "all": "Tout",
-      "web": "Web",
-      "mobile": "Mobile",
-      "design": "Design"
-    },
-    "projects": {
-      "ecommerce": {
-        "title": "Plateforme E-Commerce",
-        "description": "Boutique en ligne moderne avec fonctionnalités avancées",
-        "category": "web"
-      },
-      "mobile_app": {
-        "title": "Application Mobile Fitness",
-        "description": "Application de suivi fitness multiplateforme",
-        "category": "mobile"
-      },
-      "brand_identity": {
-        "title": "Design d'Identité de Marque",
-        "description": "Refonte complète de marque et identité visuelle",
-        "category": "design"
-      },
-      "corporate_website": {
-        "title": "Site Web Corporate",
-        "description": "Site web professionnel pour cabinet de conseil",
-        "category": "web"
-      }
-    },
-    "view_project": "Voir le Projet",
-    "live_demo": "Démo Live",
-    "github": "GitHub"
   },
   "faq": {
     "title": "Questions Fréquemment Posées",
@@ -154,6 +126,7 @@
     "description": "Contactez-nous aujourd'hui pour discuter de votre projet et voir comment nous pouvons vous aider à atteindre vos objectifs numériques.",
     "quickContact": "Contact Rapide",
     "social": "Suivez-nous",
+    "socialDesc": "Suivez-nous sur les réseaux sociaux pour les dernières mises à jour, insights et contenu en coulisses.",
     "form": {
       "title": "Envoyez-nous un message",
       "name": {
@@ -183,21 +156,28 @@
     },
     "info": {
       "title": "Informations de Contact",
+      "localisations": "Localisations",
+      "locations": [
+        "Paris, France",
+        "Toulouse, France"
+      ],
+      "phone_label": "Téléphone",
+      "email_label": "Email",
       "address": "123 Rue des Affaires, Suite 100, Paris, 75001",
       "phone": "+33 06 26 93 27 34",
       "email": "s.sidikoff@gmail.com",
-      "hours": "Lundi - Vendredi: 9h00 - 18h00",
-      "localisations": "Localisations",
-      "locations": ["Paris, France", "Toulouse, France"],
-      "phone_label": "Téléphone",
-      "email_label": "Email"
+      "hours": "Lundi - Vendredi: 9h00 - 18h00"
     },
     "channels": {
       "title": "Connectez-vous avec Nous",
-      "email": "Nous Emailer",
+      "email": "Email",
+      "emailDesc": "Envoyez-nous un email pour des demandes détaillées",
       "whatsapp": "WhatsApp",
+      "whatsappDesc": "Messagerie rapide pour les questions urgentes",
       "telegram": "Telegram",
-      "phone": "Téléphone"
+      "telegramDesc": "Connectez-vous via Telegram messenger",
+      "phone": "Téléphone",
+      "phoneDesc": "Appelez-nous directement pour un support immédiat"
     }
   },
   "footer": {
@@ -218,14 +198,6 @@
       "cookies": "Politique des Cookies"
     },
     "copyright": "© 2024 Votre Entreprise. Tous droits réservés."
-  },
-  "404": {
-    "title": "Page Non Trouvée",
-    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
-    "search_placeholder": "Rechercher sur notre site...",
-    "search_button": "Rechercher",
-    "go_home": "Retour Accueil",
-    "popular_pages": "Pages Populaires"
   },
   "common": {
     "loading": "Chargement...",
