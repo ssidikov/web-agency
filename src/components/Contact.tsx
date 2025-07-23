@@ -31,19 +31,26 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 2000))
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', message: '' })
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
     } catch {
-      setSubmitStatus('error')
+      setSubmitStatus('error');
     } finally {
-      setIsSubmitting(false)
-      setTimeout(() => setSubmitStatus('idle'), 5000)
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus('idle'), 5000);
     }
   }
 

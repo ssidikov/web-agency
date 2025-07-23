@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Link from 'next/link';
+import Link from 'next/link'
 import { useState } from 'react'
 
 interface FAQProps {
@@ -47,7 +47,9 @@ export function FAQ({ dictionary }: FAQProps) {
   }
 
   return (
-    <section id='faq' className='space-y-[30px] lg:space-y-8 3xl:space-y-12 py-20 relative overflow-hidden'>
+    <section
+      id='faq'
+      className='space-y-[30px] lg:space-y-8 3xl:space-y-12 py-20 relative overflow-hidden'>
       {/* Background Image */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
@@ -80,14 +82,24 @@ export function FAQ({ dictionary }: FAQProps) {
           <div className='min-w-max flex sm:flex-wrap gap-2.5'>
             <button
               onClick={() => setActiveCategory('all')}
-              className={`text-white bg-brand-primary border border-transparent hover:bg-brand-cream hover:text-brand-primary hover:border-brand-primary transition-all duration-300 h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl ml-[30px] px-2 sm:px-3 lg:px-[18px] 3xl:px-6 ${activeCategory === 'all' ? 'bg-brand-primary text-white' : ''}`}
-            >#Все</button>
+              className={`text-white bg-brand-primary border border-transparent hover:bg-brand-cream hover:text-brand-primary hover:border-brand-primary transition-all duration-300 h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl ml-[30px] px-2 sm:px-3 lg:px-[18px] 3xl:px-6 ${
+                activeCategory === 'all' ? 'bg-brand-primary text-white' : ''
+              }`}>
+              #Все
+            </button>
             {(['general', 'pricing', 'support'] as const).map((category, idx) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`text-brand-primary border border-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300 h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 ${idx === 0 ? '' : ''} ${idx === 2 ? 'mr-[30px]' : ''} ${activeCategory === category ? 'bg-brand-primary text-white border-transparent' : ''}`}
-              >#{faqData.categories[category]}</button>
+                className={`text-brand-primary border border-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300 h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 ${
+                  idx === 0 ? '' : ''
+                } ${idx === 2 ? 'mr-[30px]' : ''} ${
+                  activeCategory === category
+                    ? 'bg-brand-primary text-white border-transparent'
+                    : ''
+                }`}>
+                #{faqData.categories[category]}
+              </button>
             ))}
           </div>
         </motion.div>
@@ -95,98 +107,129 @@ export function FAQ({ dictionary }: FAQProps) {
         {/* FAQ Items */}
         <div className='flex flex-col lg:flex-row gap-x-10 gap-y-2.5 px-[30px]'>
           <div className='space-y-2.5 w-full lg:w-1/2'>
-            {filteredQuestions.slice(0, Math.ceil(filteredQuestions.length / 2)).map(([questionId, questionData], index) => (
-              <motion.div
-                key={questionId}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className='bg-brand-cream rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary'>
-                <button
-                  onClick={() => toggleQuestion(questionId)}
-                  className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8'>
-                  <div className='flex items-center gap-3 3xl:gap-6'>
-                    <h4 className='font-medium text-left text-lg sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>{questionData.question}</h4>
-                  </div>
-                  <button className='size-8 3xl:size-11 shrink-0 relative bg-brand-primary rounded-full'>
-                    <span className='h-[1.5px] w-4 3xl:h-0.5 3xl:w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream'></span>
-                    <span className='w-[1.5px] h-4 3xl:h-5 3xl:w-0.5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream block'></span>
+            {filteredQuestions
+              .slice(0, Math.ceil(filteredQuestions.length / 2))
+              .map(([questionId, questionData], index) => (
+                <motion.div
+                  key={questionId}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className='bg-brand-cream rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary'>
+                  <button
+                    onClick={() => toggleQuestion(questionId)}
+                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8'>
+                    <div className='flex items-center gap-3 3xl:gap-6'>
+                      <h4 className='font-medium text-left text-lg sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
+                        {questionData.question}
+                      </h4>
+                    </div>
+                    <button className='size-8 3xl:size-11 shrink-0 relative bg-brand-primary rounded-full'>
+                      <span className='h-[1.5px] w-4 3xl:h-0.5 3xl:w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream'></span>
+                      <span className='w-[1.5px] h-4 3xl:h-5 3xl:w-0.5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream block'></span>
+                    </button>
                   </button>
-                </button>
-                <div style={{ maxHeight: openQuestion === questionId ? '500px' : '0px', transition: 'max-height 0.3s', overflow: 'hidden' }}>
-                  <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-brand-primary'>{questionData.answer}</p>
-                  <Link className='text-sm sm:text-base 3xl:text-22 font-semibold leading-8 underline underline-offset-4 hover:no-underline ml-5 sm:ml-6 3xl:ml-8 text-brand-primary' href='/'>Подробнее</Link>
-                </div>
-              </motion.div>
-            ))}
+                  <div
+                    style={{
+                      maxHeight: openQuestion === questionId ? '500px' : '0px',
+                      transition: 'max-height 0.3s',
+                      overflow: 'hidden',
+                    }}>
+                    <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-brand-primary'>
+                      {questionData.answer}
+                    </p>
+                    <Link
+                      className='text-sm sm:text-base 3xl:text-22 font-semibold leading-8 underline underline-offset-4 hover:no-underline ml-5 sm:ml-6 3xl:ml-8 text-brand-primary'
+                      href='/'>
+                      Подробнее
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
           </div>
           <div className='space-y-2.5 w-full lg:w-1/2'>
-            {filteredQuestions.slice(Math.ceil(filteredQuestions.length / 2)).map(([questionId, questionData], index) => (
-              <motion.div
-                key={questionId}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className='bg-brand-cream rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary'>
-                <button
-                  onClick={() => toggleQuestion(questionId)}
-                  className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8'>
-                  <div className='flex items-center gap-3 3xl:gap-6'>
-                    <h4 className='font-medium text-left text-lg sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>{questionData.question}</h4>
-                  </div>
-                  <button className='size-8 3xl:size-11 shrink-0 relative bg-brand-primary rounded-full'>
-                    <span className='h-[1.5px] w-4 3xl:h-0.5 3xl:w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream'></span>
-                    <span className='w-[1.5px] h-4 3xl:h-5 3xl:w-0.5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream block'></span>
+            {filteredQuestions
+              .slice(Math.ceil(filteredQuestions.length / 2))
+              .map(([questionId, questionData], index) => (
+                <motion.div
+                  key={questionId}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className='bg-brand-cream rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-brand-secondary'>
+                  <button
+                    onClick={() => toggleQuestion(questionId)}
+                    className='w-full flex items-center justify-between transition-all duration-[10000] pt-5 px-5 sm:pt-6 sm:px-6 3xl:pt-8 3xl:px-8'>
+                    <div className='flex items-center gap-3 3xl:gap-6'>
+                      <h4 className='font-medium text-left text-lg sm:text-22 3xl:text-30 leading-7 sm:leading-[22px] lg:leading-[30px] 3xl:leading-10'>
+                        {questionData.question}
+                      </h4>
+                    </div>
+                    <button className='size-8 3xl:size-11 shrink-0 relative bg-brand-primary rounded-full'>
+                      <span className='h-[1.5px] w-4 3xl:h-0.5 3xl:w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream'></span>
+                      <span className='w-[1.5px] h-4 3xl:h-5 3xl:w-0.5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-cream block'></span>
+                    </button>
                   </button>
-                </button>
-                <div style={{ maxHeight: openQuestion === questionId ? '500px' : '0px', transition: 'max-height 0.3s', overflow: 'hidden' }}>
-                  <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-brand-primary'>{questionData.answer}</p>
-                  <Link className='text-sm sm:text-base 3xl:text-22 font-semibold leading-8 underline underline-offset-4 hover:no-underline ml-5 sm:ml-6 3xl:ml-8 text-brand-primary' href='/'>Подробнее</Link>
-                </div>
-              </motion.div>
-            ))}
+                  <div
+                    style={{
+                      maxHeight: openQuestion === questionId ? '500px' : '0px',
+                      transition: 'max-height 0.3s',
+                      overflow: 'hidden',
+                    }}>
+                    <p className='pb-2 3xl:pb-4 px-5 sm:px-6 3xl:px-8 text-brand-primary'>
+                      {questionData.answer}
+                    </p>
+                    <Link
+                      className='text-sm sm:text-base 3xl:text-22 font-semibold leading-8 underline underline-offset-4 hover:no-underline ml-5 sm:ml-6 3xl:ml-8 text-brand-primary'
+                      href='/'>
+                      Подробнее
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
           </div>
         </div>
 
-          {filteredQuestions.length === 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className='text-center py-12'>
-              <p className='text-gray-500 text-lg'>No questions found for this category.</p>
-            </motion.div>
-          )}
-        </div>
+        {filteredQuestions.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className='text-center py-12'>
+            <p className='text-gray-500 text-lg'>No questions found for this category.</p>
+          </motion.div>
+        )}
+      </div>
 
-        {/* Contact CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className='text-center mt-16'>
-          <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white'>
-            <h3 className='text-2xl font-bold mb-4 text-brand-primary'>Остались вопросы?</h3>
-            <p className='text-brand-primary mb-6 max-w-2xl mx-auto'>Свяжитесь с нашей командой для персональной консультации по вашему проекту.</p>
-            <a
-              href='#contact'
-              className='inline-flex items-center gap-2 bg-brand-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-cream hover:text-brand-primary transition-colors duration-200'>
-              Связаться
-              <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  strokeWidth={2}
-                  d='M17 8l4 4m0 0l-4 4m4-4H3'
-                />
-              </svg>
-            </a>
-          </div>
-        </motion.div>
+      {/* Contact CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className='text-center mt-16'>
+        <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white'>
+          <h3 className='text-2xl font-bold mb-4 text-brand-primary'>Остались вопросы?</h3>
+          <p className='text-brand-primary mb-6 max-w-2xl mx-auto'>
+            Свяжитесь с нашей командой для персональной консультации по вашему проекту.
+          </p>
+          <a
+            href='#contact'
+            className='inline-flex items-center gap-2 bg-brand-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-cream hover:text-brand-primary transition-colors duration-200'>
+            Связаться
+            <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M17 8l4 4m0 0l-4 4m4-4H3'
+              />
+            </svg>
+          </a>
+        </div>
+      </motion.div>
       {/* End of section */}
     </section>
-  );
+  )
 }
-
