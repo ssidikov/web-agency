@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import { Header } from '@/components/Header'
-import Footer from '@/components/Footer'
+import { Footer } from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -249,7 +249,7 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
                   <p>There was an error loading the page. Please refresh.</p>
                 </div>
               </main>
-              <Footer dictionary={fallbackDict} />
+              <Footer dictionary={fallbackDict} locale={locale} />
             </div>
           </body>
         </html>
@@ -279,7 +279,7 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
           <div className='min-h-screen'>
             <Header locale={locale} dictionary={dict} />
             <main className='m-0 p-0'>{children}</main>
-            <Footer dictionary={dict} />
+            <Footer dictionary={dict} locale={locale} />
           </div>
         </body>
       </html>
@@ -298,7 +298,7 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
                 <p>There was an error loading the page. Please refresh.</p>
               </div>
             </main>
-            <Footer dictionary={fallbackDict} />
+            <Footer dictionary={fallbackDict} locale={locale} />
           </div>
         </body>
       </html>

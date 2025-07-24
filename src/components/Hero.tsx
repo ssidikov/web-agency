@@ -35,13 +35,13 @@ const BackgroundAnimation = () => {
         />
       </div>
       {/* Clean gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-br from-white via-blue-50/50 to-indigo-50/30' />
+      <div className='absolute inset-0 bg-gradient-to-br from-white via-gray-50/50 to-gray-100/30' />
 
       {/* Animated gradient overlay */}
       <div
         className='absolute inset-0 animate-pulse opacity-20'
         style={{
-          background: `linear-gradient(135deg, #DBE2EF 0%, #3F72AF/10 50%, #DBE2EF 100%)`,
+          background: `linear-gradient(135deg, #f3f4f6 0%, #000000/10 50%, #f3f4f6 100%)`,
         }}
       />
 
@@ -52,7 +52,7 @@ const BackgroundAnimation = () => {
             key={i}
             className='absolute rounded-full opacity-5'
             style={{
-              backgroundColor: '#3F72AF',
+              backgroundColor: '#000000',
               width: Math.random() * 200 + 30,
               height: Math.random() * 200 + 30,
               left: `${Math.random() * 100}%`,
@@ -136,13 +136,13 @@ export function Hero({ dict, locale }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className='inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8 mx-4'
             style={{
-              backgroundColor: '#DBE2EF',
-              color: '#112D4E',
-              border: '1px solid rgba(63, 114, 175, 0.2)',
+              backgroundColor: '#f3f4f6',
+              color: '#000000',
+              border: '1px solid rgba(0, 0, 0, 0.1)',
             }}>
             <span
               className='w-2 h-2 rounded-full mr-2 sm:mr-3 animate-pulse'
-              style={{ backgroundColor: '#3F72AF' }}></span>
+              style={{ backgroundColor: '#000000' }}></span>
             {dict.badge}
           </motion.div>
 
@@ -152,7 +152,7 @@ export function Hero({ dict, locale }: HeroProps) {
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className='text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6 px-4 leading-tight'
-            style={{ color: '#112D4E' }}>
+            style={{ color: '#000000' }}>
             {dict.title}
           </motion.h1>
 
@@ -162,7 +162,7 @@ export function Hero({ dict, locale }: HeroProps) {
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className='text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed font-medium px-4'
-            style={{ color: '#3F72AF' }}>
+            style={{ color: '#6b7280' }}>
             {dict.subtitle}
           </motion.p>
 
@@ -177,17 +177,17 @@ export function Hero({ dict, locale }: HeroProps) {
                 href={`/${locale}#contact`}
                 className='inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl min-w-[200px] cursor-pointer'
                 style={{
-                  backgroundColor: '#3F72AF',
-                  border: '2px solid #3F72AF',
+                  backgroundColor: '#000000',
+                  border: '2px solid #000000',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#112D4E'
-                  e.currentTarget.style.borderColor = '#112D4E'
+                  e.currentTarget.style.backgroundColor = 'transparent'
+                  e.currentTarget.style.color = '#000000'
                   e.currentTarget.style.transform = 'translateY(-2px)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#3F72AF'
-                  e.currentTarget.style.borderColor = '#3F72AF'
+                  e.currentTarget.style.backgroundColor = '#000000'
+                  e.currentTarget.style.color = '#ffffff'
                   e.currentTarget.style.transform = 'translateY(0)'
                 }}>
                 {dict.cta_primary}
@@ -200,17 +200,17 @@ export function Hero({ dict, locale }: HeroProps) {
                 href={`/${locale}#portfolio`}
                 className='inline-flex items-center justify-center w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium bg-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl min-w-[200px] cursor-pointer'
                 style={{
-                  color: '#3F72AF',
-                  border: '2px solid #3F72AF',
+                  color: '#000000',
+                  border: '2px solid #000000',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#3F72AF'
+                  e.currentTarget.style.backgroundColor = '#000000'
                   e.currentTarget.style.color = 'white'
                   e.currentTarget.style.transform = 'translateY(-2px)'
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.backgroundColor = 'white'
-                  e.currentTarget.style.color = '#3F72AF'
+                  e.currentTarget.style.color = '#000000'
                   e.currentTarget.style.transform = 'translateY(0)'
                 }}>
                 <PlayIcon />
@@ -254,12 +254,12 @@ export function Hero({ dict, locale }: HeroProps) {
                     boxShadow:
                       '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 0 rgba(255, 255, 255, 0.2)',
                   }}>
-                  <div style={{ color: '#3F72AF' }} className='flex-shrink-0'>
+                  <div style={{ color: '#000000' }} className='flex-shrink-0'>
                     {getIcon(feature.icon)}
                   </div>
                   <div
                     className='text-sm sm:text-base md:text-lg font-medium'
-                    style={{ color: '#112D4E' }}>
+                    style={{ color: '#000000' }}>
                     {feature.title}
                   </div>
                 </motion.div>
