@@ -3,33 +3,15 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { FilterButtonBar } from './ui/FilterButtonBar'
+import { Dictionary } from '@/lib/dictionaries'
 
 interface FAQProps {
-  dictionary: {
-    faq: {
-      title: string
-      subtitle: string
-      categories: {
-        general: string
-        pricing: string
-        support: string
-      }
-      questions: {
-        [key: string]: {
-          question: string
-          answer: string
-          category: string
-        }
-      }
-    }
-  }
+  dictionary: Dictionary['faq']
 }
 
-export function FAQ({ dictionary }: FAQProps) {
+export function FAQ({ dictionary: faqData }: FAQProps) {
   const [openQuestion, setOpenQuestion] = useState<string | null>(null)
   const [activeCategory, setActiveCategory] = useState('all')
-
-  const faqData = dictionary?.faq
 
   if (!faqData) {
     return <div>FAQ data not available</div>
@@ -54,7 +36,7 @@ export function FAQ({ dictionary }: FAQProps) {
         style={{ backgroundImage: `url('/images/hero/hero.svg')` }}
       />
       {/* Clean gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-br from-brand-cream via-brand-secondary/30 to-brand-cream/20'></div>
+      <div className='absolute inset-0 bg-gradient-to-br from-blue-50/30 via-indigo-50/20 to-white/90'></div>
 
       <div className='container mx-auto px-4 relative'>
         <motion.div
@@ -232,14 +214,14 @@ export function FAQ({ dictionary }: FAQProps) {
             border: '1px solid rgba(255,255,255,0.18)',
             boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
           }}>
-          <h3 className='text-3xl font-bold mb-4 text-brand-primary'>Остались вопросы?</h3>
-          <p className='text-lg text-brand-primary mb-6 max-w-2xl mx-auto'>
-            Свяжитесь с нашей командой для персональной консультации по вашему проекту.
+          <h3 className='text-3xl font-bold mb-4 text-white'>Still have questions?</h3>
+          <p className='text-lg text-white mb-6 max-w-2xl mx-auto'>
+            Contact our team for personalized consultation about your project.
           </p>
           <a
             href='#contact'
-            className='text-xl inline-flex items-center gap-2 bg-brand-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-brand-cream hover:text-brand-primary transition-colors duration-200'>
-            Связаться
+            className='text-xl inline-flex items-center gap-2 bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200'>
+            Contact Us
             <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
               <path
                 strokeLinecap='round'

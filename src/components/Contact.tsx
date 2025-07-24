@@ -16,7 +16,7 @@ import {
 import { LocationIcon } from '@/components/icons/location'
 
 interface ContactProps {
-  dictionary: Dictionary
+  dictionary: Dictionary['contact']
 }
 
 interface FormData {
@@ -67,31 +67,31 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
   const channels = useMemo(
     () => [
       {
-        name: dictionary.contact.channels.email,
+        name: dictionary.channels.email,
         icon: EmailIcon,
-        href: `mailto:${dictionary.contact.info.email}`,
-        description: dictionary.contact.channels.emailDesc || '',
+        href: `mailto:${dictionary.info.email}`,
+        description: dictionary.channels.emailDesc || '',
         color: 'bg-blue-500 hover:bg-blue-600',
       },
       {
-        name: dictionary.contact.channels.whatsapp,
+        name: dictionary.channels.whatsapp,
         icon: WhatsAppIcon,
         href: 'https://wa.me/+33626932734',
-        description: dictionary.contact.channels.whatsappDesc || '',
+        description: dictionary.channels.whatsappDesc || '',
         color: 'bg-green-500 hover:bg-green-600',
       },
       {
-        name: dictionary.contact.channels.telegram,
+        name: dictionary.channels.telegram,
         icon: TelegramIcon,
         href: 'https://t.me/sardorbek_sidikov',
-        description: dictionary.contact.channels.telegramDesc || '',
+        description: dictionary.channels.telegramDesc || '',
         color: 'bg-blue-400 hover:bg-blue-500',
       },
       {
-        name: dictionary.contact.channels.phone,
+        name: dictionary.channels.phone,
         icon: PhoneIcon,
-        href: `tel:${dictionary.contact.info.phone}`,
-        description: dictionary.contact.channels.phoneDesc || '',
+        href: `tel:${dictionary.info.phone}`,
+        description: dictionary.channels.phoneDesc || '',
         color: 'bg-purple-500 hover:bg-purple-600',
       },
     ],
@@ -102,22 +102,22 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
   const contactInfo = useMemo(
     () => [
       {
-        title: dictionary.contact.info.localisations,
+        title: dictionary.info.localisations,
         icon: LocationIcon,
-        value: dictionary.contact.info.locations?.join(' <br /> ') || '',
+        value: dictionary.info.locations?.join(' <br /> ') || '',
         link: '',
       },
       {
-        title: dictionary.contact.info.phone_label || dictionary.contact.channels.phone,
+        title: dictionary.info.phone_label || dictionary.channels.phone,
         icon: PhoneIcon,
-        value: dictionary.contact.info.phone,
-        link: `tel:${dictionary.contact.info.phone}`,
+        value: dictionary.info.phone,
+        link: `tel:${dictionary.info.phone}`,
       },
       {
-        title: dictionary.contact.info.email_label || dictionary.contact.channels.email,
+        title: dictionary.info.email_label || dictionary.channels.email,
         icon: EmailIcon,
-        value: dictionary.contact.info.email,
-        link: `mailto:${dictionary.contact.info.email}`,
+        value: dictionary.info.email,
+        link: `mailto:${dictionary.info.email}`,
       },
     ],
     [dictionary]
@@ -251,7 +251,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
     if (submitStatus === 'idle') return null
 
     const isSuccess = submitStatus === 'success'
-    const message = isSuccess ? dictionary.contact.form.success : dictionary.contact.form.error
+    const message = isSuccess ? dictionary.form.success : dictionary.form.error
     const colorClasses = isSuccess
       ? 'bg-green-50 border-green-100 text-green-800'
       : 'bg-red-50 border-red-100 text-red-800'
@@ -283,7 +283,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
         </div>
       </motion.div>
     )
-  }, [submitStatus, dictionary.contact.form.success, dictionary.contact.form.error])
+  }, [submitStatus, dictionary.form.success, dictionary.form.error])
 
   return (
     <section ref={ref} id='contact' className='py-24 relative overflow-hidden'>
@@ -310,11 +310,9 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
           {/* Section Header */}
           <motion.div variants={ANIMATION_VARIANTS.item} className='text-left mb-20'>
             <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
-              {dictionary.contact.title}
+              {dictionary.title}
             </h2>
-            <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>
-              {dictionary.contact.subtitle}
-            </p>
+            <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>{dictionary.subtitle}</p>
           </motion.div>
 
           <div className='grid lg:grid-cols-5 gap-8'>
@@ -323,9 +321,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
               <div className='bg-white rounded-3xl border border-gray-100 shadow-2xl shadow-gray-900/5 p-10 h-full'>
                 <div className='flex items-center mb-8'>
                   <div className='w-2 h-8 bg-black rounded-full mr-4' />
-                  <h3 className='text-3xl font-bold text-gray-900'>
-                    {dictionary.contact.form.title}
-                  </h3>
+                  <h3 className='text-3xl font-bold text-gray-900'>{dictionary.form.title}</h3>
                 </div>
 
                 <form onSubmit={handleSubmit} className='space-y-8'>
@@ -335,8 +331,8 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
                       name='name'
                       value={formData.name}
                       onChange={handleInputChange}
-                      label={dictionary.contact.form.name.label}
-                      placeholder={dictionary.contact.form.name.placeholder}
+                      label={dictionary.form.name.label}
+                      placeholder={dictionary.form.name.placeholder}
                       required
                     />
 
@@ -346,8 +342,8 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
                       name='email'
                       value={formData.email}
                       onChange={handleInputChange}
-                      label={dictionary.contact.form.email.label}
-                      placeholder={dictionary.contact.form.email.placeholder}
+                      label={dictionary.form.email.label}
+                      placeholder={dictionary.form.email.placeholder}
                       required
                     />
                   </div>
@@ -357,8 +353,8 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
                     name='message'
                     value={formData.message}
                     onChange={handleInputChange}
-                    label={dictionary.contact.form.message.label}
-                    placeholder={dictionary.contact.form.message.placeholder}
+                    label={dictionary.form.message.label}
+                    placeholder={dictionary.form.message.placeholder}
                     rows={6}
                     required
                   />
@@ -391,11 +387,11 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
                               d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
                             />
                           </svg>
-                          {dictionary.contact.form.sending}
+                          {dictionary.form.sending}
                         </>
                       ) : (
                         <>
-                          {dictionary.contact.form.submit}
+                          {dictionary.form.submit}
                           <svg
                             className='ml-2 -mr-1 w-5 h-5 transition-transform group-hover:translate-x-1'
                             fill='currentColor'
@@ -423,9 +419,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
               <div className='bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-900/5 p-8'>
                 <div className='flex items-center mb-6'>
                   <div className='w-2 h-6 bg-black rounded-full mr-3' />
-                  <h3 className='text-xl font-bold text-gray-900'>
-                    {dictionary.contact.quickContact}
-                  </h3>
+                  <h3 className='text-xl font-bold text-gray-900'>{dictionary.quickContact}</h3>
                 </div>
                 <div className='grid grid-cols-2 gap-4'>
                   {channels.map((channel, index) => {
@@ -459,9 +453,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
               <div className='bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-900/5 p-8'>
                 <div className='flex items-center mb-6'>
                   <div className='w-2 h-6 bg-black rounded-full mr-3' />
-                  <h3 className='text-xl font-bold text-gray-900'>
-                    {dictionary.contact.info.title}
-                  </h3>
+                  <h3 className='text-xl font-bold text-gray-900'>{dictionary.info.title}</h3>
                 </div>
                 <div className='space-y-6'>
                   {contactInfo.map((item, index) => {
@@ -489,7 +481,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
                               className='text-gray-600 hover:text-black transition-colors duration-200 break-words'>
                               {item.value}
                             </a>
-                          ) : item.title === dictionary.contact.info.localisations ? (
+                          ) : item.title === dictionary.info.localisations ? (
                             <p
                               className='text-gray-600 break-words'
                               dangerouslySetInnerHTML={{ __html: item.value }}
@@ -508,7 +500,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
               <div className='bg-black rounded-3xl shadow-xl shadow-gray-900/5 p-8'>
                 <div className='flex items-center mb-6'>
                   <div className='w-2 h-6 bg-white rounded-full mr-3' />
-                  <h3 className='text-xl font-bold text-white'>{dictionary.contact.social}</h3>
+                  <h3 className='text-xl font-bold text-white'>{dictionary.social}</h3>
                 </div>
                 <div className='flex space-x-4'>
                   {socialLinks.map((social, index) => {
@@ -534,7 +526,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
                   })}
                 </div>
                 <p className='text-gray-400 text-sm mt-6 leading-relaxed'>
-                  {dictionary.contact.socialDesc}
+                  {dictionary.socialDesc}
                 </p>
               </div>
             </motion.div>

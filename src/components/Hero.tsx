@@ -8,7 +8,7 @@ import { Dictionary } from '@/lib/dictionaries'
 import Image from 'next/image'
 
 interface HeroProps {
-  dict: Dictionary
+  dict: Dictionary['hero']
   locale: Locale
 }
 
@@ -143,7 +143,7 @@ export function Hero({ dict, locale }: HeroProps) {
             <span
               className='w-2 h-2 rounded-full mr-2 sm:mr-3 animate-pulse'
               style={{ backgroundColor: '#3F72AF' }}></span>
-            {dict.hero.badge}
+            {dict.badge}
           </motion.div>
 
           {/* Main Headline */}
@@ -153,7 +153,7 @@ export function Hero({ dict, locale }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.3 }}
             className='text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6 px-4 leading-tight'
             style={{ color: '#112D4E' }}>
-            {dict.hero.title}
+            {dict.title}
           </motion.h1>
 
           {/* Subtitle */}
@@ -163,7 +163,7 @@ export function Hero({ dict, locale }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.4 }}
             className='text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed font-medium px-4'
             style={{ color: '#3F72AF' }}>
-            {dict.hero.subtitle}
+            {dict.subtitle}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -190,7 +190,7 @@ export function Hero({ dict, locale }: HeroProps) {
                   e.currentTarget.style.borderColor = '#3F72AF'
                   e.currentTarget.style.transform = 'translateY(0)'
                 }}>
-                {dict.hero.cta_primary}
+                {dict.cta_primary}
                 <ArrowIcon />
               </Link>
             </motion.div>
@@ -214,7 +214,7 @@ export function Hero({ dict, locale }: HeroProps) {
                   e.currentTarget.style.transform = 'translateY(0)'
                 }}>
                 <PlayIcon />
-                {dict.hero.cta_secondary}
+                {dict.cta_secondary}
               </Link>
             </motion.div>
           </motion.div>
@@ -225,7 +225,7 @@ export function Hero({ dict, locale }: HeroProps) {
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className='mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto px-4'>
-            {dict.hero.features?.map((feature: { title: string; icon: string }, index: number) => {
+            {dict.features?.map((feature: { title: string; icon: string }, index: number) => {
               const getIcon = (iconType: string) => {
                 switch (iconType) {
                   case 'guarantee':

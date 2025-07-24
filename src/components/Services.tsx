@@ -2,16 +2,14 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-
 import { Dictionary } from '@/lib/dictionaries'
 
 interface ServicesProps {
-  dictionary: Dictionary
+  dictionary: Dictionary['services']
   locale: string
 }
 
-export function Services({ dictionary, locale }: ServicesProps) {
-  const dict = dictionary.services
+export function Services({ dictionary: dict, locale }: ServicesProps) {
   const services = [
     {
       title: dict.web_creation.title,
@@ -318,9 +316,7 @@ export function Services({ dictionary, locale }: ServicesProps) {
           <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
             {dict.title}
           </h2>
-          <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>
-            {dict.subtitle}
-          </p>
+          <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>{dict.subtitle}</p>
         </motion.div>
 
         {/* Services Cards */}
@@ -378,14 +374,22 @@ export function Services({ dictionary, locale }: ServicesProps) {
                   <div className='flex flex-col sm:flex-row gap-4'>
                     <button className='group relative bg-black hover:bg-white text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer'>
                       <span className='relative flex items-center justify-center'>
-                        {locale === 'fr' ? 'Demander un devis' : locale === 'ru' ? 'Запросить смету' : 'Request a quote'}
+                        {locale === 'fr'
+                          ? 'Demander un devis'
+                          : locale === 'ru'
+                          ? 'Запросить смету'
+                          : 'Request a quote'}
                       </span>
                     </button>
 
-                    <button className='relative text-brand-primary border border-black hover:bg-black hover:text-white transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer'>
+                    <button className='relative text-gray-900 border border-black hover:bg-black hover:text-white transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer'>
                       <div className='absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-0 transition-opacity duration-200'></div>
                       <span className='relative flex items-center justify-center'>
-                        {locale === 'fr' ? 'Voir les tarifs' : locale === 'ru' ? 'Посмотреть цены' : 'View pricing'}
+                        {locale === 'fr'
+                          ? 'Voir les tarifs'
+                          : locale === 'ru'
+                          ? 'Посмотреть цены'
+                          : 'View pricing'}
                       </span>
                     </button>
                   </div>
@@ -428,13 +432,13 @@ export function Services({ dictionary, locale }: ServicesProps) {
 
               {/* Content at bottom */}
               <div className='p-6'>
-                  <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight text-[32px] sm:text-[40px] lg:lg:text-6xl 3xl:text-[80px]'>
-                    {dict.cta_banner.background}
-                  </h3>
+                <h3 className='text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight text-[32px] sm:text-[40px] lg:lg:text-6xl 3xl:text-[80px]'>
+                  {dict.cta_banner.background}
+                </h3>
 
-                  <p className='text-gray-600 text-base leading-relaxed mb-6'>
-                    {dict.cta_banner.description}
-                  </p>
+                <p className='text-gray-600 text-base leading-relaxed mb-6'>
+                  {dict.cta_banner.description}
+                </p>
 
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}

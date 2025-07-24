@@ -1,16 +1,16 @@
 'use client'
 import React from 'react'
 import { getProjects } from '@/data/projects'
-import Image from 'next/image'
-import Link from 'next/link'
 import { ProjectCard } from '@/components/ui/ProjectCard'
 
-export default function ProjectsPage({ params }: { params: { locale: 'en' | 'fr' | 'ru' } }) {
-  // Для будущей версии Next.js: params может быть Promise
-  const unwrappedParams = (typeof params.then === 'function' ? React.use(params) : params) as {
-    locale: 'en' | 'fr' | 'ru'
-  }
-  const allProjects = getProjects(unwrappedParams.locale)
+export default function ProjectsPage({
+  params,
+}: {
+  params: Promise<{ locale: 'en' | 'fr' | 'ru' }>
+}) {
+  const resolvedParams = React.use(params)
+  const { locale } = resolvedParams
+  const allProjects = getProjects(locale)
   const tags = Array.from(
     new Set(
       allProjects
@@ -86,7 +86,7 @@ export default function ProjectsPage({ params }: { params: { locale: 'en' | 'fr'
         </div>
         <div className='grid lg:grid-cols-2 gap-5 sm:gap-[30px] lg:gap-16'>
           {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} locale={unwrappedParams.locale} />
+            <ProjectCard key={project.id} project={project} locale={locale} />
           ))}
         </div>
       </div>

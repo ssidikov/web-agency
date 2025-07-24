@@ -4,7 +4,7 @@ import { type Locale, isValidLocale, defaultLocale } from './i18n'
 
 // Define the Dictionary type based on your actual JSON structure
 export interface Dictionary {
-  '404'?: {
+  '404': {
     title: string
     description: string
     search_placeholder: string
@@ -12,92 +12,236 @@ export interface Dictionary {
     go_home: string
     popular_pages: string
   }
-  navigation?: Record<string, unknown>
-  hero?: {
-    badge?: string
-    title?: string
-    subtitle?: string
-    cta_primary?: string
-    cta_secondary?: string
-    features?: Array<{ title: string; icon: string }>
+  navigation: {
+    home: string
+    services: string
+    portfolio: string
+    faq: string
+    contact: string
+    language: string
   }
-  services?: Record<string, unknown>
-  faq?: Record<string, unknown>
-  contact?: {
-    title?: string
-    subtitle?: string
-    quickContact?: string
-    social?: string
-    info?: {
-      title?: string
-      localisations?: string
-      locations?: string[]
-      phone_label?: string
-      email_label?: string
-      phone?: string
-      email?: string
+  hero: {
+    badge: string
+    title: string
+    subtitle: string
+    cta_primary: string
+    cta_secondary: string
+    features: Array<{ title: string; icon: string }>
+  }
+  services: {
+    title: string
+    subtitle: string
+    web_creation: {
+      title: string
+      subtitle: string
+      features: string[]
+      description: string
     }
-    channels?: {
-      email?: string
-      whatsapp?: string
-      telegram?: string
-      phone?: string
-      emailDesc?: string
-      whatsappDesc?: string
-      telegramDesc?: string
-      phoneDesc?: string
+    web_redesign: {
+      title: string
+      features: string[]
+      description: string
+    }
+    seo_optimization: {
+      title: string
+      features: string[]
+      description: string
+    }
+    maintenance: {
+      title: string
+      features: string[]
+      description: string
+    }
+    cta_banner: {
+      background: string
+      description: string
+      cta: string
     }
   }
-  footer?: {
-    description?: string
-    quick_links?: string
-    services_links?: string
-    contact_info?: string
-    social_media?: string
-    services?: {
-      web_creation?: string
-      web_redesign?: string
-      seo_optimization?: string
-      maintenance?: string
-      web_applications?: string
-      ecommerce?: string
+  portfolio?: {
+    title: string
+    subtitle: string
+    filter: {
+      all: string
+      web: string
+      mobile: string
+      design: string
+    }
+    projects: {
+      [key: string]: {
+        title: string
+        description: string
+        category: string
+      }
+    }
+    view_project: string
+    live_demo: string
+    github: string
+  }
+  faq: {
+    title: string
+    subtitle: string
+    categories: {
+      general: string
+      pricing: string
+      support: string
+    }
+    questions: {
+      [key: string]: {
+        question: string
+        answer: string
+        category: string
+      }
+    }
+  }
+  contact: {
+    title: string
+    subtitle: string
+    description: string
+    quickContact: string
+    social: string
+    socialDesc: string
+    form: {
+      title: string
+      name: {
+        label: string
+        placeholder: string
+      }
+      email: {
+        label: string
+        placeholder: string
+      }
+      phone: {
+        label: string
+        placeholder: string
+      }
+      subject: {
+        label: string
+        placeholder: string
+      }
+      message: {
+        label: string
+        placeholder: string
+      }
+      submit: string
+      sending: string
+      success: string
+      error: string
+    }
+    info: {
+      title: string
+      localisations: string
+      locations: string[]
+      phone_label: string
+      email_label: string
+      address: string
+      phone: string
+      email: string
+      hours: string
+    }
+    channels: {
+      title: string
+      email: string
+      emailDesc: string
+      whatsapp: string
+      whatsappDesc: string
+      telegram: string
+      telegramDesc: string
+      phone: string
+      phoneDesc: string
+    }
+  }
+  footer: {
+    description: string
+    quick_links: string
+    services_links: string
+    contact_info: string
+    social_media: string
+    services: {
+      web_creation: string
+      web_redesign: string
+      seo_optimization: string
+      maintenance: string
+      web_applications: string
+      ecommerce: string
     }
     newsletter?: {
-      title?: string
-      description?: string
-      placeholder?: string
-      subscribe?: string
+      title: string
+      description: string
+      placeholder: string
+      subscribe: string
     }
     legal?: {
-      privacy?: string
-      terms?: string
-      cookies?: string
+      privacy: string
+      terms: string
+      cookies: string
     }
     copyright?: string
   }
-  common?: Record<string, unknown>
-  [key: string]: unknown // Allow additional properties
+  common: {
+    loading: string
+    error: string
+    try_again: string
+    learn_more: string
+    view_all: string
+    back: string
+    next: string
+    previous: string
+    close: string
+    open: string
+  }
+  legal: {
+    title: string
+    company_info_title: string
+    company_name_label: string
+    company_name: string
+    company_type_label: string
+    company_type: string
+    siren_label: string
+    siren: string
+    address_label: string
+    address: string
+    phone_label: string
+    phone: string
+    email_label: string
+    email: string
+    director_title: string
+    director_name: string
+    hosting_title: string
+    host_label: string
+    host: string
+    host_address_label: string
+    host_address: string
+    host_website_label: string
+    host_website: string
+    ip_title: string
+    ip_text: string
+    data_title: string
+    data_text: string
+    cookies_title: string
+    cookies_text: string
+  }
 }
 
-// Кэш для словарей
+// Cache for dictionaries
 const dictionaryCache = new Map<Locale, Dictionary>()
 
-// Dictionary loading function - server only с кэшированием
+// Dictionary loading function - server only with caching
 const dictionaries = {
   fr: () => import('../../locales/fr/common.json').then((module) => module.default as Dictionary),
   en: () => import('../../locales/en/common.json').then((module) => module.default as Dictionary),
   ru: () => import('../../locales/ru/common.json').then((module) => module.default as Dictionary),
 } as const
 
-// Get dictionary for a locale - server only с оптимизацией
+// Get dictionary for a locale - server only with optimization
 export async function getDictionary(locale: Locale): Promise<Dictionary> {
-  // Валидация локали
+  // Locale validation
   if (!isValidLocale(locale)) {
     console.warn(`Invalid locale requested: ${locale}`)
     notFound()
   }
 
-  // Проверка кэша
+  // Check cache
   if (dictionaryCache.has(locale)) {
     return dictionaryCache.get(locale)!
   }
@@ -105,7 +249,7 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
   try {
     const dictionary = await dictionaries[locale]()
 
-    // Кэшируем результат
+    // Cache result
     dictionaryCache.set(locale, dictionary)
 
     return dictionary
@@ -122,19 +266,19 @@ export async function getDictionary(locale: Locale): Promise<Dictionary> {
   }
 }
 
-// Очистка кэша (для тестирования или hot reload)
+// Clear cache (for testing or hot reload)
 export function clearDictionaryCache(): void {
   dictionaryCache.clear()
 }
 
-// Предзагрузка словарей (опционально)
+// Preload dictionaries (optional)
 export async function preloadDictionaries(): Promise<void> {
   const locales: Locale[] = ['en', 'fr', 'ru']
 
   await Promise.allSettled(locales.map((locale) => getDictionary(locale)))
 }
 
-// Типы для безопасного доступа к ключам
+// Types for safe key access
 export type DictionaryKey = keyof Dictionary
 export type NotFoundKey = keyof Dictionary['404']
 export type NavigationKey = keyof Dictionary['navigation']

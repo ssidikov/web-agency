@@ -4,13 +4,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-export default function ProjectDetailsPage({
+export default async function ProjectDetailsPage({
   params,
 }: {
-  params: { locale: 'en' | 'fr' | 'ru'; id: string }
+  params: Promise<{ locale: 'en' | 'fr' | 'ru'; id: string }>
 }) {
-  const projects = getProjects(params.locale)
-  const project = projects.find((p) => p.id === params.id)
+  const { locale, id } = await params
+  const projects = getProjects(locale)
+  const project = projects.find((p) => p.id === id)
   if (!project) return notFound()
 
   return (
@@ -65,7 +66,7 @@ export default function ProjectDetailsPage({
               </div>
               <div className='flex flex-col sm:flex-row gap-4'>
                 <Link
-                  href={`/${params.locale}/contact`}
+                  href={`/${locale}/contact`}
                   className='group relative bg-black hover:bg-transparent text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer items-center justify-center flex'>
                   Start Your Project
                 </Link>

@@ -5,12 +5,11 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { getProjects } from '@/data/projects'
 import { ProjectCard } from '@/components/ui/ProjectCard'
-
-type DictionaryValue = string | { [key: string]: DictionaryValue } | DictionaryValue[]
+import { Dictionary } from '@/lib/dictionaries'
 
 interface PortfolioNewProps {
   locale: 'en' | 'fr' | 'ru'
-  dictionary?: DictionaryValue
+  dictionary: Dictionary['portfolio']
 }
 
 export default function PortfolioNew({ locale, dictionary }: PortfolioNewProps) {
@@ -47,14 +46,10 @@ export default function PortfolioNew({ locale, dictionary }: PortfolioNewProps) 
           transition={{ duration: 0.6 }}
           className='text-left mb-16'>
           <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
-            {dictionary && typeof dictionary === 'object' && 'portfolio' in dictionary
-              ? (dictionary as any).portfolio.title
-              : 'Portfolio'}
+            {dictionary?.title || 'Portfolio'}
           </h2>
           <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>
-            {dictionary && typeof dictionary === 'object' && 'portfolio' in dictionary
-              ? (dictionary as any).portfolio.subtitle
-              : ''}
+            {dictionary?.subtitle || ''}
           </p>
         </motion.div>
 
@@ -93,9 +88,9 @@ export default function PortfolioNew({ locale, dictionary }: PortfolioNewProps) 
 
         <div className='flex items-center justify-center mt-12'>
           <Link
-            href='/projects'
+            href={`/${locale}/projects`}
             className='inline-flex items-center justify-center h-16 lg:h-[77px] 3xl:h-[98px] px-6 lg:px-16 text-lg 3xl:text-22 font-medium whitespace-nowrap text-white bg-black rounded-full border border-transparent transition-all duration-300 hover:bg-transparent hover:text-black hover:border-black'>
-            Показать все проекты
+            {dictionary?.view_project || 'View All Projects'}
           </Link>
         </div>
       </div>

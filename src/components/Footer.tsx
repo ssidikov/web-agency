@@ -105,7 +105,7 @@ export default function Footer({ dictionary }: FooterProps) {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}>
             <h3 className='text-lg font-semibold text-white mb-4'>
-              {footer.quick_links || navigation.quick_links || 'Quick Links'}
+              {footer.quick_links || 'Quick Links'}
             </h3>
             <ul className='space-y-2'>
               {quickLinks.map((link) => (

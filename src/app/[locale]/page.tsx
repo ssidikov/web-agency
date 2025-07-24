@@ -7,30 +7,32 @@ import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 
 interface HomePageProps {
-  params: { locale: Locale }
+  params: Promise<{ locale: Locale }>
 }
 
 export default async function HomePage({ params }: HomePageProps) {
-  const { locale } = params
+  const { locale } = await params
 
   const dict = await getDictionary(locale)
 
   return (
     <>
       <section id='hero'>
-        <Hero dict={dict} locale={locale} />
+        <Hero dict={dict.hero} locale={locale} />
       </section>
       <section id='services'>
-        <Services dictionary={dict} locale={locale} />
+        <Services dictionary={dict.services} locale={locale} />
       </section>
-      <section id='portfolio'>
-        <Portfolio locale={locale} dictionary={dict} />
-      </section>
+      {dict.portfolio && (
+        <section id='portfolio'>
+          <Portfolio locale={locale} dictionary={dict.portfolio} />
+        </section>
+      )}
       <section id='faq'>
-        <FAQ dictionary={dict} />
+        <FAQ dictionary={dict.faq} />
       </section>
       <section id='contact'>
-        <Contact dictionary={dict} />
+        <Contact dictionary={dict.contact} />
       </section>
     </>
   )
