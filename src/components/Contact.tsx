@@ -17,12 +17,14 @@ import { LocationIcon } from '@/components/icons/location'
 
 interface ContactProps {
   dictionary: Dictionary['contact']
+  locale: 'fr' | 'en' | 'ru'
 }
 
 interface FormData {
   name: string
   email: string
   message: string
+  locale: 'fr' | 'en' | 'ru'
 }
 
 type SubmitStatus = 'idle' | 'success' | 'error'
@@ -51,7 +53,7 @@ const ANIMATION_VARIANTS = {
   },
 } as const
 
-const Contact: React.FC<ContactProps> = ({ dictionary }) => {
+const Contact: React.FC<ContactProps> = ({ dictionary, locale }) => {
   const ref = React.useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
@@ -59,6 +61,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
     name: '',
     email: '',
     message: '',
+    locale,
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle')
@@ -173,7 +176,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
 
         if (response.ok) {
           setSubmitStatus('success')
-          setFormData({ name: '', email: '', message: '' })
+          setFormData({ name: '', email: '', message: '', locale })
         } else {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
@@ -186,7 +189,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary }) => {
         setTimeout(() => setSubmitStatus('idle'), 5000)
       }
     },
-    [formData, isSubmitting]
+    [formData, isSubmitting, locale]
   )
 
   // Компонент поля ввода для переиспользования

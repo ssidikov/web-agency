@@ -32,7 +32,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <FAQ dictionary={dict.faq} />
       </section>
       <section id='contact'>
-        <Contact dictionary={dict.contact} />
+        <Contact dictionary={dict.contact} locale={locale} />
       </section>
     </>
   )
