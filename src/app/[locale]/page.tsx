@@ -7,11 +7,11 @@ import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 
 interface HomePageProps {
-  params: Promise<{ locale: Locale }>
+  params: { locale: Locale }
 }
 
 export default async function HomePage({ params }: HomePageProps) {
-  const { locale } = await params
+  const { locale } = params
 
   const dict = await getDictionary(locale)
 
