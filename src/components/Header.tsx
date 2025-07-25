@@ -145,25 +145,9 @@ export function Header({ dictionary, locale }: HeaderProps) {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`sticky z-[120] transition-all duration-500 ${scrolled ? 'top-0' : 'top-4'}`}>
-        <nav className='container mx-auto relative z-[110] px-3.5 xs:px-4'>
-          <div
-            className={`flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 ${
-              scrolled
-                ? isMenuOpen
-                  ? 'rounded-t-none'
-                  : 'rounded-b-3xl rounded-t-none'
-                : isMenuOpen
-                ? 'rounded-b-none'
-                : 'rounded-full '
-            }`}
-            style={{
-              background: 'rgba(249, 247, 247, 0.5)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              backdropFilter: 'blur(20px) saturate(180%)',
-              WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-            }}>
+        className='absolute top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-4'>
+        <nav className='relative z-[110] px-3.5 xs:px-4'>
+          <div className='flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-3xl backdrop-blur-xl bg-white/20 border-2 border-white/30 shadow-xl '>
             {/* Logo */}
             <div>
               <Link

@@ -120,8 +120,8 @@ export const userConfirmationFR = ({ name, locale = 'fr' }: UserConfirmationPara
                 <path d="M14 30l8 8 16-16" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-          </td>
-        </tr>
+        </td>
+      </tr>
 
         <!-- Main Content -->
         <tr>
@@ -162,8 +162,8 @@ export const userConfirmationFR = ({ name, locale = 'fr' }: UserConfirmationPara
                 ${t.regards}
               </p>
             </div>
-          </td>
-        </tr>
+        </td>
+      </tr>
 
         <!-- Footer -->
         <tr>
@@ -179,12 +179,12 @@ export const userConfirmationFR = ({ name, locale = 'fr' }: UserConfirmationPara
             <p style="margin: 8px 0 0 0; font-size: 12px; color: #7f8c8d;">
               Professional Digital Solutions • Paris, France
             </p>
-          </td>
-        </tr>
-      </table>
+        </td>
+      </tr>
+    </table>
     </body>
     </html>
-  `
+`
 }
 
 export const adminNotificationFR = ({
@@ -237,8 +237,8 @@ export const adminNotificationFR = ({
                 <circle cx="30" cy="30" r="20" stroke="white" stroke-width="3" fill="none"/>
               </svg>
             </div>
-          </td>
-        </tr>
+        </td>
+      </tr>
 
         <!-- Main Content -->
         <tr>
@@ -309,8 +309,8 @@ export const adminNotificationFR = ({
                 Appeler
               </a>
             </div>
-          </td>
-        </tr>
+        </td>
+      </tr>
 
         <!-- Footer -->
         <tr>
@@ -328,9 +328,9 @@ export const adminNotificationFR = ({
     locale === 'fr' ? 'fr-FR' : locale === 'ru' ? 'ru-RU' : 'en-US'
   )}
             </p>
-          </td>
-        </tr>
-      </table>
+        </td>
+      </tr>
+    </table>
     </body>
     </html>
   `
