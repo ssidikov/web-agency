@@ -208,7 +208,9 @@
     "open": "Ouvrir",
     "badge_quality": "Garantie qualité",
     "badge_response": "Réponse rapide",
-    "badge_support": "Support 7/7"
+    "badge_support": "Support 7/7",
+    "footer_copyright": "Tous droits réservés | Développeur web freelance à Paris | Toulouse",
+    "legal_link": "Mentions légales"
   },
   "legal": {
     "title": "Mentions légales",

@@ -49,7 +49,7 @@ export default async function MentionsLegalesPage({ params }: MentionsLegalesPag
   const legal: LegalSection = dict.legal || {}
 
   return (
-    <main className='max-w-3xl mx-auto py-16 px-4'>
+    <main className='max-w-3xl mx-auto py-16 px-4 mt-20 md:mt-32'>
       <h1 className='text-4xl font-bold mb-8'>{legal.title || 'Mentions légales'}</h1>
       <section className='mb-8'>
         <h2 className='text-2xl font-semibold mb-2'>

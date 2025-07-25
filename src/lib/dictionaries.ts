@@ -192,6 +192,8 @@ export interface Dictionary {
     badge_quality: string
     badge_response: string
     badge_support: string
+    footer_copyright: string
+    legal_link: string
   }
   legal: {
     title: string

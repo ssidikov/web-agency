@@ -208,7 +208,9 @@
     "open": "Open",
     "badge_quality": "Guaranteed quality",
     "badge_response": "Fast response",
-    "badge_support": "7/7 Support"
+    "badge_support": "7/7 Support",
+    "footer_copyright": "All rights reserved | Freelance web developer in Paris | Toulouse",
+    "legal_link": "Legal Notice"
   },
   "legal": {
     "title": "Legal Notice",

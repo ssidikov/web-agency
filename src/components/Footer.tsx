@@ -35,8 +35,6 @@ const SocialIcon = ({
 )
 
 export function Footer({ dictionary, locale }: FooterProps) {
-  const currentYear = new Date().getFullYear()
-
   const quickLinks = [
     { name: dictionary.navigation?.home || 'Accueil', href: `/${locale}` },
     { name: dictionary.navigation?.services || 'Services', href: `/${locale}#services` },
@@ -49,7 +47,7 @@ export function Footer({ dictionary, locale }: FooterProps) {
 
   const legalLinks = [
     {
-      name: 'Mentions légales',
+      name: dictionary.common.legal_link,
       href: `/${locale}/mentions-legales`,
     },
   ]
@@ -236,8 +234,7 @@ export function Footer({ dictionary, locale }: FooterProps) {
               className='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'>
               {/* Copyright */}
               <div className='text-gray-400 text-sm'>
-                © {currentYear} Sidikoff Digital.{' '}
-                {dictionary.footer?.copyright || 'Tous droits réservés.'}
+                © 2025 Sidikoff Digital. {dictionary.common.footer_copyright}
               </div>
 
               {/* Legal Links */}
