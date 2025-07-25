@@ -17,21 +17,11 @@ export default async function HomePage({ params }: HomePageProps) {
 
   return (
     <>
-      <section id='hero' className='p-0 m-0'>
-        <Hero dict={dict.hero} common={dict.common} locale={locale} />
-      </section>
-      <section id='services'>
-        <Services dictionary={dict.services} locale={locale} />
-      </section>
-      <section id='portfolio'>
-        <Portfolio dictionary={dict.portfolio} locale={locale} />
-      </section>
-      <section id='faq'>
-        <FAQ dictionary={dict.faq} />
-      </section>
-      <section id='contact'>
-        <Contact dictionary={dict.contact} locale={locale} />
-      </section>
+      <Hero dict={dict.hero} common={dict.common} locale={locale} />
+      <Services dictionary={dict.services} locale={locale} />
+      <Portfolio dictionary={dict.portfolio} locale={locale} />
+      <FAQ dictionary={dict.faq} />
+      <Contact dictionary={dict.contact} locale={locale} />
     </>
   )
 }

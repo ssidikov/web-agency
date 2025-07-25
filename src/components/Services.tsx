@@ -169,7 +169,7 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
               {/* Image at top */}
               <div className='relative h-48 w-full'>
                 <Image
-                  src='/images/services/cta-background-3.jpg'
+                  src='/images/services/cta-background-21.jpg'
                   alt='CTA Background'
                   fill
                   className='object-cover'
@@ -195,7 +195,7 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className='relative w-full bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-2xl cursor-pointer overflow-hidden group'>
+                  className='group relative bg-black hover:bg-transparent text-white hover:text-black border border-gray-400 transition-all duration-300 w-full text-lg 3xl:text-22 whitespace-nowrap px-6 lg:px-8 cursor-pointer h-[60px] sm:h-16 lg:h-20 lg:text-lg 3xl:text-22 font-medium rounded-full mt-5 sm:mt-10'>
                   <div className='absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                   <div className='absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
 
