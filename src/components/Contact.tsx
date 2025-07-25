@@ -18,6 +18,7 @@ import { LocationIcon } from '@/components/icons/location'
 interface ContactProps {
   dictionary: Dictionary['contact']
   locale: 'fr' | 'en' | 'ru'
+  className?: string
 }
 
 interface FormData {
@@ -53,7 +54,7 @@ const ANIMATION_VARIANTS = {
   },
 } as const
 
-const Contact: React.FC<ContactProps> = ({ dictionary, locale }) => {
+const Contact: React.FC<ContactProps> = ({ dictionary, locale, className }) => {
   const ref = React.useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
@@ -289,7 +290,10 @@ const Contact: React.FC<ContactProps> = ({ dictionary, locale }) => {
   }, [submitStatus, dictionary.form.success, dictionary.form.error])
 
   return (
-    <section ref={ref} id='contact' className='py-24 relative overflow-hidden'>
+    <section
+      ref={ref}
+      id='contact'
+      className={`relative py-24 overflow-hidden${className ? ` ${className}` : ''}`}>
       {/* Background Image */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'

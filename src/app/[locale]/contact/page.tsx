@@ -8,5 +8,5 @@ export default async function ContactPage({
 }) {
   const { locale } = await params
   const dictionary = await getDictionary(locale)
-  return <Contact dictionary={dictionary.contact} locale={locale} />
+  return <Contact dictionary={dictionary.contact} locale={locale} className='pt-[140px]' />
 }

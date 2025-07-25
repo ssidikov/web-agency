@@ -173,9 +173,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                   <Link
                     href={item.href}
                     className={`text-base font-medium transition-all duration-300 px-3 py-2 rounded-lg text-[#112D4E] focus:outline-none outline-none cursor-pointer ${
-                      isActive(item)
-                        ? 'bg-[#3F72AF] text-white'
-                        : 'hover:text-[#3F72AF] hover:bg-[#DBE2EF]/30'
+                      isActive(item) ? 'bg-black text-white' : 'hover:text-white hover:bg-black'
                     }`}
                     style={{ outline: 'none !important', boxShadow: 'none !important' }}>
                     {item.label}

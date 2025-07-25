@@ -57,7 +57,7 @@ export function LanguageSwitcher({ currentLocale, dict }: LanguageSwitcherProps)
     <div className='relative z-[140]' ref={ref}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className='flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 bg-[#DBE2EF]/30 border border-white/30 text-[#112D4E] hover:bg-[#3F72AF] hover:text-white hover:border-[#3F72AF] cursor-pointer'
+        className='flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 bg-[#DBE2EF]/30 border border-white/30 text-[#112D4E] hover:bg-black hover:text-white hover:border-black cursor-pointer'
         aria-label={dict?.navigation?.language || 'Language'}>
         <span className='text-lg'>{languageFlags[currentLocale]}</span>
         <motion.svg
@@ -93,8 +93,8 @@ export function LanguageSwitcher({ currentLocale, dict }: LanguageSwitcherProps)
                   onClick={() => handleLanguageChange(locale)}
                   className={`w-full flex items-center gap-3 px-4 py-2 text-sm transition-all duration-300 cursor-pointer ${
                     locale === currentLocale
-                      ? 'bg-[#3F72AF] text-white'
-                      : 'text-[#112D4E] hover:bg-[#DBE2EF]/50 hover:text-[#3F72AF]'
+                      ? 'bg-black text-white'
+                      : 'text-black hover:bg-black/10 hover:text-black/90'
                   }`}>
                   <span className='text-lg'>{languageFlags[locale]}</span>
                   <span>{languageNames[locale]}</span>
