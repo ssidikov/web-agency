@@ -217,7 +217,7 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
       host_address_label: 'Host Address',
       host_address: '340 S Lemon Ave #4133, Walnut, CA 91789, USA',
       host_website_label: 'Host Website',
-      host_website: 'https://vercel.com',
+      host_website: 'vercel.com',
       ip_title: 'Intellectual Property',
       ip_text: 'All content is protected.',
       data_title: 'Data Protection',

@@ -93,49 +93,60 @@ export function Footer({ dictionary, locale }: FooterProps) {
 
   const legalLinks = [
     {
-      name: dictionary.footer?.legal?.privacy || 'Politique de confidentialité',
-      href: `/${locale}/privacy`,
-    },
-    { name: dictionary.footer?.legal?.terms || 'Conditions générales', href: `/${locale}/terms` },
-    {
       name: 'Mentions légales',
       href: `/${locale}/mentions-legales`,
     },
   ]
 
+  const services = [
+    {
+      id: 'web-creation',
+      name: dictionary.services?.web_creation?.title || 'Développement Web',
+      href: `/${locale}#services`,
+    },
+    {
+      id: 'web-redesign',
+      name: dictionary.services?.web_redesign?.title || 'Refonte de Site',
+      href: `/${locale}#services`,
+    },
+    {
+      id: 'seo-optimization',
+      name: dictionary.services?.seo_optimization?.title || 'SEO',
+      href: `/${locale}#services`,
+    },
+    {
+      id: 'maintenance',
+      name: dictionary.services?.maintenance?.title || 'Maintenance',
+      href: `/${locale}#services`,
+    },
+  ]
+
   return (
-    <footer className='relative bg-black text-white overflow-hidden'>
+    <footer className='relative bg-black text-white'>
       {/* Background Pattern */}
-      <div className='absolute inset-0'>
-        <div className='absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black' />
-        <div
-          className='absolute inset-0 opacity-[0.02]'
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
+      <div className='absolute inset-0 opacity-5'>
+        <div className='absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.15)_1px,transparent_0)] bg-[length:50px_50px]' />
       </div>
 
-      <div className='relative z-10 container mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='relative z-10'>
         {/* Main Footer Content */}
-        <div className='pt-16 pb-8'>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12'>
-            {/* Brand Section */}
-            <div className='col-span-1 md:col-span-2 lg:col-span-1'>
+        <div className='container mx-auto px-4 py-16'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12'>
+            {/* Company Info */}
+            <div className='lg:col-span-1'>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}>
-                <Link href={`/${locale}`} className='inline-flex items-center space-x-3 mb-6'>
+                <Link href={`/${locale}`} className='inline-flex items-center justify-center mb-6'>
                   <Image
                     src='/logo-sidikoff.webp'
                     alt='Sidikoff Digital'
-                    width={40}
-                    height={40}
-                    className='w-10 h-10'
+                    width={60}
+                    height={60}
+                    className='w-15 h-15'
                   />
-                  <span className='text-xl font-bold text-white'>SIDIKOFF</span>
                 </Link>
 
                 <p className='text-gray-400 text-sm leading-relaxed mb-6 max-w-sm'>
@@ -143,8 +154,8 @@ export function Footer({ dictionary, locale }: FooterProps) {
                     'Agence digitale spécialisée dans le développement web moderne et le design créatif.'}
                 </p>
 
-                {/* Social Media */}
-                <div className='flex space-x-3'>
+                {/* Social Links */}
+                <div className='flex space-x-4'>
                   <SocialIcon name='LinkedIn' href='https://linkedin.com/in/sidikoff'>
                     <LinkedInIcon />
                   </SocialIcon>
@@ -168,15 +179,15 @@ export function Footer({ dictionary, locale }: FooterProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}>
-                <h3 className='text-lg font-semibold text-white mb-6'>
+                <h3 className='text-lg font-semibold mb-6 text-white'>
                   {dictionary.footer?.quick_links || 'Navigation'}
                 </h3>
                 <ul className='space-y-3'>
                   {quickLinks.map((link) => (
-                    <li key={link.name}>
+                    <li key={link.href}>
                       <Link
                         href={link.href}
-                        className='text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer'>
+                        className='text-gray-400 hover:text-white transition-colors duration-300 text-sm'>
                         {link.name}
                       </Link>
                     </li>
@@ -192,38 +203,19 @@ export function Footer({ dictionary, locale }: FooterProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}>
-                <h3 className='text-lg font-semibold text-white mb-6'>
+                <h3 className='text-lg font-semibold mb-6 text-white'>
                   {dictionary.footer?.services_links || 'Services'}
                 </h3>
                 <ul className='space-y-3'>
-                  <li>
-                    <Link
-                      href={`/${locale}#services`}
-                      className='text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer'>
-                      {dictionary.footer?.services?.web_creation || 'Développement Web'}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={`/${locale}#services`}
-                      className='text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer'>
-                      {dictionary.footer?.services?.ecommerce || 'E-commerce'}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={`/${locale}#services`}
-                      className='text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer'>
-                      {dictionary.footer?.services?.web_applications || 'Applications Web'}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={`/${locale}#services`}
-                      className='text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer'>
-                      {dictionary.footer?.services?.seo_optimization || 'SEO & Optimisation'}
-                    </Link>
-                  </li>
+                  {services.map((service) => (
+                    <li key={service.id}>
+                      <Link
+                        href={service.href}
+                        className='text-gray-400 hover:text-white transition-colors duration-300 text-sm'>
+                        {service.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </motion.div>
             </div>
@@ -235,38 +227,40 @@ export function Footer({ dictionary, locale }: FooterProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}>
-                <h3 className='text-lg font-semibold text-white mb-6'>
+                <h3 className='text-lg font-semibold mb-6 text-white'>
                   {dictionary.footer?.contact_info || 'Contact'}
                 </h3>
-
                 <div className='space-y-4'>
-                  <div className='flex items-start space-x-3'>
-                    <div className='flex-shrink-0 w-5 h-5 text-gray-400 mt-0.5'>
+                  {/* Email */}
+                  <div className='flex items-center space-x-3'>
+                    <div className='w-5 h-5 text-gray-400'>
                       <EmailIcon />
                     </div>
                     <a
                       href='mailto:s.sidikoff@gmail.com'
-                      className='text-gray-300 hover:text-white transition-colors duration-200'>
+                      className='text-gray-400 hover:text-white transition-colors duration-300 text-sm'>
                       s.sidikoff@gmail.com
                     </a>
                   </div>
 
-                  <div className='flex items-start space-x-3'>
-                    <div className='flex-shrink-0 w-5 h-5 text-gray-400 mt-0.5'>
+                  {/* Phone */}
+                  <div className='flex items-center space-x-3'>
+                    <div className='w-5 h-5 text-gray-400'>
                       <PhoneIcon />
                     </div>
                     <a
-                      href='tel:+33123456789'
-                      className='text-gray-300 hover:text-white transition-colors duration-200'>
-                      +33 1 23 45 67 89
+                      href='tel:+330625305923'
+                      className='text-gray-400 hover:text-white transition-colors duration-300 text-sm'>
+                      +33 06 25 30 59 23
                     </a>
                   </div>
 
+                  {/* Location */}
                   <div className='flex items-start space-x-3'>
-                    <div className='flex-shrink-0 w-5 h-5 text-gray-400 mt-0.5'>
+                    <div className='w-5 h-5 text-gray-400 mt-0.5'>
                       <LocationIcon />
                     </div>
-                    <span className='text-gray-300'>Paris, France</span>
+                    <span className='text-gray-400 text-sm'>France, Europe</span>
                   </div>
                 </div>
               </motion.div>
@@ -274,35 +268,32 @@ export function Footer({ dictionary, locale }: FooterProps) {
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className='border-t border-gray-800 py-8'>
-          <div className='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'>
-            {/* Copyright */}
+        {/* Bottom Bar */}
+        <div className='border-t border-gray-800'>
+          <div className='container mx-auto px-4 py-6'>
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className='text-sm text-gray-400 text-center md:text-left'>
-              © {currentYear} Sidikoff Digital.{' '}
-              {dictionary.footer?.copyright || 'Tous droits réservés.'}
-            </motion.div>
+              className='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'>
+              {/* Copyright */}
+              <div className='text-gray-400 text-sm'>
+                © {currentYear} Sidikoff Digital.{' '}
+                {dictionary.footer?.copyright || 'Tous droits réservés.'}
+              </div>
 
-            {/* Legal Links */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className='flex flex-wrap justify-center gap-6'>
-              {legalLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className='text-gray-300 hover:text-white text-sm transition-colors duration-200 cursor-pointer'>
-                  {link.name}
-                </Link>
-              ))}
+              {/* Legal Links */}
+              <div className='flex flex-wrap justify-center md:justify-end space-x-6'>
+                {legalLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className='text-gray-400 hover:text-white transition-colors duration-300 text-sm'>
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>

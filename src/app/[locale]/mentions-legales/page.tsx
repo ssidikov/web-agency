@@ -98,13 +98,7 @@ export default async function MentionsLegalesPage({ params }: MentionsLegalesPag
           </li>
           <li>
             <strong>{legal.host_website_label || 'Site web'}:</strong>{' '}
-            <a
-              href={legal.host_website || 'https://vercel.com'}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-blue-600 underline'>
-              {legal.host_website || 'https://vercel.com'}
-            </a>
+            <span>{legal.host_website || 'vercel.com'}</span>
           </li>
         </ul>
       </section>
