@@ -78,14 +78,7 @@ export function LanguageSwitcher({ currentLocale, dict }: LanguageSwitcherProps)
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className='absolute right-0 mt-2 w-48 rounded-lg shadow-lg z-[150]'
-            style={{
-              background: 'rgba(249, 247, 247, 0.9)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              backdropFilter: 'blur(50px) saturate(180%)',
-              WebkitBackdropFilter: 'blur(50px) saturate(180%)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-            }}>
+            className='absolute right-0 mt-2 w-48 rounded-lg border border-white/30 shadow-2xl z-[150] bg-teal-50/90 md:bg-white/40 backdrop-blur-xl backdrop-saturate-180'>
             <div className='py-2'>
               {locales.map((locale) => (
                 <button
