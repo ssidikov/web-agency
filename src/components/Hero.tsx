@@ -131,10 +131,12 @@ export function Hero({ dict, common, locale }: HeroProps) {
               <ArrowIcon />
             </Link>
 
-            <button className='group inline-flex items-center justify-center px-8 py-4 border-2 border-black text-black font-semibold rounded-full hover:bg-black hover:text-white transition-all duration-300'>
+            <Link
+              href={`/${locale}#portfolio`}
+              className='group inline-flex items-center justify-center px-8 py-4 border-2 border-black text-black font-semibold rounded-full hover:bg-black hover:text-white transition-all duration-300'>
               <PlayIcon />
               <span className='ml-2'>{dict.cta_secondary}</span>
-            </button>
+            </Link>
           </motion.div>
 
           {/* Trust Badges */}
