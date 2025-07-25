@@ -16,17 +16,18 @@ import {
 
 interface HeroProps {
   dict: Dictionary['hero']
+  common: Dictionary['common']
   locale: Locale
 }
 
-export function Hero({ dict, locale }: HeroProps) {
+export function Hero({ dict, common, locale }: HeroProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
   const badges = [
-    { icon: GuaranteeIcon, text: 'Garantie qualité' },
-    { icon: ResponseIcon, text: 'Réponse rapide' },
-    { icon: SupportIcon, text: 'Support 7/7' },
+    { icon: GuaranteeIcon, text: common.badge_quality },
+    { icon: ResponseIcon, text: common.badge_response },
+    { icon: SupportIcon, text: common.badge_support },
   ]
 
   return (

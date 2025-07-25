@@ -205,7 +205,10 @@
     "next": "Suivant",
     "previous": "Précédent",
     "close": "Fermer",
-    "open": "Ouvrir"
+    "open": "Ouvrir",
+    "badge_quality": "Garantie qualité",
+    "badge_response": "Réponse rapide",
+    "badge_support": "Support 7/7"
   },
   "legal": {
     "title": "Mentions légales",

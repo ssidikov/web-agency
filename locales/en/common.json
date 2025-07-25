@@ -205,7 +205,10 @@
     "next": "Next",
     "previous": "Previous",
     "close": "Close",
-    "open": "Open"
+    "open": "Open",
+    "badge_quality": "Guaranteed quality",
+    "badge_response": "Fast response",
+    "badge_support": "7/7 Support"
   },
   "legal": {
     "title": "Legal Notice",

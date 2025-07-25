@@ -4,8 +4,6 @@ export { PhoneIcon } from './PhoneIcon'
 export { LocationIcon } from './LocationIcon'
 export { LinkedInIcon } from './LinkedInIcon'
 export { GitHubIcon } from './GitHubIcon'
-export { TwitterIcon } from './TwitterIcon'
-export { InstagramIcon } from './InstagramIcon'
 
 // Hero Icons
 export { ArrowIcon } from './ArrowIcon'

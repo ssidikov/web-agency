@@ -18,7 +18,7 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <>
       <section id='hero' className='p-0 m-0'>
-        <Hero dict={dict.hero} locale={locale} />
+        <Hero dict={dict.hero} common={dict.common} locale={locale} />
       </section>
       <section id='services'>
         <Services dictionary={dict.services} locale={locale} />

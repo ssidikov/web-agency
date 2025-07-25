@@ -2,18 +2,9 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Locale } from '@/lib/i18n'
 import { Dictionary } from '@/lib/dictionaries'
-import {
-  EmailIcon,
-  PhoneIcon,
-  LocationIcon,
-  LinkedInIcon,
-  GitHubIcon,
-  TwitterIcon,
-  InstagramIcon,
-} from '@/components/ui/icons'
+import { EmailIcon, PhoneIcon, LocationIcon, LinkedInIcon, GitHubIcon } from '@/components/ui/icons'
 
 interface FooterProps {
   dictionary: Dictionary
@@ -105,13 +96,14 @@ export function Footer({ dictionary, locale }: FooterProps) {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}>
                 <Link href={`/${locale}`} className='inline-flex items-center justify-center mb-6'>
-                  <Image
+                  {/* <Image
                     src='/logo-sidikoff.webp'
                     alt='Sidikoff Digital'
-                    width={60}
+                    width={216}
                     height={60}
-                    className='w-15 h-15'
-                  />
+                    className='w-full h-full invert'
+                  /> */}
+                  <h2 className='text-2xl font-bold'>SIDIKOFF DIGITAL</h2>
                 </Link>
 
                 <p className='text-gray-400 text-sm leading-relaxed mb-6 max-w-sm'>
@@ -126,12 +118,6 @@ export function Footer({ dictionary, locale }: FooterProps) {
                   </SocialIcon>
                   <SocialIcon name='GitHub' href='https://github.com/sidikoff'>
                     <GitHubIcon />
-                  </SocialIcon>
-                  <SocialIcon name='Twitter' href='https://twitter.com/sidikoff'>
-                    <TwitterIcon />
-                  </SocialIcon>
-                  <SocialIcon name='Instagram' href='https://instagram.com/sidikoff'>
-                    <InstagramIcon />
                   </SocialIcon>
                 </div>
               </motion.div>
@@ -225,7 +211,13 @@ export function Footer({ dictionary, locale }: FooterProps) {
                     <div className='w-5 h-5 text-gray-400 mt-0.5'>
                       <LocationIcon />
                     </div>
-                    <span className='text-gray-400 text-sm'>France, Europe</span>
+                    <span className='text-gray-400 text-sm'>75016 Paris, France</span>
+                  </div>
+                  <div className='flex items-start space-x-3'>
+                    <div className='w-5 h-5 text-gray-400 mt-0.5'>
+                      <LocationIcon />
+                    </div>
+                    <span className='text-gray-400 text-sm'>31000 Toulouse, France</span>
                   </div>
                 </div>
               </motion.div>

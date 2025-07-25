@@ -189,6 +189,9 @@ export interface Dictionary {
     previous: string
     close: string
     open: string
+    badge_quality: string
+    badge_response: string
+    badge_support: string
   }
   legal: {
     title: string
