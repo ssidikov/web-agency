@@ -23,11 +23,9 @@ export default async function HomePage({ params }: HomePageProps) {
       <section id='services'>
         <Services dictionary={dict.services} locale={locale} />
       </section>
-      {dict.portfolio && (
-        <section id='portfolio'>
-          <Portfolio locale={locale} dictionary={dict.portfolio} />
-        </section>
-      )}
+      <section id='portfolio'>
+        <Portfolio dictionary={dict.portfolio} locale={locale} />
+      </section>
       <section id='faq'>
         <FAQ dictionary={dict.faq} />
       </section>

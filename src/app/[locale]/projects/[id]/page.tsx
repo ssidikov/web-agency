@@ -15,7 +15,7 @@ export default async function ProjectDetailsPage({
   if (!project) return notFound()
 
   return (
-    <section className='-mt-24 pt-40 pb-20 relative overflow-hidden'>
+    <section className='min-h-screen pb-20 relative overflow-hidden px-4 sm:px-6 lg:px-8'>
       {/* Background как в Contact */}
       <div
         className='absolute inset-0 bg-cover bg-center bg-no-repeat'
@@ -23,7 +23,7 @@ export default async function ProjectDetailsPage({
       />
       <div className='absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20'></div>
       <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50'></div>
-      <div className='container mx-auto px-4 relative'>
+      <div className='container mx-auto px-4 relative mt-32 md:mt-44'>
         <div className='flex flex-col lg:flex-row gap-10 items-start'>
           <div className='w-full lg:w-1/2 flex justify-center items-start'>
             <div className='relative w-full max-w-2xl h-[400px] md:h-[600px] lg:h-[800px] rounded-3xl overflow-hidden border border-gray-200 shadow-sm'>
