@@ -122,6 +122,11 @@ export interface Dictionary {
         category: string
       }
     }
+    cta: {
+      title: string
+      description: string
+      button: string
+    }
   }
   contact: {
     title: string

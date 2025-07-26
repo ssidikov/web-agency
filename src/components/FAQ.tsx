@@ -214,14 +214,12 @@ export function FAQ({ dictionary: faqData }: FAQProps) {
             border: '1px solid rgba(255,255,255,0.18)',
             boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
           }}>
-          <h3 className='text-3xl font-bold mb-4 text-white'>Still have questions?</h3>
-          <p className='text-lg text-white mb-6 max-w-2xl mx-auto'>
-            Contact our team for personalized consultation about your project.
-          </p>
+          <h3 className='text-3xl font-bold mb-4 text-white'>{faqData.cta.title}</h3>
+          <p className='text-lg text-white mb-6 max-w-2xl mx-auto'>{faqData.cta.description}</p>
           <a
             href='#contact'
             className='text-xl inline-flex items-center gap-2 bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200'>
-            Contact Us
+            {faqData.cta.button}
             <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
               <path
                 strokeLinecap='round'

@@ -146,6 +146,11 @@
         "answer": "Oui, nous offrons une consultation initiale gratuite pour discuter de vos exigences de projet et fournir des recommandations stratégiques.",
         "category": "pricing"
       }
+    },
+    "cta": {
+      "title": "Vous avez encore des questions ?",
+      "description": "Contactez notre équipe pour une consultation personnalisée sur votre projet.",
+      "button": "Nous Contacter"
     }
   },
   "contact": {
