@@ -11,6 +11,7 @@
     "home": "Accueil",
     "services": "Services",
     "portfolio": "Portfolio",
+    "blog": "Blog",
     "faq": "FAQ",
     "contact": "Contact",
     "language": "Langue"
@@ -80,6 +81,30 @@
     "buttons": {
       "request_quote": "Demander un devis",
       "view_pricing": "Voir les tarifs"
+    }
+  },
+  "blog": {
+    "title": "Notre Blog",
+    "subtitle": "Insights, conseils et tendances en développement web et innovation digitale",
+    "all_posts": "Tous les articles",
+    "featured_posts": "Articles en vedette",
+    "latest_posts": "Derniers articles",
+    "read_more": "Lire plus",
+    "author": "Auteur",
+    "min_read": "min de lecture",
+    "published_on": "Publié le",
+    "related_posts": "Articles connexes",
+    "share_article": "Partager cet article",
+    "back_to_blog": "Retour au blog",
+    "no_posts": "Aucun article trouvé",
+    "loading": "Chargement des articles...",
+    "categories": "Catégories",
+    "search_placeholder": "Rechercher des articles...",
+    "cta": {
+      "title": "Prêt à démarrer votre projet digital ?",
+      "description": "Créons quelque chose d'extraordinaire ensemble. Contactez-nous pour une consultation gratuite et transformez votre vision en réalité.",
+      "button": "Obtenir un devis gratuit",
+      "secondary_button": "Voir nos services"
     }
   },
   "faq": {

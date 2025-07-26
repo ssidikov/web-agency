@@ -11,6 +11,7 @@
     "home": "Home",
     "services": "Services",
     "portfolio": "Portfolio",
+    "blog": "Blog",
     "faq": "FAQ",
     "contact": "Contact",
     "language": "Language"
@@ -80,6 +81,30 @@
     "buttons": {
       "request_quote": "Request a quote",
       "view_pricing": "View pricing"
+    }
+  },
+  "blog": {
+    "title": "Our Blog",
+    "subtitle": "Insights, tips, and trends in web development and digital innovation",
+    "all_posts": "All Posts",
+    "featured_posts": "Featured Posts",
+    "latest_posts": "Latest Posts",
+    "read_more": "Read more",
+    "author": "Author",
+    "min_read": "min read",
+    "published_on": "Published on",
+    "related_posts": "Related Posts",
+    "share_article": "Share this article",
+    "back_to_blog": "Back to Blog",
+    "no_posts": "No blog posts found",
+    "loading": "Loading posts...",
+    "categories": "Categories",
+    "search_placeholder": "Search articles...",
+    "cta": {
+      "title": "Ready to start your digital project?",
+      "description": "Let's create something amazing together. Contact us for a free consultation and transform your vision into reality.",
+      "button": "Get a free quote",
+      "secondary_button": "View our services"
     }
   },
   "faq": {

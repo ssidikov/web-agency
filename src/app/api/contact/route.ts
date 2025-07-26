@@ -105,8 +105,8 @@ export async function POST(request: Request) {
       port: 465,
       secure: true,
       auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS,
+        user: process.env.SMTP_USER || process.env.GMAIL_USER,
+        pass: process.env.SMTP_PASS || process.env.GMAIL_PASS,
       },
       tls: {
         rejectUnauthorized: false,
@@ -140,8 +140,8 @@ export async function POST(request: Request) {
 
     // Admin notification email
     const adminMail = {
-      from: `"Contact Form - Sidikoff Digital" <${process.env.GMAIL_USER}>`,
-      to: process.env.ADMIN_EMAIL,
+      from: `"Contact Form - Sidikoff Digital" <${process.env.EMAIL_FROM || process.env.SMTP_USER || process.env.GMAIL_USER}>`,
+      to: process.env.EMAIL_TO || process.env.ADMIN_EMAIL || 'contact@sidikoff.digital',
       subject: subjects.admin,
       html: adminTemplate({ name, email, message, locale }),
       replyTo: email, // Admin can reply directly to the user

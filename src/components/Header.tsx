@@ -38,6 +38,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
     { label: dictionary.navigation.home, href: `/${locale}`, section: '' },
     { label: dictionary.navigation.services, href: `/${locale}#services`, section: 'services' },
     { label: dictionary.navigation.portfolio, href: `/${locale}#portfolio`, section: 'portfolio' },
+    { label: dictionary.navigation.blog, href: `/${locale}/blog`, section: 'blog' },
     { label: dictionary.navigation.faq, href: `/${locale}#faq`, section: 'faq' },
     { label: dictionary.navigation.contact, href: `/${locale}#contact`, section: 'contact' },
   ]

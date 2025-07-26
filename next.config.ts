@@ -17,15 +17,14 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    domains: [], // Add external domains if needed
+    domains: ['cdn.sanity.io'], // Sanity CDN domain
     remotePatterns: [
-      // Add patterns for external images if needed
-      // {
-      //   protocol: 'https',
-      //   hostname: 'example.com',
-      //   port: '',
-      //   pathname: '/images/**',
-      // },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/images/**',
+      },
     ],
     unoptimized: process.env.NODE_ENV === 'development' ? false : false, // Keep optimized in production
   },

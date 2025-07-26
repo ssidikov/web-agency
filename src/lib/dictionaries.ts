@@ -16,6 +16,7 @@ export interface Dictionary {
     home: string
     services: string
     portfolio: string
+    blog: string
     faq: string
     contact: string
     language: string
@@ -60,6 +61,30 @@ export interface Dictionary {
     buttons: {
       request_quote: string
       view_pricing: string
+    }
+  }
+  blog: {
+    title: string
+    subtitle: string
+    all_posts: string
+    featured_posts: string
+    latest_posts: string
+    read_more: string
+    author: string
+    min_read: string
+    published_on: string
+    related_posts: string
+    share_article: string
+    back_to_blog: string
+    no_posts: string
+    loading: string
+    categories: string
+    search_placeholder: string
+    cta: {
+      title: string
+      description: string
+      button: string
+      secondary_button: string
     }
   }
   portfolio?: {

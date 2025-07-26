@@ -33,7 +33,9 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
     if (typeof dict !== 'object' || dict === null) {
       return (
         <html lang={locale}>
-          <body className={`${inter.className} text-[#112D4E] antialiased`}>
+          <body
+            className={`${inter.className} text-[#112D4E] antialiased`}
+            suppressHydrationWarning={true}>
             <div className='min-h-screen'>
               <Header locale={locale} dictionary={fallbackDictionary} />
               <main className='m-0 p-0'>
@@ -65,7 +67,9 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
 
     return (
       <html lang={locale}>
-        <body className={`${inter.className} text-[#112D4E] antialiased`}>
+        <body
+          className={`${inter.className} text-[#112D4E] antialiased`}
+          suppressHydrationWarning={true}>
           <div className='min-h-screen'>
             <Header locale={locale} dictionary={dict} />
             <main className='m-0 p-0'>{children}</main>
@@ -77,7 +81,9 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
   } catch {
     return (
       <html lang={locale}>
-        <body className={`${inter.className} text-[#112D4E] antialiased`}>
+        <body
+          className={`${inter.className} text-[#112D4E] antialiased`}
+          suppressHydrationWarning={true}>
           <div className='min-h-screen'>
             <Header locale={locale} dictionary={fallbackDictionary} />
             <main className='m-0 p-0'>
