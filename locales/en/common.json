@@ -76,6 +76,10 @@
       "background": "Let's turn your ideas into digital reality together",
       "description": "We support your digital growth with innovative and tailored solutions. Contact us for a free consultation and discover how we can boost your online presence.",
       "cta": "Start your project"
+    },
+    "buttons": {
+      "request_quote": "Request a quote",
+      "view_pricing": "View pricing"
     }
   },
   "faq": {

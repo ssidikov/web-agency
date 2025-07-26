@@ -182,7 +182,10 @@ const Contact: React.FC<ContactProps> = ({ dictionary, locale, className }) => {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
       } catch (error) {
-        console.error('Form submission error:', error)
+        // Log error only in development
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Form submission error:', error)
+        }
         setSubmitStatus('error')
       } finally {
         setIsSubmitting(false)

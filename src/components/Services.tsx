@@ -9,7 +9,7 @@ interface ServicesProps {
   locale: string
 }
 
-export function Services({ dictionary: dict, locale }: ServicesProps) {
+export function Services({ dictionary: dict }: ServicesProps) {
   const services = [
     {
       title: dict.web_creation.title,
@@ -126,22 +126,14 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
                   <div className='flex flex-col sm:flex-row gap-4'>
                     <button className='group relative bg-black hover:bg-white text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer'>
                       <span className='relative flex items-center justify-center'>
-                        {locale === 'fr'
-                          ? 'Demander un devis'
-                          : locale === 'ru'
-                          ? 'Запросить смету'
-                          : 'Request a quote'}
+                        {dict.buttons.request_quote}
                       </span>
                     </button>
 
                     <button className='relative text-gray-900 border border-black hover:bg-black hover:text-white transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer'>
                       <div className='absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-0 transition-opacity duration-200'></div>
                       <span className='relative flex items-center justify-center'>
-                        {locale === 'fr'
-                          ? 'Voir les tarifs'
-                          : locale === 'ru'
-                          ? 'Посмотреть цены'
-                          : 'View pricing'}
+                        {dict.buttons.view_pricing}
                       </span>
                     </button>
                   </div>
@@ -175,7 +167,9 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
                   className='object-cover'
                   priority={false}
                   onError={(e) => {
-                    console.log('CTA background image failed to load')
+                    if (process.env.NODE_ENV === 'development') {
+                      console.log('CTA background image failed to load')
+                    }
                     e.currentTarget.style.display = 'none'
                   }}
                 />

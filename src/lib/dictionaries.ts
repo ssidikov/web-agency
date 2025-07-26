@@ -57,6 +57,10 @@ export interface Dictionary {
       description: string
       cta: string
     }
+    buttons: {
+      request_quote: string
+      view_pricing: string
+    }
   }
   portfolio?: {
     title: string

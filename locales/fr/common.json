@@ -76,6 +76,10 @@
       "background": "Transformons ensemble vos idées en réalité numérique",
       "description": "Nous accompagnons votre croissance digitale avec des solutions innovantes et sur mesure. Contactez-nous pour une consultation gratuite et découvrez comment nous pouvons booster votre présence en ligne.",
       "cta": "Démarrer votre projet"
+    },
+    "buttons": {
+      "request_quote": "Demander un devis",
+      "view_pricing": "Voir les tarifs"
     }
   },
   "faq": {

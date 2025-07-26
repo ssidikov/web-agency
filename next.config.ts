@@ -12,14 +12,22 @@ const nextConfig: NextConfig = {
   // Image optimization
   images: {
     formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 31536000,
+    minimumCacheTTL: 31536000, // 1 year
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    deviceSizes: [320, 420, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    domains: [],
-    remotePatterns: [],
-    unoptimized: false,
+    domains: [], // Add external domains if needed
+    remotePatterns: [
+      // Add patterns for external images if needed
+      // {
+      //   protocol: 'https',
+      //   hostname: 'example.com',
+      //   port: '',
+      //   pathname: '/images/**',
+      // },
+    ],
+    unoptimized: process.env.NODE_ENV === 'development' ? false : false, // Keep optimized in production
   },
 
   // Compression

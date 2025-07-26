@@ -32,7 +32,6 @@ const CloseIcon = () => (
 export function Header({ dictionary, locale }: HeaderProps) {
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('')
 
   const navigation = [
@@ -45,8 +44,6 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-
       // Определяем активную секцию только если мы на главной странице
       if (pathname === `/${locale}` || pathname === `/${locale}/`) {
         const sections = ['services', 'portfolio', 'faq', 'contact']
