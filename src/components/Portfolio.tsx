@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { getProjects } from '@/data/projects'
 import { ProjectCard } from '@/components/ui/ProjectCard'
 import { Dictionary } from '@/lib/dictionaries'
@@ -30,15 +31,21 @@ export default function PortfolioNew({ locale, dictionary }: PortfolioNewProps) 
   return (
     <section id='portfolio' className='py-20 relative overflow-hidden'>
       {/* Flipped Background Image */}
-      <div
-        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-        style={{ backgroundImage: `url('/images/hero/hero.svg')`, transform: 'scaleX(-1)' }}
-      />
+      <div className='absolute inset-0 z-0' style={{ transform: 'scaleX(-1)' }}>
+        <Image
+          src='/images/hero/hero.svg'
+          alt='Portfolio Background'
+          fill
+          className='object-cover w-full h-full pointer-events-none select-none'
+          priority={false}
+          sizes='100vw'
+        />
+      </div>
       {/* Flipped gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-bl from-white via-blue-50/30 to-indigo-50/20'></div>
+      <div className='absolute inset-0 z-10 bg-gradient-to-bl from-white via-blue-50/30 to-indigo-50/20'></div>
       {/* Pattern overlay (not flipped) */}
-      <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50'></div>
-      <div className='container mx-auto px-4 relative'>
+      <div className='absolute inset-0 z-20 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50'></div>
+      <div className='container mx-auto px-4 relative z-30'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

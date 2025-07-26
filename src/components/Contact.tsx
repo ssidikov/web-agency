@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback, useMemo } from 'react'
 import { motion, useInView } from 'framer-motion'
+import Image from 'next/image'
 import { Dictionary } from '@/lib/dictionaries'
 
 // Импорты иконок вынесены в начало для лучшей производительности
@@ -298,20 +299,24 @@ const Contact: React.FC<ContactProps> = ({ dictionary, locale, className }) => {
       id='contact'
       className={`relative py-24 overflow-hidden${className ? ` ${className}` : ''}`}>
       {/* Background Image */}
-      <div
-        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-        style={{
-          backgroundImage: `url('/images/hero/hero.svg')`,
-        }}
-      />
+      <div className='absolute inset-0 z-0'>
+        <Image
+          src='/images/hero/hero.svg'
+          alt='Contact Background'
+          fill
+          className='object-cover w-full h-full pointer-events-none select-none'
+          priority={false}
+          sizes='100vw'
+        />
+      </div>
 
       {/* Clean gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20' />
+      <div className='absolute inset-0 z-10 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/20' />
 
       {/* Pattern overlay */}
-      <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50' />
+      <div className='absolute inset-0 z-20 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.02)_1px,transparent_0)] bg-[length:20px_20px] opacity-50' />
 
-      <div className='container mx-auto px-6 relative'>
+      <div className='container mx-auto px-6 relative z-30'>
         <motion.div
           variants={ANIMATION_VARIANTS.container}
           initial='hidden'

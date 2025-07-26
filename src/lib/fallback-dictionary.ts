@@ -125,6 +125,11 @@ export const fallbackDictionary: Dictionary = {
       support: 'Support',
     },
     questions: {},
+    cta: {
+      title: 'Still have questions?',
+      description: 'Contact our team for personalized consultation about your project.',
+      button: 'Contact Us',
+    },
   },
   portfolio: {
     title: 'Portfolio',

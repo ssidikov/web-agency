@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import Image from 'next/image'
 import { FilterButtonBar } from './ui/FilterButtonBar'
 import { Dictionary } from '@/lib/dictionaries'
 
@@ -31,14 +32,20 @@ export function FAQ({ dictionary: faqData }: FAQProps) {
   return (
     <section id='faq' className='3xl:space-y-12 py-20 relative overflow-hidden'>
       {/* Background Image */}
-      <div
-        className='absolute inset-0 bg-cover bg-center bg-no-repeat'
-        style={{ backgroundImage: `url('/images/hero/hero.svg')` }}
-      />
+      <div className='absolute inset-0 z-0'>
+        <Image
+          src='/images/hero/hero.svg'
+          alt='FAQ Background'
+          fill
+          className='object-cover w-full h-full pointer-events-none select-none'
+          priority={false}
+          sizes='100vw'
+        />
+      </div>
       {/* Clean gradient background */}
-      <div className='absolute inset-0 bg-gradient-to-br from-blue-50/30 via-indigo-50/20 to-white/90'></div>
+      <div className='absolute inset-0 z-10 bg-gradient-to-br from-blue-50/30 via-indigo-50/20 to-white/90'></div>
 
-      <div className='container mx-auto px-4 relative'>
+      <div className='container mx-auto px-4 relative z-20'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

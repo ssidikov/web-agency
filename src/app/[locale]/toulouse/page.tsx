@@ -6,10 +6,11 @@ import SEOHead from '@/components/SEOHead'
 import Link from 'next/link'
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const { locale } = await params
   const localContent = generateLocalContent('Toulouse')
 
   return generateFrenchSEOMetadata('contact', {
@@ -22,8 +23,9 @@ export async function generateMetadata({
   })
 }
 
-export default async function ToulousePage({ params: { locale } }: { params: { locale: string } }) {
-  const dict = await getDictionary(locale)
+export default async function ToulousePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  // const dict = await getDictionary(locale)
   const localContent = generateLocalContent('Toulouse')
   const toulouseLocation = businessLocations.find(
     (loc) => loc.address.addressLocality === 'Toulouse'
@@ -98,7 +100,7 @@ export default async function ToulousePage({ params: { locale } }: { params: { l
         <div className='container mx-auto px-4'>
           <div className='max-w-6xl mx-auto'>
             <h2 className='text-3xl md:text-4xl font-bold text-center mb-12 text-[#112D4E]'>
-              Expertise Web pour l'Écosystème Toulousain
+              Expertise Web pour l&apos;Écosystème Toulousain
             </h2>
 
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -161,7 +163,7 @@ export default async function ToulousePage({ params: { locale } }: { params: { l
         <div className='container mx-auto px-4'>
           <div className='max-w-4xl mx-auto text-center'>
             <h2 className='text-3xl md:text-4xl font-bold mb-8 text-[#112D4E]'>
-              Zones d'Intervention à Toulouse et Alentours
+              Zones d&apos;Intervention à Toulouse et Alentours
             </h2>
             <p className='text-lg mb-8 text-gray-600'>
               Service complet sur Toulouse Métropole et région Occitanie
@@ -201,7 +203,7 @@ export default async function ToulousePage({ params: { locale } }: { params: { l
         <div className='container mx-auto px-4'>
           <div className='max-w-6xl mx-auto'>
             <h2 className='text-3xl md:text-4xl font-bold text-center mb-12 text-[#112D4E]'>
-              Connectés à l'Écosystème Innovant Toulousain
+              Connectés à l&apos;Écosystème Innovant Toulousain
             </h2>
 
             <div className='grid md:grid-cols-3 gap-8'>
@@ -211,7 +213,7 @@ export default async function ToulousePage({ params: { locale } }: { params: { l
                 </div>
                 <h3 className='text-xl font-bold mb-4'>Aéronautique & Spatial</h3>
                 <p className='text-gray-600'>
-                  Partenaires des acteurs majeurs de l'aerospace toulousain
+                  Partenaires des acteurs majeurs de l&apos;aerospace toulousain
                 </p>
               </div>
 
@@ -230,7 +232,9 @@ export default async function ToulousePage({ params: { locale } }: { params: { l
                   🏢
                 </div>
                 <h3 className='text-xl font-bold mb-4'>Startups & Scale-ups</h3>
-                <p className='text-gray-600'>Support technique pour l'écosystème entrepreneurial</p>
+                <p className='text-gray-600'>
+                  Support technique pour l&apos;écosystème entrepreneurial
+                </p>
               </div>
             </div>
           </div>

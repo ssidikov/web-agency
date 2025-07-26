@@ -6,10 +6,11 @@ import SEOHead from '@/components/SEOHead'
 import Link from 'next/link'
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
+  const { locale } = await params
   const localContent = generateLocalContent('Paris')
 
   return generateFrenchSEOMetadata('contact', {
@@ -22,8 +23,9 @@ export async function generateMetadata({
   })
 }
 
-export default async function ParisPage({ params: { locale } }: { params: { locale: string } }) {
-  const dict = await getDictionary(locale)
+export default async function ParisPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  // const dict = await getDictionary(locale)
   const localContent = generateLocalContent('Paris')
   const parisLocation = businessLocations.find((loc) => loc.address.addressLocality === 'Paris')!
 
@@ -159,7 +161,7 @@ export default async function ParisPage({ params: { locale } }: { params: { loca
         <div className='container mx-auto px-4'>
           <div className='max-w-4xl mx-auto text-center'>
             <h2 className='text-3xl md:text-4xl font-bold mb-8 text-[#112D4E]'>
-              Zones d'Intervention à Paris
+              Zones d&apos;Intervention à Paris
             </h2>
             <p className='text-lg mb-8 text-gray-600'>
               Nous intervenons dans tous les arrondissements parisiens et la région Île-de-France
