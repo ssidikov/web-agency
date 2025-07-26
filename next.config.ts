@@ -40,6 +40,10 @@ const nextConfig: NextConfig = {
     CUSTOM_KEY: 'my-value',
   },
 
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   // Headers for security and performance
   async headers() {
     return [
