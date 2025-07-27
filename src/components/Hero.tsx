@@ -39,7 +39,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
 
       <div className='absolute inset-0 z-0'>
         <Image
-          src='/images/hero/hero.svg'
+          src='/images/bg-image-2.svg'
           alt='Hero Background'
           fill
           className='object-cover w-full h-full pointer-events-none select-none'
