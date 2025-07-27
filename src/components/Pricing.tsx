@@ -144,6 +144,7 @@ export default function Pricing({ locale }: PricingProps) {
 
   return (
     <section
+      id='pricing'
       className='py-20 bg-gradient-to-br from-[#F9F7F7] via-white to-[#F9F7F7]'
       aria-labelledby='pricing-title'>
       <div className='container mx-auto px-4'>

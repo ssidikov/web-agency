@@ -40,6 +40,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
     { label: dictionary.navigation.portfolio, href: `/${locale}#portfolio`, section: 'portfolio' },
     { label: dictionary.navigation.blog, href: `/${locale}/blog`, section: 'blog' },
     { label: dictionary.navigation.faq, href: `/${locale}#faq`, section: 'faq' },
+    { label: dictionary.navigation.pricing, href: `/${locale}#pricing`, section: 'pricing' },
     { label: dictionary.navigation.contact, href: `/${locale}#contact`, section: 'contact' },
   ]
 
@@ -47,7 +48,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
     const handleScroll = () => {
       // Определяем активную секцию только если мы на главной странице
       if (pathname === `/${locale}` || pathname === `/${locale}/`) {
-        const sections = ['services', 'portfolio', 'faq', 'contact']
+        const sections = ['services', 'portfolio', 'faq', 'pricing', 'contact']
         let currentSection = ''
 
         // Если пользователь в самом верху страницы, активна главная

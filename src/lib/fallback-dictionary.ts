@@ -49,6 +49,7 @@ export const fallbackDictionary: Dictionary = {
     blog: 'Blog',
     faq: 'FAQ',
     contact: 'Contact',
+    pricing: 'Pricing',
     language: 'Language',
   },
   footer: {

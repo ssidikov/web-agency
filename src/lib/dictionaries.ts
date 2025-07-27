@@ -19,6 +19,7 @@ export interface Dictionary {
     blog: string
     faq: string
     contact: string
+    pricing: string
     language: string
   }
   hero: {
