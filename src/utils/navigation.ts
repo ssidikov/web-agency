@@ -1,8 +1,25 @@
+import { Locale, addLocaleToPathname } from '@/lib/i18n'
+
 export interface NavigationItem {
   label: string
   href: string
   icon?: string
   children?: NavigationItem[]
+}
+
+// Generate locale-aware URL
+export function getLocalizedUrl(path: string, locale: Locale): string {
+  return addLocaleToPathname(path, locale)
+}
+
+// Generate project URL for specific locale
+export function getProjectUrl(projectId: string, locale: Locale): string {
+  return getLocalizedUrl(`/projects/${projectId}`, locale)
+}
+
+// Generate projects list URL for specific locale
+export function getProjectsUrl(locale: Locale): string {
+  return getLocalizedUrl('/projects', locale)
 }
 
 export const mainNavigation: NavigationItem[] = [

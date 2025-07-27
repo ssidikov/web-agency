@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { getProjects } from '@/data/projects'
 import { ProjectCard } from '@/components/ui/ProjectCard'
 import { motion } from 'framer-motion'
+import { getProjectsUrl } from '@/utils/navigation'
 
 import { Dictionary } from '@/lib/dictionaries'
 
@@ -101,7 +102,7 @@ export default function PortfolioNew({ locale, dictionary }: PortfolioNewProps) 
 
         <div className='flex items-center justify-center mt-12'>
           <Link
-            href={`/${locale}/projects`}
+            href={getProjectsUrl(locale)}
             className='inline-flex items-center justify-center h-16 lg:h-[77px] 3xl:h-[98px] px-6 lg:px-16 text-lg 3xl:text-22 font-medium whitespace-nowrap text-white bg-black rounded-full border border-transparent transition-all duration-300 hover:bg-transparent hover:text-black hover:border-black'>
             {dictionary?.view_project || 'View All Projects'}
           </Link>

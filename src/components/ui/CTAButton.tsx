@@ -70,18 +70,39 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
 
     const classes = cn(baseClasses, variants[variant], sizes[size], className)
 
+    // Check if href is external (starts with http/https or mailto/tel)
+    const isExternal = href && (href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel'))
+
     if (href) {
-      return (
-        <Link
-          href={href}
-          className={classes}
-          ref={ref as React.Ref<HTMLAnchorElement>}
-          aria-label={ariaLabel}
-          onClick={handleClick}
-          {...props}>
-          {children}
-        </Link>
-      )
+      if (isExternal) {
+        // Use regular anchor tag for external links
+        return (
+          <a
+            href={href}
+            className={classes}
+            ref={ref as React.Ref<HTMLAnchorElement>}
+            aria-label={ariaLabel}
+            onClick={handleClick}
+            target="_blank"
+            rel="noopener noreferrer"
+            {...props}>
+            {children}
+          </a>
+        )
+      } else {
+        // Use Next.js Link for internal links
+        return (
+          <Link
+            href={href}
+            className={classes}
+            ref={ref as React.Ref<HTMLAnchorElement>}
+            aria-label={ariaLabel}
+            onClick={handleClick}
+            {...props}>
+            {children}
+          </Link>
+        )
+      }
     }
 
     return (

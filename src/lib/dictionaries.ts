@@ -1,10 +1,7 @@
-
 import { notFound } from 'next/navigation'
 import 'server-only'
 
 import { type Locale, isValidLocale, defaultLocale } from './i18n'
-
-
 
 // Define the Dictionary type based on your actual JSON structure
 export interface Dictionary {
@@ -111,6 +108,11 @@ export interface Dictionary {
     view_project: string
     live_demo: string
     github: string
+  }
+  projects?: {
+    title: string
+    filter_all: string
+    filter_featured: string
   }
   faq: {
     title: string

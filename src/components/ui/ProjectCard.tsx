@@ -3,6 +3,7 @@ import React from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { getProjectUrl } from '@/utils/navigation'
 
 
 
@@ -23,7 +24,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => 
   <div
     className='group flex flex-col sm:flex-row lg:flex-col items-stretch bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 p-6 lg:p-4 3xl:p-6 focus-visible:ring-2 focus-visible:ring-black outline-none relative'>
     <Link
-      href={`/${locale}/projects/${project.id}`}
+      href={getProjectUrl(project.id, locale)}
       className='absolute inset-0 z-10'
       tabIndex={-1}
       aria-label={`Подробнее о проекте ${project.title}`}

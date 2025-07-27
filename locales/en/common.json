@@ -246,6 +246,11 @@
     "footer_copyright": "All rights reserved | Freelance web developer in Paris | Toulouse",
     "legal_link": "Legal Notice"
   },
+  "projects": {
+    "title": "All Projects",
+    "filter_all": "All",
+    "filter_featured": "Featured"
+  },
   "pricing": {
     "title": "Our Offers",
     "subtitle": "Transparent & Tailored",

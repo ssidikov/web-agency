@@ -246,6 +246,11 @@
     "footer_copyright": "Tous droits réservés | Développeur web freelance à Paris | Toulouse",
     "legal_link": "Mentions légales"
   },
+  "projects": {
+    "title": "Tous les Projets",
+    "filter_all": "Tous",
+    "filter_featured": "En vedette"
+  },
   "pricing": {
     "title": "Nos Offres",
     "subtitle": "Transparentes & Adaptées",
