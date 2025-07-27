@@ -4,10 +4,11 @@ import { Locale } from '@/lib/i18n'
 import { getDictionary } from '@/lib/dictionaries'
 
 interface Props {
-  params: { locale: Locale }
+  params: Promise<{ locale: Locale }>
 }
 
-export async function generateMetadata({ params: { locale } }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
   const dict = await getDictionary(locale)
   
   return {
@@ -17,7 +18,8 @@ export async function generateMetadata({ params: { locale } }: Props): Promise<M
   }
 }
 
-export default async function MentionsLegalesPage({ params: { locale } }: Props) {
+export default async function MentionsLegalesPage({ params }: Props) {
+  const { locale } = await params
   const dict = await getDictionary(locale)
 
   return (
