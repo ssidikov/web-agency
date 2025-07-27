@@ -18,7 +18,24 @@ export async function generateMetadata({
   const { locale } = await params
   const localContent = generateLocalContent('Paris')
 
-  return generateFrenchSEOMetadata(locale)
+  const baseMeta = generateFrenchSEOMetadata(locale)
+  
+  return {
+    ...baseMeta,
+    title: `${localContent.content.heading} | SIDIKOFF DIGITAL`,
+    description: localContent.content.intro,
+    keywords: `${baseMeta.keywords}, création site web Paris, agence web Paris, développeur web Paris`,
+    openGraph: {
+      ...baseMeta.openGraph,
+      title: `${localContent.content.heading} | SIDIKOFF DIGITAL`,
+      description: localContent.content.intro,
+    },
+    twitter: {
+      ...baseMeta.twitter,
+      title: `${localContent.content.heading} | SIDIKOFF DIGITAL`,
+      description: localContent.content.intro,
+    }
+  }
 }
 
 export default async function ParisPage({ params }: { params: Promise<{ locale: string }> }) {

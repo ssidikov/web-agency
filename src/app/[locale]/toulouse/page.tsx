@@ -12,8 +12,26 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
+  const localContent = generateLocalContent('Toulouse')
 
-  return generateFrenchSEOMetadata(locale)
+  const baseMeta = generateFrenchSEOMetadata(locale)
+
+  return {
+    ...baseMeta,
+    title: `${localContent.content.heading} | SIDIKOFF DIGITAL`,
+    description: localContent.content.intro,
+    keywords: `${baseMeta.keywords}, agence web Toulouse, création site internet Toulouse, développeur web Toulouse, e-commerce Toulouse, SEO Toulouse, React Next.js Toulouse`,
+    openGraph: {
+      ...baseMeta.openGraph,
+      title: `${localContent.content.heading} | SIDIKOFF DIGITAL`,
+      description: localContent.content.intro,
+    },
+    twitter: {
+      ...baseMeta.twitter,
+      title: `${localContent.content.heading} | SIDIKOFF DIGITAL`,
+      description: localContent.content.intro,
+    },
+  }
 }
 
 export default async function ToulousePage({ params }: { params: Promise<{ locale: string }> }) {

@@ -22,28 +22,38 @@ export interface LocalContent {
 }
 
 export function generateFrenchSEOMetadata(locale: string): Metadata {
+  const localeMap: Record<string, { lang: string; og: string }> = {
+    fr: { lang: 'fr', og: 'fr_FR' },
+    en: { lang: 'en', og: 'en_US' },
+    ru: { lang: 'ru', og: 'ru_RU' }
+  }
+
+  const currentLocale = localeMap[locale] || localeMap.fr
+
   const baseMetadata: Metadata = {
     title: 'Sidikoff - Agence Web & Développement Digital',
-    description: 'Agence web française spécialisée dans la création de sites internet modernes, applications web et mobiles. Expertise React, Next.js, développement sur mesure.',
+    description:
+      'Agence web française spécialisée dans la création de sites internet modernes, applications web et mobiles. Expertise React, Next.js, développement sur mesure.',
     keywords: [
       'agence web france',
       'développement web',
       'création site internet',
       'React Next.js',
       'applications mobiles',
-      'développement sur mesure'
+      'développement sur mesure',
     ],
     openGraph: {
       title: 'Sidikoff - Agence Web & Développement Digital',
-      description: 'Agence web française spécialisée dans la création de sites internet modernes, applications web et mobiles.',
+      description:
+        'Agence web française spécialisée dans la création de sites internet modernes, applications web et mobiles.',
       type: 'website',
-      locale: 'fr_FR',
-      siteName: 'Sidikoff'
+      locale: currentLocale.og,
+      siteName: 'Sidikoff',
     },
     twitter: {
       card: 'summary_large_image',
       title: 'Sidikoff - Agence Web & Développement Digital',
-      description: 'Agence web française spécialisée dans la création de sites internet modernes.'
+      description: 'Agence web française spécialisée dans la création de sites internet modernes.',
     },
     robots: {
       index: true,
@@ -55,7 +65,7 @@ export function generateFrenchSEOMetadata(locale: string): Metadata {
         'max-image-preview': 'large',
         'max-snippet': -1,
       },
-    }
+    },
   }
 
   return baseMetadata
@@ -67,87 +77,85 @@ export function generateLocalContent(city: string): LocalContent {
       city: 'Paris',
       region: 'Île-de-France',
       title: 'Agence Web Paris - Développement Digital',
-      description: 'Agence web à Paris spécialisée dans la création de sites internet et applications. Expertise locale en développement React, Next.js.',
+      description:
+        'Agence web à Paris spécialisée dans la création de sites internet et applications. Expertise locale en développement React, Next.js.',
       content: {
         title: 'Agence Web Paris - Développement Digital',
-        description: 'Agence web à Paris spécialisée dans la création de sites internet et applications. Expertise locale en développement React, Next.js.',
+        description:
+          'Agence web à Paris spécialisée dans la création de sites internet et applications. Expertise locale en développement React, Next.js.',
         h1: 'Agence Web à Paris - Expertise Digitale',
         heading: 'Agence Web à Paris - Expertise Digitale',
-        intro: 'Située au cœur de Paris, notre agence web accompagne les entreprises franciliennes dans leur transformation digitale.',
+        intro:
+          'Située au cœur de Paris, notre agence web accompagne les entreprises franciliennes dans leur transformation digitale.',
         localAdvantages: [
           'Proximité avec les startups parisiennes',
           'Connaissance du marché francilien',
           'Rendez-vous en présentiel possibles',
-          'Réseau de partenaires locaux'
+          'Réseau de partenaires locaux',
         ],
-        nearbyAreas: [
-          'La Défense',
-          'République',
-          'Bastille',
-          'Montparnasse'
-        ],
+        nearbyAreas: ['La Défense', 'République', 'Bastille', 'Montparnasse'],
         contactInfo: {
           address: '75 Avenue des Champs-Élysées, 75008 Paris',
           phone: '+33 1 23 45 67 89',
-          email: 'contact@sidikoff.fr'
-        }
-      }
+          email: 'contact@sidikoff.fr',
+        },
+      },
     },
     toulouse: {
       city: 'Toulouse',
       region: 'Occitanie',
       title: 'Agence Web Toulouse - Développement Digital',
-      description: 'Agence web à Toulouse spécialisée dans la création de sites internet et applications. Expertise locale en développement React, Next.js.',
+      description:
+        'Agence web à Toulouse spécialisée dans la création de sites internet et applications. Expertise locale en développement React, Next.js.',
       content: {
         title: 'Agence Web Toulouse - Développement Digital',
-        description: 'Agence web à Toulouse spécialisée dans la création de sites internet et applications. Expertise locale en développement React, Next.js.',
+        description:
+          'Agence web à Toulouse spécialisée dans la création de sites internet et applications. Expertise locale en développement React, Next.js.',
         h1: 'Agence Web à Toulouse - Ville Rose du Digital',
         heading: 'Agence Web à Toulouse - Ville Rose du Digital',
-        intro: 'Implantée à Toulouse, nous accompagnons les entreprises de la région Occitanie dans leurs projets web et digitaux.',
+        intro:
+          'Implantée à Toulouse, nous accompagnons les entreprises de la région Occitanie dans leurs projets web et digitaux.',
         localAdvantages: [
           'Écosystème tech toulousain',
           'Proximité avec les industries aéronautiques',
           'Coûts compétitifs',
-          'Qualité de vie exceptionnelle'
+          'Qualité de vie exceptionnelle',
         ],
-        nearbyAreas: [
-          'Capitole',
-          'Compans-Caffarelli',
-          'Rangueil',
-          'Blagnac'
-        ],
+        nearbyAreas: ['Capitole', 'Compans-Caffarelli', 'Rangueil', 'Blagnac'],
         contactInfo: {
           address: 'Toulouse, Occitanie',
           phone: '+33 5 12 34 56 78',
-          email: 'contact@sidikoff.fr'
-        }
-      }
-    }
+          email: 'contact@sidikoff.fr',
+        },
+      },
+    },
   }
 
-  return localContents[city.toLowerCase()] || {
-    city,
-    region: 'France',
-    title: `Agence Web ${city} - Développement Digital`,
-    description: `Agence web à ${city} spécialisée dans la création de sites internet et applications.`,
-    content: {
+  return (
+    localContents[city.toLowerCase()] || {
+      city,
+      region: 'France',
       title: `Agence Web ${city} - Développement Digital`,
       description: `Agence web à ${city} spécialisée dans la création de sites internet et applications.`,
-      h1: `Agence Web à ${city}`,
-      heading: `Agence Web à ${city}`,
-      intro: `Notre agence web accompagne les entreprises de ${city} dans leur transformation digitale.`,
-      localAdvantages: [
-        'Expertise technique reconnue',
-        'Accompagnement personnalisé',
-        'Solutions sur mesure',
-        'Support local'
-      ],
-      nearbyAreas: [],
-      contactInfo: {
-        address: `${city}, France`,
-        phone: '+33 1 23 45 67 89',
-        email: 'contact@sidikoff.fr'
-      }
+      content: {
+        title: `Agence Web ${city} - Développement Digital`,
+        description: `Agence web à ${city} spécialisée dans la création de sites internet et applications.`,
+        h1: `Agence Web à ${city}`,
+        heading: `Agence Web à ${city}`,
+        intro: `Notre agence web accompagne les entreprises de ${city} dans leur transformation digitale.`,
+        localAdvantages: [
+          'Expertise technique reconnue',
+          'Accompagnement personnalisé',
+          'Solutions sur mesure',
+          'Support local',
+        ],
+        nearbyAreas: [],
+        contactInfo: {
+          address: `${city}, France`,
+          phone: '+33 1 23 45 67 89',
+          email: 'contact@sidikoff.fr',
+        },
+      },
     }
-  }
+  )
 }

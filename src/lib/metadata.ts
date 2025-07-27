@@ -1,5 +1,2 @@
 
-import { Metadata } from 'next';
-
-import { Locale } from './i18n';
-
+// This file is currently empty - metadata utilities can be added here if needed
