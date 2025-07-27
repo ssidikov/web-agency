@@ -8,9 +8,6 @@ import { motion } from 'framer-motion'
 
 import { Dictionary } from '@/lib/dictionaries'
 
-
-
-
 interface FooterProps {
   dictionary: Dictionary
   locale: Locale
@@ -47,6 +44,9 @@ export function Footer({ dictionary, locale }: FooterProps) {
       name: dictionary.navigation?.portfolio || 'Portfolio',
       href: `/${locale}#portfolio`,
     },
+    { name: dictionary.navigation?.pricing || 'Tarifs', href: `/${locale}#pricing` },
+    { name: dictionary.navigation?.faq || 'FAQ', href: `/${locale}#faq` },
+    { name: dictionary.navigation?.blog || 'Blog', href: `/${locale}/blog` },
     { name: dictionary.navigation?.contact || 'Contact', href: `/${locale}#contact` },
   ]
 
