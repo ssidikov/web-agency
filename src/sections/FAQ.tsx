@@ -78,7 +78,7 @@ const faqData: FAQItem[] = [
 
 const categories = ['tous', 'développement', 'maintenance', 'technique', 'design', 'gestion']
 
-export const FAQ = ({ locale, dictionary }: FAQProps) => {
+export const FAQ = ({ dictionary }: FAQProps) => {
   const [selectedCategory, setSelectedCategory] = useState('tous')
   const [openItems, setOpenItems] = useState<Set<string>>(new Set())
 

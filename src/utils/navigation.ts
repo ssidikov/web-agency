@@ -8,28 +8,28 @@ export interface NavigationItem {
 export const mainNavigation: NavigationItem[] = [
   {
     label: 'Accueil',
-    href: '/'
+    href: '/',
   },
   {
     label: 'Services',
-    href: '/#services'
+    href: '/#services',
   },
   {
     label: 'Portfolio',
-    href: '/#portfolio'
+    href: '/#portfolio',
   },
   {
     label: 'Tarifs',
-    href: '/#pricing'
+    href: '/#pricing',
   },
   {
     label: 'FAQ',
-    href: '/#faq'
+    href: '/#faq',
   },
   {
     label: 'Contact',
-    href: '/contact'
-  }
+    href: '/contact',
+  },
 ]
 
 export const footerNavigation = {
@@ -37,44 +37,42 @@ export const footerNavigation = {
     { label: 'Développement Web', href: '/#services' },
     { label: 'Applications Mobiles', href: '/#services' },
     { label: 'E-commerce', href: '/#services' },
-    { label: 'Maintenance', href: '/#services' }
+    { label: 'Maintenance', href: '/#services' },
   ],
   company: [
     { label: 'À propos', href: '/about' },
     { label: 'Nos projets', href: '/projects' },
     { label: 'Blog', href: '/blog' },
-    { label: 'Contact', href: '/contact' }
+    { label: 'Contact', href: '/contact' },
   ],
   legal: [
     { label: 'Mentions légales', href: '/mentions-legales' },
     { label: 'Politique de confidentialité', href: '/privacy' },
-    { label: 'CGV', href: '/terms' }
-  ]
+    { label: 'CGV', href: '/terms' },
+  ],
 }
 
 export const breadcrumbGenerator = (pathname: string, locale?: string) => {
   const segments = pathname.split('/').filter(Boolean)
-  const breadcrumbs = [
-    { label: 'Accueil', href: locale ? `/${locale}` : '/' }
-  ]
+  const breadcrumbs = [{ label: 'Accueil', href: locale ? `/${locale}` : '/' }]
 
   let currentPath = locale ? `/${locale}` : ''
 
-  segments.forEach((segment, index) => {
+  segments.forEach((segment) => {
     if (segment === locale) return // Skip locale segment
 
     currentPath += `/${segment}`
-    
+
     let label = segment.charAt(0).toUpperCase() + segment.slice(1)
-    
+
     // Custom labels for common routes
     const labelMap: Record<string, string> = {
-      'contact': 'Contact',
-      'projects': 'Projets',
-      'blog': 'Blog',
-      'about': 'À propos',
-      'services': 'Services',
-      'mentions-legales': 'Mentions légales'
+      contact: 'Contact',
+      projects: 'Projets',
+      blog: 'Blog',
+      about: 'À propos',
+      services: 'Services',
+      'mentions-legales': 'Mentions légales',
     }
 
     if (labelMap[segment]) {
@@ -83,7 +81,7 @@ export const breadcrumbGenerator = (pathname: string, locale?: string) => {
 
     breadcrumbs.push({
       label,
-      href: currentPath
+      href: currentPath,
     })
   })
 
@@ -95,7 +93,7 @@ export const getLocalizedPath = (path: string, locale: string, currentLocale?: s
   if (currentLocale && path.startsWith(`/${currentLocale}`)) {
     path = path.replace(`/${currentLocale}`, '')
   }
-  
+
   // Add new locale
   return locale === 'fr' ? path || '/' : `/${locale}${path || ''}`
 }
@@ -104,6 +102,6 @@ export const isActiveLink = (href: string, pathname: string) => {
   if (href === '/') {
     return pathname === '/' || pathname === '/fr' || pathname === '/en' || pathname === '/ru'
   }
-  
+
   return pathname.includes(href)
 }
