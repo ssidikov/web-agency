@@ -13,11 +13,41 @@ const CheckIcon = ({ className }: { className?: string }) => (
 
 interface Dictionary {
   pricing?: {
+    title?: string
+    subtitle?: string
+    description?: string
+    guarantee_badge?: string
     maintenance?: {
       title?: string
       billing?: string
       features?: string[]
       cta?: string
+    }
+    plans?: {
+      essentiel?: {
+        name?: string
+        price?: string
+        description?: string
+        features?: string[]
+        cta?: string
+        popular?: boolean
+      }
+      pro?: {
+        name?: string
+        price?: string
+        description?: string
+        features?: string[]
+        cta?: string
+        popular?: boolean
+      }
+      entreprise?: {
+        name?: string
+        price?: string
+        description?: string
+        features?: string[]
+        cta?: string
+        popular?: boolean
+      }
     }
   }
 }
@@ -44,83 +74,63 @@ export default function Pricing({ locale }: PricingProps) {
   }, [locale])
 
   if (!dict) return null
-  // Données des plans tarifaires
+  
+  // Données des plans tarifaires depuis la localisation
   const pricingPlans = [
     {
-      name: 'Essentiel',
-      price: 'à partir de 590 €',
+      name: dict?.pricing?.plans?.essentiel?.name || 'Essentiel',
+      price: dict?.pricing?.plans?.essentiel?.price || 'à partir de 590 €',
       period: '',
-      description: 'Parfait pour lancer votre activité ou moderniser votre image en ligne',
-      features: [
-        { text: 'Page unique claire et professionnelle', included: true },
-        { text: 'Design moderne qui rassure', included: true },
-        { text: 'Texte structuré et impactant (nous vous aidons à le rédiger)', included: true },
-        { text: 'Optimisation SEO de base (Google & mobile)', included: true },
-        { text: 'Formulaire de contact intégré', included: true },
-        { text: 'Compatible mobile/tablette/ordinateur', included: true },
-        { text: 'Livraison en 7 jours ouvrés', included: true },
-        {
-          text: '🧩 Objectif : avoir une présence pro, rapidement, sans complexité',
-          included: true,
-        },
-        { text: 'Site multi-pages', included: false },
-        { text: 'Formation incluse', included: false },
-      ],
-      ctaText: 'Commencer',
+      description: dict?.pricing?.plans?.essentiel?.description || 'Parfait pour lancer votre activité ou moderniser votre image en ligne',
+      features: (dict?.pricing?.plans?.essentiel?.features || [
+        'Page unique claire et professionnelle',
+        'Design moderne qui rassure',
+        'Texte structuré et impactant (nous vous aidons à le rédiger)',
+        'Optimisation SEO de base (Google & mobile)',
+        'Formulaire de contact intégré',
+        'Compatible mobile/tablette/ordinateur',
+        'Livraison en 7 jours ouvrés',
+        '🧩 Objectif : avoir une présence pro, rapidement, sans complexité'
+      ]).map((text: string) => ({ text, included: true })),
+      ctaText: dict?.pricing?.plans?.essentiel?.cta || 'Commencer',
       isPopular: false,
       isHighlighted: false,
     },
     {
-      name: 'Pro',
-      price: 'à partir de 900 €',
+      name: dict?.pricing?.plans?.pro?.name || 'Pro',
+      price: dict?.pricing?.plans?.pro?.price || 'à partir de 900 €',
       period: '',
-      description: 'Solution complète pour les entreprises en croissance avec besoins avancés',
-      features: [
-        {
-          text: 'Site complet 4 à 6 pages (Accueil, Services, À propos, Contact, etc.)',
-          included: true,
-        },
-        { text: 'Rédaction de contenus sur-mesure', included: true },
-        { text: 'Optimisation SEO avancée (Google Business, balises, structure)', included: true },
-        { text: 'Statistiques simples (Google Analytics)', included: true },
-        { text: 'Design premium avec animations modernes', included: true },
-        { text: 'Formation courte pour gérer votre site', included: true },
-        { text: 'Livraison en 14 jours ouvrés', included: true },
-        {
-          text: '🔥 Recommandé pour créer une vraie autorité en ligne et générer des leads',
-          included: true,
-        },
-        { text: 'Développement spécifique avancé', included: false },
-        { text: 'Accompagnement digital prolongé', included: false },
-      ],
-      ctaText: 'Choisir Pro',
+      description: dict?.pricing?.plans?.pro?.description || 'Solution complète pour les entreprises en croissance avec besoins avancés',
+      features: (dict?.pricing?.plans?.pro?.features || [
+        'Site complet 4 à 6 pages (Accueil, Services, À propos, Contact, etc.)',
+        'Rédaction de contenus sur-mesure',
+        'Optimisation SEO avancée (Google Business, balises, structure)',
+        'Statistiques simples (Google Analytics)',
+        'Design premium avec animations modernes',
+        'Formation courte pour gérer votre site',
+        'Livraison en 14 jours ouvrés',
+        '🔥 Recommandé pour créer une vraie autorité en ligne et générer des leads'
+      ]).map((text: string) => ({ text, included: true })),
+      ctaText: dict?.pricing?.plans?.pro?.cta || 'Choisir Pro',
       isPopular: true,
       isHighlighted: true,
     },
     {
-      name: 'Entreprise',
-      price: 'Sur devis',
+      name: dict?.pricing?.plans?.entreprise?.name || 'Entreprise',
+      price: dict?.pricing?.plans?.entreprise?.price || 'Sur devis',
       period: '',
-      description: 'Solution haut de gamme adaptée à votre stratégie business',
-      features: [
-        { text: 'Analyse personnalisée de vos objectifs et de votre marché', included: true },
-        {
-          text: 'Développement spécifique (ex : réservation, espace client, boutique en ligne)',
-          included: true,
-        },
-        { text: 'Design unique et totalement sur-mesure', included: true },
-        { text: 'Stratégie SEO complète (contenu, technique, sémantique)', included: true },
-        { text: 'Accompagnement digital sur 1 à 3 mois', included: true },
-        { text: 'Fonctionnalités avancées (automatisation, blog, podcast, etc.)', included: true },
-        { text: 'Support continu et conseils personnalisés', included: true },
-        {
-          text: '🎯 Objectif : transformer votre site en un outil de croissance et de conversion',
-          included: true,
-        },
-        { text: 'Délai de livraison standard', included: false },
-        { text: 'Solution basique', included: false },
-      ],
-      ctaText: 'Nous contacter',
+      description: dict?.pricing?.plans?.entreprise?.description || 'Solution haut de gamme adaptée à votre stratégie business',
+      features: (dict?.pricing?.plans?.entreprise?.features || [
+        'Analyse personnalisée de vos objectifs et de votre marché',
+        'Développement spécifique (ex : réservation, espace client, boutique en ligne)',
+        'Design unique et totalement sur-mesure',
+        'Stratégie SEO complète (contenu, technique, sémantique)',
+        'Accompagnement digital sur 1 à 3 mois',
+        'Fonctionnalités avancées (automatisation, blog, podcast, etc.)',
+        'Support continu et conseils personnalisés',
+        '🎯 Objectif : transformer votre site en un outil de croissance et de conversion'
+      ]).map((text: string) => ({ text, included: true })),
+      ctaText: dict?.pricing?.plans?.entreprise?.cta || 'Nous contacter',
       isPopular: false,
       isHighlighted: false,
     },
@@ -147,13 +157,11 @@ export default function Pricing({ locale }: PricingProps) {
           <h2
             id='pricing-title'
             className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>
-            Nos Offres
-            <span className='block text-[#3F72AF] mt-2'>Transparentes & Adaptées</span>
+            {dict?.pricing?.title || 'Nos Offres'}
+            <span className='block text-[#3F72AF] mt-2'>{dict?.pricing?.subtitle || 'Transparentes & Adaptées'}</span>
           </h2>
           <p className='text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed'>
-            Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous
-            nos projets incluent un design moderne, un développement professionnel et un support
-            complet.
+            {dict?.pricing?.description || 'Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.'}
           </p>
 
           {/* Badges de confiance */}
@@ -166,7 +174,7 @@ export default function Pricing({ locale }: PricingProps) {
             <div className='bg-white px-6 py-3 rounded-full shadow-md border border-gray-200 flex items-center gap-2 text-green-500 p-4'>
               <CheckIcon className='w-3 h-3 bg-green-100 rounded-full' />
               <span className='text-sm font-medium text-gray-700'>
-                Résultats garantis • Livraison garantie
+                {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
               </span>
             </div>
           </motion.div>

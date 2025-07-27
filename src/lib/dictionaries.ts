@@ -128,6 +128,44 @@ export interface Dictionary {
       button: string
     }
   }
+  pricing: {
+    title: string
+    subtitle: string
+    description?: string
+    guarantee_badge?: string
+    maintenance?: {
+      title?: string
+      billing?: string
+      features?: string[]
+      cta?: string
+    }
+    plans: {
+      essentiel: {
+        name: string
+        price: string
+        description: string
+        features: string[]
+        cta: string
+        popular?: boolean
+      }
+      pro: {
+        name: string
+        price: string
+        description: string
+        features: string[]
+        cta: string
+        popular?: boolean
+      }
+      entreprise: {
+        name: string
+        price: string
+        description: string
+        features: string[]
+        cta: string
+        popular?: boolean
+      }
+    }
+  }
   contact: {
     title: string
     subtitle: string

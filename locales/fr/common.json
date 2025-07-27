@@ -246,6 +246,60 @@
     "legal_link": "Mentions légales"
   },
   "pricing": {
+    "title": "Nos Offres",
+    "subtitle": "Transparentes & Adaptées",
+    "description": "Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.",
+    "guarantee_badge": "Résultats garantis • Livraison garantie",
+    "plans": {
+      "essentiel": {
+        "name": "Essentiel",
+        "price": "à partir de 590 €",
+        "description": "Parfait pour lancer votre activité ou moderniser votre image en ligne",
+        "features": [
+          "Page unique claire et professionnelle",
+          "Design moderne qui rassure",
+          "Texte structuré et impactant (nous vous aidons à le rédiger)",
+          "Optimisation SEO de base (Google & mobile)",
+          "Formulaire de contact intégré",
+          "Compatible mobile/tablette/ordinateur",
+          "Livraison en 7 jours ouvrés",
+          "🧩 Objectif : avoir une présence pro, rapidement, sans complexité"
+        ],
+        "cta": "Commencer"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "à partir de 900 €",
+        "description": "Solution complète pour les entreprises en croissance avec besoins avancés",
+        "features": [
+          "Site complet 4 à 6 pages (Accueil, Services, À propos, Contact, etc.)",
+          "Rédaction de contenus sur-mesure",
+          "Optimisation SEO avancée (Google Business, balises, structure)",
+          "Statistiques simples (Google Analytics)",
+          "Design premium avec animations modernes",
+          "Formation courte pour gérer votre site",
+          "Livraison en 14 jours ouvrés",
+          "🔥 Recommandé pour créer une vraie autorité en ligne et générer des leads"
+        ],
+        "cta": "Choisir Pro"
+      },
+      "entreprise": {
+        "name": "Entreprise",
+        "price": "Sur devis",
+        "description": "Solution haut de gamme adaptée à votre stratégie business",
+        "features": [
+          "Analyse personnalisée de vos objectifs et de votre marché",
+          "Développement spécifique (ex : réservation, espace client, boutique en ligne)",
+          "Design unique et totalement sur-mesure",
+          "Stratégie SEO complète (contenu, technique, sémantique)",
+          "Accompagnement digital sur 1 à 3 mois",
+          "Fonctionnalités avancées (automatisation, blog, podcast, etc.)",
+          "Support continu et conseils personnalisés",
+          "🎯 Objectif : transformer votre site en un outil de croissance et de conversion"
+        ],
+        "cta": "Nous contacter"
+      }
+    },
     "maintenance": {
       "title": "🔧 Maintenance mensuelle – Support continu",
       "billing": "Tarif : à partir de 59€/mois",

@@ -66,12 +66,15 @@
       "description": "Dominate Google's first page and multiply your organic traffic by 5 in 6 months. Our complete SEO strategy includes: in-depth technical audit, on-page optimization, optimized content creation, quality link building, and performance tracking. We target profitable keywords in your sector to attract qualified prospects."
     },
     "maintenance": {
-      "title": "Maintenance & Technical Support",
+      "title": "🔧 Monthly Maintenance – Ongoing Support",
       "features": [
-        "7/7 Support",
-        "Updates"
+        "Technical updates",
+        "Responsive support",
+        "Modifications included",
+        "Regular backups",
+        "€59/month"
       ],
-      "description": "Protect your digital investment with our premium maintenance service. Enhanced security, automatic backups, regular updates, 24/7 monitoring, and priority support. We guarantee 99.9% uptime and response time under 2h. Avoid costly outages and focus on your business while we keep your site in perfect working order."
+      "description": "💡 Keep your website up-to-date, fast and worry-free. I take care of adjustments, updates, content additions and minor developments. What's included: Regular technical updates (CMS, plugins, security...), Modifications or additions of sections/pages (within 2h/month limit), Addition or modification of content (texts, images, etc.), Support via email or WhatsApp (quick response within 24h), Regular backups (if hosting is managed). 💶 Price: from €59/month. ➡️ Ideal for entrepreneurs who want to stay focused on their business without worrying about the technical side."
     },
     "cta_banner": {
       "background": "Let's turn your ideas into digital reality together",
@@ -246,13 +249,69 @@
     "legal_link": "Legal Notice"
   },
   "pricing": {
+    "title": "Our Offers",
+    "subtitle": "Transparent & Tailored",
+    "description": "Choose the solution that perfectly matches your needs and budget. All our projects include modern design, professional development and complete support.",
+    "guarantee_badge": "Guaranteed results • Guaranteed delivery",
+    "plans": {
+      "essentiel": {
+        "name": "Essential",
+        "price": "from €590",
+        "description": "Perfect for launching your business or modernizing your online image",
+        "features": [
+          "Clear and professional single page",
+          "Modern design that reassures",
+          "Structured and impactful text (we help you write it)",
+          "Basic SEO optimization (Google & mobile)",
+          "Integrated contact form",
+          "Mobile/tablet/computer compatible",
+          "Delivery in 7 business days",
+          "🧩 Objective: have a professional presence, quickly, without complexity"
+        ],
+        "cta": "Get Started"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "from €900",
+        "description": "Complete solution for growing businesses with advanced needs",
+        "features": [
+          "Complete 4 to 6 page site (Home, Services, About, Contact, etc.)",
+          "Custom content writing",
+          "Advanced SEO optimization (Google Business, tags, structure)",
+          "Simple statistics (Google Analytics)",
+          "Premium design with modern animations",
+          "Short training to manage your site",
+          "Delivery in 14 business days",
+          "🔥 Recommended to create real online authority and generate leads"
+        ],
+        "cta": "Choose Pro"
+      },
+      "entreprise": {
+        "name": "Enterprise",
+        "price": "On quote",
+        "description": "High-end solution adapted to your business strategy",
+        "features": [
+          "Personalized analysis of your objectives and market",
+          "Specific development (e.g.: booking, customer area, online store)",
+          "Unique and completely custom design",
+          "Complete SEO strategy (content, technical, semantic)",
+          "Digital support for 1 to 3 months",
+          "Advanced features (automation, blog, podcast, etc.)",
+          "Ongoing support and personalized advice",
+          "🎯 Objective: transform your site into a growth and conversion tool"
+        ],
+        "cta": "Contact Us"
+      }
+    },
     "maintenance": {
-      "title": "Maintenance and Support",
-      "billing": "Hourly or fixed-rate billing according to demand",
+      "title": "🔧 Monthly Maintenance – Ongoing Support",
+      "billing": "💶 Price: from €59/month",
       "features": [
-        "Personalized support after delivery",
-        "Punctual interventions for modifications and updates",
-        "Responsive technical support via email, phone, WhatsApp or Telegram"
+        "Regular technical updates (CMS, plugins, security...)",
+        "Modifications or additions of sections/pages (within 2h/month limit)",
+        "Addition or modification of content (texts, images, etc.)",
+        "Support via WhatsApp, Telegram or email",
+        "Regular backups"
       ],
       "cta": "Request a quote"
     }

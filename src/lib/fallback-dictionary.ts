@@ -202,6 +202,74 @@ export const fallbackDictionary: Dictionary = {
       phoneDesc: 'Call us by phone.',
     },
   },
+  pricing: {
+    title: 'Our Pricing',
+    subtitle: 'Transparent & Tailored',
+    description: 'Choose the solution that perfectly fits your needs and budget. All our projects include modern design, professional development, and complete support.',
+    guarantee_badge: 'Guaranteed Results • Guaranteed Delivery',
+    maintenance: {
+      title: '🔧 Monthly Maintenance – Ongoing Support',
+      billing: 'Rate: from €59/month',
+      features: [
+        'Regular technical updates',
+        'Changes or additions to sections/pages',
+        'Content additions or modifications (texts, images, etc.)',
+        'Support via WhatsApp, Telegram or email',
+        'Regular backups'
+      ],
+      cta: 'Request Quote'
+    },
+    plans: {
+      essentiel: {
+        name: 'Essential',
+        price: 'from €590',
+        description: 'Perfect for launching your business or modernizing your online image',
+        features: [
+          'Clear and professional single page',
+          'Modern design that inspires trust',
+          'Structured and impactful text (we help you write it)',
+          'Basic SEO optimization (Google & mobile)',
+          'Integrated contact form',
+          'Mobile/tablet/computer compatible',
+          'Delivery in 7 business days',
+          '🧩 Goal: get professional presence quickly without complexity'
+        ],
+        cta: 'Get Started'
+      },
+      pro: {
+        name: 'Pro',
+        price: 'from €900',
+        description: 'Complete solution for growing businesses with advanced needs',
+        features: [
+          'Complete 4-6 page site (Home, Services, About, Contact, etc.)',
+          'Custom content writing',
+          'Advanced SEO optimization (Google Business, tags, structure)',
+          'Simple statistics (Google Analytics)',
+          'Premium design with modern animations',
+          'Short training to manage your site',
+          'Delivery in 14 business days',
+          '🔥 Recommended to create real online authority and generate leads'
+        ],
+        cta: 'Choose Pro'
+      },
+      entreprise: {
+        name: 'Enterprise',
+        price: 'Custom Quote',
+        description: 'High-end solution adapted to your business strategy',
+        features: [
+          'Personalized analysis of your goals and market',
+          'Specific development (e.g.: booking, client space, online store)',
+          'Unique and completely custom design',
+          'Complete SEO strategy (content, technical, semantic)',
+          'Digital support for 1-3 months',
+          'Advanced features (automation, blog, podcast, etc.)',
+          'Ongoing support and personalized advice',
+          '🎯 Goal: transform your site into a growth and conversion tool'
+        ],
+        cta: 'Contact Us'
+      }
+    }
+  },
   legal: {
     title: 'Legal Notice',
     company_info_title: 'Company Information',

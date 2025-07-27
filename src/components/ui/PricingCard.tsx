@@ -96,10 +96,10 @@ export default function PricingCard({
         </div>
 
         {/* Textes Objectif/Recommandé */}
-        {features.filter(feature => feature.included && (feature.text.includes('Objectif') || feature.text.includes('Recommandé'))).length > 0 && (
+        {features.filter(feature => feature.included && (feature.text.includes('🧩') || feature.text.includes('🔥') || feature.text.includes('🎯'))).length > 0 && (
           <div className='mb-6'>
             {features
-              .filter(feature => feature.included && (feature.text.includes('Objectif') || feature.text.includes('Recommandé')))
+              .filter(feature => feature.included && (feature.text.includes('🧩') || feature.text.includes('🔥') || feature.text.includes('🎯')))
               .map((feature, featureIndex) => (
                 <motion.div
                   key={featureIndex}
@@ -120,7 +120,7 @@ export default function PricingCard({
         <div className='mb-8 flex-grow'>
           <ul className='space-y-4' role='list'>
             {features
-              .filter((feature) => feature.included && !feature.text.includes('Objectif') && !feature.text.includes('Recommandé')) // Exclure les textes Objectif/Recommandé
+              .filter((feature) => feature.included && !feature.text.includes('🧩') && !feature.text.includes('🔥') && !feature.text.includes('🎯')) // Exclure les textes avec émojis spéciaux
               .map((feature, featureIndex) => (
                 <motion.li
                   key={featureIndex}
