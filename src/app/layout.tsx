@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
+import Analytics from '@/components/analytics'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -12,6 +13,9 @@ export const metadata: Metadata = {
   keywords:
     'agence web, développement web, création site internet, React, Next.js, applications mobiles',
   authors: [{ name: 'Sidikoff' }],
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+  },
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
@@ -32,7 +36,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='fr'>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Analytics />
+        {children}
+      </body>
     </html>
   )
 }

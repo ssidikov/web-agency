@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next'
 
 import { fallbackDictionary } from '@/lib/fallback-dictionary'
@@ -9,8 +8,6 @@ import { Header } from '@/components/Header'
 import { Locale } from '@/lib/i18n'
 import LocaleProvider from '@/components/LocaleProvider'
 
-
-
 interface RootLayoutProps {
   children: React.ReactNode
   params: Promise<{ locale: Locale }>
@@ -18,7 +15,7 @@ interface RootLayoutProps {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.fr'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'),
     title: 'Web Agency - Professional Web Development',
     description: 'Professional web development services for modern businesses',
     other: {

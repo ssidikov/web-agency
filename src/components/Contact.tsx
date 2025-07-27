@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import { Dictionary } from '@/lib/dictionaries'
 import CTAButton from './ui/CTAButton'
+import useAnalytics from '@/hooks/useAnalytics'
 
 // Импорты иконок вынесены в начало для лучшей производительности
 import {
@@ -59,6 +60,7 @@ const ANIMATION_VARIANTS = {
 const Contact: React.FC<ContactProps> = ({ dictionary, locale, className }) => {
   const ref = React.useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const { trackContactSubmission, trackExternalLink } = useAnalytics()
 
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -180,6 +182,9 @@ const Contact: React.FC<ContactProps> = ({ dictionary, locale, className }) => {
         if (response.ok) {
           setSubmitStatus('success')
           setFormData({ name: '', email: '', message: '', locale })
+          
+          // Track successful form submission
+          trackContactSubmission('contact_form')
         } else {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
@@ -195,7 +200,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary, locale, className }) => {
         setTimeout(() => setSubmitStatus('idle'), 5000)
       }
     },
-    [formData, isSubmitting, locale]
+    [formData, isSubmitting, locale, trackContactSubmission]
   )
 
   // Компонент поля ввода для переиспользования
@@ -443,6 +448,7 @@ const Contact: React.FC<ContactProps> = ({ dictionary, locale, className }) => {
                         href={channel.href}
                         target='_blank'
                         rel='noopener noreferrer'
+                        onClick={() => trackExternalLink(channel.href, channel.name)}
                         className='group relative bg-gray-50 hover:bg-black border-2 border-gray-100 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden'
                         whileTap={{ scale: 0.98 }}
                         initial={{ opacity: 0, y: 20 }}

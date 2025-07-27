@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { cn } from '@/utils/styles'
+import useAnalytics from '@/hooks/useAnalytics'
 
 interface CTAButtonProps {
   href?: string
@@ -14,6 +15,8 @@ interface CTAButtonProps {
   disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
   ariaLabel?: string
+  trackingAction?: string
+  trackingCategory?: string
 }
 
 const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTAButtonProps>(
@@ -28,10 +31,25 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
       disabled,
       type = 'button',
       ariaLabel,
+      trackingAction,
+      trackingCategory,
       ...props
     },
     ref
   ) => {
+    const { trackEvent } = useAnalytics()
+
+    const handleClick = () => {
+      // Track analytics if tracking props are provided
+      if (trackingAction && trackingCategory) {
+        trackEvent(trackingAction, trackingCategory, typeof children === 'string' ? children : ariaLabel)
+      }
+      
+      // Call original onClick if provided
+      if (onClick) {
+        onClick()
+      }
+    }
     const baseClasses =
       'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 rounded-full h-16 lg:h-[77px] 3xl:h-[98px] px-6 lg:px-16 text-lg 3xl:text-22 cursor-pointer shadow-sm'
 
@@ -59,6 +77,7 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
           className={classes}
           ref={ref as React.Ref<HTMLAnchorElement>}
           aria-label={ariaLabel}
+          onClick={handleClick}
           {...props}>
           {children}
         </Link>
@@ -68,7 +87,7 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
     return (
       <button
         type={type}
-        onClick={onClick}
+        onClick={handleClick}
         className={classes}
         disabled={disabled}
         ref={ref as React.Ref<HTMLButtonElement>}
