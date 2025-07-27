@@ -11,12 +11,23 @@ const CheckIcon = ({ className }: { className?: string }) => (
   </svg>
 )
 
+interface Dictionary {
+  pricing?: {
+    maintenance?: {
+      title?: string
+      billing?: string
+      features?: string[]
+      cta?: string
+    }
+  }
+}
+
 interface PricingProps {
   locale: string
 }
 
 export default function Pricing({ locale }: PricingProps) {
-  const [dict, setDict] = useState<Record<string, any> | null>(null)
+  const [dict, setDict] = useState<Dictionary | null>(null)
 
   useEffect(() => {
     const loadDictionary = async () => {
