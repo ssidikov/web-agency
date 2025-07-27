@@ -25,7 +25,7 @@ export function generateFrenchSEOMetadata(locale: string): Metadata {
   const localeMap: Record<string, { lang: string; og: string }> = {
     fr: { lang: 'fr', og: 'fr_FR' },
     en: { lang: 'en', og: 'en_US' },
-    ru: { lang: 'ru', og: 'ru_RU' }
+    ru: { lang: 'ru', og: 'ru_RU' },
   }
 
   const currentLocale = localeMap[locale] || localeMap.fr
@@ -97,7 +97,7 @@ export function generateLocalContent(city: string): LocalContent {
         contactInfo: {
           address: '75 Avenue des Champs-Élysées, 75008 Paris',
           phone: '+33 1 23 45 67 89',
-          email: 'contact@sidikoff.fr',
+          email: 's.sidikoff@gmail.com',
         },
       },
     },
@@ -125,7 +125,7 @@ export function generateLocalContent(city: string): LocalContent {
         contactInfo: {
           address: 'Toulouse, Occitanie',
           phone: '+33 5 12 34 56 78',
-          email: 'contact@sidikoff.fr',
+          email: 's.sidikoff@gmail.com',
         },
       },
     },
@@ -153,7 +153,7 @@ export function generateLocalContent(city: string): LocalContent {
         contactInfo: {
           address: `${city}, France`,
           phone: '+33 1 23 45 67 89',
-          email: 'contact@sidikoff.fr',
+          email: 's.sidikoff@gmail.com',
         },
       },
     }

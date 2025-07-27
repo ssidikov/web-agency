@@ -1,4 +1,3 @@
-
 import Script from 'next/script'
 
 import { businessLocations, generateLocalBusinessSchema, organizationSchema } from '@/lib/local-seo'
@@ -10,19 +9,16 @@ import { Header } from '@/components/Header'
 import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
 import LocaleProvider from '@/components/LocaleProvider'
 
-
-
-
 export async function generateMetadata() {
   const dict = await getDictionary(defaultLocale)
-  
+
   return generateSEOMetadata({
     title: dict.hero.title,
     description: dict.hero.subtitle,
     locale: defaultLocale,
     canonicalUrl: createCanonicalUrl('/', defaultLocale),
     alternateLanguages: generateLanguageAlternates(
-      process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.fr',
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com',
       ['fr', 'en', 'ru']
     ),
     ogImage: '/images/og-homepage.jpg',
@@ -32,7 +28,7 @@ export async function generateMetadata() {
       'développement React',
       'Next.js expert',
       'typescript développeur',
-      'consultant digital'
+      'consultant digital',
     ],
   })
 }

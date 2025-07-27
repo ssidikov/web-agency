@@ -18,6 +18,7 @@ interface RootLayoutProps {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.fr'),
     title: 'Web Agency - Professional Web Development',
     description: 'Professional web development services for modern businesses',
     other: {

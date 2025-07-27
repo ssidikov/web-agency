@@ -1,9 +1,6 @@
-
 import { Metadata } from 'next'
 
 import { Locale } from '@/lib/i18n'
-
-
 
 export interface SEOConfig {
   title: string
@@ -24,7 +21,7 @@ export interface SEOConfig {
 
 export const DEFAULT_SEO = {
   siteName: 'Nikita Sidikoff - Développeur Web Full Stack',
-  siteUrl: 'https://sidikoff.fr',
+  siteUrl: 'https://sidikoff.com',
   defaultImage: '/images/og-default.jpg',
   twitterHandle: '@sidikoff',
   locale: 'fr' as Locale,
@@ -37,8 +34,8 @@ export const DEFAULT_SEO = {
     'développement frontend',
     'développement backend',
     'freelance',
-    'consultant'
-  ]
+    'consultant',
+  ],
 }
 
 interface LegacySEOConfig {
@@ -51,7 +48,7 @@ interface LegacySEOConfig {
 
 export function generatePageMetadata(config: LegacySEOConfig): Metadata {
   const { title, description, locale, canonical, images = [] } = config
-  
+
   return {
     title,
     description,
@@ -71,9 +68,9 @@ export function generatePageMetadata(config: LegacySEOConfig): Metadata {
     alternates: {
       canonical,
       languages: {
-        'fr': canonical ? canonical.replace(`/${locale}`, '') : '/',
-        'en': canonical ? canonical.replace(`/${locale}`, '/en') : '/en',
-        'ru': canonical ? canonical.replace(`/${locale}`, '/ru') : '/ru',
+        fr: canonical ? canonical.replace(`/${locale}`, '') : '/',
+        en: canonical ? canonical.replace(`/${locale}`, '/en') : '/en',
+        ru: canonical ? canonical.replace(`/${locale}`, '/ru') : '/ru',
       },
     },
   }
@@ -94,19 +91,19 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
     publishedTime,
     modifiedTime,
     authors,
-    tags
+    tags,
   } = config
 
-  const fullTitle = title.includes(DEFAULT_SEO.siteName) 
-    ? title 
+  const fullTitle = title.includes(DEFAULT_SEO.siteName)
+    ? title
     : `${title} | ${DEFAULT_SEO.siteName}`
 
   const metadata: Metadata = {
     title: fullTitle,
     description,
     keywords: [...DEFAULT_SEO.keywords, ...keywords].join(', '),
-    authors: authors?.map(name => ({ name })),
-    
+    authors: authors?.map((name) => ({ name })),
+
     // Robots
     robots: {
       index: !noIndex,
@@ -177,9 +174,12 @@ export interface BreadcrumbItem {
   url: string
 }
 
-export function generateJSONLD(type: 'WebSite' | 'Person' | 'Organization' | 'Article' | 'BreadcrumbList', data: JSONLDData) {
+export function generateJSONLD(
+  type: 'WebSite' | 'Person' | 'Organization' | 'Article' | 'BreadcrumbList',
+  data: JSONLDData
+) {
   const baseContext = 'https://schema.org'
-  
+
   const schemas = {
     WebSite: {
       '@context': baseContext,
@@ -237,12 +237,14 @@ export function generateJSONLD(type: 'WebSite' | 'Person' | 'Organization' | 'Ar
     BreadcrumbList: {
       '@context': baseContext,
       '@type': 'BreadcrumbList',
-      itemListElement: (data.items as BreadcrumbItem[])?.map((item: BreadcrumbItem, index: number) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: item.name,
-        item: item.url,
-      })),
+      itemListElement: (data.items as BreadcrumbItem[])?.map(
+        (item: BreadcrumbItem, index: number) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: item.name,
+          item: item.url,
+        })
+      ),
       ...data,
     },
   }
@@ -261,15 +263,15 @@ export function generateLanguageAlternates(
   locales: Locale[]
 ): Record<Locale, string> {
   const alternates: Record<string, string> = {}
-  
-  locales.forEach(locale => {
+
+  locales.forEach((locale) => {
     if (locale === 'fr') {
       alternates[locale] = baseUrl
     } else {
       alternates[locale] = `${baseUrl}/${locale}`
     }
   })
-  
+
   return alternates
 }
 
@@ -281,7 +283,7 @@ export function createCanonicalUrl(path: string, locale: Locale): string {
 
 export function generateStructuredData(type: 'homepage' | 'contact' | 'page', locale: Locale) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'
-  
+
   const common = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -289,7 +291,7 @@ export function generateStructuredData(type: 'homepage' | 'contact' | 'page', lo
     url: `${baseUrl}/${locale === 'fr' ? '' : locale}`,
     inLanguage: locale === 'fr' ? 'fr-FR' : locale === 'en' ? 'en-US' : 'ru-RU',
   }
-  
+
   switch (type) {
     case 'homepage':
       return {
