@@ -380,7 +380,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 href={getLocalizedUrl('/contact', locale)}
                 variant='primary'
                 size='lg'
-                className='bg-white text-blue-600 hover:bg-blue-50 border-white rounded-xl px-8 py-4 h-auto shadow-lg'
+                className='hover:bg-white/10 hover:text-white hover:border-white/50 transition-colors duration-300'
                 trackingAction='contact_from_project'
                 trackingCategory='project_detail'>
                 <svg className='w-5 h-5 mr-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -398,10 +398,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     : 'Обсудим ваш проект'}
               </CTAButton>
               <CTAButton
+                variant='secondary'
                 href={getProjectsUrl(locale)}
-                variant='outline'
                 size='lg'
-                className='bg-transparent text-white border-2 border-white hover:bg-white hover:text-blue-600 rounded-xl px-8 py-4 h-auto'
+                className='text-white border-white/50 hover:border-white/80 bg-transparent hover:bg-white/10 transition-colors duration-300'
                 trackingAction='view_more_projects'
                 trackingCategory='project_detail'>
                 <svg className='w-5 h-5 mr-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
