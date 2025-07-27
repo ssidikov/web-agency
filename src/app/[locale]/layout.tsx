@@ -1,12 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import LocaleProvider from '@/components/LocaleProvider'
 import { fallbackDictionary } from '@/lib/fallback-dictionary'
-
-const inter = Inter({ subsets: ['latin'] })
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -32,22 +30,18 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
     // Ensure dict is an object and navigation exists, provide fallback if needed
     if (typeof dict !== 'object' || dict === null) {
       return (
-        <html lang={locale}>
-          <body
-            className={`${inter.className} text-[#112D4E] antialiased`}
-            suppressHydrationWarning={true}>
-            <div className='min-h-screen'>
-              <Header locale={locale} dictionary={fallbackDictionary} />
-              <main className='m-0 p-0'>
-                <div className='p-4'>
-                  <h1>Loading Error</h1>
-                  <p>There was an error loading the page. Please refresh.</p>
-                </div>
-              </main>
-              <Footer dictionary={fallbackDictionary} locale={locale} />
-            </div>
-          </body>
-        </html>
+        <LocaleProvider locale={locale}>
+          <div className='min-h-screen'>
+            <Header locale={locale} dictionary={fallbackDictionary} />
+            <main className='m-0 p-0'>
+              <div className='p-4'>
+                <h1>Loading Error</h1>
+                <p>There was an error loading the page. Please refresh.</p>
+              </div>
+            </main>
+            <Footer dictionary={fallbackDictionary} locale={locale} />
+          </div>
+        </LocaleProvider>
       )
     }
 
@@ -66,36 +60,28 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
     }
 
     return (
-      <html lang={locale}>
-        <body
-          className={`${inter.className} text-[#112D4E] antialiased`}
-          suppressHydrationWarning={true}>
-          <div className='min-h-screen'>
-            <Header locale={locale} dictionary={dict} />
-            <main className='m-0 p-0'>{children}</main>
-            <Footer dictionary={dict} locale={locale} />
-          </div>
-        </body>
-      </html>
+      <LocaleProvider locale={locale}>
+        <div className='min-h-screen'>
+          <Header locale={locale} dictionary={dict} />
+          <main className='m-0 p-0'>{children}</main>
+          <Footer dictionary={dict} locale={locale} />
+        </div>
+      </LocaleProvider>
     )
   } catch {
     return (
-      <html lang={locale}>
-        <body
-          className={`${inter.className} text-[#112D4E] antialiased`}
-          suppressHydrationWarning={true}>
-          <div className='min-h-screen'>
-            <Header locale={locale} dictionary={fallbackDictionary} />
-            <main className='m-0 p-0'>
-              <div className='p-4'>
-                <h1>Loading Error</h1>
-                <p>There was an error loading the page. Please refresh.</p>
-              </div>
-            </main>
-            <Footer dictionary={fallbackDictionary} locale={locale} />
-          </div>
-        </body>
-      </html>
+      <LocaleProvider locale={locale}>
+        <div className='min-h-screen'>
+          <Header locale={locale} dictionary={fallbackDictionary} />
+          <main className='m-0 p-0'>
+            <div className='p-4'>
+              <h1>Loading Error</h1>
+              <p>There was an error loading the page. Please refresh.</p>
+            </div>
+          </main>
+          <Footer dictionary={fallbackDictionary} locale={locale} />
+        </div>
+      </LocaleProvider>
     )
   }
 }

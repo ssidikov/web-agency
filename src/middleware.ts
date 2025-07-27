@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { locales } from './lib/i18n'
-import { getLocale } from './lib/locale-detection'
+import { locales, defaultLocale } from './lib/i18n'
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -27,12 +26,17 @@ export function middleware(request: NextRequest) {
     return enhanceResponse(NextResponse.next())
   }
 
-  // If no locale in pathname, redirect to locale-specific URL
-  // But for French (default), we redirect to the localized path  
-  const locale = getLocale(request)
-  const newUrl = new URL(`/${locale}${pathname}`, request.url)
+  // For App Router with French as default:
+  // Root path "/" should be handled by root page.tsx (French content)
+  // Other paths without locale should be rewritten to French locale internally
+  if (pathname !== '/' && !pathnameHasLocale) {
+    // Rewrite to French locale path internally (no redirect)
+    const rewriteUrl = new URL(`/${defaultLocale}${pathname}`, request.url)
+    return enhanceResponse(NextResponse.rewrite(rewriteUrl))
+  }
   
-  return enhanceResponse(NextResponse.redirect(newUrl))
+  // For root path, let it go to page.tsx (French content)
+  return enhanceResponse(NextResponse.next())
 }
 
 function enhanceResponse(response: NextResponse) {

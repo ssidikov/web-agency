@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
 import { generateFrenchSEOMetadata, generateLocalContent } from '@/lib/french-seo'
 import { generateLocalBusinessSchema, businessLocations } from '@/lib/local-seo'
-import SEOHead from '@/components/SEOHead'
 import Link from 'next/link'
 import Image from 'next/image'
+import Script from 'next/script'
 
 export async function generateMetadata({
   params,
@@ -32,10 +32,13 @@ export default async function ToulousePage({ params }: { params: Promise<{ local
 
   return (
     <>
-      <SEOHead
-        city='Toulouse'
-        pageType='contact'
-        structuredData={generateLocalBusinessSchema(toulouseLocation)}
+      {/* Structured Data for Toulouse */}
+      <Script
+        id="toulouse-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateLocalBusinessSchema(toulouseLocation), null, 0),
+        }}
       />
 
       {/* Hero Section Local */}
