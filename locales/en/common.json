@@ -245,6 +245,18 @@
     "footer_copyright": "All rights reserved | Freelance web developer in Paris | Toulouse",
     "legal_link": "Legal Notice"
   },
+  "pricing": {
+    "maintenance": {
+      "title": "Maintenance and Support",
+      "billing": "Hourly or fixed-rate billing according to demand",
+      "features": [
+        "Personalized support after delivery",
+        "Punctual interventions for modifications and updates",
+        "Responsive technical support via email, phone, WhatsApp or Telegram"
+      ],
+      "cta": "Request a quote"
+    }
+  },
   "legal": {
     "title": "Legal Notice",
     "company_info_title": "Company Information",

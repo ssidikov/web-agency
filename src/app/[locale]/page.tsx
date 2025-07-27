@@ -1,5 +1,6 @@
 import { Hero } from '@/components/Hero'
 import { Services } from '@/components/Services'
+import Pricing from '@/components/Pricing'
 import Portfolio from '@/components/Portfolio'
 import { FAQ } from '@/components/FAQ'
 import Contact from '@/components/Contact'
@@ -75,6 +76,7 @@ export default async function HomePage({ params }: HomePageProps) {
       
       <Hero dict={dict.hero} common={dict.common} locale={locale} />
       <Services dictionary={dict.services} locale={locale} />
+      <Pricing locale={locale} />
       <Portfolio dictionary={dict.portfolio} locale={locale} />
       <FAQ dictionary={dict.faq} />
       <Contact dictionary={dict.contact} locale={locale} />

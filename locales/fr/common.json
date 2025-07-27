@@ -245,6 +245,18 @@
     "footer_copyright": "Tous droits réservés | Développeur web freelance à Paris | Toulouse",
     "legal_link": "Mentions légales"
   },
+  "pricing": {
+    "maintenance": {
+      "title": "Maintenance et Support",
+      "billing": "Facturation horaire ou forfaitaire selon la demande",
+      "features": [
+        "Accompagnement personnalisé après livraison",
+        "Interventions ponctuelles pour modifications et mises à jour",
+        "Support technique réactif par email, téléphone, WhatsApp ou Telegram"
+      ],
+      "cta": "Demander un devis"
+    }
+  },
   "legal": {
     "title": "Mentions légales",
     "company_info_title": "Informations sur l'entreprise",
