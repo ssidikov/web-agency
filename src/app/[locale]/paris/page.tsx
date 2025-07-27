@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
 import { generateFrenchSEOMetadata, generateLocalContent } from '@/lib/french-seo'
 import { generateLocalBusinessSchema, businessLocations } from '@/lib/local-seo'
-import { getDictionary } from '@/lib/dictionaries'
 import SEOHead from '@/components/SEOHead'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export async function generateMetadata({
   params,
@@ -25,7 +25,6 @@ export async function generateMetadata({
 
 export default async function ParisPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  // const dict = await getDictionary(locale)
   const localContent = generateLocalContent('Paris')
   const parisLocation = businessLocations.find((loc) => loc.address.addressLocality === 'Paris')!
 
@@ -41,10 +40,12 @@ export default async function ParisPage({ params }: { params: Promise<{ locale: 
       <section className='relative py-20 bg-gradient-to-br from-[#3F72AF] to-[#112D4E] text-white overflow-hidden'>
         <div className='absolute inset-0'>
           <div className='absolute inset-0 bg-black/30' />
-          <img
+          <Image
             src='/images/hero/hero-bg1.webp'
             alt='Paris skyline'
             className='w-full h-full object-cover'
+            fill
+            priority
           />
         </div>
 
@@ -55,7 +56,7 @@ export default async function ParisPage({ params }: { params: Promise<{ locale: 
 
             <div className='flex flex-wrap justify-center gap-4 mb-8'>
               <Link
-                href='/fr/contact'
+                href={`/${locale}/contact`}
                 className='bg-[#F9F7F7] text-[#112D4E] px-8 py-4 rounded-full font-semibold hover:bg-white transition-colors'>
                 Devis Gratuit Paris
               </Link>

@@ -1,12 +1,11 @@
 import { Metadata } from 'next'
-import { frenchLocalKeywords, mainServices } from './local-seo'
 
 // Французские SEO заголовки и описания
 export const frenchSEOContent = {
   homePage: {
     title: 'Création Site Web Paris & Toulouse | Agence Web Premium SIDIKOFF DIGITAL',
     description:
-      '🥇 Agence web #1 à Paris & Toulouse ✨ Création sites web sur mesure, e-commerce, React/Next.js. Devis gratuit ☎️ +33 1 42 56 78 90',
+      '🥇 Agence web #1 à Paris & Toulouse ✨ Création sites web sur mesure, e-commerce, React/Next.js. Devis gratuit ☎️ +33 6 26 93 27 34',
     keywords:
       'création site web Paris, agence web Toulouse, développement web France, site internet sur mesure, React Next.js, e-commerce professionnel',
   },
@@ -38,7 +37,7 @@ export const frenchSEOContent = {
   contact: {
     title: 'Contact Agence Web Paris Toulouse | Devis Gratuit | SIDIKOFF DIGITAL',
     description:
-      'Contactez notre agence web à Paris ou Toulouse. Devis gratuit pour votre projet web. ☎️ Paris: +33 1 42 56 78 90 | Toulouse: +33 5 61 23 45 67',
+      'Contactez notre agence web à Paris ou Toulouse. Devis gratuit pour votre projet web. ☎️ Paris: +33 6 26 93 27 34 | Toulouse: +33 6 26 93 27 34',
     keywords:
       'contact agence web, devis site internet, développeur web Paris Toulouse, consultation gratuite',
   },
@@ -61,7 +60,7 @@ export function generateFrenchSEOMetadata(
   const keywords = customData?.keywords || seoData.keywords
   const locale = customData?.locale || 'fr'
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.digital'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'
   const canonical = customData?.canonical || baseUrl
 
   return {
@@ -194,17 +193,62 @@ export function generateLocalContent(city: 'Paris' | 'Toulouse') {
     Paris: {
       region: 'Île-de-France',
       description: 'la capitale française et centre économique majeur',
-      landmarks: ['Champs-Élysées', 'Tour Eiffel', 'Louvre', 'La Défense'],
-      businessDistricts: ['8ème arrondissement', 'La Défense', 'Marais', 'Saint-Germain'],
-      phone: '+33 1 42 56 78 90',
-      zipCodes: ['75001', '75008', '75016', '75017'],
+      landmarks: [
+        'Champs-Élysées',
+        'Tour Eiffel',
+        'Louvre',
+        'La Défense',
+        'Montmartre',
+        'Opéra',
+        'Auteuil',
+        'Saint-Cloud',
+        'Boulogne-Billancourt',
+        'Issy-les-Moulineaux',
+      ],
+      businessDistricts: [
+        '8ème arrondissement',
+        'La Défense',
+        'Marais',
+        'Saint-Germain',
+        'Bastille',
+        '16ème arrondissement',
+        '15ème arrondissement',
+      ],
+      phone: '+33 6 26 93 27 34',
+      zipCodes: [
+        '75020',
+        '75019',
+        '75018',
+        '75017',
+        '75016',
+        '75015',
+        '75014',
+        '75013',
+        '75012',
+        '75011',
+        '75010',
+        '75009',
+        '75008',
+        '75007',
+        '75006',
+        '75005',
+        '75004',
+        '75003',
+        '75002',
+        '75001',
+      ],
     },
     Toulouse: {
       region: 'Occitanie',
       description: 'la ville rose et pôle technologique du sud-ouest',
-      landmarks: ['Place du Capitole', "Cité de l'espace", 'Basilique Saint-Sernin'],
-      businessDistricts: ['Centre-ville', 'Compans-Caffarelli', 'Rangueil'],
-      phone: '+33 5 61 23 45 67',
+      landmarks: [
+        'Place du Capitole',
+        "Cité de l'espace",
+        'Basilique Saint-Sernin',
+        'Montastruc-la-Conseillère',
+      ],
+      businessDistricts: ['Centre-ville', 'Compans-Caffarelli', 'Rangueil', 'Romanville'],
+      phone: '+33 6 26 93 27 34',
       zipCodes: ['31000', '31100', '31200', '31300'],
     },
   }
@@ -226,10 +270,10 @@ export function generateLocalContent(city: 'Paris' | 'Toulouse') {
       nearbyAreas: data.businessDistricts,
       contactInfo: {
         phone: data.phone,
-        email: `${city.toLowerCase()}@sidikoff.digital`,
+        email: `${city.toLowerCase()}@sidikoff.com`,
         address:
           city === 'Paris'
-            ? '75 Avenue des Champs-Élysées, 75008 Paris'
+            ? '77 Ter Rue Michel Ange, 75016 Paris'
             : '15 Place du Capitole, 31000 Toulouse',
       },
     },
@@ -241,7 +285,7 @@ export const frenchLocalFAQ = [
   {
     question: "Combien coûte la création d'un site web à Paris ou Toulouse ?",
     answer:
-      "Le prix d'un site web varie selon vos besoins : site vitrine (2000-5000€), e-commerce (5000-15000€), application web sur mesure (10000€+). Nous proposons un devis gratuit adapté à votre projet.",
+      "Le prix d'un site web varie selon vos besoins : site vitrine (500-900€), e-commerce (2000-5000€), application web sur mesure (5000€+). Nous proposons un devis gratuit adapté à votre projet.",
   },
   {
     question: 'Quels sont les délais pour créer un site internet ?',

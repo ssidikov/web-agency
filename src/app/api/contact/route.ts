@@ -141,7 +141,7 @@ export async function POST(request: Request) {
     // Admin notification email
     const adminMail = {
       from: `"Contact Form - Sidikoff Digital" <${process.env.EMAIL_FROM || process.env.SMTP_USER || process.env.GMAIL_USER}>`,
-      to: process.env.EMAIL_TO || process.env.ADMIN_EMAIL || 'contact@sidikoff.digital',
+      to: process.env.EMAIL_TO || process.env.ADMIN_EMAIL || 'contact@sidikoff.com',
       subject: subjects.admin,
       html: adminTemplate({ name, email, message, locale }),
       replyTo: email, // Admin can reply directly to the user

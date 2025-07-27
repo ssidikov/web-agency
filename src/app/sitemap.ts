@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { mainServices } from '@/lib/local-seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.digital'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'
   const locales = ['fr', 'en', 'ru']
   const lastModified = new Date()
 

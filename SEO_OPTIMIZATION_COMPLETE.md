@@ -196,7 +196,7 @@ Content-Security-Policy: default-src 'self'
 1. **🔧 Проверить .env.local файл**
 
    ```bash
-   NEXT_PUBLIC_SITE_URL=https://sidikoff.digital
+   NEXT_PUBLIC_SITE_URL=https://sidikoff.com
    NEXT_PUBLIC_SANITY_PROJECT_ID=71pz7dxk
    ```
 

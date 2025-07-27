@@ -67,29 +67,29 @@ export default function SEOHead({ city, pageType = 'homepage', structuredData }:
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': 'https://sidikoff.digital/#website',
+    '@id': 'https://sidikoff.com/#website',
     name: 'SIDIKOFF DIGITAL',
     alternateName: 'Sidikoff Digital',
-    url: 'https://sidikoff.digital',
+    url: 'https://sidikoff.com',
     description:
       'Agence web premium spécialisée dans la création de sites web modernes à Paris et Toulouse',
     inLanguage: ['fr-FR', 'en-US', 'ru-RU'],
     isPartOf: {
       '@type': 'Organization',
-      '@id': 'https://sidikoff.digital/#organization',
+      '@id': 'https://sidikoff.com/#organization',
     },
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://sidikoff.digital/search?q={search_term_string}',
+        urlTemplate: 'https://sidikoff.com/search?q={search_term_string}',
       },
       'query-input': 'required name=search_term_string',
     },
     copyrightYear: new Date().getFullYear(),
     copyrightHolder: {
       '@type': 'Organization',
-      '@id': 'https://sidikoff.digital/#organization',
+      '@id': 'https://sidikoff.com/#organization',
     },
   }
   defaultSchemas.push(websiteSchema)
@@ -104,7 +104,7 @@ export default function SEOHead({ city, pageType = 'homepage', structuredData }:
           '@type': 'ListItem',
           position: 1,
           name: 'Accueil',
-          item: 'https://sidikoff.digital',
+          item: 'https://sidikoff.com',
         },
         {
           '@type': 'ListItem',
@@ -119,7 +119,7 @@ export default function SEOHead({ city, pageType = 'homepage', structuredData }:
                   : pageType === 'portfolio'
                     ? 'Portfolio'
                     : 'Page',
-          item: `https://sidikoff.digital/${pageType}`,
+          item: `https://sidikoff.com/${pageType}`,
         },
       ],
     }
@@ -128,7 +128,7 @@ export default function SEOHead({ city, pageType = 'homepage', structuredData }:
         '@type': 'ListItem',
         position: 3,
         name: city,
-        item: `https://sidikoff.digital/${city.toLowerCase()}`,
+        item: `https://sidikoff.com/${city.toLowerCase()}`,
       })
     }
     defaultSchemas.push(breadcrumbSchema)
@@ -171,8 +171,8 @@ export default function SEOHead({ city, pageType = 'homepage', structuredData }:
       <meta name='DC.date' content={new Date().toISOString()} />
       <meta name='DC.type' content='Text' />
       <meta name='DC.format' content='text/html' />
-      <meta name='DC.identifier' content='https://sidikoff.digital' />
-      <meta name='DC.source' content='https://sidikoff.digital' />
+      <meta name='DC.identifier' content='https://sidikoff.com' />
+      <meta name='DC.source' content='https://sidikoff.com' />
       <meta name='DC.language' content='fr' />
       <meta name='DC.coverage' content='France, Paris, Toulouse' />
       <meta name='DC.rights' content='Copyright SIDIKOFF DIGITAL' />
