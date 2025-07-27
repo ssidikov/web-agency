@@ -1,9 +1,13 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import PricingCard from './ui/PricingCard'
-import CTAButton from './ui/CTAButton'
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+
+import CTAButton from '@/components/ui/CTAButton'
+import PricingCard from '@/components/ui/PricingCard'
+
+
+
 
 // Simple SVG icons
 const CheckIcon = ({ className }: { className?: string }) => (

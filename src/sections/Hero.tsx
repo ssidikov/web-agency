@@ -1,11 +1,10 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
-import Image from 'next/image'
 import { useRef } from 'react'
-import { Dictionary } from '@/lib/dictionaries'
-import { Locale } from '@/lib/i18n'
-import CTAButton from './ui/CTAButton'
+import { motion, useInView } from 'framer-motion'
+
+import Image from 'next/image'
+
 import {
   ArrowIcon,
   PlayIcon,
@@ -13,6 +12,12 @@ import {
   ResponseIcon,
   SupportIcon,
 } from '@/components/ui/icons'
+import { Dictionary } from '@/lib/dictionaries'
+import { Locale } from '@/lib/i18n'
+import CTAButton from '@/components/ui/CTAButton'
+
+
+
 
 interface HeroProps {
   dict: Dictionary['hero']

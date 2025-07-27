@@ -1,3 +1,5 @@
+
+
 // SEO utilities for better Lighthouse scores
 
 // Generate breadcrumb structured data

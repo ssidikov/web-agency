@@ -1,7 +1,10 @@
+
+import { ErrorBoundary } from '@/components/ErrorBoundary'
+import { FAQ } from '@/sections'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
-import { FAQ } from '@/components/FAQ'
-import { ErrorBoundary } from '@/components/ErrorBoundary'
+
+
 
 interface FAQPageProps {
   params: Promise<{ locale: Locale }>

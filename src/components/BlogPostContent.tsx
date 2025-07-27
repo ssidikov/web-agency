@@ -1,11 +1,16 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { BlogPost, urlFor } from '@/lib/sanity'
-import { formatDate, Locale } from '@/lib/i18n'
+
 import { Dictionary } from '@/lib/dictionaries'
+import { formatDate, Locale } from '@/lib/i18n'
+import { motion } from 'framer-motion'
+
+import { BlogPost, urlFor } from '@/lib/sanity'
+
+
+
 
 interface BlogPostContentProps {
   post: BlogPost

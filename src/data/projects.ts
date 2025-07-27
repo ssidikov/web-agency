@@ -1,6 +1,9 @@
+
 import enProjects from '../../locales/en/projects.json'
 import frProjects from '../../locales/fr/projects.json'
 import ruProjects from '../../locales/ru/projects.json'
+
+
 
 export type Project = {
   id: string
@@ -12,6 +15,8 @@ export type Project = {
   link: string
   category: string
   featured?: boolean
+  demo?: string
+  github?: string
 }
 
 function normalizeProjects(data: unknown[]): Project[] {
@@ -31,3 +36,6 @@ export const getProjects = (locale: 'en' | 'fr' | 'ru'): Project[] => {
       return normalizeProjects(enProjects as unknown[])
   }
 }
+
+// Export a default projects array for backwards compatibility
+export const projects: Project[] = getProjects('fr')

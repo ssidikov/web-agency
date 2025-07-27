@@ -1,5 +1,8 @@
-import Contact from '@/components/Contact'
+
+import { Contact } from '@/sections'
 import { getDictionary } from '@/lib/dictionaries'
+
+
 
 export default async function ContactPage({
   params,

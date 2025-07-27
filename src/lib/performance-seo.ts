@@ -1,3 +1,5 @@
+
+
 // Утилиты для оптимизации производительности сайта для SEO
 
 export interface PerformanceMetrics {

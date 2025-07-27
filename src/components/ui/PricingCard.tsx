@@ -1,7 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
+
 import CTAButton from './CTAButton'
+
+
+
 
 // Simple SVG icons
 const CheckIcon = ({ className }: { className?: string }) => (

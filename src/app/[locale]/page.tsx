@@ -1,85 +1,48 @@
-import { Hero } from '@/components/Hero'
-import { Services } from '@/components/Services'
-import Pricing from '@/components/Pricing'
-import Portfolio from '@/components/Portfolio'
-import { FAQ } from '@/components/FAQ'
-import Contact from '@/components/Contact'
-import { getDictionary } from '@/lib/dictionaries'
-import { generateFrenchSEOMetadata } from '@/lib/french-seo'
-import { Locale } from '@/lib/i18n'
+
 import Script from 'next/script'
 import { businessLocations, generateLocalBusinessSchema, organizationSchema } from '@/lib/local-seo'
+import { generateFrenchSEOMetadata } from '@/lib/french-seo'
+import { getDictionary } from '@/lib/dictionaries'
+import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
 
 interface HomePageProps {
-  params: Promise<{ locale: Locale }>
+  params: Promise<{ locale: string }>
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }) {
+export async function generateMetadata({ params }: HomePageProps) {
   const { locale } = await params
-  return generateFrenchSEOMetadata('homePage', {
-    locale,
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}`,
-  })
+  return generateFrenchSEOMetadata(locale)
 }
 
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params
+  const dict = await getDictionary(locale as any)
 
-  const dict = await getDictionary(locale)
-
-  // Generate structured data for homepage
-  const schemas = [
-    organizationSchema,
-    ...businessLocations.map(location => generateLocalBusinessSchema(location)),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      '@id': 'https://sidikoff.com/#website',
-      name: 'SIDIKOFF DIGITAL',
-      alternateName: 'Sidikoff Digital',
-      url: 'https://sidikoff.com',
-      description: 'Agence web premium spécialisée dans la création de sites web modernes à Paris et Toulouse',
-      inLanguage: ['fr-FR', 'en-US', 'ru-RU'],
-      isPartOf: {
-        '@type': 'Organization',
-        '@id': 'https://sidikoff.com/#organization',
-      },
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: {
-          '@type': 'EntryPoint',
-          urlTemplate: 'https://sidikoff.com/search?q={search_term_string}',
-        },
-        'query-input': 'required name=search_term_string',
-      },
-      copyrightYear: new Date().getFullYear(),
-      copyrightHolder: {
-        '@type': 'Organization',
-        '@id': 'https://sidikoff.com/#organization',
-      },
-    }
-  ]
+  const localBusiness = businessLocations[0] // Use first location (Paris)
+  const localBusinessSchema = generateLocalBusinessSchema(localBusiness)
 
   return (
     <>
-      {/* Structured Data */}
-      {schemas.map((schema, index) => (
-        <Script
-          key={index}
-          id={`structured-data-${index}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema, null, 0),
-          }}
-        />
-      ))}
+      <Script
+        id="structured-data-org"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <Script
+        id="structured-data-local"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
       
-      <Hero dict={dict.hero} common={dict.common} locale={locale} />
-      <Services dictionary={dict.services} locale={locale} />
-      <Pricing locale={locale} />
-      <Portfolio dictionary={dict.portfolio} locale={locale} />
-      <FAQ dictionary={dict.faq} />
-      <Contact dictionary={dict.contact} locale={locale} />
+      <main>
+        <Hero dict={dict.hero} common={dict.common} locale={locale as any} />
+        <Services dictionary={dict.services} locale={locale} />
+        <Portfolio locale={locale as any} dictionary={dict.portfolio} />
+        <Pricing locale={locale} />
+        <FAQ locale={locale} dictionary={dict} />
+        <Contact locale={locale} dictionary={dict} />
+      </main>
     </>
   )
 }
+

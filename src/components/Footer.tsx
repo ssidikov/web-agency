@@ -1,10 +1,15 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Locale } from '@/lib/i18n'
-import { Dictionary } from '@/lib/dictionaries'
+
 import { EmailIcon, PhoneIcon, LocationIcon, LinkedInIcon, GitHubIcon } from '@/components/ui/icons'
+import { Locale } from '@/lib/i18n'
+import { motion } from 'framer-motion'
+
+import { Dictionary } from '@/lib/dictionaries'
+
+
+
 
 interface FooterProps {
   dictionary: Dictionary

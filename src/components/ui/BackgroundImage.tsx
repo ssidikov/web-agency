@@ -1,4 +1,7 @@
+
 import Image from 'next/image'
+
+
 
 interface BackgroundImageProps {
   src: string

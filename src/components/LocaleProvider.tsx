@@ -1,7 +1,11 @@
 'use client'
 
 import { useEffect } from 'react'
+
 import { Locale } from '@/lib/i18n'
+
+
+
 
 interface LocaleProviderProps {
   locale: Locale

@@ -1,81 +1,87 @@
 'use client'
 
+import React from 'react'
+import Link from 'next/link'
+import { cn } from '@/utils/styles'
+
 interface CTAButtonProps {
-  children: React.ReactNode
-  onClick?: () => void
   href?: string
-  variant?: 'primary' | 'secondary'
-  size?: 'sm' | 'md' | 'lg' | 'xl'
+  onClick?: () => void
+  children: React.ReactNode
+  variant?: 'primary' | 'secondary' | 'outline'
+  size?: 'sm' | 'md' | 'lg'
   className?: string
   disabled?: boolean
   type?: 'button' | 'submit' | 'reset'
   ariaLabel?: string
 }
 
-export default function CTAButton({
-  children,
-  onClick,
-  href,
-  variant = 'primary',
-  size = 'md',
-  className = '',
-  disabled = false,
-  type = 'button',
-  ariaLabel,
-}: CTAButtonProps) {
-  // Size styles
-  const sizeStyles = {
-    sm: 'h-12 lg:h-14 text-base px-6 lg:px-7',
-    md: 'h-14 lg:h-16 text-lg px-6 lg:px-8',
-    lg: 'h-16 lg:h-[77px] 3xl:h-[98px] text-lg 3xl:text-xl px-6 lg:px-8',
-    xl: 'h-18 lg:h-20 3xl:h-24 text-xl 3xl:text-2xl px-8 lg:px-10'
-  }
+const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTAButtonProps>(
+  ({ 
+    href, 
+    onClick, 
+    children, 
+    variant = 'primary', 
+    size = 'md', 
+    className, 
+    disabled,
+    type = 'button',
+    ariaLabel,
+    ...props 
+  }, ref) => {
+    const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+    
+    const variants = {
+      primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
+      secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
+      outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500'
+    }
+    
+    const sizes = {
+      sm: 'px-3 py-2 text-sm rounded-md',
+      md: 'px-4 py-2 text-base rounded-lg',
+      lg: 'px-6 py-3 text-lg rounded-xl'
+    }
+    
+    const classes = cn(
+      baseClasses,
+      variants[variant],
+      sizes[size],
+      className
+    )
 
-  // Variant styles
-  const variantStyles = {
-    primary: 'group relative bg-black hover:bg-white text-white hover:text-black border border-black transition-all duration-300',
-    secondary: 'relative text-gray-900 border border-black hover:bg-black hover:text-white transition-all duration-300'
-  }
+    if (href) {
+      return (
+        <Link
+          href={href}
+          className={classes}
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          aria-label={ariaLabel}
+          {...props}
+        >
+          {children}
+        </Link>
+      )
+    }
 
-  // Base styles
-  const baseStyles = 'w-full sm:w-auto font-medium whitespace-nowrap rounded-full cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2'
-
-  const buttonClasses = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`
-
-  const content = (
-    <span className="relative flex items-center justify-center">
-      {children}
-    </span>
-  )
-
-  if (href) {
     return (
-      <a
-        href={href}
-        className={buttonClasses}
+      <button
+        type={type}
+        onClick={onClick}
+        className={classes}
+        disabled={disabled}
+        ref={ref as React.Ref<HTMLButtonElement>}
         aria-label={ariaLabel}
-        role="button"
+        {...props}
       >
-        {variant === 'secondary' && (
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 hover:opacity-0 transition-opacity duration-200 rounded-full"></div>
-        )}
-        {content}
-      </a>
+        {children}
+      </button>
     )
   }
+)
 
-  return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={buttonClasses}
-      disabled={disabled}
-      aria-label={ariaLabel}
-    >
-      {variant === 'secondary' && (
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 hover:opacity-0 transition-opacity duration-200 rounded-full"></div>
-      )}
-      {content}
-    </button>
-  )
-}
+CTAButton.displayName = 'CTAButton'
+
+export default CTAButton
+
+

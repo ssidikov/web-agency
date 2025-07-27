@@ -1,24 +1,41 @@
-import type { Metadata } from 'next'
+
 import { Inter } from 'next/font/google'
+import type { Metadata } from 'next'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'SIDIKOFF DIGITAL - Agence Web Premium Paris & Toulouse',
-  description:
-    'Agence web premium spécialisée dans la création de sites web modernes à Paris et Toulouse. Développement sur mesure, e-commerce, SEO.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  title: 'Sidikoff - Agence Web & Développement',
+  description: 'Agence web spécialisée dans la création de sites internet, applications web et mobiles. Expertise en React, Next.js, et développement sur mesure.',
+  keywords: 'agence web, développement web, création site internet, React, Next.js, applications mobiles',
+  authors: [{ name: 'Sidikoff' }],
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    url: 'https://sidikoff.fr',
+    siteName: 'Sidikoff',
+    title: 'Sidikoff - Agence Web & Développement',
+    description: 'Agence web spécialisée dans la création de sites internet, applications web et mobiles.'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sidikoff - Agence Web & Développement',
+    description: 'Agence web spécialisée dans la création de sites internet, applications web et mobiles.'
+  }
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="fr" suppressHydrationWarning={true}>
-      <body
-        className={`${inter.className} text-[#112D4E] antialiased`}
-        suppressHydrationWarning={true}>
+    <html lang="fr">
+      <body className={inter.className}>
         {children}
       </body>
     </html>
   )
 }
+

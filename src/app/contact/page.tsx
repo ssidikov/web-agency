@@ -1,9 +1,12 @@
-import Contact from '@/components/Contact'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import LocaleProvider from '@/components/LocaleProvider'
-import { getDictionary } from '@/lib/dictionaries'
+
+import { Contact } from '@/sections'
 import { defaultLocale } from '@/lib/i18n'
+import { Footer } from '@/components/Footer'
+import { getDictionary } from '@/lib/dictionaries'
+import { Header } from '@/components/Header'
+import LocaleProvider from '@/components/LocaleProvider'
+
+
 
 export default async function ContactPage() {
   const dictionary = await getDictionary(defaultLocale)

@@ -1,6 +1,10 @@
-import 'server-only'
+
 import { notFound } from 'next/navigation'
+import 'server-only'
+
 import { type Locale, isValidLocale, defaultLocale } from './i18n'
+
+
 
 // Define the Dictionary type based on your actual JSON structure
 export interface Dictionary {

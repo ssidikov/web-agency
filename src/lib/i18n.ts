@@ -1,3 +1,5 @@
+
+
 export type Locale = 'fr' | 'en' | 'ru'
 
 export const locales: Locale[] = ['fr', 'en', 'ru']

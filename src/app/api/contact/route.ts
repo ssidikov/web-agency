@@ -1,5 +1,7 @@
+
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+
 import {
   userConfirmationFR,
   adminNotificationFR,
@@ -8,6 +10,8 @@ import {
   userConfirmationRU,
   adminNotificationRU,
 } from './mailTemplates'
+
+
 
 interface ContactFormData {
   name: string

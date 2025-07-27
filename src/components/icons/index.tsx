@@ -1,5 +1,8 @@
-// Custom SVG icons for the project
+
 import React from 'react'
+
+
+// Custom SVG icons for the project
 
 interface IconProps {
   size?: number

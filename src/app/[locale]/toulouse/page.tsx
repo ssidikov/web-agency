@@ -1,9 +1,14 @@
+
 import { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import Script from 'next/script'
+
 import { generateFrenchSEOMetadata, generateLocalContent } from '@/lib/french-seo'
 import { generateLocalBusinessSchema, businessLocations } from '@/lib/local-seo'
-import Link from 'next/link'
-import Image from 'next/image'
-import Script from 'next/script'
+
+
+
 
 export async function generateMetadata({
   params,
@@ -13,14 +18,7 @@ export async function generateMetadata({
   const { locale } = await params
   const localContent = generateLocalContent('Toulouse')
 
-  return generateFrenchSEOMetadata('contact', {
-    title: localContent.title,
-    description: localContent.description,
-    keywords:
-      'agence web Toulouse, création site internet Toulouse, développeur web Toulouse, e-commerce Toulouse, SEO Toulouse, React Next.js Toulouse',
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/toulouse`,
-    locale,
-  })
+  return generateFrenchSEOMetadata(locale)
 }
 
 export default async function ToulousePage({ params }: { params: Promise<{ locale: string }> }) {

@@ -1,13 +1,22 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import Image from 'next/image'
-import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Locale } from '@/lib/i18n'
+import { usePathname } from 'next/navigation'
+
+import Image from 'next/image'
+import Link from 'next/link'
+
 import { Dictionary } from '@/lib/dictionaries'
+import { Locale } from '@/lib/i18n'
+
 import { LanguageSwitcher } from './LanguageSwitcher'
+
+import { motion } from 'framer-motion'
+
+
+
+
+
 
 interface HeaderProps {
   dictionary: Dictionary

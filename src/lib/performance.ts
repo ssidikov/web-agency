@@ -1,3 +1,5 @@
+
+
 // Performance monitoring utilities for better Lighthouse scores
 
 interface WebVitalsMetric {

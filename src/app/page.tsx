@@ -1,22 +1,39 @@
-import { Hero } from '@/components/Hero'
-import { Services } from '@/components/Services'
-import Pricing from '@/components/Pricing'
-import Portfolio from '@/components/Portfolio'
-import { FAQ } from '@/components/FAQ'
-import Contact from '@/components/Contact'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import LocaleProvider from '@/components/LocaleProvider'
-import { getDictionary } from '@/lib/dictionaries'
-import { generateFrenchSEOMetadata } from '@/lib/french-seo'
-import { defaultLocale } from '@/lib/i18n'
+
 import Script from 'next/script'
+
 import { businessLocations, generateLocalBusinessSchema, organizationSchema } from '@/lib/local-seo'
+import { defaultLocale } from '@/lib/i18n'
+import { Footer } from '@/components/Footer'
+import { generateSEOMetadata, generateLanguageAlternates, createCanonicalUrl } from '@/utils/seo'
+import { getDictionary } from '@/lib/dictionaries'
+import { Header } from '@/components/Header'
+import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
+import LocaleProvider from '@/components/LocaleProvider'
+
+
+
 
 export async function generateMetadata() {
-  return generateFrenchSEOMetadata('homePage', {
+  const dict = await getDictionary(defaultLocale)
+  
+  return generateSEOMetadata({
+    title: dict.hero.title,
+    description: dict.hero.subtitle,
     locale: defaultLocale,
-    canonical: process.env.NEXT_PUBLIC_SITE_URL,
+    canonicalUrl: createCanonicalUrl('/', defaultLocale),
+    alternateLanguages: generateLanguageAlternates(
+      process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.fr',
+      ['fr', 'en', 'ru']
+    ),
+    ogImage: '/images/og-homepage.jpg',
+    keywords: [
+      'développeur web freelance',
+      'création site internet',
+      'développement React',
+      'Next.js expert',
+      'typescript développeur',
+      'consultant digital'
+    ],
   })
 }
 

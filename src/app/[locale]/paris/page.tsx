@@ -1,9 +1,14 @@
+
 import { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import Script from 'next/script'
+
 import { generateFrenchSEOMetadata, generateLocalContent } from '@/lib/french-seo'
 import { generateLocalBusinessSchema, businessLocations } from '@/lib/local-seo'
-import Link from 'next/link'
-import Image from 'next/image'
-import Script from 'next/script'
+
+
+
 
 export async function generateMetadata({
   params,
@@ -13,14 +18,7 @@ export async function generateMetadata({
   const { locale } = await params
   const localContent = generateLocalContent('Paris')
 
-  return generateFrenchSEOMetadata('contact', {
-    title: localContent.title,
-    description: localContent.description,
-    keywords:
-      'agence web Paris, création site internet Paris, développeur web Paris, e-commerce Paris, SEO Paris, React Next.js Paris',
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/paris`,
-    locale,
-  })
+  return generateFrenchSEOMetadata(locale)
 }
 
 export default async function ParisPage({ params }: { params: Promise<{ locale: string }> }) {

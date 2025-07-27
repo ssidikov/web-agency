@@ -1,113 +1,90 @@
+
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+
+import { BlogPostContent } from '@/components/BlogPostContent'
+import { getBlogPostBySlug, getBlogPosts, urlFor } from '@/lib/sanity'
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
-import { BlogPostContent } from '@/components/BlogPostContent'
-import { ErrorBoundary } from '@/components/ErrorBoundary'
-import { getBlogPostBySlug, getBlogPosts, urlFor } from '@/lib/sanity'
 
 interface BlogPostPageProps {
-  params: Promise<{ locale: Locale; slug: string }>
+  params: Promise<{
+    locale: Locale
+    slug: string
+  }>
+}
+
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const resolvedParams = await params
+  const { slug } = resolvedParams
+  
+  const post = await getBlogPostBySlug(slug)
+  
+  if (!post) {
+    return {
+      title: 'Article non trouvé',
+      description: 'Cet article de blog n\'existe pas.'
+    }
+  }
+
+  return {
+    title: `${post.title} | SIDIKOFF DIGITAL`,
+    description: post.excerpt || post.title,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || post.title,
+      type: 'article',
+      publishedTime: post.publishedAt,
+      images: post.mainImage ? [urlFor(post.mainImage).url()] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt || post.title,
+      images: post.mainImage ? [urlFor(post.mainImage).url()] : [],
+    },
+  }
 }
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts()
-
-  return posts.map((post) => ({
-    slug: post.slug.current,
-  }))
-}
-
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { locale, slug } = await params
-  const post = await getBlogPostBySlug(slug)
-
-  if (!post) {
-    return {
-      title: 'Post Not Found',
+  const locales: Locale[] = ['fr', 'en', 'ru']
+  
+  const params = []
+  
+  for (const locale of locales) {
+    for (const post of posts) {
+      params.push({
+        locale,
+        slug: post.slug.current,
+      })
     }
   }
-
-  const title = post.seo?.metaTitle || post.title
-  const description = post.seo?.metaDescription || post.excerpt || ''
-  const imageUrl = post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined
-
-  return {
-    title: `${title} | SIDIKOFF DIGITAL Blog`,
-    description,
-    keywords: post.seo?.keywords,
-    openGraph: {
-      title,
-      description,
-      type: 'article',
-      locale: locale,
-      publishedTime: post.publishedAt,
-      authors: ['SIDIKOFF DIGITAL'],
-      images: imageUrl
-        ? [
-            {
-              url: imageUrl,
-              width: 1200,
-              height: 630,
-              alt: post.mainImage?.alt || post.title,
-            },
-          ]
-        : [],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: imageUrl ? [imageUrl] : [],
-    },
-    robots: {
-      index: true,
-      follow: true,
-    },
-    alternates: {
-      canonical: `/${locale}/blog/${slug}`,
-    },
-  }
+  
+  return params
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { locale, slug } = await params
-  const [post, dictionary] = await Promise.all([getBlogPostBySlug(slug), getDictionary(locale)])
+  const resolvedParams = await params
+  const { locale, slug } = resolvedParams
+  
+  const [post, dict] = await Promise.all([
+    getBlogPostBySlug(slug),
+    getDictionary(locale)
+  ])
 
   if (!post) {
     notFound()
   }
 
-  // JSON-LD structured data for SEO
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: post.title,
-    description: post.excerpt || '',
-    image: post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : '',
-    author: {
-      '@type': 'Organization',
-      name: 'SIDIKOFF DIGITAL',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'SIDIKOFF DIGITAL',
-    },
-    datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `/${locale}/blog/${slug}`,
-    },
-  }
-
   return (
-    <ErrorBoundary>
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    <div className="min-h-screen bg-gray-50">
+      <BlogPostContent 
+        post={post} 
+        dictionary={dict.blog} 
+        locale={locale} 
       />
-      <BlogPostContent post={post} dictionary={dictionary.blog} locale={locale} />
-    </ErrorBoundary>
+    </div>
   )
 }
+

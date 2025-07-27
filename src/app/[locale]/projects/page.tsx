@@ -1,8 +1,14 @@
 'use client'
+
 import React from 'react'
+
 import Image from 'next/image'
+
 import { getProjects } from '@/data/projects'
 import { ProjectCard } from '@/components/ui/ProjectCard'
+
+
+
 
 export default function ProjectsPage({
   params,

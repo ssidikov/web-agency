@@ -1,3 +1,5 @@
+
+
 // Локальная SEO конфигурация для SIDIKOFF DIGITAL
 export interface LocalBusiness {
   name: string

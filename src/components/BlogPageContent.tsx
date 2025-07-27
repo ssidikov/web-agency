@@ -1,13 +1,15 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { motion } from 'framer-motion'
 import Link from 'next/link'
+
 import { BlogPost, BlogCategory } from '@/lib/sanity'
-import { Locale } from '@/lib/i18n'
-import { BlogCard } from '@/components/ui/BlogCard'
 import { CategoryFilter } from '@/components/ui/CategoryFilter'
 import { Dictionary } from '@/lib/dictionaries'
+import { Locale } from '@/lib/i18n'
+import { motion } from 'framer-motion'
+
+import { BlogCard } from '@/components/ui/BlogCard'
 
 interface BlogPageContentProps {
   posts: BlogPost[]
@@ -93,7 +95,6 @@ export function BlogPageContent({ posts, categories, dictionary, locale }: BlogP
             categories={categories}
             selectedCategory={selectedCategory}
             onCategoryChange={setSelectedCategory}
-            locale={locale}
           />
 
           {/* No Posts Message */}

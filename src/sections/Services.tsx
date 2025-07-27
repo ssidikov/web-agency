@@ -1,9 +1,13 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
+
+import { motion } from 'framer-motion'
+
 import { Dictionary } from '@/lib/dictionaries'
-import CTAButton from './ui/CTAButton'
+import CTAButton from '@/components/ui/CTAButton'
+
+
 
 interface ServicesProps {
   dictionary: Dictionary['services']

@@ -1,6 +1,12 @@
-import { match } from '@formatjs/intl-localematcher'
+
 import Negotiator from 'negotiator'
+
+import { match } from '@formatjs/intl-localematcher'
+
 import { type Locale, locales, defaultLocale } from './i18n'
+
+
+
 
 export function getLocale(request: Request): Locale {
   // Get Accept-Language header

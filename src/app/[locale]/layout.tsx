@@ -1,10 +1,15 @@
+
 import type { Metadata } from 'next'
-import { getDictionary } from '@/lib/dictionaries'
-import { Locale } from '@/lib/i18n'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import LocaleProvider from '@/components/LocaleProvider'
+
 import { fallbackDictionary } from '@/lib/fallback-dictionary'
+
+import { Footer } from '@/components/Footer'
+import { getDictionary } from '@/lib/dictionaries'
+import { Header } from '@/components/Header'
+import { Locale } from '@/lib/i18n'
+import LocaleProvider from '@/components/LocaleProvider'
+
+
 
 interface RootLayoutProps {
   children: React.ReactNode

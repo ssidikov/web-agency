@@ -1,63 +1,51 @@
 'use client'
 
-import { Component, ErrorInfo, ReactNode } from 'react'
+import React, { Component, ErrorInfo, ReactNode } from 'react'
 
-interface ErrorBoundaryState {
-  hasError: boolean
-  error?: Error
-  errorInfo?: ErrorInfo
-}
-
-interface ErrorBoundaryProps {
+interface Props {
   children: ReactNode
   fallback?: ReactNode
-  onError?: (error: Error, errorInfo: ErrorInfo) => void
 }
 
-export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor(props: ErrorBoundaryProps) {
+interface State {
+  hasError: boolean
+  error?: Error
+}
+
+export class ErrorBoundary extends Component<Props, State> {
+  constructor(props: Props) {
     super(props)
     this.state = { hasError: false }
   }
 
-  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+  static getDerivedStateFromError(error: Error): State {
     return { hasError: true, error }
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    this.setState({ error, errorInfo })
-
-    // Call optional error handler
-    this.props.onError?.(error, errorInfo)
-
-    // Log error in development only
-    if (process.env.NODE_ENV === 'development') {
-      console.error('ErrorBoundary caught an error:', error)
-      console.error('Error details:', errorInfo)
-    }
+    console.error('ErrorBoundary caught an error:', error, errorInfo)
   }
 
   render() {
     if (this.state.hasError) {
-      // Custom fallback UI
       if (this.props.fallback) {
         return this.props.fallback
       }
 
-      // Default fallback UI
       return (
-        <div className='min-h-[400px] flex items-center justify-center p-8'>
-          <div className='text-center space-y-4'>
-            <h2 className='text-2xl font-bold text-gray-900'>Something went wrong</h2>
-            <p className='text-gray-600 max-w-md'>
-              We encountered an unexpected error. Please refresh the page or try again later.
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <div className="text-center p-8">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              Oops! Quelque chose s'est mal passé
+            </h1>
+            <p className="text-gray-600 mb-6">
+              Une erreur inattendue s'est produite. Veuillez rafraîchir la page ou réessayer plus tard.
             </p>
             <button
-              onClick={() =>
-                this.setState({ hasError: false, error: undefined, errorInfo: undefined })
-              }
-              className='px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors'>
-              Try Again
+              onClick={() => window.location.reload()}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Rafraîchir la page
             </button>
           </div>
         </div>
@@ -68,16 +56,4 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   }
 }
 
-// Hook version for functional components
-export function withErrorBoundary<P extends object>(
-  Component: React.ComponentType<P>,
-  errorFallback?: ReactNode
-) {
-  return function WrappedComponent(props: P) {
-    return (
-      <ErrorBoundary fallback={errorFallback}>
-        <Component {...props} />
-      </ErrorBoundary>
-    )
-  }
-}
+export default ErrorBoundary

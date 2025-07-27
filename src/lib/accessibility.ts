@@ -1,3 +1,5 @@
+
+
 // Accessibility utilities for better Lighthouse scores
 
 // Skip link component for keyboard navigation

@@ -1,8 +1,8 @@
 'use client'
 
-import { usePathname, useRouter } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { usePathname, useRouter } from 'next/navigation'
+
 import {
   type Locale,
   locales,
@@ -12,7 +12,11 @@ import {
   removeLocaleFromPathname,
   addLocaleToPathname,
 } from '@/lib/i18n'
+import { motion, AnimatePresence } from 'framer-motion'
+
 import { Dictionary } from '@/lib/dictionaries'
+
+
 
 interface LanguageSwitcherProps {
   currentLocale: Locale

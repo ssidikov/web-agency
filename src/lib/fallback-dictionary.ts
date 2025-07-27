@@ -1,4 +1,6 @@
+
 import { Dictionary } from './dictionaries'
+
 
 export const fallbackDictionary: Dictionary = {
   common: {
@@ -211,6 +213,7 @@ export const fallbackDictionary: Dictionary = {
     maintenance: {
       title: '🔧 Monthly Maintenance – Ongoing Support',
       billing: 'Rate: from €59/month',
+
       features: [
         'Regular technical updates',
         'Changes or additions to sections/pages',

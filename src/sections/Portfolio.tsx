@@ -1,12 +1,18 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { useState } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
+
+import Link from 'next/link'
+
 import { getProjects } from '@/data/projects'
 import { ProjectCard } from '@/components/ui/ProjectCard'
+import { motion } from 'framer-motion'
+
 import { Dictionary } from '@/lib/dictionaries'
+
+
+
 
 interface PortfolioNewProps {
   locale: 'en' | 'fr' | 'ru'
