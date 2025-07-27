@@ -1,11 +1,11 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import Link from 'next/link'
 import Image from 'next/image'
 import { useRef } from 'react'
 import { Dictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
+import CTAButton from './ui/CTAButton'
 import {
   ArrowIcon,
   PlayIcon,
@@ -124,19 +124,25 @@ export function Hero({ dict, common, locale }: HeroProps) {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
             className='flex flex-col sm:flex-row gap-6 justify-center mb-16'>
-            <Link
-              href={`/${locale}#contact`}
-              className='group inline-flex items-center justify-center px-8 py-4 bg-black text-white font-semibold rounded-full hover:bg-gray-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105'>
+            <CTAButton
+              variant="primary"
+              size="lg"
+              href={locale === 'fr' ? '/#contact' : `/${locale}#contact`}
+              className="inline-flex items-center justify-center"
+            >
               <span className='mr-2'>{dict.cta_primary}</span>
               <ArrowIcon />
-            </Link>
+            </CTAButton>
 
-            <Link
-              href={`/${locale}#portfolio`}
-              className='group inline-flex items-center justify-center px-8 py-4 border-2 border-black text-black font-semibold rounded-full hover:bg-black hover:text-white transition-all duration-300'>
+            <CTAButton
+              variant="secondary"
+              size="lg"
+              href={locale === 'fr' ? '/#portfolio' : `/${locale}#portfolio`}
+              className="inline-flex items-center justify-center"
+            >
               <PlayIcon />
               <span className='ml-2'>{dict.cta_secondary}</span>
-            </Link>
+            </CTAButton>
           </motion.div>
 
           {/* Trust Badges */}

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import CTAButton from './CTAButton'
 
 // Simple SVG icons
 const CheckIcon = ({ className }: { className?: string }) => (
@@ -142,17 +143,15 @@ export default function PricingCard({
 
         {/* Bouton CTA - toujours en bas */}
         <div className='mt-auto'>
-          <motion.button
-            whileTap={{ scale: 0.98 }}
+          <CTAButton
+            variant={isHighlighted ? "primary" : "secondary"}
+            size="md"
+            className="w-full"
             onClick={onSelect}
-            className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-opacity-50 ${
-              isHighlighted
-                ? 'bg-gradient-to-r from-[#3F72AF] to-[#112D4E] text-white hover:shadow-lg focus:ring-[#3F72AF]'
-                : 'bg-[#F9F7F7] text-[#112D4E] hover:bg-[#3F72AF] hover:text-white border-2 border-[#3F72AF]/20 hover:border-[#3F72AF] focus:ring-[#3F72AF]'
-            }`}
-            aria-label={`Choisir le plan ${name} ${typeof price === 'string' ? price : `à ${price}€`}${period ? ` par ${period}` : ''}`}>
+            ariaLabel={`Choisir le plan ${name} ${typeof price === 'string' ? price : `à ${price}€`}${period ? ` par ${period}` : ''}`}
+          >
             {ctaText}
-          </motion.button>
+          </CTAButton>
         </div>
       </div>
     </motion.div>

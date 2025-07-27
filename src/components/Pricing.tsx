@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import PricingCard from './ui/PricingCard'
+import CTAButton from './ui/CTAButton'
 import { useState, useEffect } from 'react'
 
 // Simple SVG icons
@@ -234,14 +235,14 @@ export default function Pricing({ locale }: PricingProps) {
                 ))}
               </ul>
             </div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <CTAButton
+              variant="primary"
+              size="md"
               onClick={() => handlePlanSelect('custom')}
-              className='bg-gradient-to-r from-[#3F72AF] to-[#112D4E] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#3F72AF]/50'
-              aria-label={dict?.pricing?.maintenance?.cta || 'Demander un devis'}>
+              ariaLabel={dict?.pricing?.maintenance?.cta || 'Demander un devis'}
+            >
               {dict?.pricing?.maintenance?.cta || 'Demander un devis'}
-            </motion.button>
+            </CTAButton>
           </div>
         </motion.div>
       </div>

@@ -3,13 +3,14 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Dictionary } from '@/lib/dictionaries'
+import CTAButton from './ui/CTAButton'
 
 interface ServicesProps {
   dictionary: Dictionary['services']
   locale: string
 }
 
-export function Services({ dictionary: dict }: ServicesProps) {
+export function Services({ dictionary: dict, locale }: ServicesProps) {
   const services = [
     {
       title: dict.web_creation.title,
@@ -124,18 +125,29 @@ export function Services({ dictionary: dict }: ServicesProps) {
 
                   {/* Enhanced CTA Buttons */}
                   <div className='flex flex-col sm:flex-row gap-4'>
-                    <button className='group relative bg-black hover:bg-white text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer'>
-                      <span className='relative flex items-center justify-center'>
-                        {dict.buttons.request_quote}
-                      </span>
-                    </button>
+                    <CTAButton
+                      variant='primary'
+                      size='lg'
+                      className='3xl:w-1/2'
+                      onClick={() => {
+                        const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
+                        window.location.href = contactUrl
+                      }}>
+                      {dict.buttons.request_quote}
+                    </CTAButton>
 
-                    <button className='relative text-gray-900 border border-black hover:bg-black hover:text-white transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] w-full sm:w-auto 3xl:w-1/2 text-lg 3xl:text-22 font-medium whitespace-nowrap rounded-full px-6 lg:px-8 cursor-pointer'>
-                      <div className='absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-0 transition-opacity duration-200'></div>
-                      <span className='relative flex items-center justify-center'>
-                        {dict.buttons.view_pricing}
-                      </span>
-                    </button>
+                    <CTAButton
+                      variant='secondary'
+                      size='lg'
+                      className='3xl:w-1/2'
+                      onClick={() => {
+                        const element = document.getElementById('pricing')
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' })
+                        }
+                      }}>
+                      {dict.buttons.view_pricing}
+                    </CTAButton>
                   </div>
                 </div>
               </div>
@@ -186,13 +198,15 @@ export function Services({ dictionary: dict }: ServicesProps) {
                   {dict.cta_banner.description}
                 </p>
 
-                <motion.button
-                  whileTap={{ scale: 0.98 }}
-                  className='group relative bg-black hover:bg-transparent text-white hover:text-black border border-gray-400 transition-all duration-300 w-full text-lg 3xl:text-22 whitespace-nowrap px-6 lg:px-8 cursor-pointer h-[60px] sm:h-16 lg:h-20 lg:text-lg 3xl:text-22 font-medium rounded-full mt-5 sm:mt-10'>
-                  <div className='absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-                  <div className='absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-
-                  <span className='relative flex items-center justify-center gap-3'>
+                <CTAButton
+                  variant='primary'
+                  size='lg'
+                  className='w-full mt-5 sm:mt-10'
+                  onClick={() => {
+                    const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
+                    window.location.href = contactUrl
+                  }}>
+                  <span className='flex items-center justify-center gap-3'>
                     <span>{dict.cta_banner.cta}</span>
                     <svg
                       className='w-5 h-5 transition-transform duration-300 group-hover:translate-x-1'
@@ -207,7 +221,7 @@ export function Services({ dictionary: dict }: ServicesProps) {
                       />
                     </svg>
                   </span>
-                </motion.button>
+                </CTAButton>
               </div>
             </motion.div>
           </div>
@@ -258,11 +272,18 @@ export function Services({ dictionary: dict }: ServicesProps) {
                         {dict.cta_banner.description}
                       </p>
 
-                      <button className='group relative bg-black hover:bg-transparent text-white hover:text-black border border-gray-400 transition-all duration-300 w-full text-lg 3xl:text-22 whitespace-nowrap px-6 lg:px-8 cursor-pointer h-[60px] sm:h-16 lg:h-20 lg:text-lg 3xl:text-22 font-medium rounded-full mt-5 sm:mt-10'>
-                        <span className='relative flex items-center justify-center gap-3'>
+                      <CTAButton
+                        variant='primary'
+                        size='lg'
+                        className='w-full mt-5 sm:mt-10'
+                        onClick={() => {
+                          const contactUrl = `/${locale === 'fr' ? '' : locale + '/'}contact`
+                          window.location.href = contactUrl
+                        }}>
+                        <span className='flex items-center justify-center gap-3'>
                           <span className='text-xl'>{dict.cta_banner.cta}</span>
                         </span>
-                      </button>
+                      </CTAButton>
                     </motion.div>
                   </div>
                 </div>
