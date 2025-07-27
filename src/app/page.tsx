@@ -27,7 +27,7 @@ export default async function HomePage() {
   // Generate structured data for homepage
   const schemas = [
     organizationSchema,
-    ...businessLocations.map(location => generateLocalBusinessSchema(location)),
+    ...businessLocations.map((location) => generateLocalBusinessSchema(location)),
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
@@ -35,7 +35,8 @@ export default async function HomePage() {
       name: 'SIDIKOFF DIGITAL',
       alternateName: 'Sidikoff Digital',
       url: 'https://sidikoff.com',
-      description: 'Agence web premium spécialisée dans la création de sites web modernes à Paris et Toulouse',
+      description:
+        'Agence web premium spécialisée dans la création de sites web modernes à Paris et Toulouse',
       inLanguage: ['fr-FR', 'en-US', 'ru-RU'],
       isPartOf: {
         '@type': 'Organization',
@@ -54,7 +55,7 @@ export default async function HomePage() {
         '@type': 'Organization',
         '@id': 'https://sidikoff.com/#organization',
       },
-    }
+    },
   ]
 
   return (
@@ -65,19 +66,19 @@ export default async function HomePage() {
           <Script
             key={index}
             id={`structured-data-${index}`}
-            type="application/ld+json"
+            type='application/ld+json'
             dangerouslySetInnerHTML={{
               __html: JSON.stringify(schema, null, 0),
             }}
           />
         ))}
-        
+
         <Header locale={defaultLocale} dictionary={dict} />
         <main className='m-0 p-0'>
           <Hero dict={dict.hero} common={dict.common} locale={defaultLocale} />
           <Services dictionary={dict.services} locale={defaultLocale} />
-          <Pricing locale={defaultLocale} />
           <Portfolio dictionary={dict.portfolio} locale={defaultLocale} />
+          <Pricing locale={defaultLocale} />
           <FAQ dictionary={dict.faq} />
           <Contact dictionary={dict.contact} locale={defaultLocale} />
         </main>
