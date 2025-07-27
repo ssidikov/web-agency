@@ -24,7 +24,7 @@ SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASS=your-app-password
 EMAIL_FROM=your-email@gmail.com
-EMAIL_TO=contact@sidikoff.com
+EMAIL_TO=ssidikoff@gmail.com
 
 # Дополнительные настройки (опционально)
 # GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
@@ -116,7 +116,7 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 # SMTP_USER=your-email@gmail.com
 # SMTP_PASS=your-app-password
 # EMAIL_FROM=your-email@gmail.com
-# EMAIL_TO=contact@sidikoff.com
+# EMAIL_TO=ssidikoff@gmail.com
 ```
 
 **🎯 Готово! Ваш проект теперь безопасен и готов к продакшену!**

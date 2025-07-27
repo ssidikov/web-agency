@@ -12,7 +12,6 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  const localContent = generateLocalContent('Toulouse')
 
   return generateFrenchSEOMetadata(locale)
 }

@@ -61,7 +61,7 @@ export const initialAuthor = {
       ],
     },
   ],
-  email: 'contact@sidikoff.com',
+  email: 'ssidikoff@gmail.com',
   website: 'https://sidikoff.com',
   socialLinks: {
     linkedin: 'https://www.linkedin.com/company/sidikoff-digital',

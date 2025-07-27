@@ -44,10 +44,7 @@ export const useDebounce = <T>(value: T, delay: number): T => {
 }
 
 // Throttle hook
-export const useThrottle = <T extends (...args: any[]) => any>(
-  callback: T,
-  delay: number
-): T => {
+export const useThrottle = <T extends (...args: unknown[]) => unknown>(callback: T, delay: number): T => {
   const lastRun = useRef(Date.now())
 
   return useCallback(
@@ -66,18 +63,18 @@ export const usePerformanceMonitor = () => {
   const [metrics, setMetrics] = useState({
     loadTime: 0,
     domContentLoaded: 0,
-    firstContentfulPaint: 0
+    firstContentfulPaint: 0,
   })
 
   useEffect(() => {
     const observer = new PerformanceObserver((list) => {
       const entries = list.getEntries()
-      
+
       entries.forEach((entry) => {
         if (entry.name === 'first-contentful-paint') {
-          setMetrics(prev => ({
+          setMetrics((prev) => ({
             ...prev,
-            firstContentfulPaint: entry.startTime
+            firstContentfulPaint: entry.startTime,
           }))
         }
       })
@@ -87,12 +84,14 @@ export const usePerformanceMonitor = () => {
 
     // Get navigation timing
     setTimeout(() => {
-      const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
+      const navigation = performance.getEntriesByType(
+        'navigation'
+      )[0] as PerformanceNavigationTiming
       if (navigation) {
-        setMetrics(prev => ({
+        setMetrics((prev) => ({
           ...prev,
           loadTime: navigation.loadEventEnd - navigation.fetchStart,
-          domContentLoaded: navigation.domContentLoadedEventEnd - navigation.fetchStart
+          domContentLoaded: navigation.domContentLoadedEventEnd - navigation.fetchStart,
         }))
       }
     }, 0)
@@ -104,21 +103,16 @@ export const usePerformanceMonitor = () => {
 }
 
 // Intersection Observer hook
-export const useIntersectionObserver = (
-  options: IntersectionObserverInit = {}
-) => {
+export const useIntersectionObserver = (options: IntersectionObserverInit = {}) => {
   const [isIntersecting, setIsIntersecting] = useState(false)
   const [entry, setEntry] = useState<IntersectionObserverEntry | null>(null)
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsIntersecting(entry.isIntersecting)
-        setEntry(entry)
-      },
-      options
-    )
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsIntersecting(entry.isIntersecting)
+      setEntry(entry)
+    }, options)
 
     if (ref.current) {
       observer.observe(ref.current)
@@ -199,7 +193,7 @@ export const useImageLazyLoad = (src: string, placeholder?: string) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const { ref, isIntersecting } = useIntersectionObserver({
     threshold: 0.1,
-    rootMargin: '50px'
+    rootMargin: '50px',
   })
 
   useEffect(() => {

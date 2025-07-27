@@ -39,7 +39,7 @@ interface ContactProps {
   locale?: string
 }
 
-const Contact = ({ className, dictionary, locale }: ContactProps) => {
+const Contact = ({ className, dictionary }: ContactProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',

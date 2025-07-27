@@ -1,4 +1,3 @@
-
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
@@ -10,8 +9,6 @@ import {
   userConfirmationRU,
   adminNotificationRU,
 } from './mailTemplates'
-
-
 
 interface ContactFormData {
   name: string
@@ -106,7 +103,7 @@ export async function POST(request: Request) {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       host: 'smtp.gmail.com',
-      port: 465,
+      port: 587,
       secure: true,
       auth: {
         user: process.env.SMTP_USER || process.env.GMAIL_USER,
@@ -135,7 +132,7 @@ export async function POST(request: Request) {
 
     // User confirmation email
     const userMail = {
-      from: `"Sidikoff Digital" <${process.env.GMAIL_USER}>`,
+      from: `"SIDIKOFF DIGITAL" <${process.env.GMAIL_USER}>`,
       to: email,
       subject: subjects.user,
       html: userTemplate({ name, locale }),
@@ -145,7 +142,7 @@ export async function POST(request: Request) {
     // Admin notification email
     const adminMail = {
       from: `"Contact Form - Sidikoff Digital" <${process.env.EMAIL_FROM || process.env.SMTP_USER || process.env.GMAIL_USER}>`,
-      to: process.env.EMAIL_TO || process.env.ADMIN_EMAIL || 'contact@sidikoff.com',
+      to: process.env.EMAIL_TO || process.env.ADMIN_EMAIL || 'ssidikoff@gmail.com',
       subject: subjects.admin,
       html: adminTemplate({ name, email, message, locale }),
       replyTo: email, // Admin can reply directly to the user

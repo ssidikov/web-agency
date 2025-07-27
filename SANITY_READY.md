@@ -44,7 +44,7 @@ npm run sanity
    - **Name**: `SIDIKOFF DIGITAL`
    - **Slug**: `sidikoff-digital` (автоматически)
    - **Bio**: Описание компании
-   - **Email**: `contact@sidikoff.com`
+   - **Email**: `ssidikoff@gmail.com`
 
 #### 🏷️ Категории
 
