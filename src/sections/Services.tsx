@@ -7,8 +7,6 @@ import { motion } from 'framer-motion'
 import { Dictionary } from '@/lib/dictionaries'
 import CTAButton from '@/components/ui/CTAButton'
 
-
-
 interface ServicesProps {
   dictionary: Dictionary['services']
   locale: string
@@ -52,7 +50,7 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
       {/* Hero-style background image and gradient */}
       <div className='absolute inset-0 z-0'>
         <Image
-          src='/images/hero/hero.svg'
+          src='/images/bg-image-2.svg'
           alt='Services Background'
           fill
           className='object-cover w-full h-full pointer-events-none select-none'
@@ -184,7 +182,7 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
                   priority={false}
                   onError={(e) => {
                     if (process.env.NODE_ENV === 'development') {
-                      console.log('CTA background image failed to load')
+                      // CTA background image failed to load
                     }
                     e.currentTarget.style.display = 'none'
                   }}

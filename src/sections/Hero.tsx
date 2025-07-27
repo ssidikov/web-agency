@@ -16,9 +16,6 @@ import { Dictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
 import CTAButton from '@/components/ui/CTAButton'
 
-
-
-
 interface HeroProps {
   dict: Dictionary['hero']
   common: Dictionary['common']
@@ -44,7 +41,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
 
       <div className='absolute inset-0 z-0'>
         <Image
-          src='/images/hero/hero.svg'
+          src='/images/bg-image.svg'
           alt='Hero Background'
           fill
           className='object-cover w-full h-full pointer-events-none select-none'
@@ -130,21 +127,19 @@ export function Hero({ dict, common, locale }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.6 }}
             className='flex flex-col sm:flex-row gap-6 justify-center mb-16'>
             <CTAButton
-              variant="primary"
-              size="lg"
+              variant='primary'
+              size='lg'
               href={locale === 'fr' ? '/#contact' : `/${locale}#contact`}
-              className="inline-flex items-center justify-center"
-            >
+              className='inline-flex items-center justify-center'>
               <span className='mr-2'>{dict.cta_primary}</span>
               <ArrowIcon />
             </CTAButton>
 
             <CTAButton
-              variant="secondary"
-              size="lg"
+              variant='secondary'
+              size='lg'
               href={locale === 'fr' ? '/#portfolio' : `/${locale}#portfolio`}
-              className="inline-flex items-center justify-center"
-            >
+              className='inline-flex items-center justify-center'>
               <PlayIcon />
               <span className='ml-2'>{dict.cta_secondary}</span>
             </CTAButton>

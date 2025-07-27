@@ -13,11 +13,6 @@ import { LanguageSwitcher } from './LanguageSwitcher'
 
 import { motion } from 'framer-motion'
 
-
-
-
-
-
 interface HeaderProps {
   dictionary: Dictionary
   locale: Locale
@@ -45,19 +40,45 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
   const navigation = [
     { label: dictionary.navigation.home, href: locale === 'fr' ? '/' : `/${locale}`, section: '' },
-    { label: dictionary.navigation.services, href: locale === 'fr' ? '/#services' : `/${locale}#services`, section: 'services' },
-    { label: dictionary.navigation.portfolio, href: locale === 'fr' ? '/#portfolio' : `/${locale}#portfolio`, section: 'portfolio' },
-    { label: dictionary.navigation.blog, href: locale === 'fr' ? '/blog' : `/${locale}/blog`, section: 'blog' },
-    { label: dictionary.navigation.faq, href: locale === 'fr' ? '/#faq' : `/${locale}#faq`, section: 'faq' },
-    { label: dictionary.navigation.pricing, href: locale === 'fr' ? '/#pricing' : `/${locale}#pricing`, section: 'pricing' },
-    { label: dictionary.navigation.contact, href: locale === 'fr' ? '/#contact' : `/${locale}#contact`, section: 'contact' },
+    {
+      label: dictionary.navigation.services,
+      href: locale === 'fr' ? '/#services' : `/${locale}#services`,
+      section: 'services',
+    },
+    {
+      label: dictionary.navigation.portfolio,
+      href: locale === 'fr' ? '/#portfolio' : `/${locale}#portfolio`,
+      section: 'portfolio',
+    },
+    {
+      label: dictionary.navigation.blog,
+      href: locale === 'fr' ? '/blog' : `/${locale}/blog`,
+      section: 'blog',
+    },
+    {
+      label: dictionary.navigation.faq,
+      href: locale === 'fr' ? '/#faq' : `/${locale}#faq`,
+      section: 'faq',
+    },
+    {
+      label: dictionary.navigation.pricing,
+      href: locale === 'fr' ? '/#pricing' : `/${locale}#pricing`,
+      section: 'pricing',
+    },
+    {
+      label: dictionary.navigation.contact,
+      href: locale === 'fr' ? '/#contact' : `/${locale}#contact`,
+      section: 'contact',
+    },
   ]
 
   useEffect(() => {
     const handleScroll = () => {
       // Определяем активную секцию только если мы на главной странице
-      if ((locale === 'fr' && (pathname === '/' || pathname === '')) || 
-          (locale !== 'fr' && (pathname === `/${locale}` || pathname === `/${locale}/`))) {
+      if (
+        (locale === 'fr' && (pathname === '/' || pathname === '')) ||
+        (locale !== 'fr' && (pathname === `/${locale}` || pathname === `/${locale}/`))
+      ) {
         const sections = ['services', 'portfolio', 'faq', 'pricing', 'contact']
         let currentSection = ''
 
@@ -123,9 +144,10 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
   const isActive = (item: (typeof navigation)[0]) => {
     // Для главной страницы проверяем активную секцию
-    const isOnHomePage = (locale === 'fr' && (pathname === '/' || pathname === '')) || 
-                         (locale !== 'fr' && (pathname === `/${locale}` || pathname === `/${locale}/`))
-    
+    const isOnHomePage =
+      (locale === 'fr' && (pathname === '/' || pathname === '')) ||
+      (locale !== 'fr' && (pathname === `/${locale}` || pathname === `/${locale}/`))
+
     if (isOnHomePage) {
       if (item.section === '') {
         // Home активен когда нет активной секции (пользователь вверху страницы)

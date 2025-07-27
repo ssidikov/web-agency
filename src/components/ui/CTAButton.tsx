@@ -17,38 +17,40 @@ interface CTAButtonProps {
 }
 
 const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTAButtonProps>(
-  ({ 
-    href, 
-    onClick, 
-    children, 
-    variant = 'primary', 
-    size = 'md', 
-    className, 
-    disabled,
-    type = 'button',
-    ariaLabel,
-    ...props 
-  }, ref) => {
-    const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
-    
+  (
+    {
+      href,
+      onClick,
+      children,
+      variant = 'primary',
+      size = 'md',
+      className,
+      disabled,
+      type = 'button',
+      ariaLabel,
+      ...props
+    },
+    ref
+  ) => {
+    const baseClasses =
+      'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 rounded-full h-16 lg:h-[77px] 3xl:h-[98px] px-6 lg:px-16 text-lg 3xl:text-22'
+
     const variants = {
-      primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-      secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
-      outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500'
+      primary:
+        'bg-black text-white hover:bg-transparent hover:text-black border border-black focus:ring-black',
+      secondary:
+        'bg-transparent text-black hover:bg-black hover:text-white border border-black focus:ring-black',
+      outline:
+        'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white focus:ring-blue-500',
     }
-    
+
     const sizes = {
-      sm: 'px-3 py-2 text-sm rounded-md',
-      md: 'px-4 py-2 text-base rounded-lg',
-      lg: 'px-6 py-3 text-lg rounded-xl'
+      sm: 'px-3 py-2 text-sm rounded-full',
+      md: 'px-4 py-2 text-base rounded-full',
+      lg: 'px-6 py-3 text-lg rounded-full',
     }
-    
-    const classes = cn(
-      baseClasses,
-      variants[variant],
-      sizes[size],
-      className
-    )
+
+    const classes = cn(baseClasses, variants[variant], sizes[size], className)
 
     if (href) {
       return (
@@ -57,8 +59,7 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
           className={classes}
           ref={ref as React.Ref<HTMLAnchorElement>}
           aria-label={ariaLabel}
-          {...props}
-        >
+          {...props}>
           {children}
         </Link>
       )
@@ -72,8 +73,7 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
         disabled={disabled}
         ref={ref as React.Ref<HTMLButtonElement>}
         aria-label={ariaLabel}
-        {...props}
-      >
+        {...props}>
         {children}
       </button>
     )
@@ -83,5 +83,3 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
 CTAButton.displayName = 'CTAButton'
 
 export default CTAButton
-
-

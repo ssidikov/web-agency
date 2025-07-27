@@ -16,7 +16,7 @@ export default async function FAQPage({ params }: FAQPageProps) {
 
   return (
     <ErrorBoundary>
-      <FAQ dictionary={dictionary.faq} />
+      <FAQ dictionary={dictionary.faq} locale={locale} />
     </ErrorBoundary>
   )
 }

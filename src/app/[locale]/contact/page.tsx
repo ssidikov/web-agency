@@ -1,13 +1,12 @@
 
 import { Contact } from '@/sections'
 import { getDictionary } from '@/lib/dictionaries'
-
-
+import { Locale } from '@/lib/i18n'
 
 export default async function ContactPage({
   params,
 }: {
-  params: Promise<{ locale: 'en' | 'fr' | 'ru' }>
+  params: Promise<{ locale: Locale }>
 }) {
   const { locale } = await params
   const dictionary = await getDictionary(locale)

@@ -159,14 +159,16 @@ export default function Pricing({ locale }: PricingProps) {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className='text-center mb-16'>
+          className='text-left mb-16'>
           <h2
             id='pricing-title'
-            className='text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6'>
+            className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] mb-6 tracking-tight'>
             {dict?.pricing?.title || 'Nos Offres'}
-            <span className='block text-[#3F72AF] mt-2'>{dict?.pricing?.subtitle || 'Transparentes & Adaptées'}</span>
           </h2>
-          <p className='text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed'>
+          <p className='text-xl text-gray-600 max-w-3xl leading-relaxed mb-6'>
+            {dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
+          </p>
+          <p className='text-gray-600 text-lg max-w-4xl leading-relaxed'>
             {dict?.pricing?.description || 'Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.'}
           </p>
 

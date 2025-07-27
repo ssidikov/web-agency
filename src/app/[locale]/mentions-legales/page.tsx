@@ -1,16 +1,7 @@
 
 import { Metadata } from 'next'
-import { getDictionary } from '@/lib/dictionaries'
-import { Locale } from '@/lib/i18n'
 
-interface MentionsLegalesPageProps {
-  params: Promise<{ locale: Locale }>
-}
-
-export async function generateMetadata({ params }: MentionsLegalesPageProps): Promise<Metadata> {
-  const { locale } = await params
-  const dict = await getDictionary(locale)
-  
+export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Mentions Légales | Sidikoff - Agence Web',
     description: 'Mentions légales et informations légales de Sidikoff, agence web spécialisée dans la création de sites internet et applications.',
@@ -18,9 +9,7 @@ export async function generateMetadata({ params }: MentionsLegalesPageProps): Pr
   }
 }
 
-export default async function MentionsLegalesPage({ params }: MentionsLegalesPageProps) {
-  const { locale } = await params
-  const dict = await getDictionary(locale)
+export default async function MentionsLegalesPage() {
 
   return (
     <div className="min-h-screen bg-white">
@@ -51,7 +40,7 @@ export default async function MentionsLegalesPage({ params }: MentionsLegalesPag
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">Propriété intellectuelle</h2>
             <p>
-              L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. 
+              L&apos;ensemble de ce site relève de la législation française et internationale sur le droit d&apos;auteur et la propriété intellectuelle. 
               Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.
             </p>
           </section>
@@ -60,7 +49,7 @@ export default async function MentionsLegalesPage({ params }: MentionsLegalesPag
             <h2 className="text-2xl font-semibold mb-4">Protection des données personnelles</h2>
             <p>
               Conformément à la loi « Informatique et Libertés » du 6 janvier 1978 modifiée et au Règlement Général sur la Protection des Données (RGPD), 
-              vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant.
+              vous disposez d&apos;un droit d&apos;accès, de rectification, de suppression et d&apos;opposition aux données personnelles vous concernant.
             </p>
           </section>
         </div>

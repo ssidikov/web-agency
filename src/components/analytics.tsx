@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useReportWebVitals } from 'next/web-vitals'
+// Analytics component for performance monitoring
+const Analytics = () => {
+  return null
+}
 
-import { createSkipLink, enhanceFocusManagement, validateHeadingHierarchy, checkAccessibility, setupKeyboardNavigation } from '@/lib/accessibility'
-import { reportWebVitals, preloadCriticalResources, lazyLoadImages } from '@/lib/performance'
-
+export default Analytics
