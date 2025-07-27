@@ -51,9 +51,9 @@ export default function PricingCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className={`relative bg-white rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 w-full h-full flex flex-col min-h-[600px] ${
+      className={`relative bg-white rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-2xl w-full h-full flex flex-col min-h-[600px] ${
         isHighlighted
-          ? 'border-[#3F72AF] ring-4 ring-[#3F72AF]/20 scale-105'
+          ? 'border-[#3F72AF] ring-4 ring-[#3F72AF]/20'
           : 'border-gray-200 hover:border-[#3F72AF]/50'
       }`}
       role='article'
@@ -95,11 +95,32 @@ export default function PricingCard({
           {period && <p className='text-gray-500 text-sm'>Facturé mensuellement</p>}
         </div>
 
+        {/* Textes Objectif/Recommandé */}
+        {features.filter(feature => feature.included && (feature.text.includes('Objectif') || feature.text.includes('Recommandé'))).length > 0 && (
+          <div className='mb-6'>
+            {features
+              .filter(feature => feature.included && (feature.text.includes('Objectif') || feature.text.includes('Recommandé')))
+              .map((feature, featureIndex) => (
+                <motion.div
+                  key={featureIndex}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.1 + featureIndex * 0.05 }}
+                  viewport={{ once: true }}
+                  className='text-center p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100'>
+                  <span className='text-sm font-medium italic text-gray-700'>
+                    {feature.text}
+                  </span>
+                </motion.div>
+              ))}
+          </div>
+        )}
+
         {/* Liste des fonctionnalités */}
         <div className='mb-8 flex-grow'>
           <ul className='space-y-4' role='list'>
             {features
-              .filter((feature) => feature.included) // Ne montrer que les fonctionnalités incluses
+              .filter((feature) => feature.included && !feature.text.includes('Objectif') && !feature.text.includes('Recommandé')) // Exclure les textes Objectif/Recommandé
               .map((feature, featureIndex) => (
                 <motion.li
                   key={featureIndex}
@@ -108,14 +129,10 @@ export default function PricingCard({
                   transition={{ duration: 0.4, delay: index * 0.1 + featureIndex * 0.05 }}
                   viewport={{ once: true }}
                   className='flex items-center gap-3'>
-                  {/* Afficher l'icône seulement si ce n'est pas un texte "Objectif" ou "Recommandé" */}
-                  {!feature.text.includes('Objectif') && !feature.text.includes('Recommandé') && (
-                    <div className='flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-green-100 text-green-600'>
-                      <CheckIcon className='w-3 h-3' />
-                    </div>
-                  )}
-                  <span
-                    className={`text-sm text-gray-700 ${feature.text.includes('Objectif') || feature.text.includes('Recommandé') ? 'font-medium italic' : ''}`}>
+                  <div className='flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-green-100 text-green-600'>
+                    <CheckIcon className='w-3 h-3' />
+                  </div>
+                  <span className='text-sm text-gray-700'>
                     {feature.text}
                   </span>
                 </motion.li>
@@ -126,7 +143,6 @@ export default function PricingCard({
         {/* Bouton CTA - toujours en bas */}
         <div className='mt-auto'>
           <motion.button
-            whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={onSelect}
             className={`w-full py-4 px-6 rounded-xl font-semibold text-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-opacity-50 ${

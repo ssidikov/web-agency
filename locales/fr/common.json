@@ -247,12 +247,14 @@
   },
   "pricing": {
     "maintenance": {
-      "title": "Maintenance et Support",
-      "billing": "Facturation horaire ou forfaitaire selon la demande",
+      "title": "🔧 Maintenance mensuelle – Support continu",
+      "billing": "Tarif : à partir de 59€/mois",
       "features": [
-        "Accompagnement personnalisé après livraison",
-        "Interventions ponctuelles pour modifications et mises à jour",
-        "Support technique réactif par email, téléphone, WhatsApp ou Telegram"
+        "Mises à jour techniques régulières",
+        "Modifications ou ajouts de sections/pages",
+        "Ajout ou modification de contenu (textes, images, etc.)",
+        "Support par WhatsApp, Telegram ou email",
+        "Sauvegardes régulières"
       ],
       "cta": "Demander un devis"
     }

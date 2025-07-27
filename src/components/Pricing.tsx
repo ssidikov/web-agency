@@ -208,7 +208,7 @@ export default function Pricing({ locale }: PricingProps) {
                 'Facturation horaire ou forfaitaire selon la demande'}
             </p>
             <div className='text-gray-600 mb-6 leading-relaxed text-left max-w-2xl mx-auto'>
-              <ul className='space-y-2'>
+              <ul className='space-y-3'>
                 {(
                   dict?.pricing?.maintenance?.features || [
                     'Accompagnement personnalisé après livraison',
@@ -216,7 +216,12 @@ export default function Pricing({ locale }: PricingProps) {
                     'Support technique réactif par email, téléphone, WhatsApp ou Telegram',
                   ]
                 ).map((feature: string, index: number) => (
-                  <li key={index}>• {feature}</li>
+                  <li key={index} className='flex items-center gap-3'>
+                    <div className='flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-green-100 text-green-600'>
+                      <CheckIcon className='w-3 h-3' />
+                    </div>
+                    <span className='text-sm text-gray-700'>{feature}</span>
+                  </li>
                 ))}
               </ul>
             </div>

@@ -80,11 +80,11 @@ export function Services({ dictionary: dict }: ServicesProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className='gap-30px sm:gap-10 xl:gap-16 3xl:gap-20 bg-white rounded-2xl lg:rounded-22px 3xl:rounded-30px px-5 py-7 sm:p-30px lg:p-10 3xl:p-12'>
-              <div className='grid lg:grid-cols-2 gap-8 items-center'>
+              className='gap-30px sm:gap-10 xl:gap-16 3xl:gap-20 bg-white rounded-2xl lg:rounded-22px 3xl:rounded-30px px-5 py-7 sm:p-30px lg:p-10 3xl:p-12 min-h-[600px] lg:min-h-[500px]'>
+              <div className='grid lg:grid-cols-2 gap-8 items-center h-full'>
                 {/* Right Image - First on mobile */}
-                <div className='relative order-1 lg:order-2'>
-                  <div className='aspect-[4/3] relative overflow-hidden rounded-2xl max-h-48 md:max-h-fit w-full'>
+                <div className='relative order-1 lg:order-2 h-full flex items-center'>
+                  <div className='aspect-[4/3] relative overflow-hidden rounded-2xl max-h-48 md:max-h-fit w-full lg:h-full lg:min-h-[300px]'>
                     <Image
                       src={service.image}
                       alt={service.alt}
@@ -98,7 +98,7 @@ export function Services({ dictionary: dict }: ServicesProps) {
                 </div>
 
                 {/* Left Content - Second on mobile */}
-                <div className='space-y-6 xl:h-full flex flex-col justify-between order-2 lg:order-1'>
+                <div className='space-y-6 xl:h-full flex flex-col justify-between order-2 lg:order-1 h-full'>
                   <div>
                     <h3 className='text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-8'>
                       {service.title}
@@ -187,7 +187,6 @@ export function Services({ dictionary: dict }: ServicesProps) {
                 </p>
 
                 <motion.button
-                  whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   className='group relative bg-black hover:bg-transparent text-white hover:text-black border border-gray-400 transition-all duration-300 w-full text-lg 3xl:text-22 whitespace-nowrap px-6 lg:px-8 cursor-pointer h-[60px] sm:h-16 lg:h-20 lg:text-lg 3xl:text-22 font-medium rounded-full mt-5 sm:mt-10'>
                   <div className='absolute inset-0 bg-gradient-to-r from-white/10 via-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
