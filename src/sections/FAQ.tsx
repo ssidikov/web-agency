@@ -173,13 +173,14 @@ export const FAQ = ({ dictionary }: FAQProps) => {
         {/* FAQ Items */}
         <div className='flex flex-col lg:flex-row gap-x-10 gap-y-2.5 h-auto'>
           <div className='space-y-2.5 w-full lg:w-1/2'>
-            <AnimatePresence mode='wait'>
+            <AnimatePresence>
               {filteredFAQ.slice(0, Math.ceil(filteredFAQ.length / 2)).map((item) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
                   className='rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
                   style={{
                     background: 'rgba(255, 255, 255, 0.25)',
@@ -228,13 +229,14 @@ export const FAQ = ({ dictionary }: FAQProps) => {
           </div>
 
           <div className='space-y-2.5 w-full lg:w-1/2'>
-            <AnimatePresence mode='wait'>
+            <AnimatePresence>
               {filteredFAQ.slice(Math.ceil(filteredFAQ.length / 2)).map((item) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
                   className='rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
                   style={{
                     background: 'rgba(255, 255, 255, 0.25)',

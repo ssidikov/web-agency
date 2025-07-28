@@ -96,7 +96,7 @@ function enhanceResponse(response: NextResponse, pathname?: string) {
 export const config = {
   matcher: [
     // Skip all internal paths (_next, api, etc) and static files, but include studio
-    '/((?!_next|api|favicon.ico|robots.txt|sitemap.xml|manifest.json|.*\\..*).*)',
+    '/((?!_next|api|favicon|robots.txt|sitemap.xml|manifest.json|.*\\..*).*)',
     '/studio/:path*',
   ],
 }
