@@ -11,7 +11,7 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
   const allProjects = getProjects(locale)
 
   return (
-    <section className='pt-44 pb-20 relative overflow-hidden'>
+    <section className='pt-32 md:pt-40 pb-20 relative overflow-hidden'>
       {/* Flipped Background Image как в Portfolio */}
       <div className='absolute inset-0 z-0' style={{ transform: 'scaleX(-1)' }}>
         <Image
