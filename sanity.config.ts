@@ -16,6 +16,8 @@ export default defineConfig({
 
   plugins: [
     structureTool({
+      name: 'studio',
+      title: 'Content Studio',
       structure: (S) =>
         S.list()
           .title('Content')
@@ -56,6 +58,9 @@ export default defineConfig({
     visionTool(),
   ],
 
+  // Set default tool
+  defaultTool: 'studio',
+
   schema: {
     types: schemaTypes,
   },
@@ -68,11 +73,8 @@ export default defineConfig({
   },
 
   // Custom toolbar
-  tools: (prev, { currentUser }) => {
-    // Only show the vision tool for admins
-    if (currentUser?.roles?.some((role) => role.name === 'administrator')) {
-      return prev
-    }
-    return prev.filter((tool) => tool.name !== 'vision')
+  tools: (prev) => {
+    // Return all tools including the structure tool (studio) and vision tool
+    return prev
   },
 })
