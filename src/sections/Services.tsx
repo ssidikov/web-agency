@@ -55,7 +55,8 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
             backgroundImage: 'url(/images/bg-image-2.svg)',
             backgroundRepeat: 'repeat-y',
             backgroundPosition: 'center top',
-            backgroundSize: 'contain',
+            backgroundSize: '100% auto',
+            backgroundColor: '#D9EDEC',
           }}
         />
       </div>
