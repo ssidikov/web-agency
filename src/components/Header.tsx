@@ -8,6 +8,7 @@ import Link from 'next/link'
 
 import { Dictionary } from '@/lib/dictionaries'
 import { Locale } from '@/lib/i18n'
+import { getLocalizedUrl } from '@/utils/navigation'
 
 import { LanguageSwitcher } from './LanguageSwitcher'
 
@@ -39,35 +40,35 @@ export function Header({ dictionary, locale }: HeaderProps) {
   const [activeSection, setActiveSection] = useState('')
 
   const navigation = [
-    { label: dictionary.navigation.home, href: locale === 'fr' ? '/' : `/${locale}`, section: '' },
+    { label: dictionary.navigation.home, href: getLocalizedUrl('/', locale), section: '' },
     {
       label: dictionary.navigation.services,
-      href: locale === 'fr' ? '/#services' : `/${locale}#services`,
+      href: getLocalizedUrl('/#services', locale),
       section: 'services',
     },
     {
       label: dictionary.navigation.portfolio,
-      href: locale === 'fr' ? '/#portfolio' : `/${locale}#portfolio`,
+      href: getLocalizedUrl('/#portfolio', locale),
       section: 'portfolio',
     },
     {
       label: dictionary.navigation.pricing,
-      href: locale === 'fr' ? '/#pricing' : `/${locale}#pricing`,
+      href: getLocalizedUrl('/#pricing', locale),
       section: 'pricing',
     },
     {
       label: dictionary.navigation.faq,
-      href: locale === 'fr' ? '/#faq' : `/${locale}#faq`,
+      href: getLocalizedUrl('/#faq', locale),
       section: 'faq',
     },
     {
       label: dictionary.navigation.blog,
-      href: locale === 'fr' ? '/blog' : `/${locale}/blog`,
+      href: getLocalizedUrl('/blog', locale),
       section: 'blog',
     },
     {
       label: dictionary.navigation.contact,
-      href: locale === 'fr' ? '/#contact' : `/${locale}#contact`,
+      href: getLocalizedUrl('/#contact', locale),
       section: 'contact',
     },
   ]
@@ -75,10 +76,8 @@ export function Header({ dictionary, locale }: HeaderProps) {
   useEffect(() => {
     const handleScroll = () => {
       // Определяем активную секцию только если мы на главной странице
-      if (
-        (locale === 'fr' && (pathname === '/' || pathname === '')) ||
-        (locale !== 'fr' && (pathname === `/${locale}` || pathname === `/${locale}/`))
-      ) {
+      const homeUrl = getLocalizedUrl('/', locale)
+      if (pathname === homeUrl || pathname === homeUrl + '/') {
         const sections = ['services', 'portfolio', 'faq', 'pricing', 'contact']
         let currentSection = ''
 
@@ -144,9 +143,8 @@ export function Header({ dictionary, locale }: HeaderProps) {
 
   const isActive = (item: (typeof navigation)[0]) => {
     // Для главной страницы проверяем активную секцию
-    const isOnHomePage =
-      (locale === 'fr' && (pathname === '/' || pathname === '')) ||
-      (locale !== 'fr' && (pathname === `/${locale}` || pathname === `/${locale}/`))
+    const homeUrl = getLocalizedUrl('/', locale)
+    const isOnHomePage = pathname === homeUrl || pathname === homeUrl + '/'
 
     if (isOnHomePage) {
       if (item.section === '') {
@@ -179,13 +177,13 @@ export function Header({ dictionary, locale }: HeaderProps) {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className='fixed top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-4'>
+        className='fixed top-4 md:top-5 left-1/2 -translate-x-1/2 z-[120] w-full max-w-7xl px-4'>
         <nav className='relative z-[110] px-3.5 xs:px-4'>
           <div className='flex items-center justify-between px-5 py-4 lg:px-4 3xl:p-4 transition-all duration-500 rounded-3xl backdrop-blur-xl bg-white/20 border-2 border-white/30 shadow-xl '>
             {/* Logo */}
             <div>
               <Link
-                href='/'
+                href={getLocalizedUrl('/', locale)}
                 className='flex items-center transition-all duration-300 focus:outline-none outline-none cursor-pointer'
                 style={{ outline: 'none !important', boxShadow: 'none !important' }}>
                 <Image
@@ -243,7 +241,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2 }}
-              className='absolute top-full left-3.5 xs:left-4 right-3.5 xs:right-4 md:hidden z-[110] rounded-b-3xl'
+              className='absolute top-24 left-3.5 xs:left-4 right-3.5 xs:right-4 md:hidden z-[110] rounded-3xl'
               style={{
                 background: 'rgba(249, 247, 247, 0.5)',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -259,7 +257,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                       onClick={() => setIsMenuOpen(false)}
                       className={`block py-3 px-4 rounded-lg transition-all duration-300 text-[#112D4E] focus:outline-none focus:ring-0 focus:border-none outline-none cursor-pointer ${
                         isActive(item)
-                          ? 'bg-[#3F72AF] text-white'
+                          ? 'bg-black text-white'
                           : 'hover:bg-[#DBE2EF]/50 hover:text-[#3F72AF]'
                       }`}>
                       {item.label}

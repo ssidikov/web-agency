@@ -13,7 +13,7 @@ interface Project {
   technologies: string[]
   link: string
   category: string
-  featured: boolean
+  featured?: boolean
 }
 
 interface ProjectsClientProps {

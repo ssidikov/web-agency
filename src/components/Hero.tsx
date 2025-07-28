@@ -95,7 +95,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className='inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-8 bg-white/10 text-black/50 border border-black/20 backdrop-blur-sm mt-32 sm:mt-28 md:mt-32'>
+            className='inline-flex items-center px-4 py-2 rounded-full text-[12px] md:text-sm font-medium mb-8 bg-white/10 text-black/50 border border-black/20 backdrop-blur-sm mt-32 sm:mt-28 md:mt-32'>
             <span className='w-2 h-2 bg-black/50 rounded-full mr-3 animate-pulse' />
             {dict.badge}
           </motion.div>

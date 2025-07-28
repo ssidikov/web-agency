@@ -154,6 +154,41 @@
       "button": "Contact Us"
     }
   },
+  "portfolio": {
+    "title": "Our Work",
+    "subtitle": "Explore our latest projects showcasing modern web development technologies and innovative solutions.",
+    "filter": {
+      "all": "All",
+      "web": "Web",
+      "mobile": "Mobile",
+      "design": "Design"
+    },
+    "projects": {
+      "ecommerce": {
+        "title": "E-Commerce Platform",
+        "description": "Modern online store with advanced features",
+        "category": "web"
+      },
+      "mobile_app": {
+        "title": "Fitness Mobile App",
+        "description": "Cross-platform fitness tracking application",
+        "category": "mobile"
+      },
+      "brand_identity": {
+        "title": "Brand Identity Design",
+        "description": "Complete brand redesign and visual identity",
+        "category": "design"
+      },
+      "corporate_website": {
+        "title": "Corporate Website",
+        "description": "Professional website for consulting firm",
+        "category": "web"
+      }
+    },
+    "view_project": "View All Projects",
+    "live_demo": "Live Demo",
+    "github": "GitHub"
+  },
   "contact": {
     "title": "Get In Touch",
     "subtitle": "Ready to Start Your Project?",

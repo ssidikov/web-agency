@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { EmailIcon, PhoneIcon, LocationIcon, LinkedInIcon, GitHubIcon } from '@/components/ui/icons'
 import { Locale } from '@/lib/i18n'
 import { motion } from 'framer-motion'
+import { getLocalizedUrl } from '@/utils/navigation'
 
 import { Dictionary } from '@/lib/dictionaries'
 
@@ -38,22 +39,22 @@ const SocialIcon = ({
 
 export function Footer({ dictionary, locale }: FooterProps) {
   const quickLinks = [
-    { name: dictionary.navigation?.home || 'Accueil', href: `/${locale}` },
-    { name: dictionary.navigation?.services || 'Services', href: `/${locale}#services` },
+    { name: dictionary.navigation?.home || 'Accueil', href: getLocalizedUrl('/', locale) },
+    { name: dictionary.navigation?.services || 'Services', href: getLocalizedUrl('/#services', locale) },
     {
       name: dictionary.navigation?.portfolio || 'Portfolio',
-      href: `/${locale}#portfolio`,
+      href: getLocalizedUrl('/#portfolio', locale),
     },
-    { name: dictionary.navigation?.pricing || 'Tarifs', href: `/${locale}#pricing` },
-    { name: dictionary.navigation?.faq || 'FAQ', href: `/${locale}#faq` },
-    { name: dictionary.navigation?.blog || 'Blog', href: `/${locale}/blog` },
-    { name: dictionary.navigation?.contact || 'Contact', href: `/${locale}#contact` },
+    { name: dictionary.navigation?.pricing || 'Tarifs', href: getLocalizedUrl('/#pricing', locale) },
+    { name: dictionary.navigation?.faq || 'FAQ', href: getLocalizedUrl('/#faq', locale) },
+    { name: dictionary.navigation?.blog || 'Blog', href: getLocalizedUrl('/blog', locale) },
+    { name: dictionary.navigation?.contact || 'Contact', href: getLocalizedUrl('/#contact', locale) },
   ]
 
   const legalLinks = [
     {
       name: dictionary.common.legal_link,
-      href: `/${locale}/mentions-legales`,
+      href: getLocalizedUrl('/mentions-legales', locale),
     },
   ]
 
@@ -61,22 +62,22 @@ export function Footer({ dictionary, locale }: FooterProps) {
     {
       id: 'web-creation',
       name: dictionary.services?.web_creation?.title || 'Développement Web',
-      href: `/${locale}#services`,
+      href: getLocalizedUrl('/#services', locale),
     },
     {
       id: 'web-redesign',
       name: dictionary.services?.web_redesign?.title || 'Refonte de Site',
-      href: `/${locale}#services`,
+      href: getLocalizedUrl('/#services', locale),
     },
     {
       id: 'seo-optimization',
       name: dictionary.services?.seo_optimization?.title || 'SEO',
-      href: `/${locale}#services`,
+      href: getLocalizedUrl('/#services', locale),
     },
     {
       id: 'maintenance',
       name: dictionary.services?.maintenance?.title || 'Maintenance',
-      href: `/${locale}#services`,
+      href: getLocalizedUrl('/#services', locale),
     },
   ]
 
@@ -98,7 +99,7 @@ export function Footer({ dictionary, locale }: FooterProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}>
-                <Link href={`/${locale}`} className='inline-flex items-center justify-center mb-6'>
+                <Link href={getLocalizedUrl('/', locale)} className='inline-flex items-center justify-center mb-6'>
                   {/* <Image
                     src='/logo-sidikoff.webp'
                     alt='Sidikoff Digital'
