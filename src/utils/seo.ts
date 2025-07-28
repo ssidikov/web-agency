@@ -20,7 +20,7 @@ export interface SEOConfig {
 }
 
 export const DEFAULT_SEO = {
-  siteName: 'Nikita Sidikoff - Développeur Web Full Stack',
+  siteName: 'Sardorbek SIDIKOV - Développeur Web Full Stack',
   siteUrl: 'https://sidikoff.com',
   defaultImage: '/images/og-default.jpg',
   twitterHandle: '@sidikoff',
@@ -197,13 +197,13 @@ export function generateJSONLD(
     Person: {
       '@context': baseContext,
       '@type': 'Person',
-      name: 'Nikita Sidikoff',
+      name: 'Sardorbek SIDIKOV',
       jobTitle: 'Développeur Web Full Stack',
       url: DEFAULT_SEO.siteUrl,
       sameAs: [
-        'https://github.com/sidikoff',
-        'https://linkedin.com/in/sidikoff',
-        'https://twitter.com/sidikoff',
+        'https://github.com/ssidikov',
+        'https://linkedin.com/in/sardorbeksidikov',
+        'https://twitter.com/sidikoffdigital',
       ],
       ...data,
     },
@@ -222,7 +222,7 @@ export function generateJSONLD(
       description: data.description,
       author: {
         '@type': 'Person',
-        name: 'Nikita Sidikoff',
+        name: 'Sardorbek SIDIKOV',
       },
       publisher: {
         '@type': 'Organization',

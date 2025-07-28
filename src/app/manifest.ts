@@ -15,15 +15,9 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ['business', 'productivity', 'technology'],
     icons: [
       {
-        src: '/logo-sidikoff.webp',
-        sizes: '192x192',
-        type: 'image/webp',
-        purpose: 'any'
-      },
-      {
-        src: '/logo-sidikoff.webp',
-        sizes: '512x512',
-        type: 'image/webp',
+        src: '/favicon.svg',
+        sizes: 'any',
+        type: 'image/svg+xml',
         purpose: 'any'
       }
     ],

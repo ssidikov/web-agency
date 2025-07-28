@@ -71,8 +71,8 @@ export const initialAuthor = {
 
 export const sampleBlogPost = {
   _type: 'blogPost',
-  title: 'Топ 10 трендов веб-дизайна в 2024 году',
-  slug: { current: 'top-10-web-design-trends-2024' },
+  title: 'Топ 10 трендов веб-дизайна в 2025 году',
+  slug: { current: 'top-10-web-design-trends-2025' },
   author: {
     _type: 'reference',
     _ref: 'sidikoff-digital',
@@ -175,10 +175,10 @@ export const sampleBlogPost = {
     },
   ],
   seo: {
-    metaTitle: 'Топ 10 трендов веб-дизайна 2024 | SIDIKOFF DIGITAL',
+    metaTitle: 'Топ 10 трендов веб-дизайна 2025 | SIDIKOFF DIGITAL',
     metaDescription:
-      'Откройте для себя новейшие тренды веб-дизайна 2024 года. Экспертные советы от SIDIKOFF DIGITAL для современного и эффективного дизайна.',
-    keywords: ['веб-дизайн', 'тренды 2024', 'UI/UX', 'современный дизайн'],
+      'Откройте для себя новейшие тренды веб-дизайна 2025 года. Экспертные советы от SIDIKOFF DIGITAL для современного и эффективного дизайна.',
+    keywords: ['веб-дизайн', 'тренды 2025', 'UI/UX', 'современный дизайн'],
   },
   featured: true,
   status: 'published',
