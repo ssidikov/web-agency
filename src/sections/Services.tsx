@@ -50,7 +50,7 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
       {/* Hero-style background image and gradient */}
       <div className='absolute inset-0 z-0'>
         <div
-          className='absolute inset-0 w-full h-full pointer-events-none select-none opacity-30'
+          className='absolute inset-0 w-full h-full pointer-events-none select-none'
           style={{
             backgroundImage: 'url(/images/bg-image-2.svg)',
             backgroundRepeat: 'repeat-y',
