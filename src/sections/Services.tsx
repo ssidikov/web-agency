@@ -49,15 +49,15 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
     <section id='services' className='relative py-20 overflow-hidden'>
       {/* Hero-style background image and gradient */}
       <div className='absolute inset-0 z-0'>
-        <Image
-          src='/images/bg-image-2.svg'
-          alt='Services Background'
-          fill
-          className='object-cover w-full h-full pointer-events-none select-none'
-          priority={false}
-          sizes='100vw'
+        <div
+          className='absolute inset-0 w-full h-full pointer-events-none select-none opacity-30'
+          style={{
+            backgroundImage: 'url(/images/bg-image-2.svg)',
+            backgroundRepeat: 'repeat-y',
+            backgroundPosition: 'center top',
+            backgroundSize: 'contain',
+          }}
         />
-        <div className='absolute inset-0 bg-gradient-to-b from-white/80 via-[#D9EDEC]/80 to-white/90' />
       </div>
 
       <div className='relative z-10 container mx-auto px-4'>
