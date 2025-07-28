@@ -40,13 +40,15 @@ export function Hero({ dict, common, locale }: HeroProps) {
       {/* Background with Gradient */}
 
       <div className='absolute inset-0 z-0'>
-        <Image
-          src='/images/bg-image.svg'
-          alt='Hero Background'
-          fill
-          className='object-cover w-full h-full pointer-events-none select-none'
-          priority
-          sizes='100vw'
+        <div
+          className='absolute inset-0 w-full h-full pointer-events-none select-none'
+          style={{
+            backgroundImage: 'url(/images/bg-image.svg)',
+            backgroundRepeat: 'repeat-y',
+            backgroundPosition: 'center top',
+            backgroundSize: '100% auto',
+            backgroundColor: '#D9EDEC',
+          }}
         />
       </div>
 

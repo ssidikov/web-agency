@@ -52,7 +52,7 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
         <div
           className='absolute inset-0 w-full h-full pointer-events-none select-none'
           style={{
-            backgroundImage: 'url(/images/bg-image-2.svg)',
+            backgroundImage: 'url(/images/bg-image-3.svg)',
             backgroundRepeat: 'repeat-y',
             backgroundPosition: 'center top',
             backgroundSize: '100% auto',
@@ -68,7 +68,7 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className='mb-16 text-left'>
+          className='mb-16 text-left mt-6'>
           <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
             {dict.title}
           </h2>
