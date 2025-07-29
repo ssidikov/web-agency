@@ -4,9 +4,6 @@ import { motion } from 'framer-motion'
 
 import CTAButton from './CTAButton'
 
-
-
-
 // Simple SVG icons
 const CheckIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={3}>
@@ -56,7 +53,10 @@ export default function PricingCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className={`relative bg-white rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-2xl w-full h-full flex flex-col min-h-[600px] ${
+      style={{
+        backdropFilter: 'blur(16px) saturate(100%)',
+      }}
+      className={`relative bg-white/80 rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-2xl w-full h-full flex flex-col min-h-[600px] pb-5 sm:pb-6 3xl:pb-8 border-white/30 shadow-lg${
         isHighlighted
           ? 'border-[#3F72AF] ring-4 ring-[#3F72AF]/20'
           : 'border-gray-200 hover:border-[#3F72AF]/50'
@@ -79,12 +79,12 @@ export default function PricingCard({
         <div className='text-center mb-8'>
           <h3
             id={`pricing-${name.toLowerCase()}-title`}
-            className='text-2xl font-bold text-[#112D4E] mb-2'>
+            className='text-3xl font-bold text-[#112D4E] mb-2'>
             {name}
           </h3>
           <p
             id={`pricing-${name.toLowerCase()}-description`}
-            className='text-gray-600 text-sm leading-relaxed'>
+            className='text-gray-600 font-medium leading-relaxed'>
             {description}
           </p>
         </div>
@@ -101,10 +101,22 @@ export default function PricingCard({
         </div>
 
         {/* Textes Objectif/Recommandé */}
-        {features.filter(feature => feature.included && (feature.text.includes('🧩') || feature.text.includes('🔥') || feature.text.includes('🎯'))).length > 0 && (
+        {features.filter(
+          (feature) =>
+            feature.included &&
+            (feature.text.includes('🧩') ||
+              feature.text.includes('🔥') ||
+              feature.text.includes('🎯'))
+        ).length > 0 && (
           <div className='mb-6'>
             {features
-              .filter(feature => feature.included && (feature.text.includes('🧩') || feature.text.includes('🔥') || feature.text.includes('🎯')))
+              .filter(
+                (feature) =>
+                  feature.included &&
+                  (feature.text.includes('🧩') ||
+                    feature.text.includes('🔥') ||
+                    feature.text.includes('🎯'))
+              )
               .map((feature, featureIndex) => (
                 <motion.div
                   key={featureIndex}
@@ -113,9 +125,7 @@ export default function PricingCard({
                   transition={{ duration: 0.4, delay: index * 0.1 + featureIndex * 0.05 }}
                   viewport={{ once: true }}
                   className='text-center p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100'>
-                  <span className='text-sm font-medium italic text-gray-700'>
-                    {feature.text}
-                  </span>
+                  <span className='text-base font-medium italic text-gray-700'>{feature.text}</span>
                 </motion.div>
               ))}
           </div>
@@ -125,7 +135,13 @@ export default function PricingCard({
         <div className='mb-8 flex-grow'>
           <ul className='space-y-4' role='list'>
             {features
-              .filter((feature) => feature.included && !feature.text.includes('🧩') && !feature.text.includes('🔥') && !feature.text.includes('🎯')) // Exclure les textes avec émojis spéciaux
+              .filter(
+                (feature) =>
+                  feature.included &&
+                  !feature.text.includes('🧩') &&
+                  !feature.text.includes('🔥') &&
+                  !feature.text.includes('🎯')
+              ) // Exclure les textes avec émojis spéciaux
               .map((feature, featureIndex) => (
                 <motion.li
                   key={featureIndex}
@@ -137,9 +153,7 @@ export default function PricingCard({
                   <div className='flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-green-100 text-green-600'>
                     <CheckIcon className='w-3 h-3' />
                   </div>
-                  <span className='text-sm text-gray-700'>
-                    {feature.text}
-                  </span>
+                  <span className='text-base text-gray-700'>{feature.text}</span>
                 </motion.li>
               ))}
           </ul>
@@ -148,12 +162,11 @@ export default function PricingCard({
         {/* Bouton CTA - toujours en bas */}
         <div className='mt-auto'>
           <CTAButton
-            variant={isHighlighted ? "primary" : "secondary"}
-            size="md"
-            className="w-full"
+            variant={isHighlighted ? 'primary' : 'secondary'}
+            size='md'
+            className='w-full'
             onClick={onSelect}
-            ariaLabel={`Choisir le plan ${name} ${typeof price === 'string' ? price : `à ${price}€`}${period ? ` par ${period}` : ''}`}
-          >
+            ariaLabel={`Choisir le plan ${name} ${typeof price === 'string' ? price : `à ${price}€`}${period ? ` par ${period}` : ''}`}>
             {ctaText}
           </CTAButton>
         </div>

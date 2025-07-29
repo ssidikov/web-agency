@@ -137,7 +137,23 @@ export const FAQ = ({ dictionary }: FAQProps) => {
   }
 
   return (
-    <section id='faq' className='py-20 bg-gray-50'>
+    <section id='faq' className='py-20 relative overflow-hidden'>
+      {/* Background with gradient */}
+      <div className='absolute inset-0 z-0'>
+        <div
+          className='absolute inset-0 w-full h-full pointer-events-none select-none'
+          style={{
+            backgroundImage: 'url(/images/bg-image-3.svg)',
+            backgroundRepeat: 'repeat-y',
+            backgroundPosition: 'center top',
+            backgroundSize: '100% auto',
+            backgroundColor: '#f9fafb',
+          }}
+        />
+        {/* Многослойный градиент для FAQ */}
+        <div className='absolute inset-0 bg-gradient-to-t from-white/80` via-transparent to-blue-50/10' />
+        <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' />
+      </div>
       <div className='container mx-auto px-4 relative z-20'>
         <div className='text-left mb-10 md:mb-16'>
           <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>

@@ -70,8 +70,25 @@ const Contact = ({ className, dictionary }: ContactProps) => {
   )
 
   return (
-    <section id='contact' className={`py-20 bg-white ${className || ''}`}>
-      <div className='max-w-7xl mx-auto px-4'>
+    <section id='contact' className={`py-20 relative overflow-hidden ${className || ''}`}>
+      {/* Background with gradient */}
+      <div className='absolute inset-0 z-0'>
+        <div
+          className='absolute inset-0 w-full h-full pointer-events-none select-none'
+          style={{
+            backgroundImage: 'url(/images/bg-image-3.svg)',
+            backgroundRepeat: 'repeat-y',
+            backgroundPosition: 'center top',
+            backgroundSize: '100% auto',
+            backgroundColor: '#f8fafc',
+          }}
+        />
+        {/* Многослойный градиент для Contact */}
+        <div className='absolute inset-0 bg-gradient-to-t from-white/80` via-transparent to-blue-50/10' />
+        <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' />
+      </div>
+
+      <div className='relative z-10 max-w-7xl mx-auto px-4'>
         <div className='text-left mb-20'>
           <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
             {dictionary?.title || 'Prenez Contact'}

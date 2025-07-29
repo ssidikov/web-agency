@@ -40,15 +40,24 @@ const SocialIcon = ({
 export function Footer({ dictionary, locale }: FooterProps) {
   const quickLinks = [
     { name: dictionary.navigation?.home || 'Accueil', href: getLocalizedUrl('/', locale) },
-    { name: dictionary.navigation?.services || 'Services', href: getLocalizedUrl('/#services', locale) },
+    {
+      name: dictionary.navigation?.services || 'Services',
+      href: getLocalizedUrl('/#services', locale),
+    },
     {
       name: dictionary.navigation?.portfolio || 'Portfolio',
       href: getLocalizedUrl('/#portfolio', locale),
     },
-    { name: dictionary.navigation?.pricing || 'Tarifs', href: getLocalizedUrl('/#pricing', locale) },
+    {
+      name: dictionary.navigation?.pricing || 'Tarifs',
+      href: getLocalizedUrl('/#pricing', locale),
+    },
     { name: dictionary.navigation?.faq || 'FAQ', href: getLocalizedUrl('/#faq', locale) },
     { name: dictionary.navigation?.blog || 'Blog', href: getLocalizedUrl('/blog', locale) },
-    { name: dictionary.navigation?.contact || 'Contact', href: getLocalizedUrl('/#contact', locale) },
+    {
+      name: dictionary.navigation?.contact || 'Contact',
+      href: getLocalizedUrl('/#contact', locale),
+    },
   ]
 
   const legalLinks = [
@@ -99,7 +108,9 @@ export function Footer({ dictionary, locale }: FooterProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}>
-                <Link href={getLocalizedUrl('/', locale)} className='inline-flex items-center justify-center mb-6'>
+                <Link
+                  href={getLocalizedUrl('/', locale)}
+                  className='inline-flex items-center justify-center mb-6'>
                   {/* <Image
                     src='/logo-sidikoff.webp'
                     alt='Sidikoff Digital'

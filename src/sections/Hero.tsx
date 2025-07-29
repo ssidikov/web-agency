@@ -43,54 +43,17 @@ export function Hero({ dict, common, locale }: HeroProps) {
         <div
           className='absolute inset-0 w-full h-full pointer-events-none select-none'
           style={{
-            backgroundImage: 'url(/images/bg-image.svg)',
-            backgroundRepeat: 'repeat-y',
-            backgroundPosition: 'center top',
+            backgroundImage: 'url(/images/bg-image-3.svg)',
             backgroundSize: '100% auto',
-            backgroundColor: '#D9EDEC',
+            backgroundColor: '#f8fafc',
+            transform: 'scaleX(-1)',
           }}
         />
       </div>
 
       {/* Floating Shapes */}
-      <div className='absolute inset-0 overflow-hidden z-0'>
-        <motion.div
-          className='absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full blur-xl'
-          animate={{
-            y: [0, -20, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className='absolute top-40 right-20 w-48 h-48 bg-white/3 rounded-full blur-xl'
-          animate={{
-            x: [0, 15, 0],
-            y: [0, -10, 0],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          className='absolute bottom-40 left-1/4 w-40 h-40 bg-white/4 rounded-full blur-xl'
-          animate={{
-            y: [0, 15, 0],
-            scale: [1, 0.9, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-      </div>
+      <div className='absolute inset-0 bg-gradient-to-t from-white/80` via-transparent to-blue-50/10' />
+      <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' />
 
       <div className='relative z-10 container mx-auto px-4 text-center'>
         <div className='max-w-5xl mx-auto'>

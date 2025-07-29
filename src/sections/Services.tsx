@@ -56,9 +56,12 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
             backgroundRepeat: 'repeat-y',
             backgroundPosition: 'center top',
             backgroundSize: '100% auto',
-            backgroundColor: '#D9EDEC',
+            backgroundColor: '#f1f5f9',
           }}
         />
+        {/* Многослойный градиент для плавного перехода */}
+        <div className='absolute inset-0 bg-gradient-to-t from-white/80` via-transparent to-blue-50/10' />
+        <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' />
       </div>
 
       <div className='relative z-10 container mx-auto px-4'>
