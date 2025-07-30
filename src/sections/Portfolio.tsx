@@ -55,7 +55,7 @@ export default function PortfolioNew({ locale, dictionary }: PortfolioNewProps) 
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className='text-left mb-16'>
+          className='text-left mb-16 mt-6'>
           <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
             {dictionary?.title || 'Portfolio'}
           </h2>

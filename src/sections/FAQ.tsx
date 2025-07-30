@@ -155,11 +155,11 @@ export const FAQ = ({ dictionary }: FAQProps) => {
         <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' />
       </div>
       <div className='container mx-auto px-4 relative z-20'>
-        <div className='text-left mb-10 md:mb-16'>
-          <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
+        <div className='text-left mb-10 md:mb-16 mt-6'>
+          <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
             {dictionary?.title || 'Questions Fréquentes'}
           </h2>
-          <p className='text-2xl text-gray-600 max-w-3xl leading-relaxed'>
+          <p className='text-xl text-gray-600 max-w-3xl leading-relaxed mb-6'>
             {dictionary?.subtitle ||
               'Retrouvez les réponses aux questions les plus courantes sur nos services'}
           </p>
