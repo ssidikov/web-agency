@@ -113,7 +113,7 @@ export function Footer({ dictionary, locale }: FooterProps) {
                   className='inline-flex items-center justify-center mb-6'>
                   {/* <Image
                     src='/logo-sidikoff.webp'
-                    alt='Sidikoff Digital'
+                    alt='SIDIKOFF DIGITALDigital'
                     width={216}
                     height={60}
                     className='w-full h-full invert'
@@ -251,7 +251,7 @@ export function Footer({ dictionary, locale }: FooterProps) {
               className='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'>
               {/* Copyright */}
               <div className='text-gray-400 text-sm'>
-                © 2025 Sidikoff Digital. {dictionary.common.footer_copyright}
+                © 2025 SIDIKOFF DIGITALDigital. {dictionary.common.footer_copyright}
               </div>
 
               {/* Legal Links */}

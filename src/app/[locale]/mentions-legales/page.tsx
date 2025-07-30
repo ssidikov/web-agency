@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const dict = await getDictionary(locale)
 
   return {
-    title: `${dict.legal.title} | Sidikoff - Agence Web`,
+    title: `${dict.legal.title} | SIDIKOFF DIGITAL- Agence Web`,
     description:
       'Mentions légales et informations légales de Sidikoff, agence web spécialisée dans la création de sites internet et applications.',
     robots: 'noindex, nofollow',

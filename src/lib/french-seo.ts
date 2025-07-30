@@ -31,7 +31,7 @@ export function generateFrenchSEOMetadata(locale: string): Metadata {
   const currentLocale = localeMap[locale] || localeMap.fr
 
   const baseMetadata: Metadata = {
-    title: 'Sidikoff - Agence Web Paris & Toulouse | Développement Digital',
+    title: 'SIDIKOFF DIGITAL- Agence Web Paris & Toulouse | Développement Digital',
     description:
       'Agence web basée à Paris et Toulouse, spécialisée dans la création de sites internet modernes, applications web et mobiles. Expertise React, Next.js, développement sur mesure pour entreprises françaises.',
     keywords: [
@@ -48,7 +48,7 @@ export function generateFrenchSEOMetadata(locale: string): Metadata {
       'développeur web Toulouse',
     ],
     openGraph: {
-      title: 'Sidikoff - Agence Web Paris & Toulouse | Développement Digital',
+      title: 'SIDIKOFF DIGITAL- Agence Web Paris & Toulouse | Développement Digital',
       description:
         'Agence web basée à Paris et Toulouse, spécialisée dans la création de sites internet modernes, applications web et mobiles.',
       type: 'website',
@@ -57,8 +57,9 @@ export function generateFrenchSEOMetadata(locale: string): Metadata {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Sidikoff - Agence Web Paris & Toulouse | Développement Digital',
-      description: 'Agence web basée à Paris et Toulouse, spécialisée dans la création de sites internet modernes.',
+      title: 'SIDIKOFF DIGITAL- Agence Web Paris & Toulouse | Développement Digital',
+      description:
+        'Agence web basée à Paris et Toulouse, spécialisée dans la création de sites internet modernes.',
     },
     robots: {
       index: true,

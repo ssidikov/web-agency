@@ -46,7 +46,7 @@ export default async function HomePage() {
       '@type': 'WebSite',
       '@id': 'https://sidikoff.com/#website',
       name: 'SIDIKOFF DIGITAL',
-      alternateName: 'Sidikoff Digital',
+      alternateName: 'SIDIKOFF DIGITALDigital',
       url: 'https://sidikoff.com',
       description:
         'Agence web premium spécialisée dans la création de sites web modernes à Paris et Toulouse',

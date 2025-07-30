@@ -1,5 +1,3 @@
-
-
 // Локальная SEO конфигурация для SIDIKOFF DIGITAL
 export interface LocalBusiness {
   name: string
@@ -193,9 +191,9 @@ export function generateLocalBusinessSchema(location: LocalBusiness) {
     priceRange: location.priceRange,
     openingHours: location.openingHours,
     sameAs: [
-      'https://www.linkedin.com/company/sidikoff-digital',
-      'https://github.com/sidikoff-digital',
-      'https://www.facebook.com/sidikoffdigital',
+      'https://www.linkedin.com/in/sardorbeksidikov/',
+      'https://github.com/ssidikov',
+      'https://www.facebook.com/sidikoff.digital/',
       'https://twitter.com/sidikoffdigital',
     ],
     contactPoint: {
@@ -230,7 +228,7 @@ export const organizationSchema = {
   '@type': 'Organization',
   '@id': 'https://sidikoff.com/#organization',
   name: 'SIDIKOFF DIGITAL',
-  alternateName: 'Sidikoff Digital',
+  alternateName: 'SIDIKOFF DIGITALDigital',
   description:
     'Agence web premium spécialisée dans la création de sites web modernes, applications React/Next.js et stratégies digitales innovantes en France.',
   url: 'https://sidikoff.com',

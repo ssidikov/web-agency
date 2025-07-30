@@ -46,16 +46,16 @@ const getAdminTemplate = (locale: 'fr' | 'en' | 'ru' = 'fr') => {
 const getEmailSubjects = (locale: 'fr' | 'en' | 'ru' = 'fr') => {
   const subjects = {
     fr: {
-      user: 'Confirmation de votre demande - Sidikoff Digital',
-      admin: 'Nouvelle demande reçue - Sidikoff Digital',
+      user: 'Confirmation de votre demande - SIDIKOFF DIGITALDigital',
+      admin: 'Nouvelle demande reçue - SIDIKOFF DIGITALDigital',
     },
     en: {
-      user: 'Confirmation of your request - Sidikoff Digital',
-      admin: 'New request received - Sidikoff Digital',
+      user: 'Confirmation of your request - SIDIKOFF DIGITALDigital',
+      admin: 'New request received - SIDIKOFF DIGITALDigital',
     },
     ru: {
-      user: 'Подтверждение вашего запроса - Sidikoff Digital',
-      admin: 'Получен новый запрос - Sidikoff Digital',
+      user: 'Подтверждение вашего запроса - SIDIKOFF DIGITALDigital',
+      admin: 'Получен новый запрос - SIDIKOFF DIGITALDigital',
     },
   }
 
@@ -141,7 +141,7 @@ export async function POST(request: Request) {
 
     // Admin notification email
     const adminMail = {
-      from: `"Contact Form - Sidikoff Digital" <${process.env.EMAIL_FROM || process.env.SMTP_USER || process.env.GMAIL_USER}>`,
+      from: `"Contact Form - SIDIKOFF DIGITALDigital" <${process.env.EMAIL_FROM || process.env.SMTP_USER || process.env.GMAIL_USER}>`,
       to: process.env.EMAIL_TO || process.env.ADMIN_EMAIL || 's.sidikoff@gmail.com',
       subject: subjects.admin,
       html: adminTemplate({ name, email, message, locale }),

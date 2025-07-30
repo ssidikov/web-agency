@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://sidikoff.com'),
-  title: 'Sidikoff - Agence Web & Développement',
+  title: 'SIDIKOFF DIGITAL- Agence Web & Développement',
   description:
     'Agence web spécialisée dans la création de sites internet, applications web et mobiles. Expertise en React, Next.js, et développement sur mesure.',
   keywords:
@@ -30,13 +30,13 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
     url: 'https://sidikoff.com',
     siteName: 'Sidikoff',
-    title: 'Sidikoff - Agence Web & Développement',
+    title: 'SIDIKOFF DIGITAL- Agence Web & Développement',
     description:
       'Agence web spécialisée dans la création de sites internet, applications web et mobiles.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sidikoff - Agence Web & Développement',
+    title: 'SIDIKOFF DIGITAL- Agence Web & Développement',
     description:
       'Agence web spécialisée dans la création de sites internet, applications web et mobiles.',
   },

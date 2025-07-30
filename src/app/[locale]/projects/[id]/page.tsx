@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const projectUrl = getProjectUrl(id, locale)
 
   return {
-    title: `${project.title} | Sidikoff - Projets`,
+    title: `${project.title} | SIDIKOFF DIGITAL- Projets`,
     description: project.description,
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_SITE_URL}${projectUrl}`,

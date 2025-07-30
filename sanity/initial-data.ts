@@ -64,8 +64,8 @@ export const initialAuthor = {
   email: 's.sidikoff@gmail.com',
   website: 'https://sidikoff.com',
   socialLinks: {
-    linkedin: 'https://www.linkedin.com/company/sidikoff-digital',
-    github: 'https://github.com/sidikoff-digital',
+    linkedin: 'https://www.linkedin.com/in/sardorbeksidikov/',
+    github: 'https://github.com/ssidikov',
   },
 }
 

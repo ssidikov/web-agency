@@ -202,7 +202,7 @@ export function Header({ dictionary, locale }: HeaderProps) {
                 style={{ outline: 'none !important', boxShadow: 'none !important' }}>
                 <Image
                   src='/logo-sidikoff.webp'
-                  alt='Sidikoff Digital'
+                  alt='SIDIKOFF DIGITALDigital'
                   width={180}
                   height={45}
                   priority
