@@ -61,6 +61,8 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
       }, 5000)
       return () => clearTimeout(timer)
     }
+    
+    return undefined
   }, [submitStatus])
 
   const handleSubmit = useCallback(

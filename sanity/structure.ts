@@ -1,6 +1,6 @@
-import type { StructureResolver } from 'sanity/structure'
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-export const structure: StructureResolver = (S) =>
+export const structure = (S: any) =>
   S.list()
     .title('SIDIKOFF DIGITAL Blog')
     .items([

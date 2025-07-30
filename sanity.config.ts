@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineConfig } from 'sanity'
-import { structureTool } from 'sanity/structure'
+import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './sanity/schemas'
 
@@ -15,10 +16,10 @@ export default defineConfig({
   dataset: dataset || 'production',
 
   plugins: [
-    structureTool({
+    deskTool({
       name: 'studio',
       title: 'Content Studio',
-      structure: (S) =>
+      structure: (S: any) =>
         S.list()
           .title('Content')
           .items([
@@ -51,7 +52,7 @@ export default defineConfig({
 
             // All other document types
             ...S.documentTypeListItems().filter(
-              (listItem) => !['blogPost', 'blogCategory', 'author'].includes(listItem.getId() || '')
+              (listItem: any) => !['blogPost', 'blogCategory', 'author'].includes(listItem.getId() || '')
             ),
           ]),
     }),

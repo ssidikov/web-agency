@@ -139,6 +139,8 @@ export function Header({ dictionary, locale }: HeaderProps) {
       document.addEventListener('keydown', handleEscape)
       return () => document.removeEventListener('keydown', handleEscape)
     }
+    
+    return undefined
   }, [isMenuOpen])
 
   useEffect(() => {

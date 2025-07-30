@@ -1,6 +1,10 @@
 import Script from 'next/script'
-import { businessLocations, generateLocalBusinessSchema, organizationSchema } from '@/lib/local-seo'
-import { generateFrenchSEOMetadata } from '@/lib/french-seo'
+import { 
+  businessLocations, 
+  generateLocalBusinessSchema, 
+  organizationSchema,
+  generateFrenchSEOMetadata 
+} from '@/lib/seo-utils'
 import { getDictionary } from '@/lib/dictionaries'
 import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'
 

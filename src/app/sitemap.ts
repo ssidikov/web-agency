@@ -1,7 +1,7 @@
 
 import { MetadataRoute } from 'next'
 
-import { mainServices } from '@/lib/local-seo'
+import { mainServices } from '@/lib/seo-utils'
 
 
 

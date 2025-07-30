@@ -1,9 +1,15 @@
 import Script from 'next/script'
 
-import { businessLocations, generateLocalBusinessSchema, organizationSchema } from '@/lib/local-seo'
+import { 
+  businessLocations, 
+  generateLocalBusinessSchema, 
+  organizationSchema,
+  generateSEOMetadata, 
+  generateLanguageAlternates, 
+  createCanonicalUrl 
+} from '@/lib/seo-utils'
 import { defaultLocale } from '@/lib/i18n'
 import { Footer } from '@/components/Footer'
-import { generateSEOMetadata, generateLanguageAlternates, createCanonicalUrl } from '@/utils/seo'
 import { getDictionary } from '@/lib/dictionaries'
 import { Header } from '@/components/Header'
 import { Hero, Services, Pricing, Portfolio, FAQ, Contact } from '@/sections'

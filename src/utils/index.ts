@@ -1,8 +1,5 @@
 
 
-// SEO utilities
-export * from './seo'
-
 // Navigation utilities  
 export * from './navigation'
 
@@ -11,6 +8,3 @@ export * from './images'
 
 // Style utilities
 export * from './styles'
-
-// Accessibility utilities
-export * from './accessibility'

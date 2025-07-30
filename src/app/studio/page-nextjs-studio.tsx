@@ -6,11 +6,7 @@ import { LoginForm } from '@/components/LoginForm'
 import config from '../../../sanity.config'
 
 // Конфигурация для Studio с правильными настройками
-const studioConfig = {
-  ...config,
-  // Убираем базовый путь для компонента
-  basePath: undefined,
-}
+const studioConfig = config
 
 export default function StudioPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)

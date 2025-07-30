@@ -2,8 +2,8 @@ import { useState, useCallback } from 'react'
 
 export interface FormField {
   value: string
-  error?: string
-  touched?: boolean
+  error?: string | undefined
+  touched?: boolean | undefined
 }
 
 export interface FormState {
@@ -43,7 +43,8 @@ export const useForm = ({ initialValues, validationRules, onSubmit }: UseFormOpt
     setFormState(prev => ({
       ...prev,
       [field]: {
-        ...prev[field],
+        value: prev[field]?.value ?? '',
+        touched: prev[field]?.touched,
         error
       }
     }))
@@ -99,7 +100,11 @@ export const useForm = ({ initialValues, validationRules, onSubmit }: UseFormOpt
     onBlur: () => {
       setFormState(prev => ({
         ...prev,
-        [field]: { ...prev[field], touched: true }
+        [field]: { 
+          value: prev[field]?.value ?? '',
+          error: prev[field]?.error,
+          touched: true 
+        }
       }))
     }
   }), [formState, setValue])
