@@ -101,7 +101,11 @@ const Contact = ({ className, dictionary }: ContactProps) => {
         <div className='grid lg:grid-cols-5 gap-8'>
           {/* Contact Form */}
           <div className='lg:col-span-3'>
-            <div className='bg-white rounded-3xl border border-gray-100 shadow-2xl shadow-gray-900/5 p-10 h-full'>
+            <div
+              className='bg-white rounded-3xl border border-gray-100 shadow-2xl shadow-gray-900/5 p-10 h-full '
+              style={{
+                backdropFilter: 'blur(16px) saturate(100%)',
+              }}>
               <div className='flex items-center mb-8'>
                 <div className='w-2 h-8 bg-black rounded-full mr-4'></div>
                 <h3 className='text-3xl font-bold text-gray-900'>
