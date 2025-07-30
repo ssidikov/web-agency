@@ -10,7 +10,6 @@
       "SASS"
     ],
     "link": "https://ssidikov.github.io/kasa/",
-    "featured": true,
     "category": "Web"
   },
   {
@@ -27,7 +26,6 @@
       "Axios"
     ],
     "link": "https://ssidikov.github.io/SportSee/",
-    "featured": true,
     "category": "Dashboard"
   },
   {
@@ -220,7 +218,7 @@
   },
   {
     "id": "15",
-    "title": "Le Moderne",
+    "title": "Сайт ресторана Le Moderne",
     "description": "Le Moderne - Система управления рестораном",
     "image": "/images/projects/resto.webp",
     "longDescription": "Современная веб-платформа для французского ресторана с полной системой управления бронированием. Включает административную панель с аутентификацией и интуитивную систему онлайн-резервирования.",
@@ -234,6 +232,38 @@
       "Nodemailer"
     ],
     "link": "https://resto-parisien.vercel.app/",
+    "category": "Restaurant",
+    "featured": true
+  },
+  {
+    "id": "16",
+    "title": "Портфолио Сардорбека Сидикова",
+    "description": "Портфолио веб-разработчика с проектами и контактной информацией.",
+    "image": "/images/projects/portfolio.webp",
+    "longDescription": "Мое портфолио, демонстрирующее мои проекты и навыки в веб-разработке.",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "link": "https://sidikov.tech/",
+    "category": "Restaurant",
+    "featured": true
+  },
+  {
+    "id": "17",
+    "title": "Сайт ресторана Chez Liqi",
+    "description": "Сайт для ресторана Chez Liqi с современным дизайном и интуитивно понятным интерфейсом.",
+    "image": "/images/projects/chez-liqi.webp",
+    "longDescription": "Restaurant Chez Liqi — это современный веб-сайт для ресторана, предлагающий интуитивно понятный интерфейс и адаптивный дизайн. Пользователи могут легко просматривать меню, делать бронирования и узнавать о специальных предложениях.",
+    "technologies": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "link": "https://chez-liqi.vercel.app/",
     "category": "Restaurant",
     "featured": true
   }

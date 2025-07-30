@@ -68,7 +68,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className='container mx-auto px-4 py-36 relative'>
           <CTAButton
             href={getProjectsUrl(locale)}
-            variant='outline'
+            variant='secondary'
             size='sm'
             className='text-gray-600 hover:text-gray-900 mb-8 border-none bg-transparent shadow-none px-0 h-auto justify-start group'
             trackingAction='back_to_projects'

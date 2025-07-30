@@ -10,8 +10,7 @@
       "SASS"
     ],
     "link": "https://ssidikov.github.io/kasa/",
-    "category": "Web",
-    "featured": false
+    "category": "Web"
   },
   {
     "id": "2",
@@ -27,8 +26,7 @@
       "Axios"
     ],
     "link": "https://ssidikov.github.io/SportSee/",
-    "category": "Dashboard",
-    "featured": true
+    "category": "Dashboard"
   },
   {
     "id": "3",
@@ -44,8 +42,7 @@
       "Swagger"
     ],
     "link": "https://ssidikov.github.io/Argent-Bank/",
-    "category": "Finance",
-    "featured": false
+    "category": "Finance"
   },
   {
     "id": "4",
@@ -62,8 +59,7 @@
       "date-fns"
     ],
     "link": "https://ssidikov.github.io/HRnet/",
-    "category": "HR",
-    "featured": false
+    "category": "HR"
   },
   {
     "id": "5",
@@ -80,8 +76,7 @@
       "Performance Analysis"
     ],
     "link": "https://ssidikov.github.io/PetitsPlats2.0/",
-    "category": "Recipe",
-    "featured": false
+    "category": "Recipe"
   },
   {
     "id": "6",
@@ -95,8 +90,7 @@
       "HTML"
     ],
     "link": "https://ssidikov.github.io/cookies_angular/",
-    "category": "Ecommerce",
-    "featured": false
+    "category": "Ecommerce"
   },
   {
     "id": "7",
@@ -112,8 +106,7 @@
       "AChecker"
     ],
     "link": "https://ssidikov.github.io/Front-End-Fisheye/",
-    "category": "Portfolio",
-    "featured": false
+    "category": "Portfolio"
   },
   {
     "id": "8",
@@ -128,8 +121,7 @@
       "Flexbox"
     ],
     "link": "https://ssidikov.github.io/GameOn-website-FR/",
-    "category": "Landing",
-    "featured": false
+    "category": "Landing"
   },
   {
     "id": "9",
@@ -145,8 +137,7 @@
       "Flexbox"
     ],
     "link": "https://ssidikov.github.io/OhMyFood/",
-    "category": "Restaurant",
-    "featured": false
+    "category": "Restaurant"
   },
   {
     "id": "10",
@@ -161,8 +152,7 @@
       "End-to-End Testing"
     ],
     "link": "https://github.com/ssidikov/Billed-app-FR-Front/",
-    "category": "Testing",
-    "featured": false
+    "category": "Testing"
   },
   {
     "id": "11",
@@ -178,8 +168,7 @@
       "Grid"
     ],
     "link": "https://ssidikov.github.io/Booki/",
-    "category": "Travel",
-    "featured": false
+    "category": "Travel"
   },
   {
     "id": "12",
@@ -194,8 +183,7 @@
       "Flexbox"
     ],
     "link": "https://ssidikov.github.io/burgers-landing/",
-    "category": "Restaurant",
-    "featured": false
+    "category": "Restaurant"
   },
   {
     "id": "13",
@@ -211,8 +199,7 @@
       "UX/UI Design"
     ],
     "link": "#",
-    "category": "Education",
-    "featured": false
+    "category": "Education"
   },
   {
     "id": "14",
@@ -227,12 +214,11 @@
       "Flexbox"
     ],
     "link": "https://ssidikov.github.io/Evklid_website/",
-    "category": "Landing",
-    "featured": false
+    "category": "Landing"
   },
   {
     "id": "15",
-    "title": "Le Moderne",
+    "title": "Restaurant Le Moderne",
     "description": "Le Moderne - Système de gestion de restaurant",
     "image": "/images/projects/resto.webp",
     "longDescription": "Plateforme web moderne pour restaurant parisien avec système complet de gestion des réservations. Comprend un panel d'administration sécurisé et une interface de réservation en ligne intuitive.",
@@ -246,6 +232,37 @@
       "Nodemailer"
     ],
     "link": "https://resto-parisien.vercel.app/",
+    "category": "Restaurant",
+    "featured": true
+  },
+  {
+    "id": "16",
+    "title": "Portfolio de Sardorbek SIDIKOV",
+    "description": "Portfolio personnel de Sardorbek SIDIKOV, développeur web.",
+    "image": "/images/projects/portfolio.webp",
+    "longDescription": "Mon portfolio personnel, présentant mes projets et compétences en développement web. Conçu pour être responsive et facile à naviguer.",
+    "technologies": [
+      "Next.js",
+      "Tailwind CSS",
+      "React",
+      "TypeScript"
+    ],
+    "link": "https://sidikov.tech/",
+    "category": "Portfolio"
+  },
+  {
+    "id": "17",
+    "title": "Restaurant Chez Liqi",
+    "description": "Site web pour le restaurant Chez Liqi, avec un design moderne et une interface utilisateur intuitive.",
+    "image": "/images/projects/chez-liqi.webp",
+    "longDescription": "Restaurant Chez Liqi est un site web moderne pour un restaurant, offrant une interface utilisateur intuitive et un design responsive. Les utilisateurs peuvent facilement naviguer à travers le menu, faire des réservations et découvrir les spécialités du chef.",
+    "technologies": [
+      "Next.js",
+      "Tailwind CSS",
+      "React",
+      "TypeScript"
+    ],
+    "link": "https://chez-liqi.vercel.app/",
     "category": "Restaurant",
     "featured": true
   }

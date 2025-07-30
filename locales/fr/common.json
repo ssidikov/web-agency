@@ -154,41 +154,6 @@
       "button": "Nous Contacter"
     }
   },
-  "portfolio": {
-    "title": "Nos Réalisations",
-    "subtitle": "Découvrez nos derniers projets mettant en avant les technologies modernes de développement web et des solutions innovantes.",
-    "filter": {
-      "all": "Tous",
-      "web": "Web",
-      "mobile": "Mobile",
-      "design": "Design"
-    },
-    "projects": {
-      "ecommerce": {
-        "title": "Plateforme E-Commerce",
-        "description": "Boutique en ligne moderne avec des fonctionnalités avancées",
-        "category": "web"
-      },
-      "mobile_app": {
-        "title": "Application Mobile Fitness",
-        "description": "Application de suivi fitness multiplateforme",
-        "category": "mobile"
-      },
-      "brand_identity": {
-        "title": "Design d'Identité de Marque",
-        "description": "Refonte complète de marque et identité visuelle",
-        "category": "design"
-      },
-      "corporate_website": {
-        "title": "Site Web Corporate",
-        "description": "Site web professionnel pour cabinet de conseil",
-        "category": "web"
-      }
-    },
-    "view_project": "Voir Tous les Projets",
-    "live_demo": "Démo Live",
-    "github": "GitHub"
-  },
   "contact": {
     "title": "Prenez Contact",
     "subtitle": "Prêt à Commencer Votre Projet ?",

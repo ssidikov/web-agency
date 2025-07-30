@@ -10,8 +10,7 @@
       "SASS"
     ],
     "link": "https://ssidikov.github.io/kasa/",
-    "category": "Web",
-    "featured": true
+    "category": "Web"
   },
   {
     "id": "2",
@@ -27,8 +26,7 @@
       "Axios"
     ],
     "link": "https://ssidikov.github.io/SportSee/",
-    "category": "Dashboard",
-    "featured": true
+    "category": "Dashboard"
   },
   {
     "id": "3",
@@ -185,8 +183,7 @@
       "Flexbox"
     ],
     "link": "https://ssidikov.github.io/burgers-landing/",
-    "category": "Restaurant",
-    "featured": true
+    "category": "Restaurant"
   },
   {
     "id": "13",
@@ -221,7 +218,7 @@
   },
   {
     "id": "15",
-    "title": "Le Moderne",
+    "title": "Restaurant Le Moderne",
     "description": "Le Moderne - Restaurant Management System",
     "image": "/images/projects/resto.webp",
     "longDescription": "Developed a modern web platform for a Parisian restaurant featuring a complete reservation management system. Includes secure admin dashboard with authentication and intuitive online booking interface.",
@@ -235,6 +232,37 @@
       "Nodemailer"
     ],
     "link": "https://resto-parisien.vercel.app/",
+    "category": "Restaurant",
+    "featured": true
+  },
+  {
+    "id": "16",
+    "title": "Portfolio Website",
+    "description": "My personal portfolio website showcasing my projects and skills.",
+    "image": "/images/projects/portfolio.webp",
+    "longDescription": "This is my personal portfolio website where I showcase my projects, skills, and experiences. It is designed to be responsive and user-friendly, allowing visitors to easily navigate through my work.",
+    "technologies": [
+      "Next.js",
+      "Tailwind CSS",
+      "React",
+      "TypeScript"
+    ],
+    "link": "https://sidikov.tech/",
+    "category": "Portfolio"
+  },
+  {
+    "id": "17",
+    "title": "Restaurant Chez Liqi",
+    "description": "Web site for the restaurant Chez Liqi, featuring a modern design and intuitive user interface.",
+    "image": "/images/projects/chez-liqi.webp",
+    "longDescription": "Restaurant Chez Liqi is a modern website for a restaurant, offering an intuitive user interface and responsive design. Users can easily navigate through the menu, make reservations, and discover the chef's specialties.",
+    "technologies": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "link": "https://chez-liqi.vercel.app/",
     "category": "Restaurant",
     "featured": true
   }
