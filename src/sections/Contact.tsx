@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 
 interface ContactDictionary {
   title?: string
@@ -15,6 +15,10 @@ interface ContactDictionary {
     message?: { label?: string; placeholder?: string }
     submit?: string
     sending?: string
+    success?: string
+    success_description?: string
+    error?: string
+    error_description?: string
   }
   info?: {
     title?: string
@@ -39,27 +43,89 @@ interface ContactProps {
   locale?: string
 }
 
-const Contact = ({ className, dictionary }: ContactProps) => {
+const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  // Reset submit status after 3 seconds
+  useEffect(() => {
+    if (submitStatus !== 'idle') {
+      const timer = setTimeout(() => {
+        setSubmitStatus('idle')
+      }, 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [submitStatus])
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault()
+      setIsSubmitting(true)
+      setSubmitStatus('idle')
 
-    // Form submitted with data
-    setIsSubmitting(false)
+      try {
+        // Validate form data
+        if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+          throw new Error('Tous les champs sont requis')
+        }
 
-    // Reset form
-    setFormData({ name: '', email: '', message: '' })
-  }, [])
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!emailRegex.test(formData.email)) {
+          throw new Error('Adresse email invalide')
+        }
+
+        // Create form data for submission
+        const submitData = {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          timestamp: new Date().toISOString(),
+          userAgent: navigator.userAgent,
+        }
+
+        // Here you can add your actual form submission logic
+        // For example, sending to your backend API:
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...submitData,
+            locale: locale || 'fr', // Use dynamic locale
+          }),
+        })
+
+        const result = await response.json()
+
+        if (!response.ok) {
+          throw new Error(result.error || "Erreur lors de l'envoi du message")
+        }
+
+        console.log('Email sent successfully:', result)
+
+        // Mark as successful
+        setSubmitStatus('success')
+
+        // Reset form
+        setFormData({ name: '', email: '', message: '' })
+
+        // Remove alert and let the UI notification handle success message
+      } catch (error) {
+        console.error('Form submission error:', error)
+        setSubmitStatus('error')
+
+        // Error will be shown in UI notification below the button
+      } finally {
+        setIsSubmitting(false)
+      }
+    },
+    [formData, locale]
+  )
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -178,23 +244,153 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                 <button
                   type='submit'
                   disabled={isSubmitting}
-                  className='w-full font-medium whitespace-nowrap rounded-full cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 group relative bg-black hover:bg-transparent text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] text-lg 3xl:text-xl px-6 lg:px-8'>
+                  className={`w-full font-medium whitespace-nowrap rounded-full cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 group relative border transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] text-lg 3xl:text-xl px-6 lg:px-8 ${
+                    submitStatus === 'success'
+                      ? 'bg-green-600 hover:bg-green-700 text-white border-green-600'
+                      : submitStatus === 'error'
+                        ? 'bg-red-600 hover:bg-red-700 text-white border-red-600'
+                        : 'bg-black hover:bg-transparent text-white hover:text-black border-black'
+                  }`}>
                   <span className='relative flex items-center justify-center'>
-                    {isSubmitting
-                      ? dictionary?.form?.sending || 'Envoi en cours...'
-                      : dictionary?.form?.submit || 'Envoyer le Message'}
-                    <svg
-                      className='ml-2 -mr-1 w-5 h-5 transition-transform group-hover:translate-x-1'
-                      fill='currentColor'
-                      viewBox='0 0 20 20'>
-                      <path
-                        fillRule='evenodd'
-                        d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
-                        clipRule='evenodd'
-                      />
-                    </svg>
+                    {isSubmitting ? (
+                      <>
+                        <svg
+                          className='animate-spin -ml-1 mr-3 h-5 w-5 text-current'
+                          xmlns='http://www.w3.org/2000/svg'
+                          fill='none'
+                          viewBox='0 0 24 24'>
+                          <circle
+                            className='opacity-25'
+                            cx='12'
+                            cy='12'
+                            r='10'
+                            stroke='currentColor'
+                            strokeWidth='4'></circle>
+                          <path
+                            className='opacity-75'
+                            fill='currentColor'
+                            d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'></path>
+                        </svg>
+                        {dictionary?.form?.sending || 'Envoi en cours...'}
+                      </>
+                    ) : submitStatus === 'success' ? (
+                      <>
+                        <svg className='w-5 h-5 mr-2' fill='currentColor' viewBox='0 0 20 20'>
+                          <path
+                            fillRule='evenodd'
+                            d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                            clipRule='evenodd'
+                          />
+                        </svg>
+                        Message Envoyé!
+                      </>
+                    ) : submitStatus === 'error' ? (
+                      <>
+                        <svg className='w-5 h-5 mr-2' fill='currentColor' viewBox='0 0 20 20'>
+                          <path
+                            fillRule='evenodd'
+                            d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z'
+                            clipRule='evenodd'
+                          />
+                        </svg>
+                        Réessayer
+                      </>
+                    ) : (
+                      <>
+                        {dictionary?.form?.submit || 'Envoyer le Message'}
+                        <svg
+                          className='ml-2 -mr-1 w-5 h-5 transition-transform group-hover:translate-x-1'
+                          fill='currentColor'
+                          viewBox='0 0 20 20'>
+                          <path
+                            fillRule='evenodd'
+                            d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
+                            clipRule='evenodd'
+                          />
+                        </svg>
+                      </>
+                    )}
                   </span>
                 </button>
+
+                {/* Success/Error Notification */}
+                {submitStatus !== 'idle' && (
+                  <div
+                    className={`mt-4 p-4 rounded-2xl border transition-all duration-500 transform animate-in slide-in-from-bottom-2 ${
+                      submitStatus === 'success'
+                        ? 'bg-green-50 border-green-200 text-green-800'
+                        : 'bg-red-50 border-red-200 text-red-800'
+                    }`}
+                    style={{
+                      background:
+                        submitStatus === 'success'
+                          ? 'rgba(34, 197, 94, 0.15)'
+                          : 'rgba(239, 68, 68, 0.15)',
+                      backdropFilter: 'blur(15px)',
+                      WebkitBackdropFilter: 'blur(15px)',
+                      border:
+                        submitStatus === 'success'
+                          ? '1px solid rgba(34, 197, 94, 0.3)'
+                          : '1px solid rgba(239, 68, 68, 0.3)',
+                      boxShadow:
+                        submitStatus === 'success'
+                          ? '0 4px 16px rgba(34, 197, 94, 0.2)'
+                          : '0 4px 16px rgba(239, 68, 68, 0.2)',
+                    }}>
+                    <div className='flex items-start space-x-3'>
+                      <div className='flex-shrink-0'>
+                        {submitStatus === 'success' ? (
+                          <svg
+                            className='w-5 h-5 text-green-600'
+                            fill='currentColor'
+                            viewBox='0 0 20 20'>
+                            <path
+                              fillRule='evenodd'
+                              d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'
+                              clipRule='evenodd'
+                            />
+                          </svg>
+                        ) : (
+                          <svg
+                            className='w-5 h-5 text-red-600'
+                            fill='currentColor'
+                            viewBox='0 0 20 20'>
+                            <path
+                              fillRule='evenodd'
+                              d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z'
+                              clipRule='evenodd'
+                            />
+                          </svg>
+                        )}
+                      </div>
+                      <div className='min-w-0 flex-1'>
+                        <h4 className='text-sm font-semibold mb-1'>
+                          {submitStatus === 'success'
+                            ? dictionary?.form?.success || 'Message envoyé avec succès !'
+                            : dictionary?.form?.error || "Erreur lors de l'envoi du message"}
+                        </h4>
+                        <p className='text-sm opacity-90'>
+                          {submitStatus === 'success'
+                            ? dictionary?.form?.success_description ||
+                              'Votre message a été envoyé avec succès. Vous recevrez bientôt un email de confirmation.'
+                            : dictionary?.form?.error_description ||
+                              "Une erreur s'est produite. Veuillez vérifier vos informations et réessayer."}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => setSubmitStatus('idle')}
+                        className='flex-shrink-0 ml-4 text-gray-400 hover:text-gray-600 transition-colors duration-200'>
+                        <svg className='w-4 h-4' fill='currentColor' viewBox='0 0 20 20'>
+                          <path
+                            fillRule='evenodd'
+                            d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z'
+                            clipRule='evenodd'
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                )}
               </form>
             </div>
           </div>

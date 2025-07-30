@@ -186,7 +186,9 @@
       "submit": "Send Message",
       "sending": "Sending...",
       "success": "Message sent successfully!",
-      "error": "Failed to send message. Please try again."
+      "success_description": "Your message has been sent successfully. You will receive a confirmation email shortly and we will respond to you as soon as possible.",
+      "error": "Failed to send message. Please try again.",
+      "error_description": "An error occurred while sending your message. Please check your information and try again."
     },
     "info": {
       "title": "Contact Information",
@@ -197,7 +199,6 @@
       ],
       "phone_label": "Phone",
       "email_label": "Email",
-      "address": "123 Business Street, Suite 100, New York, NY 10001",
       "phone": "+33 6 26 93 27 34",
       "email": "s.sidikoff@gmail.com",
       "hours": "Monday - Friday: 9:00 AM - 6:00 PM"
