@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import CTAButton from '@/components/ui/CTAButton'
+import Section, { SectionHeader } from '@/components/ui/Section'
 
 interface FAQItem {
   id: string
@@ -137,33 +138,23 @@ export const FAQ = ({ dictionary }: FAQProps) => {
   }
 
   return (
-    <section id='faq' className='py-20 relative overflow-hidden'>
-      {/* Background with gradient */}
-      <div className='absolute inset-0 z-0'>
-        <div
-          className='absolute inset-0 w-full h-full pointer-events-none select-none'
-          style={{
-            backgroundImage: 'url(/images/bg-image-3.svg)',
-            backgroundRepeat: 'repeat-y',
-            backgroundPosition: 'center top',
-            backgroundSize: '100% auto',
-            backgroundColor: '#f9fafb',
-          }}
-        />
-        {/* Многослойный градиент для FAQ */}
-        <div className='absolute inset-0 bg-gradient-to-t from-white/80` via-transparent to-blue-50/10' />
-        <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' />
-      </div>
-      <div className='container mx-auto px-4 relative z-20'>
-        <div className='text-left mb-10 md:mb-16 mt-6'>
-          <h2 className='text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
-            {dictionary?.title || 'Questions Fréquentes'}
-          </h2>
-          <p className='text-xl text-gray-600 max-w-3xl leading-relaxed mb-6'>
-            {dictionary?.subtitle ||
-              'Retrouvez les réponses aux questions les plus courantes sur nos services'}
-          </p>
-        </div>
+    <Section
+      id="faq"
+      background="pattern"
+      backgroundConfig={{
+        image: '/images/bg-image-3.svg',
+        backgroundColor: '#f9fafb',
+        size: '100% auto',
+        position: 'center top',
+        repeat: 'repeat-y'
+      }}
+    >
+      <SectionHeader
+        title={dictionary?.title || 'Questions Fréquentes'}
+        subtitle={dictionary?.subtitle || 'Retrouvez les réponses aux questions les plus courantes sur nos services'}
+        titleId="faq-title"
+        className="text-left mb-10 md:mb-16 mt-6"
+      />
 
         {/* Category Filter */}
         <div className='w-full mb-12'>
@@ -318,8 +309,7 @@ export const FAQ = ({ dictionary }: FAQProps) => {
             </svg>
           </CTAButton>
         </div>
-      </div>
-    </section>
+    </Section>
   )
 }
 

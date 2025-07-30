@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useCallback, useEffect } from 'react'
+import Section, { SectionHeader } from '@/components/ui/Section'
 
 interface ContactDictionary {
   title?: string
@@ -136,35 +137,26 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
   )
 
   return (
-    <section id='contact' className={`py-20 relative overflow-hidden ${className || ''}`}>
-      {/* Background with gradient */}
-      <div className='absolute inset-0 z-0'>
-        <div
-          className='absolute inset-0 w-full h-full pointer-events-none select-none'
-          style={{
-            backgroundImage: 'url(/images/bg-image-3.svg)',
-            backgroundRepeat: 'repeat-y',
-            backgroundPosition: 'center top',
-            backgroundSize: '100% auto',
-            backgroundColor: '#f8fafc',
-          }}
-        />
-        {/* Многослойный градиент для Contact */}
-        <div className='absolute inset-0 bg-gradient-to-t from-white/80` via-transparent to-blue-50/10' />
-        <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' />
-      </div>
+    <Section
+      id="contact"
+      background="pattern"
+      backgroundConfig={{
+        image: '/images/bg-image-3.svg',
+        backgroundColor: '#f8fafc',
+        size: '100% auto',
+        position: 'center top',
+        repeat: 'repeat-y'
+      }}
+      className={className || ''}
+    >
+      <SectionHeader
+        title={dictionary?.title || 'Prenez Contact'}
+        subtitle={dictionary?.subtitle || 'Prêt à Commencer Votre Projet ?'}
+        titleId="contact-title"
+        className="text-left mb-20"
+      />
 
-      <div className='relative z-10 max-w-7xl mx-auto px-4'>
-        <div className='text-left mb-20'>
-          <h2 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight'>
-            {dictionary?.title || 'Prenez Contact'}
-          </h2>
-          <p className='text-xl text-gray-600 max-w-3xl leading-relaxed'>
-            {dictionary?.subtitle || 'Prêt à Commencer Votre Projet ?'}
-          </p>
-        </div>
-
-        <div className='grid lg:grid-cols-5 gap-8'>
+      <div className='grid lg:grid-cols-5 gap-8'>
           {/* Contact Form */}
           <div className='lg:col-span-3'>
             <div
@@ -595,8 +587,7 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </Section>
   )
 }
 

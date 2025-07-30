@@ -31,29 +31,34 @@ export function generateFrenchSEOMetadata(locale: string): Metadata {
   const currentLocale = localeMap[locale] || localeMap.fr
 
   const baseMetadata: Metadata = {
-    title: 'Sidikoff - Agence Web & Développement Digital',
+    title: 'Sidikoff - Agence Web Paris & Toulouse | Développement Digital',
     description:
-      'Agence web française spécialisée dans la création de sites internet modernes, applications web et mobiles. Expertise React, Next.js, développement sur mesure.',
+      'Agence web basée à Paris et Toulouse, spécialisée dans la création de sites internet modernes, applications web et mobiles. Expertise React, Next.js, développement sur mesure pour entreprises françaises.',
     keywords: [
-      'agence web france',
-      'développement web',
-      'création site internet',
-      'React Next.js',
-      'applications mobiles',
+      'agence web Paris',
+      'agence web Toulouse',
+      'développement web Paris',
+      'création site internet Paris',
+      'création site internet Toulouse',
+      'React Next.js Paris',
+      'applications mobiles France',
       'développement sur mesure',
+      'agence digitale France',
+      'web agency Paris',
+      'développeur web Toulouse',
     ],
     openGraph: {
-      title: 'Sidikoff - Agence Web & Développement Digital',
+      title: 'Sidikoff - Agence Web Paris & Toulouse | Développement Digital',
       description:
-        'Agence web française spécialisée dans la création de sites internet modernes, applications web et mobiles.',
+        'Agence web basée à Paris et Toulouse, spécialisée dans la création de sites internet modernes, applications web et mobiles.',
       type: 'website',
       locale: currentLocale.og,
       siteName: 'Sidikoff',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Sidikoff - Agence Web & Développement Digital',
-      description: 'Agence web française spécialisée dans la création de sites internet modernes.',
+      title: 'Sidikoff - Agence Web Paris & Toulouse | Développement Digital',
+      description: 'Agence web basée à Paris et Toulouse, spécialisée dans la création de sites internet modernes.',
     },
     robots: {
       index: true,

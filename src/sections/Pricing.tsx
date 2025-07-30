@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-
 import CTAButton from '@/components/ui/CTAButton'
 import PricingCard from '@/components/ui/PricingCard'
+import Section, { SectionHeader } from '@/components/ui/Section'
 
 // Simple SVG icons
 const CheckIcon = ({ className }: { className?: string }) => (
@@ -156,64 +156,42 @@ export default function Pricing({ locale }: PricingProps) {
   }
 
   return (
-    <section
-      id='pricing'
-      className='py-20 relative overflow-hidden'
-      aria-labelledby='pricing-title'>
-      {/* Background with gradient */}
-      <div className='absolute inset-0 z-0'>
-        <div
-          className='absolute inset-0 w-full h-full pointer-events-none select-none'
-          style={{
-            backgroundImage: 'url(/images/bg-image-3.svg)',
-            backgroundRepeat: 'repeat-y',
-            backgroundPosition: 'center top',
-            backgroundSize: '100% auto',
-            backgroundColor: '#f9f7f7',
-          }}
-        />
-        {/* Многослойный градиент для Pricing */}
-        <div className='absolute inset-0 bg-gradient-to-t from-white/80` via-transparent to-blue-50/10' />
-        <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' />
-      </div>
-      <div className='relative z-10 container mx-auto px-4'>
-        {/* En-tête de section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className='text-left mb-16 mt-6'>
-          <h2
-            id='pricing-title'
-            className='text-4xl md:text-5xl lg:text-6xl font-bold text-[#112D4E] mb-6 tracking-tight'>
-            {dict?.pricing?.title || 'Nos Offres'}
-          </h2>
-          <p className='text-xl text-gray-600 max-w-3xl leading-relaxed mb-6'>
-            {dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
-          </p>
-          <p className='text-gray-600 text-lg max-w-4xl leading-relaxed'>
-            {dict?.pricing?.description ||
-              'Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.'}
-          </p>
+    <Section
+      id="pricing"
+      background="pattern"
+      backgroundConfig={{
+        image: '/images/bg-image-3.svg',
+        backgroundColor: '#f9f7f7',
+        size: '100% auto',
+        position: 'center top',
+        repeat: 'repeat-y'
+      }}
+      aria-labelledby="pricing-title"
+    >
+      <SectionHeader
+        title={dict?.pricing?.title || 'Nos Offres'}
+        subtitle={dict?.pricing?.subtitle || 'Transparentes & Adaptées'}
+        description={dict?.pricing?.description || 'Choisissez la solution qui correspond parfaitement à vos besoins et à votre budget. Tous nos projets incluent un design moderne, un développement professionnel et un support complet.'}
+        titleId="pricing-title"
+        className="text-left mb-16 mt-6"
+      />
 
-          {/* Badges de confiance */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className='flex flex-wrap justify-center gap-4 mt-8'>
-            <div className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 text-green-500 p-4 backdrop-blur-xl bg-white/20 border-2 border-white/30'>
-              <CheckIcon className='w-3 h-3 bg-green-200 rounded-full' />
-              <span className='text-sm font-medium text-gray-700'>
-                {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
-              </span>
-            </div>
-          </motion.div>
-        </motion.div>
+      {/* Badges de confiance */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
+        className='flex flex-wrap justify-center gap-4 mb-8'>
+        <div className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 text-green-500 p-4 backdrop-blur-xl bg-white/20 border-2 border-white/30'>
+          <CheckIcon className='w-3 h-3 bg-green-200 rounded-full' />
+          <span className='text-sm font-medium text-gray-700'>
+            {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
+          </span>
+        </div>
+      </motion.div>
 
-        {/* Grille des cartes de tarification */}
+      {/* Grille des cartes de tarification */}
         <div className='grid lg:grid-cols-3 gap-8 lg:gap-6 max-w-8xl mx-auto'>
           {pricingPlans.map((plan, index) => (
             <div key={plan.name} className='h-full'>
@@ -279,7 +257,6 @@ export default function Pricing({ locale }: PricingProps) {
             </CTAButton>
           </div>
         </motion.div>
-      </div>
-    </section>
+    </Section>
   )
 }
