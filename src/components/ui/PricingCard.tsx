@@ -56,7 +56,7 @@ export default function PricingCard({
       style={{
         backdropFilter: 'blur(16px) saturate(100%)',
       }}
-      className={`relative rounded-2xl transition-all duration-300 hover:shadow-2xl w-full h-full flex flex-col min-h-[600px] pb-5 sm:pb-6 3xl:pb-8 shadow-xl bg-white/20 border-2 border-white/30 ${
+      className={`relative rounded-2xl transition-all duration-300 hover:shadow-2xl w-full h-full flex flex-col min-h-[600px] pb-5 sm:pb-6 3xl:pb-8 shadow-xl bg-white/50 border-2 border-white/60 ${
         isHighlighted
           ? 'border-black ring-4 ring-black/20'
           : 'border-gray-200 hover:border-gray-400/50'

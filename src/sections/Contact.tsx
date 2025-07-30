@@ -102,9 +102,12 @@ const Contact = ({ className, dictionary }: ContactProps) => {
           {/* Contact Form */}
           <div className='lg:col-span-3'>
             <div
-              className='bg-white rounded-3xl border border-gray-100 shadow-2xl shadow-gray-900/5 p-10 h-full '
+              className='bg-white shadow-gray-900/5 p-10 h-full rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
               style={{
+                background: 'rgba(255, 255, 255, 0.25)',
                 backdropFilter: 'blur(16px) saturate(100%)',
+                border: '1px solid rgba(255, 255, 255, 0.18)',
+                boxShadow: 'rgba(0, 0, 0, 0.12) 0px 8px 32px',
               }}>
               <div className='flex items-center mb-8'>
                 <div className='w-2 h-8 bg-black rounded-full mr-4'></div>
@@ -127,7 +130,7 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className='w-full px-6 py-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-black focus:outline-none transition-all duration-300 text-gray-900 placeholder-gray-400'
+                      className='w-full px-6 py-4 focus:bg-white focus:border-black focus:outline-none text-gray-900 placeholder-gray-400 bg-white/70 border-2 hover:border-black p-6 rounded-2xl transition-all duration-300 overflow-hidden border-gray-400/30'
                       placeholder={
                         dictionary?.form?.name?.placeholder || 'Entrez votre nom complet'
                       }
@@ -146,7 +149,7 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className='w-full px-6 py-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-black focus:outline-none transition-all duration-300 text-gray-900 placeholder-gray-400'
+                      className='w-full px-6 py-4 focus:bg-white focus:border-black focus:outline-none text-gray-900 placeholder-gray-400 bg-white/70 border-2 hover:border-black p-6 rounded-2xl transition-all duration-300 overflow-hidden border-gray-400/30'
                       placeholder={
                         dictionary?.form?.email?.placeholder || 'Entrez votre adresse email'
                       }
@@ -166,7 +169,7 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
-                    className='w-full px-6 py-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-black focus:outline-none transition-all duration-300 resize-none text-gray-900 placeholder-gray-400'
+                    className='w-full px-6 py-4 resize-none focus:bg-white focus:border-black focus:outline-none text-gray-900 placeholder-gray-400 bg-white/70 border-2 hover:border-black p-6 rounded-2xl transition-all duration-300 overflow-hidden border-gray-400/30'
                     placeholder={
                       dictionary?.form?.message?.placeholder || 'Parlez-nous de votre projet...'
                     }
@@ -175,7 +178,7 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                 <button
                   type='submit'
                   disabled={isSubmitting}
-                  className='w-full font-medium whitespace-nowrap rounded-full cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 group relative bg-black hover:bg-white text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] text-lg 3xl:text-xl px-6 lg:px-8'>
+                  className='w-full font-medium whitespace-nowrap rounded-full cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 group relative bg-black hover:bg-transparent text-white hover:text-black border border-black transition-all duration-300 h-16 lg:h-[77px] 3xl:h-[98px] text-lg 3xl:text-xl px-6 lg:px-8'>
                   <span className='relative flex items-center justify-center'>
                     {isSubmitting
                       ? dictionary?.form?.sending || 'Envoi en cours...'
@@ -199,7 +202,14 @@ const Contact = ({ className, dictionary }: ContactProps) => {
           {/* Contact Information */}
           <div className='lg:col-span-2 space-y-6'>
             {/* Quick Contact */}
-            <div className='bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-900/5 p-8'>
+            <div
+              className='bg-white shadow-gray-900/5 p-8 rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
+              style={{
+                background: 'rgba(255, 255, 255, 0.25)',
+                backdropFilter: 'blur(16px) saturate(100%)',
+                border: '1px solid rgba(255, 255, 255, 0.18)',
+                boxShadow: 'rgba(0, 0, 0, 0.12) 0px 8px 32px',
+              }}>
               <div className='flex items-center mb-6'>
                 <div className='w-2 h-6 bg-black rounded-full mr-3'></div>
                 <h3 className='text-xl font-bold text-gray-900'>
@@ -211,7 +221,7 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                   href='mailto:s.sidikoff@gmail.com'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='group relative bg-gray-50 hover:bg-black border-2 border-gray-100 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden'
+                  className='group relative bg-gray-50/50 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/70'
                   tabIndex={0}>
                   <svg
                     width='32'
@@ -233,7 +243,7 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                   href='https://wa.me/+33626932734'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='group relative bg-gray-50 hover:bg-black border-2 border-gray-100 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden'
+                  className='group relative bg-gray-50/50 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/70'
                   tabIndex={0}>
                   <svg
                     width='32'
@@ -252,7 +262,7 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                   href='https://t.me/sardorbek_sidikov'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='group relative bg-gray-50 hover:bg-black border-2 border-gray-100 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden'
+                  className='group relative bg-gray-50/50 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/70'
                   tabIndex={0}>
                   <svg
                     width='32'
@@ -271,7 +281,7 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                   href='tel:+33 6 26 93 27 34'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='group relative bg-gray-50 hover:bg-black border-2 border-gray-100 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden'
+                  className='group relative bg-gray-50/50 hover:bg-black border-2 hover:border-black p-6 rounded-2xl flex flex-col items-center text-center transition-all duration-300 overflow-hidden border-white/70'
                   tabIndex={0}>
                   <svg
                     width='32'
@@ -292,7 +302,14 @@ const Contact = ({ className, dictionary }: ContactProps) => {
             </div>
 
             {/* Contact Information */}
-            <div className='bg-white rounded-3xl border border-gray-100 shadow-xl shadow-gray-900/5 p-8'>
+            <div
+              className='bg-white shadow-gray-900/5 p-8 rounded-2xl pb-5 sm:pb-6 3xl:pb-8 border border-white/30 shadow-lg'
+              style={{
+                background: 'rgba(255, 255, 255, 0.25)',
+                backdropFilter: 'blur(16px) saturate(100%)',
+                border: '1px solid rgba(255, 255, 255, 0.18)',
+                boxShadow: 'rgba(0, 0, 0, 0.12) 0px 8px 32px',
+              }}>
               <div className='flex items-center mb-6'>
                 <div className='w-2 h-6 bg-black rounded-full mr-3'></div>
                 <h3 className='text-xl font-bold text-gray-900'>
@@ -300,8 +317,8 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                 </h3>
               </div>
               <div className='space-y-6'>
-                <div className='group flex items-start space-x-4 p-4 rounded-2xl hover:bg-gray-50 transition-colors duration-200 border border-gray-100'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-gray-100 group-hover:bg-black rounded-2xl flex items-center justify-center transition-colors duration-300'>
+                <div className='group flex items-start space-x-4 p-4 hover:bg-gray-50/20 transition-colors duration-200 border border-white/70 rounded-xl pb-5 sm:pb-6 3xl:pb-8'>
+                  <div className='flex-shrink-0 w-12 h-12 bg-white/70 border border-gray-500/20 group-hover:bg-black rounded-2xl flex items-center justify-center transition-colors duration-300'>
                     <svg
                       width='20'
                       height='20'
@@ -325,8 +342,8 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                     </p>
                   </div>
                 </div>
-                <div className='group flex items-start space-x-4 p-4 rounded-2xl hover:bg-gray-50 transition-colors duration-200 border border-gray-100'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-gray-100 group-hover:bg-black rounded-2xl flex items-center justify-center transition-colors duration-300'>
+                <div className='group flex items-start space-x-4 p-4 hover:bg-gray-50/20 transition-colors duration-200 border border-white/70 rounded-xl pb-5 sm:pb-6 3xl:pb-8'>
+                  <div className='flex-shrink-0 w-12 h-12 bg-white/70 border border-gray-500/20 group-hover:bg-black rounded-2xl flex items-center justify-center transition-colors duration-300'>
                     <svg
                       width='20'
                       height='20'
@@ -351,8 +368,8 @@ const Contact = ({ className, dictionary }: ContactProps) => {
                     </a>
                   </div>
                 </div>
-                <div className='group flex items-start space-x-4 p-4 rounded-2xl hover:bg-gray-50 transition-colors duration-200 border border-gray-100'>
-                  <div className='flex-shrink-0 w-12 h-12 bg-gray-100 group-hover:bg-black rounded-2xl flex items-center justify-center transition-colors duration-300'>
+                <div className='group flex items-start space-x-4 p-4 hover:bg-gray-50/20 transition-colors duration-200 border border-white/70 rounded-xl pb-5 sm:pb-6 3xl:pb-8'>
+                  <div className='flex-shrink-0 w-12 h-12 bg-white/70 border border-gray-500/20 group-hover:bg-black rounded-2xl flex items-center justify-center transition-colors duration-300'>
                     <svg
                       width='20'
                       height='20'

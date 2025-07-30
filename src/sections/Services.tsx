@@ -87,7 +87,7 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className='gap-30px sm:gap-10 xl:gap-16 3xl:gap-20 rounded-2xl lg:rounded-22px 3xl:rounded-30px px-5 py-7 sm:p-30px lg:p-10 3xl:p-12 min-h-[600px] lg:min-h-[500px] backdrop-blur-xl bg-white/50 border-2 border-white/50 shadow-xl '>
+              className='gap-30px sm:gap-10 xl:gap-16 3xl:gap-20 rounded-2xl lg:rounded-22px 3xl:rounded-30px px-5 py-7 sm:p-30px lg:p-10 3xl:p-12 min-h-[600px] lg:min-h-[500px] backdrop-blur-xl bg-white/60 border-2 border-white/50 shadow-xl '>
               <div className='grid lg:grid-cols-2 gap-8 items-center h-full'>
                 {/* Right Image - First on mobile */}
                 <div className='relative order-1 lg:order-2 h-full flex items-center'>

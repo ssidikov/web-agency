@@ -205,7 +205,7 @@ export default function Pricing({ locale }: PricingProps) {
             viewport={{ once: true }}
             className='flex flex-wrap justify-center gap-4 mt-8'>
             <div className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 text-green-500 p-4 backdrop-blur-xl bg-white/20 border-2 border-white/30'>
-              <CheckIcon className='w-3 h-3 bg-green-100 rounded-full' />
+              <CheckIcon className='w-3 h-3 bg-green-200 rounded-full' />
               <span className='text-sm font-medium text-gray-700'>
                 {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
               </span>
