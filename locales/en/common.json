@@ -351,5 +351,19 @@
     "data_text": "In accordance with GDPR, you have rights over your personal data. Data collected via the contact form is used only to respond to your requests and is not shared with third parties. You can exercise your rights regarding your personal data by contacting: s.sidikoff@gmail.com.",
     "cookies_title": "Cookies",
     "cookies_text": "This site uses cookies essential for its operation. By continuing to browse this site, you accept their use."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Discover our web projects",
+    "filter": {
+      "all": "All",
+      "web": "Websites",
+      "mobile": "Mobile",
+      "design": "Design"
+    },
+    "projects": {},
+    "view_project": "View All Projects",
+    "live_demo": "Live Demo",
+    "github": "Source Code"
   }
 }

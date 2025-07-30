@@ -350,5 +350,19 @@
     "data_text": "Conformément au RGPD, vous disposez de droits sur vos données personnelles. Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes et ne sont pas transmises à des tiers. Vous pouvez exercer vos droits concernant vos données personnelles en contactant à l'adresse e-mail : s.sidikoff@gmail.com.",
     "cookies_title": "Cookies",
     "cookies_text": "Ce site utilise des cookies essentiels au fonctionnement du site. En continuant à naviguer sur ce site, vous acceptez leur utilisation."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Découvrez nos réalisations web",
+    "filter": {
+      "all": "Tous",
+      "web": "Sites Web",
+      "mobile": "Mobile",
+      "design": "Design"
+    },
+    "projects": {},
+    "view_project": "Voir Tous les Projets",
+    "live_demo": "Démo Live",
+    "github": "Code Source"
   }
 }

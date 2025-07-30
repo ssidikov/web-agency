@@ -28,25 +28,25 @@ const backgroundStyles = {
   gradient: 'bg-gradient-to-br from-[#F9F7F7] via-white to-[#F9F7F7]',
   hero: 'bg-slate-50',
   pattern: 'bg-gray-50',
-  transparent: 'bg-transparent'
+  transparent: 'bg-transparent',
 }
 
 const variantStyles = {
   default: 'py-20',
   hero: 'min-h-screen flex items-center justify-center',
-  compact: 'py-12'
+  compact: 'py-12',
 }
 
-export default function Section({ 
-  children, 
-  id, 
-  className = '', 
+export default function Section({
+  children,
+  id,
+  className = '',
   containerClassName = '',
   background = 'white',
   backgroundImage,
   backgroundConfig,
   variant = 'default',
-  'aria-labelledby': ariaLabelledBy
+  'aria-labelledby': ariaLabelledBy,
 }: SectionProps) {
   const sectionClass = `
     ${variantStyles[variant]} 
@@ -59,11 +59,11 @@ export default function Section({
     if (backgroundConfig || backgroundImage) {
       const config = backgroundConfig || {}
       const bgImage = backgroundImage || config.image || '/images/bg-image-3.svg'
-      
+
       return (
-        <div className="absolute inset-0 z-0">
+        <div className='absolute inset-0 z-0'>
           <div
-            className="absolute inset-0 w-full h-full pointer-events-none select-none"
+            className='absolute inset-0 w-full h-full pointer-events-none select-none'
             style={{
               backgroundImage: `url(${bgImage})`,
               backgroundSize: config.size || '100% auto',
@@ -74,8 +74,8 @@ export default function Section({
             }}
           />
           {/* Gradient overlays for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-blue-50/10" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50" />
+          <div className='absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-blue-50/10' />
+          <div className='absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/50' />
         </div>
       )
     }
@@ -83,11 +83,7 @@ export default function Section({
   }
 
   return (
-    <section
-      id={id}
-      className={sectionClass}
-      aria-labelledby={ariaLabelledBy}
-    >
+    <section id={id} className={sectionClass} aria-labelledby={ariaLabelledBy}>
       {renderBackground()}
       <div className={`${sectionStyles.container} ${containerClassName} relative z-10`}>
         {children}
@@ -104,12 +100,12 @@ interface SectionHeaderProps {
   titleId?: string
 }
 
-export function SectionHeader({ 
-  title, 
-  subtitle, 
-  description, 
+export function SectionHeader({
+  title,
+  subtitle,
+  description,
   className = '',
-  titleId 
+  titleId,
 }: SectionHeaderProps) {
   return (
     <motion.div
@@ -117,24 +113,12 @@ export function SectionHeader({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className={`text-center mb-16 ${className}`}
-    >
-      <h2
-        id={titleId}
-        className={sectionStyles.title}
-      >
+      className={`text-center mb-16 ${className}`}>
+      <h2 id={titleId} className={sectionStyles.title}>
         {title}
-        {subtitle && (
-          <span className={`block ${sectionStyles.subtitle} mt-2`}>
-            {subtitle}
-          </span>
-        )}
+        {subtitle && <span className={`block ${sectionStyles.subtitle} mt-2`}>{subtitle}</span>}
       </h2>
-      {description && (
-        <p className={`${sectionStyles.description} max-w-3xl mx-auto`}>
-          {description}
-        </p>
-      )}
+      {description && <p className={`${sectionStyles.description} max-w-3xl`}>{description}</p>}
     </motion.div>
   )
 }
