@@ -141,6 +141,20 @@ export function Header({ dictionary, locale }: HeaderProps) {
     }
   }, [isMenuOpen])
 
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      const id = hash.substring(1)
+      const element = document.getElementById(id)
+      if (element) {
+        // Use a timeout to ensure the page has rendered before scrolling
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }, 100)
+      }
+    }
+  }, [pathname]) // Rerun when path changes
+
   const isActive = (item: (typeof navigation)[0]) => {
     // Для главной страницы проверяем активную секцию
     const homeUrl = getLocalizedUrl('/', locale)
