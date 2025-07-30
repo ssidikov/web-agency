@@ -56,10 +56,10 @@ export default function PricingCard({
       style={{
         backdropFilter: 'blur(16px) saturate(100%)',
       }}
-      className={`relative bg-white/80 rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-2xl w-full h-full flex flex-col min-h-[600px] pb-5 sm:pb-6 3xl:pb-8 border-white/30 shadow-lg${
+      className={`relative rounded-2xl transition-all duration-300 hover:shadow-2xl w-full h-full flex flex-col min-h-[600px] pb-5 sm:pb-6 3xl:pb-8 shadow-xl bg-white/20 border-2 border-white/30 ${
         isHighlighted
-          ? 'border-[#3F72AF] ring-4 ring-[#3F72AF]/20'
-          : 'border-gray-200 hover:border-[#3F72AF]/50'
+          ? 'border-black ring-4 ring-black/20'
+          : 'border-gray-200 hover:border-gray-400/50'
       }`}
       role='article'
       aria-labelledby={`pricing-${name.toLowerCase()}-title`}
@@ -67,7 +67,7 @@ export default function PricingCard({
       {/* Badge populaire */}
       {isPopular && (
         <div className='absolute -top-4 left-1/2 transform -translate-x-1/2'>
-          <div className='bg-gradient-to-r from-[#3F72AF] to-[#112D4E] text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg'>
+          <div className='bg-gradient-to-r from-black to-[#112D4E] text-white px-6 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg'>
             <StarIcon className='w-4 h-4' />
             Populaire
           </div>
@@ -124,7 +124,7 @@ export default function PricingCard({
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 + featureIndex * 0.05 }}
                   viewport={{ once: true }}
-                  className='text-center p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100'>
+                  className='text-center p-4 bg-gradient-to-r from-white/50 to-white/40 rounded-xl border border-blue-100'>
                   <span className='text-base font-medium italic text-gray-700'>{feature.text}</span>
                 </motion.div>
               ))}
@@ -150,7 +150,7 @@ export default function PricingCard({
                   transition={{ duration: 0.4, delay: index * 0.1 + featureIndex * 0.05 }}
                   viewport={{ once: true }}
                   className='flex items-center gap-3'>
-                  <div className='flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-green-100 text-green-600'>
+                  <div className='flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-green-200 text-green-600'>
                     <CheckIcon className='w-3 h-3' />
                   </div>
                   <span className='text-base text-gray-700'>{feature.text}</span>

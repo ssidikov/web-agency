@@ -42,9 +42,13 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
     const handleClick = () => {
       // Track analytics if tracking props are provided
       if (trackingAction && trackingCategory) {
-        trackEvent(trackingAction, trackingCategory, typeof children === 'string' ? children : ariaLabel)
+        trackEvent(
+          trackingAction,
+          trackingCategory,
+          typeof children === 'string' ? children : ariaLabel
+        )
       }
-      
+
       // Call original onClick if provided
       if (onClick) {
         onClick()
@@ -71,7 +75,8 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
     const classes = cn(baseClasses, variants[variant], sizes[size], className)
 
     // Check if href is external (starts with http/https or mailto/tel)
-    const isExternal = href && (href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel'))
+    const isExternal =
+      href && (href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel'))
 
     if (href) {
       if (isExternal) {
@@ -83,8 +88,8 @@ const CTAButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, CTABut
             ref={ref as React.Ref<HTMLAnchorElement>}
             aria-label={ariaLabel}
             onClick={handleClick}
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener noreferrer'
             {...props}>
             {children}
           </a>

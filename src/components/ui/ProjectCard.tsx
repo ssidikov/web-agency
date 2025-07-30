@@ -1,11 +1,8 @@
-
 import React from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
 import { getProjectUrl } from '@/utils/navigation'
-
-
 
 export interface ProjectCardProps {
   project: {
@@ -21,8 +18,7 @@ export interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => (
-  <div
-    className='group flex flex-col sm:flex-row lg:flex-col items-stretch bg-white rounded-3xl border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 p-6 lg:p-4 3xl:p-6 focus-visible:ring-2 focus-visible:ring-black outline-none relative'>
+  <div className='group flex flex-col sm:flex-row lg:flex-col items-stretch rounded-3xl hover:shadow-2xl transition-all duration-300 p-6 lg:p-4 3xl:p-6 focus-visible:ring-2 focus-visible:ring-black outline-none relative backdrop-blur-xl bg-white/50 border-2 border-white/30 shadow-xl'>
     <Link
       href={getProjectUrl(project.id, locale)}
       className='absolute inset-0 z-10'
@@ -35,7 +31,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => 
         alt={project.title}
         width={584}
         height={384}
-        className='w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-300 ease-in-out'
+        className='w-full h-full object-cover object-top'
       />
       <div className='absolute inset-0 pointer-events-none bg-gradient-to-t from-black/30 via-black/10 to-transparent opacity-40'></div>
     </div>
@@ -49,13 +45,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => 
         </p>
       </div>
       <div className='flex flex-wrap gap-2.5 text-sm lg:text-lg'>
-        <span className='h-9 bg-blue-50 rounded-lg px-3 text-slate-500 font-semibold flex items-center'>
-          {project.category}
-        </span>
-        {project.technologies?.slice(0, 2).map((tech, techIndex) => (
+        {project.technologies?.slice(0, 3).map((tech, techIndex) => (
           <span
             key={techIndex}
-            className='h-9 bg-blue-50 rounded-lg px-3 text-slate-500 font-semibold flex items-center'>
+            className='h-9 px-3 text-slate-500 font-semibold flex items-center justify-center py-2 md:px-6 md:py-6 rounded-full text-sm md:text-lg border border-gray-400/50 cursor-default'>
             {tech}
           </span>
         ))}

@@ -204,7 +204,7 @@ export default function Pricing({ locale }: PricingProps) {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
             className='flex flex-wrap justify-center gap-4 mt-8'>
-            <div className='bg-white/80 px-6 py-3 rounded-full shadow-md border border-gray-200 flex items-center gap-2 text-green-500 p-4'>
+            <div className='px-6 py-3 rounded-full shadow-md flex items-center gap-2 text-green-500 p-4 backdrop-blur-xl bg-white/20 border-2 border-white/30'>
               <CheckIcon className='w-3 h-3 bg-green-100 rounded-full' />
               <span className='text-sm font-medium text-gray-700'>
                 {dict?.pricing?.guarantee_badge || 'Résultats garantis • Livraison garantie'}
@@ -240,7 +240,11 @@ export default function Pricing({ locale }: PricingProps) {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
           className='text-center mt-16'>
-          <div className='bg-white/50 rounded-2xl p-8 shadow-lg border border-gray-200 max-w-4xl mx-auto'>
+          <div
+            className='rounded-2xl p-8 max-w-4xl mx-auto shadow-xl bg-white/20 border-2 border-white/30 '
+            style={{
+              backdropFilter: 'blur(16px) saturate(100%)',
+            }}>
             <h3 className='text-2xl font-bold text-[#112D4E] mb-4'>
               {dict?.pricing?.maintenance?.title || 'Maintenance et Support'}
             </h3>
@@ -258,7 +262,7 @@ export default function Pricing({ locale }: PricingProps) {
                   ]
                 ).map((feature: string, index: number) => (
                   <li key={index} className='flex items-center gap-3'>
-                    <div className='flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-green-100 text-green-600'>
+                    <div className='flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-green-200 text-green-600'>
                       <CheckIcon className='w-3 h-3' />
                     </div>
                     <span className='text-base text-gray-700'>{feature}</span>
