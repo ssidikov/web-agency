@@ -180,7 +180,9 @@ export const fallbackDictionary: Dictionary = {
       submit: 'Submit',
       sending: 'Sending...',
       success: 'Message sent!',
+      success_description: 'Your message has been sent successfully.',
       error: 'Error sending message.',
+      error_description: 'An error occurred while sending your message.',
     },
     info: {
       title: 'Contact Info',

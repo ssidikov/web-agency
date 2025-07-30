@@ -2,9 +2,6 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-
-import Image from 'next/image'
-
 import {
   ArrowIcon,
   PlayIcon,
@@ -40,16 +37,15 @@ export function Hero({ dict, common, locale }: HeroProps) {
       {/* Background with Gradient */}
 
       <div className='absolute inset-0 z-0'>
-        <div className='absolute inset-0 w-full h-full pointer-events-none select-none bg-[#f8fafc] scale-x-[-1]'>
-          <Image
-            src='/images/bg-image-3.svg'
-            alt='Background'
-            fill
-            style={{ objectFit: 'cover', objectPosition: 'top' }}
-            priority
-            draggable={false}
-          />
-        </div>
+        <div
+          className='absolute inset-0 w-full h-full pointer-events-none select-none'
+          style={{
+            backgroundImage: 'url(/images/bg-image-3.svg)',
+            backgroundSize: '100% auto',
+            backgroundColor: '#f8fafc',
+            transform: 'scaleX(-1)',
+          }}
+        />
       </div>
 
       {/* Floating Shapes */}

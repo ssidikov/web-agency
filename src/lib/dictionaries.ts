@@ -205,7 +205,9 @@ export interface Dictionary {
       submit: string
       sending: string
       success: string
+      success_description: string
       error: string
+      error_description: string
     }
     info: {
       title: string
