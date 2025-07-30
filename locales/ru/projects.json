@@ -218,20 +218,17 @@
   },
   {
     "id": "15",
-    "title": "Сайт ресторана Le Moderne",
-    "description": "Le Moderne - Система управления рестораном",
-    "image": "/images/projects/resto.webp",
-    "longDescription": "Современная веб-платформа для французского ресторана с полной системой управления бронированием. Включает административную панель с аутентификацией и интуитивную систему онлайн-резервирования.",
+    "title": "Сайт ресторана Chez Liqi",
+    "description": "Сайт для ресторана Chez Liqi с современным дизайном и интуитивно понятным интерфейсом.",
+    "image": "/images/projects/chez-liqi.webp",
+    "longDescription": "Restaurant Chez Liqi — это современный веб-сайт для ресторана, предлагающий интуитивно понятный интерфейс и адаптивный дизайн. Пользователи могут легко просматривать меню, делать бронирования и узнавать о специальных предложениях.",
     "technologies": [
       "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "NextAuth",
+      "React",
       "Tailwind CSS",
-      "Neon Database",
-      "Nodemailer"
+      "TypeScript"
     ],
-    "link": "https://resto-parisien.vercel.app/",
+    "link": "https://chez-liqi.vercel.app/",
     "category": "Restaurant",
     "featured": true
   },
@@ -253,17 +250,20 @@
   },
   {
     "id": "17",
-    "title": "Сайт ресторана Chez Liqi",
-    "description": "Сайт для ресторана Chez Liqi с современным дизайном и интуитивно понятным интерфейсом.",
-    "image": "/images/projects/chez-liqi.webp",
-    "longDescription": "Restaurant Chez Liqi — это современный веб-сайт для ресторана, предлагающий интуитивно понятный интерфейс и адаптивный дизайн. Пользователи могут легко просматривать меню, делать бронирования и узнавать о специальных предложениях.",
+    "title": "Сайт ресторана Le Moderne",
+    "description": "Le Moderne - Система управления рестораном",
+    "image": "/images/projects/resto.webp",
+    "longDescription": "Современная веб-платформа для французского ресторана с полной системой управления бронированием. Включает административную панель с аутентификацией и интуитивную систему онлайн-резервирования.",
     "technologies": [
       "Next.js",
-      "React",
+      "TypeScript",
+      "PostgreSQL",
+      "NextAuth",
       "Tailwind CSS",
-      "TypeScript"
+      "Neon Database",
+      "Nodemailer"
     ],
-    "link": "https://chez-liqi.vercel.app/",
+    "link": "https://resto-parisien.vercel.app/",
     "category": "Restaurant",
     "featured": true
   }

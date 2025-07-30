@@ -218,20 +218,17 @@
   },
   {
     "id": "15",
-    "title": "Restaurant Le Moderne",
-    "description": "Le Moderne - Système de gestion de restaurant",
-    "image": "/images/projects/resto.webp",
-    "longDescription": "Plateforme web moderne pour restaurant parisien avec système complet de gestion des réservations. Comprend un panel d'administration sécurisé et une interface de réservation en ligne intuitive.",
+    "title": "Restaurant Chez Liqi",
+    "description": "Site web pour le restaurant Chez Liqi, avec un design moderne et une interface utilisateur intuitive.",
+    "image": "/images/projects/chez-liqi.webp",
+    "longDescription": "Restaurant Chez Liqi est un site web moderne pour un restaurant, offrant une interface utilisateur intuitive et un design responsive. Les utilisateurs peuvent facilement naviguer à travers le menu, faire des réservations et découvrir les spécialités du chef.",
     "technologies": [
       "Next.js",
-      "TypeScript",
-      "PostgreSQL",
-      "NextAuth",
       "Tailwind CSS",
-      "Neon Database",
-      "Nodemailer"
+      "React",
+      "TypeScript"
     ],
-    "link": "https://resto-parisien.vercel.app/",
+    "link": "https://chez-liqi.vercel.app/",
     "category": "Restaurant",
     "featured": true
   },
@@ -252,17 +249,20 @@
   },
   {
     "id": "17",
-    "title": "Restaurant Chez Liqi",
-    "description": "Site web pour le restaurant Chez Liqi, avec un design moderne et une interface utilisateur intuitive.",
-    "image": "/images/projects/chez-liqi.webp",
-    "longDescription": "Restaurant Chez Liqi est un site web moderne pour un restaurant, offrant une interface utilisateur intuitive et un design responsive. Les utilisateurs peuvent facilement naviguer à travers le menu, faire des réservations et découvrir les spécialités du chef.",
+    "title": "Restaurant Le Moderne",
+    "description": "Le Moderne - Système de gestion de restaurant",
+    "image": "/images/projects/resto.webp",
+    "longDescription": "Plateforme web moderne pour restaurant parisien avec système complet de gestion des réservations. Comprend un panel d'administration sécurisé et une interface de réservation en ligne intuitive.",
     "technologies": [
       "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "NextAuth",
       "Tailwind CSS",
-      "React",
-      "TypeScript"
+      "Neon Database",
+      "Nodemailer"
     ],
-    "link": "https://chez-liqi.vercel.app/",
+    "link": "https://resto-parisien.vercel.app/",
     "category": "Restaurant",
     "featured": true
   }
