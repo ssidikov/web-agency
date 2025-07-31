@@ -14,7 +14,7 @@ interface PortfolioNewProps {
   dictionary: Dictionary['portfolio']
 }
 
-export default function PortfolioNew({ locale, dictionary }: PortfolioNewProps) {
+export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
   const [activeTag, setActiveTag] = useState<string>('featured')
   const projects = getProjects(locale)
 
@@ -31,21 +31,20 @@ export default function PortfolioNew({ locale, dictionary }: PortfolioNewProps) 
 
   return (
     <Section
-      id="portfolio"
-      background="pattern"
+      id='portfolio'
+      background='pattern'
       backgroundConfig={{
         image: '/images/bg-image-3.svg',
         backgroundColor: '#fafafa',
         size: '100% auto',
         position: 'center top',
-        repeat: 'repeat-y'
-      }}
-    >
+        repeat: 'repeat-y',
+      }}>
       <SectionHeader
         title={dictionary?.title || 'Portfolio'}
         subtitle={dictionary?.subtitle || ''}
-        titleId="portfolio-title"
-        className="text-left mb-16 mt-6"
+        titleId='portfolio-title'
+        className='text-left mb-16 mt-6'
       />
 
       {/* Filter Hashtags */}
@@ -82,11 +81,7 @@ export default function PortfolioNew({ locale, dictionary }: PortfolioNewProps) 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}>
-            <ProjectCard
-              key={project.id}
-              project={project}
-              locale={locale}
-            />
+            <ProjectCard key={project.id} project={project} locale={locale} />
           </motion.div>
         ))}
       </motion.div>
