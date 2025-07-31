@@ -32,19 +32,19 @@ export function Hero({ dict, common, locale }: HeroProps) {
 
   return (
     <Section
-      id="hero"
-      variant="hero"
-      background="hero"
+      id='hero'
+      variant='hero'
+      background='hero'
       backgroundConfig={{
         image: '/images/bg-image-3.svg',
         backgroundColor: '#f8fafc',
         size: '100% auto',
         position: 'center top',
-        repeat: 'no-repeat'
+        repeat: 'repeat',
+        transform: 'scaleX(-1)',
       }}
-      className="px-4 sm:px-6 lg:px-8"
-    >
-      <div ref={ref} className="text-center max-w-5xl mx-auto">
+      className='px-4 sm:px-6 lg:px-8'>
+      <div ref={ref} className='text-center max-w-5xl mx-auto'>
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -44,11 +44,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, locale }) => 
           {project.description}
         </p>
       </div>
-      <div className='flex flex-wrap gap-2.5 text-sm lg:text-lg'>
+      <div className='flex flex-wrap gap-2.5 text-sm lg:text-sm'>
         {project.technologies?.slice(0, 3).map((tech, techIndex) => (
           <span
             key={techIndex}
-            className='h-9 px-3 text-slate-500 font-semibold flex items-center justify-center py-2 md:px-6 md:py-6 rounded-full text-sm md:text-lg border border-gray-400/50 cursor-default'>
+            className='h-9 px-3 text-slate-500 font-semibold flex items-center justify-center py-2 md:px-6 md:py-6 rounded-full text-sm border border-gray-400/50 cursor-default'>
             {tech}
           </span>
         ))}

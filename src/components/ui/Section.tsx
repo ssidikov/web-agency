@@ -7,6 +7,7 @@ interface SectionProps {
   children: React.ReactNode
   id?: string
   className?: string
+  transform?: string
   containerClassName?: string
   background?: 'white' | 'gray' | 'gradient' | 'hero' | 'pattern' | 'transparent'
   backgroundImage?: string
@@ -17,6 +18,7 @@ interface SectionProps {
     position?: string
     repeat?: string
     opacity?: number
+    transform?: string
   }
   'aria-labelledby'?: string
   variant?: 'default' | 'hero' | 'compact'
@@ -71,6 +73,7 @@ export default function Section({
               backgroundRepeat: config.repeat || 'repeat-y',
               backgroundColor: config.backgroundColor || '#f8fafc',
               opacity: config.opacity || 1,
+              transform: config.transform,
             }}
           />
           {/* Gradient overlays for better text readability */}
