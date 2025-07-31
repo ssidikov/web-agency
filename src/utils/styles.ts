@@ -40,15 +40,15 @@ export const sectionStyles = {
   padding: {
     none: '',
     sm: 'px-4 sm:px-6',
-    md: 'px-4 sm:px-6 lg:px-8',
-    lg: 'px-6 sm:px-8 lg:px-12',
-    xl: 'px-8 sm:px-12 lg:px-16',
+    md: 'px-4 sm:px-4 lg:px-8',
+    lg: 'px-4 sm:px-4 lg:px-24',
+    xl: 'px-4 sm:px-4 lg:px-16',
   },
   // Content width constraints
   content: {
     narrow: 'max-w-4xl mx-auto',
     normal: 'max-w-6xl mx-auto',
-    wide: 'max-w-7xl mx-auto',
+    wide: 'max-w-8xl mx-auto',
     full: 'w-full',
   },
 }

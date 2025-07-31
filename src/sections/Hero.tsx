@@ -35,7 +35,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
       id='hero'
       variant='hero'
       background='hero'
-      padding='lg'
+      padding='sm'
       contentWidth='normal'
       backgroundConfig={{
         image: '/images/bg-image-3.svg',
