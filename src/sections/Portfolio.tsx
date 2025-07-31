@@ -24,6 +24,19 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
     )
   )
 
+  const getButtonText = (tag: string) => {
+    if (tag === 'featured') {
+      // Get featured text based on locale
+      const featuredText = {
+        'fr': 'En vedette',
+        'en': 'Featured',
+        'ru': 'Рекомендуемые'
+      }
+      return featuredText[locale] || 'Featured'
+    }
+    return tag
+  }
+
   const filteredProjects =
     activeTag === 'featured'
       ? projects.filter((item) => item.featured).slice(0, 2)
@@ -53,19 +66,24 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className='flex flex-wrap gap-2.5 mb-12'>
-        {tags.map((tag) => (
-          <button
-            key={tag}
-            onClick={() => setActiveTag(tag)}
-            className={`cursor-pointer h-10 sm:h-12 lg:h-[60px] 3xl:h-20 3xl:text-22 rounded-xl 3xl:rounded-2xl px-2 sm:px-3 lg:px-[18px] 3xl:px-6 transition-all duration-300 outline-none focus:ring-0 ${
-              activeTag === tag
-                ? 'bg-black text-white shadow-lg scale-105'
-                : 'bg-white/80 text-gray-700 hover:bg-white hover:scale-105 shadow-md'
-            }`}>
-            #{tag}
-          </button>
-        ))}
+        className='w-full mb-12'>
+        <div className='flex flex-wrap gap-2.5'>
+          {['featured', ...tags].map((tag, index) => (
+            <button
+              key={tag}
+              onClick={() => setActiveTag(tag)}
+              className={`text-lg md:text-xl cursor-pointer rounded-xl px-3 md:px-6 transition-all duration-300 outline-none focus:ring-0 h-12 md:h-[60px] ${
+                index === ['featured', ...tags].length - 1 ? 'mr-[30px]' : ''
+              } ${
+                activeTag === tag
+                  ? 'text-white bg-black border border-transparent hover:bg-transparent hover:text-black hover:border-black'
+                  : 'text-black border border-black hover:bg-black hover:text-white'
+              }`}
+              tabIndex={0}>
+              #{getButtonText(tag)}
+            </button>
+          ))}
+        </div>
       </motion.div>
 
       {/* Projects Grid */}
