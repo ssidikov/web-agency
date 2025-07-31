@@ -1,37 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
-# Disallow admin and private areas
-Disallow: /admin/
-Disallow: /api/
-Disallow: /private/
-Disallow: /_next/
-Disallow: /static/
-Disallow: /studio/
+# Host
+Host: https://www.sidikoff.com
 
-# Allow important files
-Allow: /api/sitemap
-Allow: /favicon.svg
-Allow: /robots.txt
-
-# Sitemap location
-Sitemap: https://sidikoff.com/sitemap.xml
-
-# Crawl delay (optional)
-Crawl-delay: 1
-
-# Google-specific rules
-User-agent: Googlebot
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-Disallow: /studio/
-Crawl-delay: 1
-
-# Bing-specific rules
-User-agent: Bingbot
-Allow: /
-Disallow: /admin/
-Disallow: /api/
-Disallow: /studio/
-Crawl-delay: 1
+# Sitemaps
+Sitemap: https://www.sidikoff.com/sitemap.xml
