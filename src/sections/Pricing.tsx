@@ -159,6 +159,8 @@ export default function Pricing({ locale }: PricingProps) {
     <Section
       id="pricing"
       background="pattern"
+      padding="lg"
+      contentWidth="wide"
       backgroundConfig={{
         image: '/images/bg-image-3.svg',
         backgroundColor: '#f9f7f7',

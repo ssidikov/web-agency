@@ -35,6 +35,8 @@ export function Hero({ dict, common, locale }: HeroProps) {
       id='hero'
       variant='hero'
       background='hero'
+      padding='lg'
+      contentWidth='normal'
       backgroundConfig={{
         image: '/images/bg-image-3.svg',
         backgroundColor: '#f8fafc',
@@ -42,8 +44,7 @@ export function Hero({ dict, common, locale }: HeroProps) {
         position: 'center top',
         repeat: 'repeat',
         transform: 'scaleX(-1)',
-      }}
-      className='px-4 sm:px-6 lg:px-8'>
+      }}>
       <div ref={ref} className='text-center max-w-6xl mx-auto'>
         {/* Badge */}
         <motion.div

@@ -107,7 +107,7 @@ export function BlogPostContent({ post, dictionary, locale }: BlogPostContentPro
   return (
     <article className='min-h-screen bg-white'>
       {/* Hero Section */}
-      <section className='relative py-20 lg:py-32 overflow-hidden'>
+      <section className='relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-32 overflow-hidden'>
         {/* Background Image */}
         <div className='absolute inset-0'>
           <Image

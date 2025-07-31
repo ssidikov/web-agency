@@ -52,7 +52,7 @@ export function BlogPageContent({ posts, categories, dictionary, locale }: BlogP
   return (
     <div className='min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50/30'>
       {/* Hero Section */}
-      <section className='relative py-20 lg:py-32 overflow-hidden'>
+      <section className='relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-32 overflow-hidden'>
         {/* Background decoration */}
         <div className='absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5' />
         <div className='absolute top-20 left-1/4 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl' />

@@ -25,11 +25,32 @@ export const cardStyles = {
 }
 
 export const sectionStyles = {
-  base: 'py-20 px-4',
-  container: 'container mx-auto max-w-8xl',
+  base: 'py-20 px-4 sm:px-6 lg:px-8',
+  container: 'container mx-auto max-w-8xl px-4 sm:px-6 lg:px-8',
   title: 'text-3xl md:text-4xl lg:text-5xl font-bold text-[#112D4E] mb-6',
   subtitle: 'text-[#3F72AF]',
   description: 'text-gray-600 text-lg md:text-xl leading-relaxed',
+  // Hero section specific padding (accounts for fixed header)
+  hero: {
+    mobile: 'pt-24 pb-16',  // Extra top padding for mobile header
+    tablet: 'sm:pt-28 sm:pb-20',  // Medium screens
+    desktop: 'lg:pt-32 lg:pb-32',  // Large screens
+  },
+  // Responsive padding utilities
+  padding: {
+    none: '',
+    sm: 'px-4 sm:px-6',
+    md: 'px-4 sm:px-6 lg:px-8',
+    lg: 'px-6 sm:px-8 lg:px-12',
+    xl: 'px-8 sm:px-12 lg:px-16',
+  },
+  // Content width constraints
+  content: {
+    narrow: 'max-w-4xl mx-auto',
+    normal: 'max-w-6xl mx-auto',
+    wide: 'max-w-8xl mx-auto',
+    full: 'w-full',
+  },
 }
 
 export const animationStyles = {

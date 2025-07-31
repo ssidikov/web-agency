@@ -141,6 +141,8 @@ export const FAQ = ({ dictionary }: FAQProps) => {
     <Section
       id="faq"
       background="pattern"
+      padding="lg"
+      contentWidth="wide"
       backgroundConfig={{
         image: '/images/bg-image-3.svg',
         backgroundColor: '#f9fafb',

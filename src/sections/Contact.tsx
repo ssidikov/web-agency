@@ -142,6 +142,8 @@ const Contact = ({ className, dictionary, locale = 'fr' }: ContactProps) => {
     <Section
       id="contact"
       background="pattern"
+      padding="lg"
+      contentWidth="wide"
       backgroundConfig={{
         image: '/images/bg-image-3.svg',
         backgroundColor: '#f8fafc',

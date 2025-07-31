@@ -46,6 +46,8 @@ export default function Portfolio({ locale, dictionary }: PortfolioNewProps) {
     <Section
       id='portfolio'
       background='pattern'
+      padding='lg'
+      contentWidth='wide'
       backgroundConfig={{
         image: '/images/bg-image-3.svg',
         backgroundColor: '#fafafa',

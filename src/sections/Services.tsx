@@ -48,6 +48,8 @@ export function Services({ dictionary: dict, locale }: ServicesProps) {
     <Section
       id="services"
       background="pattern"
+      padding="lg"
+      contentWidth="wide"
       backgroundConfig={{
         image: '/images/bg-image-3.svg',
         backgroundColor: '#f1f5f9',

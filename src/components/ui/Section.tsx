@@ -22,6 +22,8 @@ interface SectionProps {
   }
   'aria-labelledby'?: string
   variant?: 'default' | 'hero' | 'compact'
+  padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
+  contentWidth?: 'narrow' | 'normal' | 'wide' | 'full'
 }
 
 const backgroundStyles = {
@@ -35,7 +37,7 @@ const backgroundStyles = {
 
 const variantStyles = {
   default: 'py-20',
-  hero: 'min-h-screen flex items-center justify-center',
+  hero: 'min-h-screen w-full flex flex-col items-center justify-center',
   compact: 'py-12',
 }
 
@@ -48,6 +50,8 @@ export default function Section({
   backgroundImage,
   backgroundConfig,
   variant = 'default',
+  padding = 'md',
+  contentWidth = 'wide',
   'aria-labelledby': ariaLabelledBy,
 }: SectionProps) {
   const sectionClass = `
@@ -88,7 +92,8 @@ export default function Section({
   return (
     <section id={id} className={sectionClass} aria-labelledby={ariaLabelledBy}>
       {renderBackground()}
-      <div className={`${sectionStyles.container} ${containerClassName} relative z-10`}>
+      <div
+        className={`${sectionStyles.content[contentWidth]} ${sectionStyles.padding[padding]} ${containerClassName} relative z-10`}>
         {children}
       </div>
     </section>
