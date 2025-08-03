@@ -22,7 +22,17 @@ const builder = imageUrlBuilder(client)
 export function urlFor(
   source: { asset: { _ref: string } } | { _id: string; url: string } | string
 ) {
-  return builder.image(source)
+  if (!source) {
+    console.warn('urlFor: No source provided')
+    return null
+  }
+  
+  try {
+    return builder.image(source)
+  } catch (error) {
+    console.error('urlFor error:', error)
+    return null
+  }
 }
 
 // Preview client for draft content

@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     ? getLocalizedContent(post.seo.metaDescription, locale)
     : excerpt
 
-  const ogImage = post.mainImage
-    ? urlFor(post.mainImage.asset).width(1200).height(630).url()
+  const ogImage = post.mainImage?.asset
+    ? urlFor(post.mainImage.asset)?.width(1200).height(630).url() || '/opengraph-image.jpg'
     : '/opengraph-image.jpg'
 
   return {
@@ -102,11 +102,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     '@type': 'BlogPosting',
     headline: getLocalizedContent(post.title, locale),
     description: getLocalizedContent(post.excerpt, locale),
-    image: post.mainImage ? urlFor(post.mainImage.asset).width(1200).height(630).url() : undefined,
+    image: post.mainImage?.asset ? urlFor(post.mainImage.asset)?.width(1200).height(630).url() : undefined,
     author: {
       '@type': 'Person',
       name: post.author.name,
-      image: post.author.image ? urlFor(post.author.image.asset).url() : undefined,
+      image: post.author.image?.asset ? urlFor(post.author.image.asset)?.url() : undefined,
     },
     publisher: {
       '@type': 'Organization',

@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { PortableText, type PortableTextComponents } from '@portabletext/react'
 import { urlFor } from '@/lib/sanity'
 import { formatDate, getLocalizedContent } from '@/lib/blog-api'
+import SanityImage from '@/components/ui/SanityImage'
 import type { Post } from '@/lib/types/blog'
 
 interface ImageValue {
@@ -46,20 +47,50 @@ export default function BlogPost({ post, relatedPosts, locale }: BlogPostProps) 
 
   const portableTextComponents: PortableTextComponents = {
     types: {
-      image: ({ value }: { value: ImageValue }) => (
-        <div className='my-8'>
-          <Image
-            src={urlFor({ asset: value.asset }).width(800).height(400).url()}
-            alt={value.alt || ''}
-            width={800}
-            height={400}
-            className='rounded-lg shadow-lg'
-          />
-          {value.caption && (
-            <p className='text-center text-sm text-gray-500 mt-2 italic'>{value.caption}</p>
-          )}
-        </div>
-      ),
+      image: ({ value }: { value: ImageValue }) => {
+        if (!value?.asset?._ref) {
+          console.warn('Image component: Missing asset reference')
+          return null
+        }
+        
+        try {
+          const imageUrl = urlFor({ asset: value.asset })?.width(800).height(400).url()
+          
+          if (!imageUrl) {
+            console.warn('Image component: Failed to generate image URL')
+            return null
+          }
+          
+          return (
+            <div className='my-8'>
+              <Image
+                src={imageUrl}
+                alt={value.alt || 'Blog image'}
+                width={800}
+                height={400}
+                className='rounded-lg shadow-lg'
+                unoptimized={process.env.NODE_ENV === 'development'}
+                onError={(e) => {
+                  console.error('Image load error:', e)
+                }}
+              />
+              {value.caption && (
+                <p className='text-center text-sm text-gray-500 mt-2 italic'>{value.caption}</p>
+              )}
+            </div>
+          )
+        } catch (error) {
+          console.error('Image component error:', error)
+          return (
+            <div className='my-8 p-4 bg-gray-100 rounded-lg'>
+              <p className='text-gray-500 text-center'>Image could not be loaded</p>
+              {value.caption && (
+                <p className='text-center text-sm text-gray-500 mt-2 italic'>{value.caption}</p>
+              )}
+            </div>
+          )
+        }
+      },
       codeBlock: ({ value }: { value: CodeBlockValue }) => (
         <div className='my-8'>
           <pre className='bg-gray-900 text-green-400 p-4 rounded-lg overflow-x-auto'>
@@ -207,15 +238,16 @@ export default function BlogPost({ post, relatedPosts, locale }: BlogPostProps) 
         </motion.div>
 
         {/* Featured Image */}
-        {post.mainImage && (
+        {post.mainImage?.asset && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className='relative h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl'>
-            <Image
-              src={urlFor(post.mainImage.asset).width(1200).height(600).url()}
-              alt={post.mainImage.alt ? getLocalizedContent(post.mainImage.alt, locale) : title}
+            <SanityImage
+              image={post.mainImage}
+              width={1200}
+              height={600}
               fill
               className='object-cover'
               priority
@@ -242,9 +274,9 @@ export default function BlogPost({ post, relatedPosts, locale }: BlogPostProps) 
             transition={{ duration: 0.6, delay: 0.4 }}
             className='mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl'>
             <div className='flex items-start gap-4'>
-              {post.author.image && (
+              {post.author.image?.asset && (
                 <Image
-                  src={urlFor(post.author.image.asset).width(80).height(80).url()}
+                  src={urlFor(post.author.image.asset)?.width(80).height(80).url() || ''}
                   alt={post.author.name}
                   width={80}
                   height={80}
@@ -313,10 +345,10 @@ function RelatedPostCard({ post, locale }: { post: Post; locale: 'fr' | 'en' }) 
   return (
     <Link href={`/blog/${slug}`} className='block group'>
       <div className='flex gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors'>
-        {post.mainImage && (
+        {post.mainImage?.asset && (
           <div className='relative w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden'>
             <Image
-              src={urlFor(post.mainImage.asset).width(64).height(64).url()}
+              src={urlFor(post.mainImage.asset)?.width(64).height(64).url() || ''}
               alt={title}
               fill
               className='object-cover'

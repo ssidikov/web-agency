@@ -193,10 +193,10 @@ function FeaturedPostCard({ post, locale }: { post: Post; locale: 'fr' | 'en' })
       whileHover={{ y: -4 }}
       className='bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl overflow-hidden shadow-lg border border-blue-200 dark:border-blue-800'>
       <Link href={`/blog/${slug}`}>
-        {post.mainImage && (
+        {post.mainImage?.asset && (
           <div className='relative h-48 overflow-hidden'>
             <Image
-              src={urlFor(post.mainImage.asset).width(400).height(200).url()}
+              src={urlFor(post.mainImage.asset)?.width(400).height(200).url() || ''}
               alt={post.mainImage.alt ? getLocalizedContent(post.mainImage.alt, locale) : title}
               fill
               className='object-cover transition-transform duration-300 hover:scale-105'
@@ -236,10 +236,10 @@ function PostCard({ post, locale }: { post: Post; locale: 'fr' | 'en' }) {
       whileHover={{ y: -4 }}
       className='bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
       <Link href={`/blog/${slug}`}>
-        {post.mainImage && (
+        {post.mainImage?.asset && (
           <div className='relative h-48 overflow-hidden'>
             <Image
-              src={urlFor(post.mainImage.asset).width(400).height(200).url()}
+              src={urlFor(post.mainImage.asset)?.width(400).height(200).url() || ''}
               alt={post.mainImage.alt ? getLocalizedContent(post.mainImage.alt, locale) : title}
               fill
               className='object-cover transition-transform duration-300 hover:scale-105'
